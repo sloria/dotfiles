@@ -1,0 +1,15 @@
+
+snippet fixture
+	@pytest.fixture(${1})
+snippet _==
+	assert_equal(${1}, ${2})
+snippet _!=
+	assert_not_equal(${1}, ${2})
+snippet _in
+	assert_in(${1:obj}, ${2:container})
+snippet _raises
+	assert_raises(${1:exc})
+snippet _true
+	assert_true(${1})
+snippet _false
+	assert_false(${1})

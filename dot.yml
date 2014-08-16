@@ -1,0 +1,14 @@
+- name: Collecting Facts
+  hosts: all
+  gather_facts: yes
+
+- name: Setup environment
+  hosts: all
+  vars:
+    vim_install_plugins: yes 
+    # vim_install_macvim: no
+  roles:
+    - package_manager
+    - vim
+
+

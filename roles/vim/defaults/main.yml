@@ -1,0 +1,4 @@
+vim_install_plugins: yes
+
+# Only applies to OSX
+vim_install_macvim: yes

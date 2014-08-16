@@ -1,0 +1,8 @@
+- command: which brew
+  register: brew_installed
+  failed_when: false
+
+- name: Install Homebrew
+  when: brew_installed.rc != 0
+  command: ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+
