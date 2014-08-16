@@ -1,0 +1,43 @@
+# - include: ubuntu.yml
+#   when: ansible_os_family == "Ubuntu"
+
+# - include: fedora.yml
+#   when: ansible_os_family == "Fedora"
+
+- include: osx.yml
+  when: ansible_os_family == "Darwin"
+
+- name: Install Vundle
+  git: repo=https://github.com/gmarik/Vundle.vim.git
+       dest=~/.vim/bundle/Vundle.vim
+       update=no
+
+- name: Makes sure snippets directory exists
+  file: path="{{ '~/.vim/snippets' | expanduser }}" state=directory
+
+- name: Link all snippet files
+  copy: src={{ item }} dest={{ '~/.vim/snippets/' + item | expanduser}}
+  with_items:
+    - "_.snippets"
+    - "python.snippets"
+    - "rst.snippets"
+
+- name: Run vim bundle install
+  command: vim +BundleInstall +qall
+  when: vim_install_plugins
+
+- name: Check if vimrc exists
+  stat: path="{{'~/.vimrc' | expanduser }}"
+  register: vimrc_stat
+  failed_when: False
+
+- name: Backup vimrc
+  command: mv ~/.vimrc ~/.vimrc.bak
+  when: vimrc_stat.stat.exists
+
+# - name: Symlink vimrc
+#   copy: src="vimrc.symlink" dest="{{'~/.vimrc' | expanduser }}"
+
+- name: Symlink vimrc
+  file: src="{{ dotfiles_home }}/roles/vim/files/vimrc.symlink" dest="{{'~/.vimrc' | expanduser }}" state=link
+

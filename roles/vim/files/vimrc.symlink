@@ -1,0 +1,377 @@
+" Adapted from:
+"   https://github.com/square/maximum-awesome/blob/master/vimrc
+"   http://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/
+"   https://github.com/sheerun/vimrc
+"   https://bitbucket.org/sjl/dotfiles/src/tip/vim/vimrc
+"   vim-bootstrap (http://vim-bootstrap.appspot.com/)
+"   and various StackOverflow answers
+set nocompatible              " be iMproved, required for Vundle
+filetype off                  " required for Vundle
+
+" Spacebar is a much better leader than \ or ,
+let mapleader = "\<Space>"
+
+" Automatically source the vimrc file after saving it
+if has("autocmd")
+  autocmd bufwritepost .vimrc source $MYVIMRC
+endif
+
+""""" PLUGINS """""
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+Plugin 'alfredodeza/pytest.vim'
+nmap <silent><Leader>F <Esc>:Pytest file verbose<CR>
+nmap <silent><Leader>c <Esc>:Pytest class verbose<CR>
+nmap <silent><Leader>m <Esc>:Pytest method verbose<CR>
+nmap <silent><Leader>tf <Esc>:Pytest function verbose<CR>
+
+Plugin 'bling/vim-airline'
+Plugin 'christoomey/vim-tmux-navigator'
+
+" Plugin 'Valloric/YouCompleteMe'
+Plugin 'ervandew/supertab'
+Plugin 'SirVer/ultisnips'
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+Plugin 'honza/vim-snippets'
+
+Plugin 'rking/ag.vim'
+Plugin 'kien/ctrlp.vim'
+" Go to symbol
+map <leader>s :CtrlPBufTag<CR>
+" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
+if executable('ag')
+" Use Ag over Grep
+  set grepprg=ag\ --nogroup\ --nocolor
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+  nnoremap <leader>f :Ag<space>
+else
+  noremap <leader>f :Ack<space>
+endif
+
+Plugin 'majutsushi/tagbar'
+" Open tagbar
+map <leader>\ :Tagbar<CR>
+let g:tagbar_autofocus = 1
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'mattn/emmet-vim'
+Plugin 'ntpeters/vim-better-whitespace'
+" Strip whitespace with space-space-w
+nmap <leader><leader>w :StripWhitespace<CR>
+Plugin 'Raimondi/delimitMate'
+
+Plugin 'scrooloose/nerdtree'
+nnoremap <leader>d :NERDTreeToggle<CR>
+" Single clicks open directories and files
+let g:NERDTreeMouseMode = 3
+let g:NERDTreeRespectWildIgnore = 1
+
+Plugin 'scrooloose/syntastic'
+let g:syntastic_mode_map = { 'mode': 'active',
+ \ 'active_filetypes': [],
+ \ 'passive_filetypes': ['html', 'rst'] }
+let g:syntastic_python_checkers = ['flake8', 'python']
+let g:syntastic_enable_signs = 0
+let g:syntastic_python_checker_args='--ignore=E501'
+let g:syntastic_javascript_checkers = ['jshint']
+
+Plugin 'terryma/vim-expand-region'
+" Press v to select one char, v again to expand selection, v again to expand
+" on a paragraph
+vmap v <Plug>(expand_region_expand)
+" Use Ctrl-v to shrink region if you go to far
+vmap <C-v> <Plug>(expand_region_shrink)
+
+Plugin 'tomtom/tlib_vim'
+Plugin 'tpope/vim-commentary'
+" Toggle comment with space-/
+nmap <leader>/ gcc
+vmap <leader>/ gc
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-sensible'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'mattn/webapi-vim' " needed by gist-vim and github-comment
+" Github/Gist
+Plugin 'mattn/gist-vim'
+" Make gists private by default
+let g:gist_post_private = 1
+
+Plugin 'tpope/vim-fugitive'
+map <leader>gs :Gstatus<CR>
+map <leader>gb :Gblame<CR>
+" Open current file on Github
+map <leader>gB :Gbrowse<CR>
+" Open currently selected lines on Github
+vmap <leader>gB :Gbrowse<CR>
+map <leader>gr :Gread<CR>
+map <leader>gw :Gwrite<CR>
+noremap <Leader>gsh :!git push<CR>
+cabbrev git Git
+
+" Colors
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'chriskempson/vim-tomorrow-theme'
+Plugin 'reedes/vim-colors-pencil'
+
+" Syntax and languages
+Plugin 'mitsuhiko/vim-jinja'
+Plugin 'stephpy/vim-yaml'
+Plugin 'chase/vim-ansible-yaml'
+Plugin 'klen/python-mode'
+" Use 'python' for Python 2; 'python3' for Python 3
+let g:pymode_python = 'python3'
+" Turn off run mode
+let g:pymode_run = 0
+" Turn off automatic folding in python-mode
+let g:pymode_folding = 0
+" don't use linter, we use syntastic for that
+let g:pymode_lint = 0
+" Don't look for .ropeproject directories in parent directories
+let g:pymode_rope_lookup_project = 0
+set completeopt=menu " prevent pymode from showing documentation on autocomplete
+                    " https://github.com/klen/python-mode/issues/384
+" When using goto_definition, open in the current window instead of creating a
+" new window
+let g:pymode_rope_goto_definition_cmd = 'e'
+Plugin 'pangloss/vim-javascript'
+
+Plugin 'sophacles/vim-bundle-mako'
+Plugin 'plasticboy/vim-markdown'
+let g:vim_markdown_folding_disabled=1
+
+Plugin 'ZoomWin'
+Plugin 'terryma/vim-multiple-cursors'
+" For previewing markdown, rst ,etc
+Plugin 'greyblake/vim-preview'
+Plugin 'matchit.zip'
+Plugin 'duff/vim-scratch'
+" Open scratch buffer with space-tab
+command! ScratchToggle call ScratchToggle()
+
+function! ScratchToggle()
+    if exists("w:is_scratch_window")
+        unlet w:is_scratch_window
+        exec "q"
+    else
+        exec "normal! :Sscratch\<cr>\<C-W>L"
+        let w:is_scratch_window = 1
+    endif
+endfunction
+
+nnoremap <silent> <leader><tab> :ScratchToggle<cr>
+
+" Load plugins
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+""" end plugins """
+
+
+""" BASE CUSTOMIZATIONS """
+
+set encoding=utf-8
+syntax enable
+
+set autoindent
+set autoread " reload files when changed on disk, i.e. via `git checkout`
+
+set backupcopy=yes
+" Make "yanks" work with system clipboard
+set clipboard=unnamed
+set ignorecase " case-insensitive search
+set incsearch " search as you type
+set wildmenu " show a navigable menu for tab completion
+set wildmode=longest,list,full
+
+" Indents
+set expandtab " expand tabs by default (overloadable per file type later)
+set tabstop=4 " a tab is 4 spaces
+set softtabstop=4 " when hitting <BS>, pretend like a tab is removed, even if spaces
+set shiftwidth=4 " number of spaces to use for autoindenting
+set shiftround " use multiple of shiftwidth when indenting with '<' and '>'
+
+set nobackup
+set noswapfile  " Prevent annoying swapfile dialogs
+
+""" VISUAL SETTINGS """
+
+set t_Co=256 " Must be 256 for Tomorrow theme to display correctly
+" let g:solarized_termcolors=256
+set background=light  " this only applies to the solarized theme, not tomorrow
+" May want to have different schemes for termvim vs gvim
+if has('gui_running')
+    silent! colorscheme Tomorrow-Night
+else
+    " termvim looks best with Tomorrow themes
+    silent! colorscheme Tomorrow-Night
+endif
+
+" Show trailing whitespace
+set list
+set listchars=tab:▸\ ,trail:▫
+
+if &term =~ '256color'
+  set t_ut=
+endif
+
+set cursorline  " have a line indicate cursor location
+set foldmethod=manual
+set previewheight=25  " Larger preview height
+set number " Show line numbers on the sidebar.
+" Do not fold by default. But if you do, do it up to 3 levels.
+set foldmethod=indent
+set foldnestmax=3
+set nofoldenable
+
+" Set minimum window size to 79x5.
+set winwidth=79
+set winheight=5
+set winminheight=5
+
+" Patterns for expand(), ctrlp, etc. to ignore
+set wildignore+=log/**,node_modules/**,target/**,tmp/**,*.rbc/,.git/*,*/.hg/*,*/.svn/*
+" Disable output, vcs, archive, rails, temp and backup files.
+set wildignore+=*.o,*.out,*.obj,.git,*.rbc,*.rbo,*.class,.svn,*.gem
+set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
+set wildignore+=*/vendor/gems/*,*/vendor/cache/*,*/.bundle/*,*/.sass-cache/*
+set wildignore+=*.swp,*~,._*
+set wildignore+=*.pyc
+" Enable basic mouse behavior such as resizing buffers.
+set mouse=a
+set mousemodel=popup " Right-click pops up a menu
+if exists('$TMUX') " Support resizing in tmux
+  set ttymouse=xterm2
+endif
+
+" Persistent undo
+if exists("+undofile")
+" undofile - This allows you to use undos after exiting and restarting
+" This, like swap and backups, uses .vim-undo first, then ~/.vim/undo
+" :help undo-persistence
+" This is only present in 7.3+
+  if isdirectory($HOME . '/.vim/undo') == 0
+    :silent !mkdir -p ~/.vim/undo > /dev/null 2>&1
+  endif
+  set undodir=./.vim-undo//
+  set undodir+=~/.vim/undo//
+  set undofile
+endif
+
+" Make sure Vim returns to the same line when you reopen a file.
+" Thanks, Amit
+augroup line_return
+    au!
+    au BufReadPost *
+        \ if line("'\"") > 0 && line("'\"") <= line("$") |
+        \     execute 'normal! g`"zvzz' |
+        \ endif
+augroup END
+
+" Stop that stupid window from popping up
+map q: :q
+
+" Change cursor style when entering INSERT mode (works in tmux!)
+if exists('$TMUX')
+  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+else
+  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+endif
+
+" Always focus on splited window.
+nnoremap <C-w>s <C-w>s<C-w>w
+nnoremap <C-w>v <C-w>v<C-w>w
+
+""" Search
+" Highlight search results
+set hlsearch
+" Ignore case when searching.
+set ignorecase
+" Don't ignore case when search has capital letter
+set smartcase
+
+" Quicker window movement
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+
+""" SHORTCUTS """
+
+" in case you forgot to sudo
+cnoremap w!! %!sudo tee > /dev/null %
+
+" Open help in a new tab
+cabbrev h tab h
+
+" Quickly edit vimrc
+nmap <leader>, :tabedit $MYVIMRC<CR>
+
+" Quickly write/quit/save-and-quit
+nnoremap <leader>w :w<CR>
+nnoremap <leader>q :q<CR>
+nnoremap <leader>Q :wq<CR>
+
+" Unhighlight search
+nnoremap <Leader>n :nohlsearch<CR><C-L>
+
+" Quick split
+nnoremap <Leader>v <C-w>v<C-w>w
+
+" Quick copy whole file
+map <leader>a :%y+<CR>
+
+" Make D delete to end of line
+nnoremap D d$
+
+" Make Y yank to end of line
+nnoremap Y y$
+
+" Go to beginning/end of line
+noremap <leader>h ^
+noremap <leader>l $
+
+" Split line (sister to [J]oin lines)
+" The normal use of S is covered by cc, so don't worry about shadowing it.
+nnoremap S i<cr><esc>^mwgk:silent! s/\v +$//<cr>:noh<cr>`w
+
+" Move vertically over wrapped lines
+nmap j gj
+nmap k gk
+
+"" Tabs
+nmap <Tab> gt
+nmap <S-Tab> gT
+nnoremap <silent> <S-t> :tabnew<CR>
+
+""" Syntax
+" fdoc is yaml
+autocmd BufRead,BufNewFile *.fdoc set filetype=yaml
+" md is markdown
+autocmd BufRead,BufNewFile *.md set filetype=markdown
+
+" For better commit messages
+autocmd Filetype gitcommit setlocal textwidth=72
+
+" GUI settings, e.g. MacVim
+set guifont=Ubuntu\ Mono:h14
+if has('gui_running')
+    if has('mac')
+        set transparency=7
+        " Hide scrollbars in MacVim
+        set guioptions-=T
+        set guioptions-=r
+        set go-=L
+    endif
+endif

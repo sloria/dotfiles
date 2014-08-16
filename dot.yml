@@ -1,0 +1,15 @@
+- name: Collecting Facts
+  hosts: all
+  gather_facts: yes
+
+- name: Setup environment
+  hosts: all
+  vars:
+    vim_install_plugins: no
+    dotfiles_home: /Users/austin/code/dotfiles
+    # vim_install_macvim: no
+  roles:
+    - package_manager
+    - vim
+
+
