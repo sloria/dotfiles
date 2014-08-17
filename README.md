@@ -86,3 +86,10 @@ The `python` topic installs the [Anaconda Python distribution](https://store.con
 **iterm2 color themes**
 
 To import an iterm themes, open your iTerm2 preferences and go to your Profiles settings. In the color tab, click the Load preset dropdown and choose "Import".
+
+
+todo
+----
+
+- Full Debian and Fedora support
+- Support for getting a minimal environment on remote servers
