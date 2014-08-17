@@ -10,3 +10,5 @@
     - git
     - vim
     - python
+    - hub
+    - autojump

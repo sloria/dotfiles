@@ -1,0 +1,3 @@
+
+- name: Make sure hub is installed
+  homebrew: name=hub state=present
