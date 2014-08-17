@@ -70,12 +70,8 @@ set t_Co=256 " Must be 256 for Tomorrow theme to display correctly
 " let g:solarized_termcolors=256
 set background=light  " this only applies to the solarized theme, not tomorrow
 " May want to have different schemes for termvim vs gvim
-if has('gui_running')
-    silent! colorscheme solarized
-else
-    " termvim looks best with Tomorrow themes
-    silent! colorscheme Tomorrow-Night
-endif
+" termvim looks best with Tomorrow themes
+silent! colorscheme Tomorrow-Night-Eighties
 
 " Show trailing whitespace
 set list
