@@ -1,0 +1,5 @@
+
+- name: Make sure zsh is installed
+  apt: name=zsh state=present
+
+# TODO: Set zsh as login shell

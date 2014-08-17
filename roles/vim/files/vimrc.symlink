@@ -202,7 +202,7 @@ set shiftround " use multiple of shiftwidth when indenting with '<' and '>'
 
 set nobackup
 set noswapfile  " Prevent annoying swapfile dialogs
-
+set noerrorbells " Bells
 """ VISUAL SETTINGS """
 
 set t_Co=256 " Must be 256 for Tomorrow theme to display correctly

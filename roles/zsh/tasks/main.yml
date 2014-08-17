@@ -1,9 +1,13 @@
 
-# TODO: ZSH installation
-
+# Installation and setup
+- include: debian.yml
+  when: ansible_os_family == "Debian"
+- include: fedora.yml
+  when: ansible_os_family == "Fedora"
 - include: osx.yml
   when: ansible_os_family == "Darwin"
 
+# Configuration
 - name: Check if zshrc already exists
   stat: path="{{'~/.zshrc' | expanduser }}"
   register: zshrc_stat
@@ -14,6 +18,7 @@
     creates: "{{ '~/.zshrc.bak' | expanduser}}"
   when: zshrc_stat.stat.exists
 
+# Prezto
 - name: Install prezto
   script: install_prezto.sh creates="{{ '~/.zprezto' | expanduser}}"
 

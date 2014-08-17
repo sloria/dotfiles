@@ -17,3 +17,5 @@ $ git clone https://github.com/asmacdo/dotfiles.git ~/dotfiles
 $ cd ~/dotfiles
 $ ./dot
 ```
+
+Many config files (e.g. `.vimrc',`.zshrc`, etc.) get symlinked to your home directory. This means that all configuration can occur in the `~/dotfiles` directory.
