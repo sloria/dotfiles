@@ -14,7 +14,7 @@ Install
 
 Clone the repo
 
-``bash
+```bash
 # Replace git url with your fork if applicable
 # NOTE: It is important that you clone to ~/dotfiles
 $ git clone https://github.com/asmacdo/dotfiles.git ~/dotfiles
