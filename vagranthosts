@@ -1,9 +1,6 @@
 # Test ubuntu and fedora boxes
-[remote]
+[vagrant]
 192.168.111.227
 
-[remote:vars]
-dotfiles_user_home=/home/vagrant
-dotfiles_home="{{dotfiles_user_home}}/dotfiles"
-git_user=vagrant
-git_email=vagrant@vagrant.com
+[remote:children]
+vagrant

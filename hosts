@@ -5,4 +5,3 @@ localhost
 ansible_connection=local
 
 [remote]
-

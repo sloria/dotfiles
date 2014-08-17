@@ -1,0 +1,2 @@
+echo "Setting up remote development enviroments"
+ansible-playbook -i ~/dotfiles/hosts ~/dotfiles/remote_env.yml
