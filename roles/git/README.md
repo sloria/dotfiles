@@ -1,6 +1,5 @@
 git
 ===
 
-Configures git.
+Installs and configures git.
 
-NOTE: This role does **not** install git, since git is a prerequisite to installing the dotfiles.
