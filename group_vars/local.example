@@ -30,3 +30,10 @@ osx_cask_packages:
   - google-chrome
   - bettertouchtool
   - iterm2
+
+# Node utilities
+npm_global_packages:
+  - grunt-cli
+  - gulp
+  - coffee-script
+  - bower

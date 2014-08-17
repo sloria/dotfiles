@@ -1,0 +1,8 @@
+- include: osx.yml
+  when: ansible_os_family == "Darwin"
+
+# TODO: Fedora and debian installation
+
+- name: Install common npm utilities
+  npm: name={{item}} state=latest global=yes
+  with_items: npm_global_packages

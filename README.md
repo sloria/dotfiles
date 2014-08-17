@@ -40,12 +40,28 @@ Copy local variables file.
 $ cp group_vars/local.example group_vars/local
 ```
 
-**IMPORTANT**: Change group_vars/local to your liking.
+**IMPORTANT**: Change `group_vars/local` to your liking.
 
 Run the installation script.
 
 ```bash
 $ ./bin/dot
+```
+
+updating
+--------
+
+Once you have the dotfiles install you can run the following command to rerun the ansible playbook:
+
+```bash
+$ dot
+```
+
+To update the dotfiles repo:
+
+```bash
+$ cd ~/dotfiles
+$ git pull
 ```
 
 special files
