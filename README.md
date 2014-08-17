@@ -1,7 +1,7 @@
 dotfiles
 ========
 
-[sloria's dotfiles](https://github.com/sloria/dotfiles), rewritten as Ansible roles. Will eventually support MacOSX, Ubuntu, and Fedora platforms.
+[sloria's dotfiles](https://github.com/sloria/dotfiles), rewritten as Ansible roles. Will eventually support MacOSX, Ubuntu, and Red Hat platforms.
 
 a few neat features
 -------------------
@@ -51,7 +51,7 @@ $ ./bin/dot
 updating
 --------
 
-Once you have the dotfiles install you can run the following command to rerun the ansible playbook:
+Once you have the dotfiles installed you can run the following command to rerun the ansible playbook:
 
 ```bash
 $ dot
@@ -77,7 +77,7 @@ notes
 
 **fonts**
 
-To install fonts on OSX, simply drag the `.ttf` files onto the Font Book application.
+To install fonts on OSX, simply drag the `.ttf` files in `misc/fonts` directory onto the Font Book application.
 
 **python**
 
@@ -85,11 +85,11 @@ The `python` topic installs the [Anaconda Python distribution](https://store.con
 
 **iterm2 color themes**
 
-To import an iterm themes, open your iTerm2 preferences and go to your Profiles settings. In the color tab, click the Load preset dropdown and choose "Import".
+To import an iterm theme from the `misc/iterm-themes` directory, open your iTerm2 preferences and go to your Profiles settings. In the color tab, click the Load preset dropdown and choose "Import".
 
 
 todo
 ----
 
-- Full Debian and Fedora support
+- Full Debian and Red Hat support
 - Support for getting a minimal environment on remote servers
