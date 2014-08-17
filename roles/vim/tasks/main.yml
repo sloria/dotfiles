@@ -1,15 +1,18 @@
+# Installation
 - include: debian.yml
   when: ansible_os_family == "Debian"
-# - include: fedora.yml
-#   when: ansible_os_family == "Fedora"
+- include: redhat.yml
+  when: ansible_os_family == "RedHat"
 - include: osx.yml
   when: ansible_os_family == "Darwin"
 
+# Plugin manager
 - name: Install Vundle
   git: repo=https://github.com/gmarik/Vundle.vim.git
        dest=~/.vim/bundle/Vundle.vim
        update=no
 
+# Configuration
 - name: Makes sure snippets directory exists
   file: path="{{dotfiles_user_home}}/.vim/snippets" state=directory
 

@@ -15,4 +15,4 @@
 - name: Run the miniconda installer
   command: bash /tmp/miniconda.sh -b -p ~/miniconda
   args:
-    creates: "{{ '~/miniconda' | expanduser}}"
+    creates: "{{dotfiles_user_home}}/miniconda"

@@ -1,5 +1,5 @@
 vim
 ===
 
-Installs vim, Vundle, and symlinks `.vimrc`.
+Installs vim, [Vundle](https://github.com/gmarik/Vundle.vim), and symlinks `.vimrc`.
 

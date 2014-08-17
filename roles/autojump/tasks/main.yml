@@ -4,4 +4,6 @@
 
 - include: redhat.yml
   when: ansible_os_family == "RedHat"
-# TODO: Fedora and Debian
+
+- include: debian.yml
+  when: ansible_os_family == "Debian"

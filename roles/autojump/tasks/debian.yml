@@ -1,0 +1,12 @@
+
+- name: Install autojump with apt
+  apt: name=autojump state=latest
+  sudo: yes
+
+- name: Enable autojump in zshrc
+  lineinfile:
+    dest: "{{dotfiles_user_home}}/.zshrc"
+    line: ". /usr/share/autojump/autojump.sh"
+
+
+
