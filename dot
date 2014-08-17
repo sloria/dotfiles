@@ -1,0 +1,1 @@
+ansible-playbook -i ~/dotfiles/hosts ~/dotfiles/dot.yml
