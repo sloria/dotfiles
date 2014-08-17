@@ -2,16 +2,8 @@
   hosts: all
   gather_facts: yes
 
-- name: Setup environment
-  hosts: all
-  vars:
-    # TODO: Don't hardcode this. Should just be the abspath of this directory where this
-    # playbook resides
-    dotfiles_home: "{{ '~/dotfiles' | expanduser}}"
-    vim_install_macvim: yes
-    # Whether to install plugins automatically. If not, just run
-    # :PluginInstall while in vim.
-    vim_install_plugins: no
+- name: Set up local development environment
+  hosts: local
   roles:
     - package_manager
     - vim

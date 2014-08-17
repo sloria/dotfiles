@@ -9,13 +9,35 @@ Prerequisites
 - homebrew (If on Mac OSX)
 - git
 
-To install:
+Install
+-------
+
+Clone the repo
 
 ``bash
 # Replace git url with your fork if applicable
+# NOTE: It is important that you clone to ~/dotfiles
 $ git clone https://github.com/asmacdo/dotfiles.git ~/dotfiles
 $ cd ~/dotfiles
+```
+
+Copy local variables file.
+
+```bash
+$ cp group_vars/local.example group_vars/local
+```
+
+**IMPORTANT**: Change group_vars/local to your liking.
+
+Run the installation script.
+
+```bash
 $ ./dot
 ```
 
-Many config files (e.g. `.vimrc',`.zshrc`, etc.) get symlinked to your home directory. This means that all configuration can occur in the `~/dotfiles` directory.
+Special Files
+-------------
+
+All configuration is done in `~/dotfiles`. Each role may contain (in addition to the typical ansible directories and files) a number of special files
+
+- **role/\*.zsh**: Any files ending in `.zsh` get loaded into your environment.
