@@ -12,5 +12,7 @@
     - python
     - hub
     - autojump
+    - autoenv
     - ag
+    - tmux
     - {role: osx, when: ansible_os_family == "Darwin"}
