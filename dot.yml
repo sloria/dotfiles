@@ -6,5 +6,6 @@
   hosts: local
   roles:
     - package_manager
-    - vim
     - zsh
+    - vim
+    - python
