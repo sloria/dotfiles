@@ -13,7 +13,6 @@ a few neat features
 - a tmux.conf that's pretty neat
 - vim with Vundle for plugin management. All configuration in a single file .vimrc
 - pluggable. Everything is optional. Fork this. Remove what you don't use. Configure what you do use.
-Prerequisites
 
 prerequisites (install these first)
 -----------------------------------
@@ -55,6 +54,7 @@ special files
 All configuration is done in `~/dotfiles`. Each role may contain (in addition to the typical ansible directories and files) a number of special files
 
 - **role/\*.zsh**: Any files ending in `.zsh` get loaded into your environment.
+- **bin/**: Anything in `bin/` will get added to your `$PATH` and be made available everywhere.
 
 notes
 -----
