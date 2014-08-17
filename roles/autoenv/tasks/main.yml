@@ -6,6 +6,6 @@
 # Use git install autoenv for best cross-platform compatibility
 - name: Clone autoenv
   git:
-    repo: git://github.com/kennethreitz/autoenv.git
+    repo: https://github.com/kennethreitz/autoenv.git
     dest: "{{ '~/.autoenv' | expanduser}}"
-
+    update: no
