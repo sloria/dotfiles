@@ -1,0 +1,12 @@
+# vi: set ft=yaml :
+
+# Where your dotfiles live. Probably don't need to change this.
+dotfiles_home: "{{ '~/dotfiles' | expanduser}}"
+
+# Vim
+
+# Only applies to OSX
+vim_install_macvim: yes
+# Whether to install plugins automatically. If not, just run
+# :PluginInstall while in vim.
+vim_install_plugins: no

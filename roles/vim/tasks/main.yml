@@ -29,6 +29,8 @@
 
 - name: Backup vimrc
   command: mv ~/.vimrc ~/.vimrc.bak
+  args:
+    creates: "{{ '~/.vimrc.bak' | expanduser}}"
   when: vimrc_stat.stat.exists
 
 - name: Symlink vimrc

@@ -202,7 +202,7 @@ set shiftround " use multiple of shiftwidth when indenting with '<' and '>'
 
 set nobackup
 set noswapfile  " Prevent annoying swapfile dialogs
-
+set noerrorbells " Bells
 """ VISUAL SETTINGS """
 
 set t_Co=256 " Must be 256 for Tomorrow theme to display correctly
@@ -358,8 +358,16 @@ nnoremap <silent> <S-t> :tabnew<CR>
 """ Syntax
 " fdoc is yaml
 autocmd BufRead,BufNewFile *.fdoc set filetype=yaml
-" md is markdown
+
+" rst
+autocmd BufNewFile,BufRead *.txt setlocal ft=rst
+autocmd FileType rst setlocal expandtab lbr shiftwidth=4 tabstop=4 softtabstop=4
+\ formatoptions+=nqtl
+
+" markdown
 autocmd BufRead,BufNewFile *.md set filetype=markdown
+autocmd FileType md setlocal expandtab lbr shiftwidth=4 tabstop=4 softtabstop=4
+\ formatoptions+=nqtl
 
 " For better commit messages
 autocmd Filetype gitcommit setlocal textwidth=72
