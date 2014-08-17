@@ -1,0 +1,4 @@
+
+- name: Yum ensure autojump is installed
+  yum: name=autojump state=latest
+  sudo: yes

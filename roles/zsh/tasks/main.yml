@@ -2,8 +2,8 @@
 # Installation and setup
 - include: debian.yml
   when: ansible_os_family == "Debian"
-- include: fedora.yml
-  when: ansible_os_family == "Fedora"
+- include: redhat.yml
+  when: ansible_os_family == "RedHat"
 - include: osx.yml
   when: ansible_os_family == "Darwin"
 
