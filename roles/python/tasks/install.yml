@@ -6,11 +6,11 @@
   when: ansible_os_family == "Darwin"
 
 # 64-bit linux installer
-- name: Get miniconda for Mac OSX
+- name: Get miniconda for Linux
   get_url:
     url: http://repo.continuum.io/miniconda/Miniconda3-3.6.0-Linux-x86_64.sh
     dest: /tmp/miniconda.sh
-  when: ansible_os_family == "Fedora" or ansible_os_family == "Debian"
+  when: ansible_os_family == "RedHat" or ansible_os_family == "Debian"
 
 - name: Run the miniconda installer
   command: bash /tmp/miniconda.sh -b -p ~/miniconda

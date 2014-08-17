@@ -1,8 +1,8 @@
-# - include: fedora.yml
-#   when: ansible_os_family == "Fedora"
+# - include: redhat.yml
+#   when: ansible_os_family == "RedHat"
 
-# - include: ubuntu.yml
-#   when: ansible_os_family == "Ubuntu"
+# - include: debian.yml
+#   when: ansible_os_family == "Debian"
 
 - include: osx.yml
   when: ansible_os_family == "Darwin"
