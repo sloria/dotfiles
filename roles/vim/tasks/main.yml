@@ -1,9 +1,7 @@
-# - include: ubuntu.yml
-#   when: ansible_os_family == "Ubuntu"
-
+- include: debian.yml
+  when: ansible_os_family == "Debian"
 # - include: fedora.yml
 #   when: ansible_os_family == "Fedora"
-
 - include: osx.yml
   when: ansible_os_family == "Darwin"
 
@@ -13,17 +11,17 @@
        update=no
 
 - name: Makes sure snippets directory exists
-  file: path="{{ '~/.vim/snippets' | expanduser }}" state=directory
+  file: path="{{dotfiles_user_home}}/.vim/snippets" state=directory
 
 - name: Copy all snippet files
-  copy: src={{ item }} dest={{ '~/.vim/snippets/' + item | expanduser}}
+  copy: src={{ item }} dest={{ dotfiles_user_home + '/.vim/snippets/' + item }}
   with_items:
     - "_.snippets"
     - "python.snippets"
     - "rst.snippets"
 
 - name: Check if vimrc exists
-  stat: path="{{'~/.vimrc' | expanduser }}"
+  stat: path="{{dotfiles_user_home}}/.vimrc"
   register: vimrc_stat
   failed_when: False
 
@@ -34,7 +32,10 @@
   when: vimrc_stat.stat.exists
 
 - name: Symlink vimrc
-  file: src="{{ dotfiles_home }}/roles/vim/files/vimrc.symlink" dest="{{'~/.vimrc' | expanduser }}" state=link
+  file:
+    src: "{{ dotfiles_home }}/roles/vim/files/vimrc.link"
+    dest: "{{dotfiles_user_home}}/.vimrc"
+    state: link
 
 - name: Run vim bundle install
   command: vim +BundleInstall +qall
