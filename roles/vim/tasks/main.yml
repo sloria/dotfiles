@@ -40,5 +40,3 @@
 
 - name: Symlink vimrc
   file: src="{{ dotfiles_home }}/roles/vim/files/vimrc.symlink" dest="{{'~/.vimrc' | expanduser }}" state=link
-
-=======
