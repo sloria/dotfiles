@@ -9,7 +9,9 @@
     # playbook resides
     dotfiles_home: "{{ '~/dotfiles' | expanduser}}"
     vim_install_macvim: yes
-    vim_install_plugins: yes
+    # Whether to install plugins automatically. If not, just run
+    # :PluginInstall while in vim.
+    vim_install_plugins: no
   roles:
     - package_manager
     - vim

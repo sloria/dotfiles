@@ -10,6 +10,8 @@
 
 - name: Back up zshrc if it exists
   command: mv ~/.zshrc ~/.zshrc.bak
+  args:
+    creates: "{{ '~/.zshrc.bak' | expanduser}}"
   when: zshrc_stat.stat.exists
 
 - name: Install prezto
