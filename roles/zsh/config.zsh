@@ -3,7 +3,7 @@ DISABLE_CORRECTION="true"
 unsetopt correct
 unsetopt correct_all
 
-# enable autojump
+# enable autojump on osx
 unamestr=`uname -a`
 if [[ "$unamestr" == *Darwin* ]]
 then
