@@ -33,7 +33,6 @@ nmap <silent><Leader>tf <Esc>:Pytest function verbose<CR>
 Plugin 'bling/vim-airline'
 Plugin 'christoomey/vim-tmux-navigator'
 
-" Plugin 'Valloric/YouCompleteMe'
 Plugin 'ervandew/supertab'
 Plugin 'SirVer/ultisnips'
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
@@ -361,12 +360,12 @@ autocmd BufRead,BufNewFile *.fdoc set filetype=yaml
 
 " rst
 autocmd BufNewFile,BufRead *.txt setlocal ft=rst
-autocmd FileType rst setlocal expandtab lbr shiftwidth=4 tabstop=4 softtabstop=4
+autocmd FileType rst setlocal nolist expandtab lbr shiftwidth=4 tabstop=4 softtabstop=4
 \ formatoptions+=nqtl
 
 " markdown
 autocmd BufRead,BufNewFile *.md set filetype=markdown
-autocmd FileType md setlocal expandtab lbr shiftwidth=4 tabstop=4 softtabstop=4
+autocmd FileType markdown setlocal nolist expandtab lbr shiftwidth=4 tabstop=4 softtabstop=4
 \ formatoptions+=nqtl
 
 " For better commit messages

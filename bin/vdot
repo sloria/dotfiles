@@ -1,2 +1,2 @@
-echo "Setting up vagrant test enviroment"
+echo "Setting up vagrant test environment..."
 ansible-playbook remote_env.yml -i vagranthosts -u vagrant --ask-sudo-pass --private-key=~/.vagrant.d/insecure_private_key -l remote -U vagrant
