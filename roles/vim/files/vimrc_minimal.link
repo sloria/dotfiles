@@ -1,0 +1,226 @@
+set nocompatible              " be iMproved, required for Vundle
+filetype off                  " required for Vundle
+
+" Spacebar is a much better leader than \ or ,
+let mapleader = "\<Space>"
+
+" Automatically source the vimrc file after saving it
+if has("autocmd")
+  autocmd bufwritepost .vimrc source $MYVIMRC
+endif
+
+""""" PLUGINS """""
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'ervandew/supertab'
+" Go to symbol
+map <leader>s :CtrlPBufTag<CR>
+
+Plugin 'scrooloose/nerdtree'
+nnoremap <leader>d :NERDTreeToggle<CR>
+
+Plugin 'chriskempson/vim-tomorrow-theme'
+
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-sensible'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-unimpaired'
+
+" Load plugins
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+""" end plugins """
+
+""" BASE CUSTOMIZATIONS """
+
+set encoding=utf-8
+syntax enable
+
+set autoindent
+set autoread " reload files when changed on disk, i.e. via `git checkout`
+
+set backupcopy=yes
+" Make "yanks" work with system clipboard
+set clipboard=unnamed
+set ignorecase " case-insensitive search
+set incsearch " search as you type
+set wildmenu " show a navigable menu for tab completion
+set wildmode=longest,list,full
+
+" Indents
+set expandtab " expand tabs by default (overloadable per file type later)
+set tabstop=4 " a tab is 4 spaces
+set softtabstop=4 " when hitting <BS>, pretend like a tab is removed, even if spaces
+set shiftwidth=4 " number of spaces to use for autoindenting
+set shiftround " use multiple of shiftwidth when indenting with '<' and '>'
+
+set nobackup
+set noswapfile  " Prevent annoying swapfile dialogs
+
+""" VISUAL SETTINGS """
+
+set t_Co=256 " Must be 256 for Tomorrow theme to display correctly
+" let g:solarized_termcolors=256
+set background=light  " this only applies to the solarized theme, not tomorrow
+" May want to have different schemes for termvim vs gvim
+if has('gui_running')
+    silent! colorscheme solarized
+else
+    " termvim looks best with Tomorrow themes
+    silent! colorscheme Tomorrow-Night
+endif
+
+" Show trailing whitespace
+set list
+set listchars=tab:▸\ ,trail:▫
+
+if &term =~ '256color'
+  set t_ut=
+endif
+
+set cursorline  " have a line indicate cursor location
+set foldmethod=manual
+set previewheight=25  " Larger preview height
+set number " Show line numbers on the sidebar.
+" Do not fold by default. But if you do, do it up to 3 levels.
+set foldmethod=indent
+set foldnestmax=3
+set nofoldenable
+
+" Set minimum window size to 79x5.
+set winwidth=79
+set winheight=5
+set winminheight=5
+
+" Patterns for expand(), ctrlp, etc. to ignore
+set wildignore+=log/**,node_modules/**,target/**,tmp/**,*.rbc/,.git/*,*/.hg/*,*/.svn/*
+" Disable output, vcs, archive, rails, temp and backup files.
+set wildignore+=*.o,*.out,*.obj,.git,*.rbc,*.rbo,*.class,.svn,*.gem
+set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
+set wildignore+=*/vendor/gems/*,*/vendor/cache/*,*/.bundle/*,*/.sass-cache/*
+set wildignore+=*.swp,*~,._*
+set wildignore+=*.pyc
+" Enable basic mouse behavior such as resizing buffers.
+set mouse=a
+set mousemodel=popup " Right-click pops up a menu
+if exists('$TMUX') " Support resizing in tmux
+  set ttymouse=xterm2
+endif
+
+" Persistent undo
+if exists("+undofile")
+" undofile - This allows you to use undos after exiting and restarting
+" This, like swap and backups, uses .vim-undo first, then ~/.vim/undo
+" :help undo-persistence
+" This is only present in 7.3+
+  if isdirectory($HOME . '/.vim/undo') == 0
+    :silent !mkdir -p ~/.vim/undo > /dev/null 2>&1
+  endif
+  set undodir=./.vim-undo//
+  set undodir+=~/.vim/undo//
+  set undofile
+endif
+
+" Make sure Vim returns to the same line when you reopen a file.
+" Thanks, Amit
+augroup line_return
+    au!
+    au BufReadPost *
+        \ if line("'\"") > 0 && line("'\"") <= line("$") |
+        \     execute 'normal! g`"zvzz' |
+        \ endif
+augroup END
+
+" Stop that stupid window from popping up
+map q: :q
+
+" Change cursor style when entering INSERT mode (works in tmux!)
+if exists('$TMUX')
+  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+else
+  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+endif
+
+" Always focus on splited window.
+nnoremap <C-w>s <C-w>s<C-w>w
+nnoremap <C-w>v <C-w>v<C-w>w
+
+""" Search
+" Highlight search results
+set hlsearch
+" Ignore case when searching.
+set ignorecase
+" Don't ignore case when search has capital letter
+set smartcase
+
+" Quicker window movement
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+
+""" SHORTCUTS """
+
+" in case you forgot to sudo
+cnoremap w!! %!sudo tee > /dev/null %
+
+" Open help in a new tab
+cabbrev h tab h
+
+" Quickly edit vimrc
+nmap <leader>, :tabedit $MYVIMRC<CR>
+
+" Quickly write/quit/save-and-quit
+nnoremap <leader>w :w<CR>
+nnoremap <leader>q :q<CR>
+nnoremap <leader>Q :wq<CR>
+
+" Unhighlight search
+nnoremap <Leader>n :nohlsearch<CR><C-L>
+
+" Quick split
+nnoremap <Leader>v <C-w>v<C-w>w
+
+" Quick copy whole file
+map <leader>a :%y+<CR>
+
+" Make D delete to end of line
+nnoremap D d$
+
+" Make Y yank to end of line
+nnoremap Y y$
+
+" Go to beginning/end of line
+noremap <leader>h ^
+noremap <leader>l $
+
+" Split line (sister to [J]oin lines)
+" The normal use of S is covered by cc, so don't worry about shadowing it.
+nnoremap S i<cr><esc>^mwgk:silent! s/\v +$//<cr>:noh<cr>`w
+
+" Move vertically over wrapped lines
+nmap j gj
+nmap k gk
+
+"" Tabs
+nmap <Tab> gt
+nmap <S-Tab> gT
+nnoremap <silent> <S-t> :tabnew<CR>
+
+""" Syntax
+" fdoc is yaml
+autocmd BufRead,BufNewFile *.fdoc set filetype=yaml
+" md is markdown
+autocmd BufRead,BufNewFile *.md set filetype=markdown
+
+" For better commit messages
+autocmd Filetype gitcommit setlocal textwidth=72

@@ -17,18 +17,22 @@
     - tmux
     - {role: osx, when: ansible_os_family == "Darwin"}
 
-
-- name: Set up remote development environments
+- name: Set up remote dev environments (clone)
   hosts: remote
   tasks:
-    # The dotfiles must be cloned to the remote location so that all all *.zsh files
+    # The dotfiles must be cloned to the remote location so that all *.zsh files
     # and symlinks are present
     - name: Clone dotfiles repo
       git:
         repo: https://github.com/asmacdo/dotfiles.git
         dest: "{{dotfiles_user_home}}/dotfiles"
+
+- name: Set up remote development environments (roles)
+  hosts: remote
+  # No prezto, minimal vimrc
   vars:
     zsh_prezto: no
+    vim_minimal: yes
   roles:
     - git
     - zsh

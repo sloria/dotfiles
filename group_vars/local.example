@@ -1,7 +1,11 @@
 # vi: set ft=yaml :
 
+# NOTE: The below 2 variables should not need to be changed if you cloned
+#   the dotfiles repo to '~/dotfiles'
+#  Local home directory
+dotfiles_user_home: "{{ '~' | expanduser }}"
 # Where your dotfiles live. Probably don't need to change this.
-dotfiles_home: "{{ '~/dotfiles' | expanduser}}"
+dotfiles_home: "{{dotfiles_user_home}}/dotfiles"
 
 # Vim
 

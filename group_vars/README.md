@@ -1,4 +1,4 @@
 group_vars
 ==========
 
-Local variable overrides go here.
+Group-level variable overrides go here.

@@ -28,7 +28,7 @@
 - name: Backup vimrc
   command: mv ~/.vimrc ~/.vimrc.bak
   args:
-    creates: "{{ '~/.vimrc.bak' | expanduser}}"
+    creates: "{{dotfiles_user_home}}/.vimrc.bak"
   when: vimrc_stat.stat.exists
 
 - name: Symlink vimrc
@@ -36,6 +36,14 @@
     src: "{{ dotfiles_home }}/roles/vim/files/vimrc.link"
     dest: "{{dotfiles_user_home}}/.vimrc"
     state: link
+  when: not vim_minimal
+
+- name: Symlink minimal vimrc
+  file:
+    src: "{{ dotfiles_home }}/roles/vim/files/vimrc_minimal.link"
+    dest: "{{dotfiles_user_home}}/.vimrc"
+    state: link
+  when: vim_minimal
 
 - name: Run vim bundle install
   command: vim +BundleInstall +qall

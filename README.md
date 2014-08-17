@@ -87,6 +87,36 @@ The `python` topic installs the [Anaconda Python distribution](https://store.con
 
 To import an iterm theme from the `misc/iterm-themes` directory, open your iTerm2 preferences and go to your Profiles settings. In the color tab, click the Load preset dropdown and choose "Import".
 
+setting up remote dev environments
+----------------------------------
+
+The `dot.yml` playbook can set up a minimal subset of these dotfiles on remote machines.
+
+Just add the remote hosts you want to target under the `[remote]` group of the `hosts` file.
+
+```
+[remote]
+123.456.789.111
+```
+
+Then copy the `group_vars/remote.example` to `group_vars/remote`
+
+```bash
+$ cp group_vars/remote.example group_vars/remote
+```
+
+Update the following variables in `group_vars/remote`:
+
+- `dotfiles_user_home` : Your user home directory.
+- `git_user` : Your git user name.
+- `git_email` : Your git email.
+
+
+Then run the `dot` command.
+
+```bash
+$ ./bin/dot
+```
 
 todo
 ----
