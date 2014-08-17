@@ -1,0 +1,19 @@
+
+# Prezto
+- name: Install prezto
+  script: install_prezto.sh creates="{{ '~/.zprezto' | expanduser}}"
+
+- name: Link zpreztorc file
+  file:
+    src: "{{ dotfiles_home }}/roles/zsh/files/zpreztorc.link"
+    dest: "{{ '~/.zpreztorc' | expanduser }}"
+    state: link
+
+- name: Link zshrc file
+  file:
+    src: "{{ dotfiles_home }}/roles/zsh/files/zshrc.link"
+    dest: "{{ '~/.zshrc' | expanduser }}"
+    state: link
+
+- name: Add giddie prezto theme
+  copy: src="prompt_giddie_setup" dest="{{ '~/.zprezto/modules/prompt/functions' | expanduser }}"

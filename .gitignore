@@ -57,3 +57,5 @@ target/
 
 # Local group vars
 group_vars/local
+
+.vagrant

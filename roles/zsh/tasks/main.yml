@@ -18,21 +18,9 @@
     creates: "{{ '~/.zshrc.bak' | expanduser}}"
   when: zshrc_stat.stat.exists
 
-# Prezto
-- name: Install prezto
-  script: install_prezto.sh creates="{{ '~/.zprezto' | expanduser}}"
+- include: prezto.yml
+  when: zsh_prezto
 
-- name: Link zpreztorc file
-  file:
-    src: "{{ dotfiles_home }}/roles/zsh/files/zpreztorc.link"
-    dest: "{{ '~/.zpreztorc' | expanduser }}"
-    state: link
-
-- name: Link zshrc file
-  file:
-    src: "{{ dotfiles_home }}/roles/zsh/files/zshrc.link"
-    dest: "{{ '~/.zshrc' | expanduser }}"
-    state: link
-
-- name: Add giddie prezto theme
-  copy: src="prompt_giddie_setup" dest="{{ '~/.zprezto/modules/prompt/functions' | expanduser }}"
+- name: Copy minimal zshrc
+  copy: src=zshrc_minimal dest={{dotfiles_user_home}}/.zshrc
+  when: not zsh_prezto

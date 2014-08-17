@@ -5,9 +5,9 @@
 - name: Set up local development environment
   hosts: local
   roles:
+    - git
     - package_manager
     - zsh
-    - git
     - vim
     - python
     - hub
@@ -16,3 +16,20 @@
     - ag
     - tmux
     - {role: osx, when: ansible_os_family == "Darwin"}
+
+
+- name: Set up remote development environments
+  hosts: remote
+  tasks:
+    # The dotfiles must be cloned to the remote location so that all all *.zsh files
+    # and symlinks are present
+    - name: Clone dotfiles repo
+      git:
+        repo: https://github.com/asmacdo/dotfiles.git
+        dest: "{{dotfiles_user_home}}/dotfiles"
+  vars:
+    zsh_prezto: no
+  roles:
+    - git
+    - zsh
+    - vim
