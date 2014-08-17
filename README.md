@@ -1,7 +1,7 @@
 dotfiles
 ========
 
-[sloria's dotfiles](https://github.com/sloria/dotfiles), rewritten as Ansible roles. Will eventually support MacOSX, Ubuntu, and Red Hat platforms.
+[sloria's dotfiles](https://github.com/sloria/dotfiles-old), rewritten as Ansible roles. Fully supports MacOSX. Red Hat and Debian support is good but not as complete.
 
 a few neat features
 -------------------
@@ -13,6 +13,7 @@ a few neat features
 - a tmux.conf that's pretty neat
 - vim with Vundle for plugin management. All configuration in a single file .vimrc
 - pluggable. Everything is optional. Fork this. Remove what you don't use. Configure what you do use.
+- support for deploying to remote environments.
 
 prerequisites (install these first)
 -----------------------------------
@@ -25,25 +26,21 @@ prerequisites (install these first)
 install
 -------
 
-Clone the repo
+- [Fork](https://github.com/sloria/dotfiles/fork) this repo.
+- Clone your fork.
 
 ```bash
-# Replace git url with your fork if applicable
+# Replace git url with your fork
 # NOTE: It is important that you clone to ~/dotfiles
-$ git clone https://github.com/asmacdo/dotfiles.git ~/dotfiles
+$ git clone https://github.com/YOU/dotfiles.git ~/dotfiles
 $ cd ~/dotfiles
 ```
 
-
-Copy local variables file.
-
-```bash
-$ cp group_vars/local.example group_vars/local
-```
-
-**IMPORTANT**: Change `group_vars/local` to your liking.
-
-Run the installation script.
+- Update the following variables in `group_vars/local` (at a minimum)
+    - `git_user`: Your git user name.
+    - `git_email`: Your git email address.
+- Edit `local_env.yml` as you see fit. Remove any roles you don't use. Edit roles that you do use.
+- Run the installation script.
 
 ```bash
 $ ./bin/dot
@@ -56,13 +53,6 @@ Once you have the dotfiles installed you can run the following command to rerun 
 
 ```bash
 $ dot
-```
-
-To update the dotfiles repo:
-
-```bash
-$ cd ~/dotfiles
-$ git pull
 ```
 
 commands
@@ -124,17 +114,11 @@ setting up remote dev environments
 
 The `remote_env.yml` playbook can set up a minimal subset of these dotfiles on remote machines.
 
-Just add the remote hosts you want to target under the `[remote]` group of the `hosts` file.
+- Add the remote hosts you want to target under the `[remote]` group of the `hosts` file.
 
 ```
 [remote]
 123.456.789.111
-```
-
-Then copy the `group_vars/remote.example` to `group_vars/remote`
-
-```bash
-$ cp group_vars/remote.example group_vars/remote
 ```
 
 Update the following variables in `group_vars/remote`:
@@ -142,7 +126,6 @@ Update the following variables in `group_vars/remote`:
 - `dotfiles_user_home` : Your user home directory.
 - `git_user` : Your git user name.
 - `git_email` : Your git email.
-
 
 Then run the `dot-remote` command.
 

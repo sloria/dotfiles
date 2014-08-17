@@ -7,21 +7,21 @@ dotfiles_user_home: "{{ '~' | expanduser }}"
 # Where your dotfiles live. Probably don't need to change this.
 dotfiles_home: "{{dotfiles_user_home}}/dotfiles"
 
+
+# Git
+git_user: sloria
+# If you use github, this should be the same as the email
+#  used on Github
+git_email: sloria1@gmail.com
+
 # Vim
 
-# Only applies to OSX
+# Only applies to OSX. Ignored on other platforms.
 vim_install_macvim: yes
 # Whether to install plugins automatically. If not, just run
 # :PluginInstall while in vim.
 vim_install_plugins: no
 
-# Git
-git_user: YOUR_GIT_USERNAME
-# If you use github, this should be the same as the email
-#  used on Github
-git_email: YOUR_GIT_EMAIL
-
-# Brew packages
 
 # Utiliities that don't get installed by a role
 osx_homebrew_packages:

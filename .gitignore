@@ -55,8 +55,4 @@ docs/_build/
 # PyBuilder
 target/
 
-# Don't version group_vars files
-group_vars/local
-group_vars/remote
-
 .vagrant
