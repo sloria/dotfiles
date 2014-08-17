@@ -6,7 +6,9 @@
   hosts: all
   vars:
     vim_install_plugins: no
-    dotfiles_home: /Users/austin/code/dotfiles
+    # TODO: Don't hardcode this. Should just be the abspath of this directory where this
+    # playbook resides
+    dotfiles_home: "{{ '~/dotfiles' | expanduser}}"
     # vim_install_macvim: no
   roles:
     - package_manager

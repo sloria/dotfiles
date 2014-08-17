@@ -22,10 +22,6 @@
     - "python.snippets"
     - "rst.snippets"
 
-- name: Run vim bundle install
-  command: vim +BundleInstall +qall
-  when: vim_install_plugins
-
 - name: Check if vimrc exists
   stat: path="{{'~/.vimrc' | expanduser }}"
   register: vimrc_stat
@@ -35,8 +31,9 @@
   command: mv ~/.vimrc ~/.vimrc.bak
   when: vimrc_stat.stat.exists
 
-# - name: Symlink vimrc
-#   copy: src="vimrc.symlink" dest="{{'~/.vimrc' | expanduser }}"
-
 - name: Symlink vimrc
   file: src="{{ dotfiles_home }}/roles/vim/files/vimrc.symlink" dest="{{'~/.vimrc' | expanduser }}" state=link
+
+- name: Run vim bundle install
+  command: vim +BundleInstall +qall
+  when: vim_install_plugins
