@@ -122,7 +122,7 @@ To import an iterm theme from the `misc/iterm-themes` directory, open your iTerm
 setting up remote dev environments
 ----------------------------------
 
-The `dot.yml` playbook can set up a minimal subset of these dotfiles on remote machines.
+The `remote_env.yml` playbook can set up a minimal subset of these dotfiles on remote machines.
 
 Just add the remote hosts you want to target under the `[remote]` group of the `hosts` file.
 

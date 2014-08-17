@@ -6,4 +6,4 @@
   apt: name=silversearcher-ag state=latest
   when: ansible_os_family == "Debian"
 
-# TODO: Fedora
+# TODO: RedHat
