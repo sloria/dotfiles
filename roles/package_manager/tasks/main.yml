@@ -4,6 +4,6 @@
 # - include: ubuntu.yml
 #   when: ansible_os_family == "Ubuntu"
 
-# - include: osx.yml
-#   when: ansible_os_family == "Darwin"
+- include: osx.yml
+  when: ansible_os_family == "Darwin"
 
