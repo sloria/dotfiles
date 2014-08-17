@@ -1,0 +1,20 @@
+
+- name: Copy global gitignore file
+  copy:
+    src: gitignore_global
+    dest: "{{ '~/.gitignore_global' | expanduser }}"
+
+- name: Check if gitconfig exists
+  stat: path="{{ '~/.gitconfig' | expanduser }}"
+  register: gitconfig_stat
+
+- name: Back up gitconfig
+  command: mv ~/.gitconfig ~/.gitconfig.bak
+  args:
+    creates: "{{ '~/.gitconfig.bak' | expanduser }}"
+  when: gitconfig_stat.stat.exists
+
+- name: Make sure gitconfig is up to date
+  template:
+    src: "gitconfig.j2"
+    dest: "{{ '~/.gitconfig' | expanduser }}"

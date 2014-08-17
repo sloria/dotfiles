@@ -20,7 +20,7 @@ prerequisites (install these first)
 
 - ansible
 - homebrew (If on Mac OSX)
-- git
+- git (homebrew installable on Mac OSX)
 
 
 install

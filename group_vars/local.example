@@ -10,3 +10,9 @@ vim_install_macvim: yes
 # Whether to install plugins automatically. If not, just run
 # :PluginInstall while in vim.
 vim_install_plugins: no
+
+# Git
+git_user: YOUR_GIT_USERNAME
+# If you use github, this should be the same as the email
+#  used on Github
+git_email: YOUR_GIT_EMAIL

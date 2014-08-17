@@ -7,5 +7,6 @@
   roles:
     - package_manager
     - zsh
+    - git
     - vim
     - python
