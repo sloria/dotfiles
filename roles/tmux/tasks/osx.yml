@@ -1,0 +1,7 @@
+
+- name: Install tmux with homebrew
+  homebrew: name={{item}} state=latest
+  with_items:
+    - tmux
+    # Needed for clipboard support
+    - reattach-to-user-namespace

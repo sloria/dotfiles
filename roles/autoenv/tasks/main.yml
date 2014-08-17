@@ -1,0 +1,11 @@
+
+- name: Uninstall brew-installed autoenv if necessary
+  homebrew: name=autoenv state=absent
+  when: ansible_os_family == "Darwin"
+
+# Use git install autoenv for best cross-platform compatibility
+- name: Clone autoenv
+  git:
+    repo: git://github.com/kennethreitz/autoenv.git
+    dest: "{{ '~/.autoenv' | expanduser}}"
+

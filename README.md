@@ -17,7 +17,7 @@ a few neat features
 prerequisites (install these first)
 -----------------------------------
 
-- ansible
+- ansible >= 1.6
 - homebrew (If on Mac OSX)
 - git (homebrew installable on Mac OSX)
 
@@ -40,12 +40,28 @@ Copy local variables file.
 $ cp group_vars/local.example group_vars/local
 ```
 
-**IMPORTANT**: Change group_vars/local to your liking.
+**IMPORTANT**: Change `group_vars/local` to your liking.
 
 Run the installation script.
 
 ```bash
 $ ./bin/dot
+```
+
+updating
+--------
+
+Once you have the dotfiles install you can run the following command to rerun the ansible playbook:
+
+```bash
+$ dot
+```
+
+To update the dotfiles repo:
+
+```bash
+$ cd ~/dotfiles
+$ git pull
 ```
 
 special files
@@ -70,3 +86,10 @@ The `python` topic installs the [Anaconda Python distribution](https://store.con
 **iterm2 color themes**
 
 To import an iterm themes, open your iTerm2 preferences and go to your Profiles settings. In the color tab, click the Load preset dropdown and choose "Import".
+
+
+todo
+----
+
+- Full Debian and Fedora support
+- Support for getting a minimal environment on remote servers

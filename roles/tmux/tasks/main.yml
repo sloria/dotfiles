@@ -1,0 +1,15 @@
+
+- include: osx.yml
+  when: ansible_os_family == "Darwin"
+
+# TODO: Debian and Fedora
+
+- name: Install tmuxinator
+  gem: name=tmuxinator state=latest
+  when: tmux_install_tmuxinator
+
+- name: Symlink .tmux.conf
+  file:
+    src: "{{ dotfiles_home }}/roles/tmux/files/tmux.conf.link"
+    dest: "{{'~/.tmux.conf' | expanduser }}"
+    state: link

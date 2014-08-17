@@ -16,3 +16,24 @@ git_user: YOUR_GIT_USERNAME
 # If you use github, this should be the same as the email
 #  used on Github
 git_email: YOUR_GIT_EMAIL
+
+# Brew packages
+
+# Utiliities that don't get installed by a role
+osx_homebrew_packages:
+  - wget
+  - tree
+
+# Mac Apps to be installed with homebrew-cask
+osx_cask_packages:
+  - firefox
+  - google-chrome
+  - bettertouchtool
+  - iterm2
+
+# Node utilities
+npm_global_packages:
+  - grunt-cli
+  - gulp
+  - coffee-script
+  - bower
