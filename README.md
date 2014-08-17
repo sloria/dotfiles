@@ -17,7 +17,7 @@ a few neat features
 prerequisites (install these first)
 -----------------------------------
 
-- ansible
+- ansible >= 1.6
 - homebrew (If on Mac OSX)
 - git (homebrew installable on Mac OSX)
 

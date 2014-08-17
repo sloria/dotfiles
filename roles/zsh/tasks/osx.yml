@@ -1,7 +1,7 @@
 # OSX zsh installation and setup
 
 - name: Make sure zsh is installed
-  homebrew: name=zsh state=present
+  homebrew: name=zsh state=latest
 
 # http://zanshin.net/2013/09/03/how-to-use-homebrew-zsh-instead-of-max-os-x-default/
 - name: Add zsh to /etc/shells

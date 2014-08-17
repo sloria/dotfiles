@@ -12,3 +12,5 @@
     - python
     - hub
     - autojump
+    - ag
+    - {role: osx, when: ansible_os_family == "Darwin"}
