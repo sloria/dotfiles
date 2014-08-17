@@ -15,7 +15,7 @@
 - name: Makes sure snippets directory exists
   file: path="{{ '~/.vim/snippets' | expanduser }}" state=directory
 
-- name: Link all snippet files
+- name: Copy all snippet files
   copy: src={{ item }} dest={{ '~/.vim/snippets/' + item | expanduser}}
   with_items:
     - "_.snippets"

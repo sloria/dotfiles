@@ -1,6 +1,6 @@
 - name: Install vim
-  homebrew: name=vim state=present
+  homebrew: name=vim state=present install_options=with-python3
 
 - name: Install Mac Vim
-  homebrew: name=macvim state=present
+  homebrew: name=macvim state=present install_options=with-python3
   when: vim_install_macvim
