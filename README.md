@@ -1,7 +1,7 @@
 dotfiles
 ========
 
-A port of [sloria's dotfiles](https://github.com/sloria/dotfiles) to a set of Ansible roles. Will eventually support MacOSX, Ubuntu, and Fedora platforms.
+[sloria's dotfiles](https://github.com/sloria/dotfiles), rewritten as Ansible roles. Will eventually support MacOSX, Ubuntu, and Fedora platforms.
 
 a few neat features
 -------------------
@@ -45,7 +45,7 @@ $ cp group_vars/local.example group_vars/local
 Run the installation script.
 
 ```bash
-$ ./dot
+$ ./bin/dot
 ```
 
 special files
