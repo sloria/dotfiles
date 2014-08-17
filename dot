@@ -1,1 +1,1 @@
-ansible-playbook -i ~/dotfiles/hosts ~/dotfiles/dot.yml
+ansible-playbook -i ~/dotfiles/hosts ~/dotfiles/dot.yml --ask-sudo-pass

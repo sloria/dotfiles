@@ -1,0 +1,28 @@
+
+# TODO: ZSH installation
+
+- include: osx.yml
+  when: ansible_os_family == "Darwin"
+
+- name: Check if zshrc already exists
+  stat: path="{{'~/.zshrc' | expanduser }}"
+  register: zshrc_stat
+
+- name: Back up zshrc if it exists
+  command: mv ~/.zshrc ~/.zshrc.bak
+  when: zshrc_stat.stat.exists
+
+- name: Install prezto
+  script: install_prezto.sh creates="{{ '~/.zprezto' | expanduser}}"
+
+- name: Link zpreztorc file
+  file:
+    src: "{{ dotfiles_home }}/roles/zsh/files/zpreztorc.link"
+    dest: "{{ '~/.zpreztorc' | expanduser }}"
+    state: link
+
+- name: Link zshrc file
+  file:
+    src: "{{ dotfiles_home }}/roles/zsh/files/zshrc.link"
+    dest: "{{ '~/.zshrc' | expanduser }}"
+    state: link

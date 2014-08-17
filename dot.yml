@@ -5,13 +5,12 @@
 - name: Setup environment
   hosts: all
   vars:
-    vim_install_plugins: no
     # TODO: Don't hardcode this. Should just be the abspath of this directory where this
     # playbook resides
     dotfiles_home: "{{ '~/dotfiles' | expanduser}}"
-    # vim_install_macvim: no
+    vim_install_macvim: yes
+    vim_install_plugins: yes
   roles:
     - package_manager
     - vim
-
-
+    - zsh
