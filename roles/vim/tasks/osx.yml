@@ -4,3 +4,7 @@
 - name: Install Mac Vim
   homebrew: name=macvim state=present install_options=with-python3
   when: vim_install_macvim
+
+- name: Install exuberant-ctags (needed for TagBar plugin)
+  homebrew: name=ctags-exuberant state=present
+  when: not vim_minimal

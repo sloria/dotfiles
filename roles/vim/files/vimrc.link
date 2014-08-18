@@ -368,6 +368,9 @@ autocmd BufRead,BufNewFile *.md set filetype=markdown
 autocmd FileType markdown setlocal nolist expandtab lbr shiftwidth=4 tabstop=4 softtabstop=4
 \ formatoptions+=nqtl
 
+" yaml
+autocmd FileType yaml setlocal shiftwidth=2 tabstop=2 softtabstop=2
+
 " For better commit messages
 autocmd Filetype gitcommit setlocal textwidth=72
 
