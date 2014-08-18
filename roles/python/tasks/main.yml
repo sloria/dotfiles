@@ -5,3 +5,39 @@
 
 - include: install.yml
   when: not miniconda_stat.stat.exists
+
+- name: Check if pytest.ini file exists
+  stat: path="{{dotfiles_user_home}}/pytest.ini"
+  register: pytest_stat
+
+- name: Back up pytest.ini file
+  command: mv ~/pytest.ini ~/pytest.ini.bak
+  args:
+    creates: "{{dotfiles_user_home}}/pytest.ini"
+  when: pytest_stat.stat.exists
+
+- name: Link pytest.ini file
+  file:
+    src: "{{dotfiles_home}}/roles/python/files/pytest.ini"
+    dest: "{{dotfiles_user_home}}/pytest.ini"
+    state: link
+
+- name: Check if flake8 config file exists
+  stat: path="{{dotfiles_user_home}}/.config/flake8"
+  register: flake8_stat
+
+- name: Back up flake8 file
+  command: mv ~/.config/flake8 ~/.config/flake8.bak
+  args:
+    creates: "{{dotfiles_user_home}}/.config/flake8.bak"
+  when: flake8_stat.stat.exists
+
+- name: Make sure ~/.config exists
+  file: path="{{dotfiles_user_home}}/.config" state=directory
+
+- name: Link flake8 file
+  file:
+    src: "{{dotfiles_home}}/roles/python/files/flake8"
+    dest: "{{dotfiles_user_home}}/.config/flake8"
+    state: link
+
