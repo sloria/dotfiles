@@ -6,8 +6,8 @@
   hosts: local
   roles:
     - git
-    - package_manager
-    - zsh
+    - {role: package_manager, tags: ['bootstrap']}
+    - {role: zsh, tags: ['bootstrap']}
     - vim
     - python
     - hub
