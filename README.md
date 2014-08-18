@@ -60,7 +60,8 @@ commands
 
 There are three main commands in the `bin` directory for setting up and updating development environments:
 
-- `dot`: sets up local environment.
+- `dot-bootstrap`: sets up local environment by executing all roles in `local_env.yml`.
+- `dot`: updates local environment by executing all roles in `local_env.yml` except for the ones tagged with "bootstrap".
 - `dot-remote`: sets up remote environments.
 - `vdot`: sets up vagrant environments.
 
@@ -74,28 +75,6 @@ All configuration is done in `~/dotfiles`. Each role may contain (in addition to
 
 notes
 -----
-
-**zsh on Mac OSX**
-
-In order for zsh to work on OSX, you may need to add `/usr/local/bin/zsh` to your `/etc/shells`
-
-
-`/etc/shells` should look something like this:
-
-```
-# List of acceptable shells for chpass(1).
-# Ftpd will not allow users to connect who are not using
-# one of these shells.
-
-/bin/bash
-/bin/csh
-/bin/ksh
-/bin/sh
-/bin/tcsh
-/bin/zsh
-# Add this
-/usr/local/bin/zsh
-```
 
 **fonts**
 

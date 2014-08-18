@@ -1,2 +1,2 @@
-echo "Setting up local dev environment..."
+echo "Updating local dev environment..."
 ansible-playbook -i ~/dotfiles/hosts ~/dotfiles/local_env.yml --skip-tags "bootstrap"
