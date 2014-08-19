@@ -371,8 +371,8 @@ autocmd FileType markdown setlocal nolist expandtab lbr shiftwidth=4 tabstop=4 s
 " yaml
 autocmd FileType yaml setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
-" For better commit messages
-autocmd Filetype gitcommit setlocal textwidth=72
+" commit messages
+autocmd Filetype gitcommit setlocal nolist textwidth=72
 
 " GUI settings, e.g. MacVim
 set guifont=Ubuntu\ Mono:h14

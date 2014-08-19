@@ -1,0 +1,13 @@
+
+- name: Install git-flow with Homebrew
+  homebrew: name=git-flow state=latest
+  when: ansible_os_family == "Darwin"
+
+
+- name: Install git-flow with Apt
+  apt: name="git-flow" state=latest
+  when: ansible_os_family == "Debian"
+
+- name: Install git-flow with Yum
+  yum: name="gitflow" state=latest
+  when: ansible_os_family == "RedHat"
