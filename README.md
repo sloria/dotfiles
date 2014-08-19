@@ -43,7 +43,7 @@ $ cd ~/dotfiles
 - Run the installation script.
 
 ```bash
-$ ./bin/dot
+$ ./bin/dot-bootstrap
 ```
 
 updating
@@ -63,7 +63,6 @@ There are three main commands in the `bin` directory for setting up and updating
 - `dot-bootstrap`: sets up local environment by executing all roles in `local_env.yml`.
 - `dot`: updates local environment by executing all roles in `local_env.yml` except for the ones tagged with "bootstrap".
 - `dot-remote`: sets up remote environments.
-- `vdot`: sets up vagrant environments.
 
 special files
 -------------
