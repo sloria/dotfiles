@@ -9,10 +9,11 @@ a few neat features
 - zsh configured with [prezto](https://github.com/sorin-ionescu/prezto).
 - nice fonts for the terminal and coding.
 - iterm2 themes.
-- anaconda python
-- a tmux.conf that's pretty neat
-- vim with Vundle for plugin management. All configuration in a single file .vimrc
+- anaconda python (Miniconda 3 distribution).
+- a tmux.conf that's pretty neat.
+- vim with Vundle for plugin management. All configuration in a single file .vimrc.
 - pluggable. Everything is optional. Fork this. Remove what you don't use. Configure what you do use.
+- Mac packages installed with [homebrew][]. Mac apps installed with [homebrew-cask][].
 - support for deploying to remote environments.
 
 prerequisites (install these first)
@@ -39,6 +40,10 @@ $ cd ~/dotfiles
 - Update the following variables in `group_vars/local` (at a minimum)
     - `git_user`: Your git user name.
     - `git_email`: Your git email address.
+- Optional, but recommended: Update `group_vars/local` with the programs you want installed by [homebrew][], [homebrew-cask][], and npm.
+    - `osx_homebrew_packages`:  Utilities that don't get installed by the roles.
+    - `osx_cask_packages`: Mac Apps you want installed with [homebrew-cask][].
+    - `npm_global_packages`: Node utilities.
 - Edit `local_env.yml` as you see fit. Remove any roles you don't use. Edit roles that you do use.
 - Run the installation script.
 
@@ -85,6 +90,8 @@ The `python` topic installs the [Anaconda Python distribution](https://store.con
 
 **iterm2 color themes**
 
+256 color-mode should be enabled for themes to appear correctly. In the iterm2 preferences window, go to your default profile settings and click the "Terminal". Change the "Report Terminal Type" to "xterm-256color".
+
 To import an iterm theme from the `misc/iterm-themes` directory, open your iTerm2 preferences and go to your Profiles settings. In the color tab, click the Load preset dropdown and choose "Import".
 
 setting up remote dev environments
@@ -116,3 +123,12 @@ todo
 
 - Full Debian and Red Hat support
 - Add more options to `dot` script, e.g. for skipping tasks
+
+[homebrew]: http://brew.sh/
+[homebrew-cask]: https://github.com/caskroom/homebrew-cask
+
+
+license
+-------
+
+[MIT Licensed](http://sloria.mit-license.org/).
