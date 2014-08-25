@@ -118,9 +118,7 @@ noremap <Leader>gsh :!git push<CR>
 cabbrev git Git
 
 " Colors
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'chriskempson/vim-tomorrow-theme'
-Plugin 'reedes/vim-colors-pencil'
+Plugin 'flazz/vim-colorschemes'
 
 " Syntax and languages
 Plugin 'mitsuhiko/vim-jinja'
@@ -135,6 +133,7 @@ let g:pymode_run = 0
 let g:pymode_folding = 0
 " don't use linter, we use syntastic for that
 let g:pymode_lint = 0
+let g:pymode_indent = 0
 " Don't look for .ropeproject directories in parent directories
 let g:pymode_rope_lookup_project = 0
 set completeopt=menu " prevent pymode from showing documentation on autocomplete
@@ -143,7 +142,6 @@ set completeopt=menu " prevent pymode from showing documentation on autocomplete
 " new window
 let g:pymode_rope_goto_definition_cmd = 'e'
 Plugin 'pangloss/vim-javascript'
-
 Plugin 'sophacles/vim-bundle-mako'
 Plugin 'plasticboy/vim-markdown'
 let g:vim_markdown_folding_disabled=1
@@ -201,7 +199,10 @@ set shiftround " use multiple of shiftwidth when indenting with '<' and '>'
 
 set nobackup
 set noswapfile  " Prevent annoying swapfile dialogs
-set noerrorbells " Bells
+" No bells
+set noerrorbells
+set visualbell
+set t_vb=
 """ VISUAL SETTINGS """
 
 set t_Co=256 " Must be 256 for Tomorrow theme to display correctly
@@ -310,6 +311,9 @@ nnoremap <C-l> <C-w>l
 
 " in case you forgot to sudo
 cnoremap w!! %!sudo tee > /dev/null %
+
+" selected last pasted text
+nnoremap gp `[v`]
 
 " Open help in a new tab
 cabbrev h tab h

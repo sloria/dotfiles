@@ -36,14 +36,14 @@
 
 - name: Symlink vimrc
   file:
-    src: "{{ dotfiles_home }}/roles/vim/files/vimrc.link"
+    src: "{{ dotfiles_home }}/roles/vim/files/vimrc"
     dest: "{{dotfiles_user_home}}/.vimrc"
     state: link
   when: not vim_minimal
 
 - name: Symlink minimal vimrc
   file:
-    src: "{{ dotfiles_home }}/roles/vim/files/vimrc_minimal.link"
+    src: "{{ dotfiles_home }}/roles/vim/files/vimrc_minimal"
     dest: "{{dotfiles_user_home}}/.vimrc"
     state: link
   when: vim_minimal
