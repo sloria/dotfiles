@@ -10,7 +10,7 @@
     # and symlinks are present
     - name: Clone dotfiles repo
       git:
-        repo: https://github.com/asmacdo/dotfiles.git
+        repo: https://github.com/sloria/dotfiles.git
         dest: "{{dotfiles_user_home}}/dotfiles"
 
 - name: Set up remote development environments (roles)

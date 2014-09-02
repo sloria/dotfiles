@@ -6,6 +6,7 @@ alias pyserv3="python3 -m http.server"
 alias pt="py.test"
 alias nt="nosetests"
 alias mn="python manage.py"
+alias pipgrep="pip freeze | grep "
 
 # Conda environments
 alias mkenv="conda create python=3 ipython pip -n "
