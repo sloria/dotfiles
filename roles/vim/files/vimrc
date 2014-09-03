@@ -70,6 +70,7 @@ Plugin 'Raimondi/delimitMate'
 
 Plugin 'scrooloose/nerdtree'
 nnoremap <leader>d :NERDTreeToggle<CR>
+
 " Single clicks open directories and files
 let g:NERDTreeMouseMode = 3
 let g:NERDTreeRespectWildIgnore = 1
@@ -77,11 +78,14 @@ let g:NERDTreeRespectWildIgnore = 1
 Plugin 'scrooloose/syntastic'
 let g:syntastic_mode_map = { 'mode': 'active',
  \ 'active_filetypes': [],
- \ 'passive_filetypes': ['html', 'rst'] }
+ \ 'passive_filetypes': [ 'html', 'rst'] }
 let g:syntastic_python_checkers = ['flake8', 'python']
-let g:syntastic_enable_signs = 0
-let g:syntastic_python_checker_args='--ignore=E501'
+let g:syntastic_python_checker_args='--ignore=E501,E501,E127,E128,E265,E302
+    \ --max-line-length=90'
 let g:syntastic_javascript_checkers = ['jshint']
+" Disable some features to make syntastic faster
+let g:syntastic_enable_signs = 0
+let g:syntastic_enable_balloons = 0
 
 Plugin 'terryma/vim-expand-region'
 " Press v to select one char, v again to expand selection, v again to expand
@@ -127,10 +131,12 @@ Plugin 'chase/vim-ansible-yaml'
 Plugin 'klen/python-mode'
 " Use 'python' for Python 2; 'python3' for Python 3
 let g:pymode_python = 'python3'
-" Turn off run mode
+" Turn off stuff I don't use
+let g:pymode_doc = 0
 let g:pymode_run = 0
-" Turn off automatic folding in python-mode
 let g:pymode_folding = 0
+let g:pymode_virtualenv = 0
+let g:pymode_lint_on_write = 0
 " don't use linter, we use syntastic for that
 let g:pymode_lint = 0
 let g:pymode_indent = 0
