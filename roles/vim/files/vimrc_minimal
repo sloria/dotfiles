@@ -166,6 +166,9 @@ nnoremap <C-l> <C-w>l
 
 """ SHORTCUTS """
 
+" Quickly open netrw
+map <leader>b :e.<CR>
+
 " in case you forgot to sudo
 cnoremap w!! %!sudo tee > /dev/null %
 

@@ -74,6 +74,7 @@ nnoremap <leader>d :NERDTreeToggle<CR>
 " Single clicks open directories and files
 let g:NERDTreeMouseMode = 3
 let g:NERDTreeRespectWildIgnore = 1
+let g:NERDTreeHijackNetrw = 0
 
 Plugin 'scrooloose/syntastic'
 let g:syntastic_mode_map = { 'mode': 'active',
@@ -314,6 +315,9 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
 """ SHORTCUTS """
+
+" Quickly open netrw
+map <leader>b :e.<CR>
 
 " in case you forgot to sudo
 cnoremap w!! %!sudo tee > /dev/null %

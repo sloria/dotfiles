@@ -3,5 +3,3 @@ localhost
 
 [local:vars]
 ansible_connection=local
-
-[remote]
