@@ -94,12 +94,32 @@ The `python` topic installs the [Anaconda Python distribution](https://store.con
 
 To import an iterm theme from the `misc/iterm-themes` directory, open your iTerm2 preferences and go to your Profiles settings. In the color tab, click the Load preset dropdown and choose "Import".
 
+
+**macosx keyboard settings**
+
+There are a few keyboard customizations that must be done manually:
+
+- Turning repeat speed up to 11.
+
+![Keyboard settings](https://dl.dropboxusercontent.com/u/1693233/github/dotfiles-mac-keys.png "Key repeat settings")
+
+
+- Mapping Caps Lock to Ctrl.
+
+![Modifier keys](https://dl.dropboxusercontent.com/u/1693233/github/dotfiles-mod-keys.png)
+
 setting up remote dev environments
 ----------------------------------
 
 The `remote_env.yml` playbook can set up a minimal subset of these dotfiles on remote machines.
 
-- Add the remote hosts you want to target under the `[remote]` group of the `hosts` file.
+- Copy `remotehosts.example` to `remotehosts`. The `remotehosts` file will note be added to version control.
+
+```
+$ cp remotehosts.example remotehosts
+```
+
+- Add the remote hosts you want to target under the `[remote]` group of the `remotehosts` file.
 
 ```
 [remote]
