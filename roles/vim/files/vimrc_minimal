@@ -27,6 +27,9 @@ nnoremap <leader>d :NERDTreeToggle<CR>
 Plugin 'chriskempson/vim-tomorrow-theme'
 
 Plugin 'tpope/vim-commentary'
+" Toggle comment with space-/
+nmap <leader>/ gcc
+vmap <leader>/ gc
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-surround'

@@ -213,8 +213,7 @@ set t_vb=
 """ VISUAL SETTINGS """
 
 set t_Co=256 " Must be 256 for Tomorrow theme to display correctly
-" let g:solarized_termcolors=256
-set background=light  " this only applies to the solarized theme, not tomorrow
+" set background=light  " this only applies to the solarized theme, not tomorrow
 " May want to have different schemes for termvim vs gvim
 if has('gui_running')
     silent! colorscheme Tomorrow-Night
