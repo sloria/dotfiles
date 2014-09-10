@@ -48,3 +48,7 @@ alias j=autojump
 alias e=$EDITOR
 alias pg='ps -ef | grep'
 
+if [ -f ~/.zshrc.local ]
+then
+    source ~/.zshrc.local
+fi

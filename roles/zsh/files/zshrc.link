@@ -48,3 +48,8 @@ done
 unset config_files
 # Make autoenv always work
 cd .
+
+if [ -f ~/.zshrc.local ]
+then
+    source ~/.zshrc.local
+fi

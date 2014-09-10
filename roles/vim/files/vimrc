@@ -74,7 +74,6 @@ nnoremap <leader>d :NERDTreeToggle<CR>
 " Single clicks open directories and files
 let g:NERDTreeMouseMode = 3
 let g:NERDTreeRespectWildIgnore = 1
-let g:NERDTreeHijackNetrw = 0
 
 Plugin 'scrooloose/syntastic'
 let g:syntastic_mode_map = { 'mode': 'active',
