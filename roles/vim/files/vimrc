@@ -87,12 +87,6 @@ let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_enable_signs = 0
 let g:syntastic_enable_balloons = 0
 
-Plugin 'terryma/vim-expand-region'
-" Press v to select one char, v again to expand selection, v again to expand
-" on a paragraph
-vmap v <Plug>(expand_region_expand)
-" Use Ctrl-v to shrink region if you go to far
-vmap <C-v> <Plug>(expand_region_shrink)
 
 Plugin 'tomtom/tlib_vim'
 Plugin 'tpope/vim-commentary'
@@ -212,7 +206,7 @@ set t_vb=
 """ VISUAL SETTINGS """
 
 set t_Co=256 " Must be 256 for Tomorrow theme to display correctly
-" set background=light  " this only applies to the solarized theme, not tomorrow
+set background=light  " this only applies to the solarized theme, not tomorrow
 " May want to have different schemes for termvim vs gvim
 if has('gui_running')
     silent! colorscheme Tomorrow-Night
