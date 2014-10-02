@@ -1,5 +1,4 @@
 set nocompatible              " be iMproved, required for Vundle
-filetype off                  " required for Vundle
 
 " Spacebar is a much better leader than \ or ,
 let mapleader = "\<Space>"
@@ -11,13 +10,9 @@ endif
 
 """"" PLUGINS """""
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-Plugin 'rking/ag.vim'
-Plugin 'kien/ctrlp.vim'
+call plug#begin()
+Plug 'rking/ag.vim'
+Plug 'kien/ctrlp.vim'
 " Go to symbol
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
@@ -32,24 +27,24 @@ else
   noremap <leader>f :Ack<space>
 endif
 map <leader>s :CtrlPBufTag<CR>
-Plugin 'ervandew/supertab'
+Plug 'ervandew/supertab'
 
-Plugin 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree'
 nnoremap <leader>d :NERDTreeToggle<CR>
 
-Plugin 'chriskempson/vim-tomorrow-theme'
+Plug 'chriskempson/vim-tomorrow-theme'
 
-Plugin 'tpope/vim-commentary'
+Plug 'tpope/vim-commentary'
 " Toggle comment with space-/
 nmap <leader>/ gcc
 vmap <leader>/ gc
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-sensible'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-unimpaired'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
 
 " Load plugins
-call vundle#end()            " required
+call plug#end()            " required
 filetype plugin indent on    " required
 
 """ end plugins """

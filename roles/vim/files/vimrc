@@ -5,9 +5,7 @@
 "   https://bitbucket.org/sjl/dotfiles/src/tip/vim/vimrc
 "   vim-bootstrap (http://vim-bootstrap.appspot.com/)
 "   and various StackOverflow answers
-set nocompatible              " be iMproved, required for Vundle
-filetype off                  " required for Vundle
-
+set nocompatible              " be iMproved
 " Spacebar is a much better leader than \ or ,
 let mapleader = "\<Space>"
 
@@ -18,30 +16,26 @@ endif
 
 """"" PLUGINS """""
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+call plug#begin()
 
-Plugin 'alfredodeza/pytest.vim'
+Plug 'alfredodeza/pytest.vim'
 nmap <silent><Leader>F <Esc>:Pytest file verbose<CR>
 nmap <silent><Leader>c <Esc>:Pytest class verbose<CR>
 nmap <silent><Leader>m <Esc>:Pytest method verbose<CR>
 nmap <silent><Leader>tf <Esc>:Pytest function verbose<CR>
 
-Plugin 'bling/vim-airline'
+Plug 'bling/vim-airline'
 let g:airline_theme="tomorrow"
-Plugin 'christoomey/vim-tmux-navigator'
+Plug 'christoomey/vim-tmux-navigator'
 
-Plugin 'ervandew/supertab'
-Plugin 'SirVer/ultisnips'
+Plug 'ervandew/supertab'
+Plug 'SirVer/ultisnips'
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-Plugin 'honza/vim-snippets'
+Plug 'honza/vim-snippets'
 
-Plugin 'rking/ag.vim'
-Plugin 'kien/ctrlp.vim'
+Plug 'rking/ag.vim'
+Plug 'kien/ctrlp.vim'
 " Go to symbol
 map <leader>s :CtrlPBufTag<CR>
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
@@ -57,24 +51,24 @@ else
   noremap <leader>f :Ack<space>
 endif
 
-Plugin 'majutsushi/tagbar'
+Plug 'majutsushi/tagbar'
 " Open tagbar
 map <leader>\ :Tagbar<CR>
 let g:tagbar_autofocus = 1
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'mattn/emmet-vim'
-Plugin 'ntpeters/vim-better-whitespace'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'mattn/emmet-vim'
+Plug 'ntpeters/vim-better-whitespace'
 " Strip whitespace with space-space-w
 nmap <leader><leader>w :StripWhitespace<CR>
-Plugin 'Raimondi/delimitMate'
+Plug 'Raimondi/delimitMate'
 
-Plugin 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree'
 nnoremap <leader>d :NERDTreeToggle<CR>
 " Single clicks open directories and files
 let g:NERDTreeMouseMode = 3
 let g:NERDTreeRespectWildIgnore = 1
 
-Plugin 'scrooloose/syntastic'
+Plug 'scrooloose/syntastic'
 let g:syntastic_mode_map = { 'mode': 'active',
  \ 'active_filetypes': [],
  \ 'passive_filetypes': [ 'html', 'rst', 'md'] }
@@ -86,23 +80,23 @@ let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_enable_signs = 0
 let g:syntastic_enable_balloons = 0
 
-Plugin 'tomtom/tlib_vim'
-Plugin 'tpope/vim-rsi'
-Plugin 'tpope/vim-commentary'
+Plug 'tomtom/tlib_vim'
+Plug 'tpope/vim-rsi'
+Plug 'tpope/vim-commentary'
 " Toggle comment with space-/
 nmap <leader>/ gcc
 vmap <leader>/ gc
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-sensible'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'mattn/webapi-vim' " needed by gist-vim and github-comment
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'mattn/webapi-vim' " needed by gist-vim and github-comment
 " Github/Gist
-Plugin 'mattn/gist-vim'
+Plug 'mattn/gist-vim'
 " Make gists private by default
 let g:gist_post_private = 1
 
-Plugin 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 map <leader>gs :Gstatus<CR>
 map <leader>gb :Gblame<CR>
 " Open current file on Github
@@ -114,13 +108,13 @@ map <leader>gw :Gwrite<CR>
 noremap <Leader>gsh :Git push<CR>
 
 " Colors
-Plugin 'flazz/vim-colorschemes'
+Plug 'flazz/vim-colorschemes'
 
 " Syntax and languages
-Plugin 'mitsuhiko/vim-jinja'
-Plugin 'stephpy/vim-yaml'
-Plugin 'chase/vim-ansible-yaml'
-Plugin 'klen/python-mode'
+Plug 'mitsuhiko/vim-jinja'
+Plug 'stephpy/vim-yaml'
+Plug 'chase/vim-ansible-yaml'
+Plug 'klen/python-mode'
 " Use 'python' for Python 2; 'python3' for Python 3
 let g:pymode_python = 'python3'
 " Turn off stuff I don't use
@@ -139,17 +133,17 @@ set completeopt=menu " prevent pymode from showing documentation on autocomplete
 " When using goto_definition, open in the current window instead of creating a
 " new window
 let g:pymode_rope_goto_definition_cmd = 'e'
-Plugin 'pangloss/vim-javascript'
-Plugin 'sophacles/vim-bundle-mako'
-Plugin 'plasticboy/vim-markdown'
+Plug 'pangloss/vim-javascript'
+Plug 'sophacles/vim-bundle-mako'
+Plug 'plasticboy/vim-markdown'
 let g:vim_markdown_folding_disabled=1
 
-Plugin 'ZoomWin'
-Plugin 'terryma/vim-multiple-cursors'
+Plug 'ZoomWin'
+Plug 'terryma/vim-multiple-cursors'
 " For previewing markdown, rst ,etc
-Plugin 'greyblake/vim-preview'
-Plugin 'matchit.zip'
-Plugin 'duff/vim-scratch'
+Plug 'greyblake/vim-preview'
+Plug 'matchit.zip'
+Plug 'duff/vim-scratch'
 " Open scratch buffer with space-tab
 command! ScratchToggle call ScratchToggle()
 
@@ -166,7 +160,7 @@ endfunction
 nnoremap <silent> <leader><tab> :ScratchToggle<cr>
 
 " Load plugins
-call vundle#end()            " required
+call plug#end()            " required
 filetype plugin indent on    " required
 
 """ end plugins """
