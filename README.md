@@ -11,7 +11,7 @@ a few neat features
 - iterm2 themes.
 - anaconda python (Miniconda 3 distribution).
 - a tmux.conf that's pretty neat.
-- vim with Vundle for plugin management. All configuration in a single file .vimrc.
+- vim with [vim-plug](https://github.com/junegunn/vim-plug) for plugin management. All configuration in a single file [.vimrc](https://github.com/sloria/dotfiles/blob/master/roles/vim/files/vimrc).
 - pluggable. Everything is optional. Fork this. Remove what you don't use. Configure what you do use.
 - Mac packages installed with [homebrew][]. Mac apps installed with [homebrew-cask][].
 - support for deploying to remote environments.
@@ -137,6 +137,19 @@ Then run the `dot-remote` command.
 ```bash
 $ ./bin/dot-remote
 ```
+
+what if I only want your vim?
+-----------------------------
+
+The following commands will install vim-plug and download my `.vimrc`.
+
+```
+mkdir -p ~/.vim/autoload
+curl -fLo ~/.vim/autoload/plug.vim https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+curl -fLo ~/.vimrc https://raw.githubusercontent.com/sloria/dotfiles/master/roles/vim/files/vimrc
+```
+
+You will now be able to open vim and run `:PlugInstall` to install all plugins.
 
 todo
 ----

@@ -81,7 +81,7 @@ let g:syntastic_enable_signs = 0
 let g:syntastic_enable_balloons = 0
 
 Plug 'tomtom/tlib_vim'
-Plug 'tpope/vim-rsi'
+Plug 'tpope/vim-rsi'  " unix keybindings in insert mode
 Plug 'tpope/vim-commentary'
 " Toggle comment with space-/
 nmap <leader>/ gcc
@@ -165,7 +165,6 @@ filetype plugin indent on    " required
 
 """ end plugins """
 
-
 """ BASE CUSTOMIZATIONS """
 
 set encoding=utf-8
@@ -198,7 +197,6 @@ set t_vb=
 """ VISUAL SETTINGS """
 
 set t_Co=256 " Must be 256 for many themes to display correctly
-set background=light  " this only applies to the solarized theme, not tomorrow
 " May want to have different schemes for termvim vs gvim
 if has('gui_running')
     silent! colorscheme hybrid
