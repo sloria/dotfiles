@@ -56,6 +56,6 @@
     state: link
   when: vim_minimal
 
-- name: Run vim bundle install
-  command: vim +BundleInstall +qall
+- name: Install plugins
+  command: vim +PlugInstall +qall
   when: vim_install_plugins
