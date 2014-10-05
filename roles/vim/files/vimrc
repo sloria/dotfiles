@@ -25,7 +25,7 @@ nmap <silent><Leader>m <Esc>:Pytest method verbose<CR>
 nmap <silent><Leader>tf <Esc>:Pytest function verbose<CR>
 
 Plug 'bling/vim-airline'
-let g:airline_theme="tomorrow"
+" let g:airline_theme="tomorrow"
 Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'ervandew/supertab'
@@ -60,7 +60,7 @@ Plug 'mattn/emmet-vim'
 Plug 'ntpeters/vim-better-whitespace'
 " Strip whitespace with space-space-w
 nmap <leader><leader>w :StripWhitespace<CR>
-Plug 'Raimondi/delimitMate'
+Plug 'Raimondi/delimitMate'  " autoclose parens, quotes, etc.
 
 Plug 'scrooloose/nerdtree'
 nnoremap <leader>d :NERDTreeToggle<CR>
@@ -115,16 +115,14 @@ Plug 'mitsuhiko/vim-jinja'
 Plug 'stephpy/vim-yaml'
 Plug 'chase/vim-ansible-yaml'
 Plug 'klen/python-mode'
-" Use 'python' for Python 2; 'python3' for Python 3
-let g:pymode_python = 'python3'
 " Turn off stuff I don't use
 let g:pymode_doc = 0
 let g:pymode_run = 0
 let g:pymode_folding = 0
 let g:pymode_virtualenv = 0
-let g:pymode_lint_on_write = 0
 " don't use linter, we use syntastic for that
 let g:pymode_lint = 0
+let g:pymode_lint_on_write = 0
 let g:pymode_indent = 0
 " Don't look for .ropeproject directories in parent directories
 let g:pymode_rope_lookup_project = 0
@@ -294,6 +292,8 @@ nnoremap <C-l> <C-w>l
 
 """ SHORTCUTS """
 
+set pastetoggle=<leader>z  " toggle paste mode
+
 " in case you forgot to sudo
 cnoremap w!! %!sudo tee > /dev/null %
 
@@ -348,8 +348,8 @@ nmap j gj
 nmap k gk
 
 "" Tabs
-nmap <Tab> gt
-nmap <S-Tab> gT
+noremap <S-l> gt
+noremap <S-h> gT
 nnoremap <silent> <S-t> :tabnew<CR>
 
 """ Syntax
