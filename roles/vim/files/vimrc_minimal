@@ -74,15 +74,19 @@ set shiftround " use multiple of shiftwidth when indenting with '<' and '>'
 
 set nobackup
 set noswapfile  " Prevent annoying swapfile dialogs
-
+" No bells
+set noerrorbells
+set visualbell
+set t_vb=
 """ VISUAL SETTINGS """
 
-set t_Co=256 " Must be 256 for Tomorrow theme to display correctly
-" let g:solarized_termcolors=256
-set background=light  " this only applies to the solarized theme, not tomorrow
+set t_Co=256 " Must be 256 for many themes to display correctly
 " May want to have different schemes for termvim vs gvim
-" termvim looks best with Tomorrow themes
-silent! colorscheme Tomorrow-Night-Eighties
+if has('gui_running')
+    silent! colorscheme hybrid
+else
+    silent! colorscheme hybrid
+endif
 
 " Show trailing whitespace
 set list
@@ -174,6 +178,8 @@ nnoremap <C-l> <C-w>l
 
 """ SHORTCUTS """
 
+set pastetoggle=<leader>z  " toggle paste mode
+
 " in case you forgot to sudo
 cnoremap w!! %!sudo tee > /dev/null %
 
@@ -215,10 +221,6 @@ nnoremap Y y$
 noremap <leader>h ^
 noremap <leader>l $
 
-" Quick indent/dedent
-nnoremap <leader>[ <<
-nnoremap <leader>] >>
-
 " Split line (sister to [J]oin lines)
 " The normal use of S is covered by cc, so don't worry about shadowing it.
 nnoremap S i<cr><esc>^mwgk:silent! s/\v +$//<cr>:noh<cr>`w
@@ -228,8 +230,6 @@ nmap j gj
 nmap k gk
 
 "" Tabs
-nmap <Tab> gt
-nmap <S-Tab> gT
 nnoremap <silent> <S-t> :tabnew<CR>
 
 """ Syntax
@@ -251,3 +251,15 @@ autocmd FileType yaml setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 " commit messages
 autocmd Filetype gitcommit setlocal nolist textwidth=72
+
+" GUI settings, e.g. MacVim
+set guifont=Ubuntu\ Mono:h14
+if has('gui_running')
+    if has('mac')
+        set transparency=7
+        " Hide scrollbars in MacVim
+        set guioptions-=T
+        set guioptions-=r
+        set go-=L
+    endif
+endif
