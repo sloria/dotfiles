@@ -100,9 +100,9 @@ Plug 'tpope/vim-fugitive'
 map <leader>gs :Gstatus<CR>
 map <leader>gb :Gblame<CR>
 " Open current file on Github
-map <leader>gB :Gbrowse<CR>
+map <leader>gB :Gbrowse -<CR>
 " Open currently selected lines on Github
-vmap <leader>gB :Gbrowse<CR>
+vmap <leader>gB :Gbrowse -<CR>
 map <leader>gr :Gread<CR>
 map <leader>gw :Gwrite<CR>
 noremap <Leader>gsh :Git push<CR>
@@ -335,10 +335,6 @@ nnoremap Y y$
 noremap <leader>h ^
 noremap <leader>l $
 
-" Quick indent/dedent
-nnoremap <leader>[ <<
-nnoremap <leader>] >>
-
 " Split line (sister to [J]oin lines)
 " The normal use of S is covered by cc, so don't worry about shadowing it.
 nnoremap S i<cr><esc>^mwgk:silent! s/\v +$//<cr>:noh<cr>`w
@@ -348,8 +344,6 @@ nmap j gj
 nmap k gk
 
 "" Tabs
-noremap <S-l> gt
-noremap <S-h> gT
 nnoremap <silent> <S-t> :tabnew<CR>
 
 """ Syntax
