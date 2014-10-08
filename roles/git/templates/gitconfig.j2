@@ -9,15 +9,23 @@
 {% endif %}
 [alias]
         st = status
+        s = status
         co = checkout
+        c = checkout
         ci = commit
         br = branch
         df = diff
         dfs = diff --staged
-        logg = log --graph --decorate --oneline --abbrev-commit --all
-        hist = log --graph --decorate --oneline --abbrev-commit
+        pl = pull
         pup = pull upstream
         shorg = push -u origin
+
+        logg = log --graph --decorate --oneline --abbrev-commit --all
+        l = log --graph --decorate --oneline --abbrev-commit --all
+        hist = log --graph --decorate --oneline --abbrev-commit
+        h = log --graph --decorate --oneline --abbrev-commit
+
+        nuke = delete-branch
         switch = !legit switch \"$@\"
         branches = !legit branches
         sprout = !legit sprout \"$@\"
@@ -26,9 +34,8 @@
         sync = !legit sync \"$@\"
         publish = !legit publish \"$@\"
         graft = !legit graft \"$@\"
+
         f = flow
-        pl = pull
-        nuke = delete-branch
         fublish = flow feature publish
         feature = flow feature start
         fart = flow feature start
@@ -37,6 +44,7 @@
         finfix = flow hotfix finish
         release = flow release start
         finrelease = flow release finish
+
         sub = submodule
 [color]
         diff = auto
