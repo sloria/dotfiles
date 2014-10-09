@@ -1,10 +1,3 @@
-" Adapted from:
-"   https://github.com/square/maximum-awesome/blob/master/vimrc
-"   http://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/
-"   https://github.com/sheerun/vimrc
-"   https://bitbucket.org/sjl/dotfiles/src/tip/vim/vimrc
-"   vim-bootstrap (http://vim-bootstrap.appspot.com/)
-"   and various StackOverflow answers
 set nocompatible              " be iMproved
 " Spacebar is a much better leader than \ or ,
 let mapleader = "\<Space>"
@@ -15,7 +8,6 @@ if has("autocmd")
 endif
 
 """"" PLUGINS """""
-
 call plug#begin()
 
 Plug 'alfredodeza/pytest.vim'
@@ -25,7 +17,6 @@ nmap <silent><Leader>m <Esc>:Pytest method verbose<CR>
 nmap <silent><Leader>tf <Esc>:Pytest function verbose<CR>
 
 Plug 'bling/vim-airline'
-" let g:airline_theme="tomorrow"
 Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'ervandew/supertab'
@@ -57,6 +48,7 @@ map <leader>\ :Tagbar<CR>
 let g:tagbar_autofocus = 1
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'mattn/emmet-vim'
+imap <C-d> <C-y>,
 Plug 'ntpeters/vim-better-whitespace'
 " Strip whitespace with space-space-w
 nmap <leader><leader>w :StripWhitespace<CR>
@@ -79,7 +71,6 @@ let g:syntastic_javascript_checkers = ['jshint']
 " Disable some features to make syntastic faster
 let g:syntastic_enable_signs = 0
 let g:syntastic_enable_balloons = 0
-
 Plug 'tomtom/tlib_vim'
 Plug 'tpope/vim-rsi'  " unix keybindings in insert mode
 Plug 'tpope/vim-commentary'
@@ -98,6 +89,8 @@ let g:gist_post_private = 1
 
 Plug 'tpope/vim-fugitive'
 map <leader>gs :Gstatus<CR>
+" <leader>gs mapping has a lag, so I use this one instead
+map <leader>S :Gstatus<CR>
 map <leader>gb :Gblame<CR>
 " Open current file on Github
 map <leader>gB :Gbrowse -<CR>
@@ -120,6 +113,7 @@ let g:pymode_doc = 0
 let g:pymode_run = 0
 let g:pymode_folding = 0
 let g:pymode_virtualenv = 0
+let g:pymode_breakpoint = 0
 " don't use linter, we use syntastic for that
 let g:pymode_lint = 0
 let g:pymode_lint_on_write = 0
@@ -164,16 +158,12 @@ filetype plugin indent on    " required
 """ end plugins """
 
 """ BASE CUSTOMIZATIONS """
-
 set encoding=utf-8
 syntax enable
-
 set autoindent
 set autoread " reload files when changed on disk, i.e. via `git checkout`
-
 set backupcopy=yes
-" Make "yanks" work with system clipboard
-set clipboard=unnamed
+set clipboard=unnamed " Make "yanks" work with system clipboard
 set ignorecase " case-insensitive search
 set incsearch " search as you type
 set wildmenu " show a navigable menu for tab completion
@@ -214,9 +204,7 @@ set cursorline  " have a line indicate cursor location
 set foldmethod=manual
 set previewheight=25  " Larger preview height
 set number " Show line numbers on the sidebar.
-" Do not fold by default. But if you do, do it up to 3 levels.
-set foldmethod=indent
-set foldnestmax=3
+" Do not fold by default.
 set nofoldenable
 
 " Set minimum window size to 79x5.
@@ -244,7 +232,6 @@ if exists("+undofile")
 " undofile - This allows you to use undos after exiting and restarting
 " This, like swap and backups, uses .vim-undo first, then ~/.vim/undo
 " :help undo-persistence
-" This is only present in 7.3+
   if isdirectory($HOME . '/.vim/undo') == 0
     :silent !mkdir -p ~/.vim/undo > /dev/null 2>&1
   endif
@@ -291,13 +278,12 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
 """ SHORTCUTS """
-
 set pastetoggle=<leader>z  " toggle paste mode
 
 " in case you forgot to sudo
 cnoremap w!! %!sudo tee > /dev/null %
 
-" selected last pasted text
+" select last pasted text
 nnoremap gp `[v`]
 
 " Open help in a new tab
@@ -336,7 +322,6 @@ noremap <leader>h ^
 noremap <leader>l $
 
 " Split line (sister to [J]oin lines)
-" The normal use of S is covered by cc, so don't worry about shadowing it.
 nnoremap S i<cr><esc>^mwgk:silent! s/\v +$//<cr>:noh<cr>`w
 
 " Move vertically over wrapped lines
@@ -362,6 +347,9 @@ autocmd FileType markdown setlocal nolist expandtab lbr shiftwidth=4 tabstop=4 s
 
 " yaml
 autocmd FileType yaml setlocal shiftwidth=2 tabstop=2 softtabstop=2
+
+" vim
+autocmd FileType vim setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 " commit messages
 autocmd Filetype gitcommit setlocal nolist textwidth=72
