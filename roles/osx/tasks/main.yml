@@ -1,12 +1,16 @@
 - name: Set system defaults
   script: set-defaults.sh
+  changed_when: false
 
 - name: Install mac-specific homebrew packages
   homebrew: name={{item}} state=latest
   with_items: osx_homebrew_packages
 
+- name: Tap into homebrew-cask
+  homebrew_tap: tap=caskroom/cask state=present
+
 - name: Make sure homebrew-cask is installed
-  command: brew install caskroom/cask/brew-cask
+  homebrew: name=brew-cask state=present
 
 - name: Install Mac apps with homebrew cask
   homebrew_cask: name={{item}} state=present
