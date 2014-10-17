@@ -11,10 +11,10 @@ endif
 call plug#begin()
 
 Plug 'alfredodeza/pytest.vim'
-nmap <silent><Leader>F <Esc>:Pytest file verbose<CR>
-nmap <silent><Leader>c <Esc>:Pytest class verbose<CR>
-nmap <silent><Leader>m <Esc>:Pytest method verbose<CR>
-nmap <silent><Leader>tf <Esc>:Pytest function verbose<CR>
+nmap <silent><Leader>F :Pytest file verbose<CR>
+nmap <silent><Leader>c :Pytest class verbose<CR>
+nmap <silent><Leader>m :Pytest method verbose<CR>
+nmap <silent><Leader>tf :Pytest function verbose<CR>
 
 Plug 'bling/vim-airline'
 let g:airline#extensions#hunks#enabled = 0
@@ -49,7 +49,7 @@ map <leader>\ :Tagbar<CR>
 let g:tagbar_autofocus = 1
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'mattn/emmet-vim'
-imap <C-d> <C-y>,
+imap <C-a> <C-y>,
 Plug 'ntpeters/vim-better-whitespace'
 " Strip whitespace with space-space-w
 nmap <leader><leader>w :StripWhitespace<CR>
@@ -80,7 +80,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
-Plug 'mattn/webapi-vim' " needed by gist-vim and github-comment
+Plug 'mattn/webapi-vim' " needed by gist-vim
 " Github/Gist
 Plug 'mattn/gist-vim'
 " Make gists private by default
