@@ -38,7 +38,7 @@ $ cd ~/dotfiles
 ```
 
 - Update the following variables in `group_vars/local` (at a minimum)
-    - `git_user`: Your git user name.
+    - `git_user`: Your name, which will be attached to commit messages, e.g. `Steven Loria`.
     - `git_email`: Your git email address.
 - Optional, but recommended: Update `group_vars/local` with the programs you want installed by [homebrew][], [homebrew-cask][], and npm.
     - `osx_homebrew_packages`:  Utilities that don't get installed by the roles.

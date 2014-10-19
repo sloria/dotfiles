@@ -9,7 +9,7 @@ dotfiles_home: "{{dotfiles_user_home}}/dotfiles"
 
 
 # Git
-git_user: sloria
+git_user: Steven Loria
 # If you use github, this should be the same as the email
 #  used on Github
 git_email: sloria1@gmail.com
@@ -19,7 +19,7 @@ git_email: sloria1@gmail.com
 # Only applies to OSX. Ignored on other platforms.
 vim_install_macvim: yes
 # Whether to install plugins automatically. If not, just run
-# :PluginInstall while in vim.
+# :PlugInstall while in vim.
 vim_install_plugins: no
 
 
