@@ -60,7 +60,6 @@ nnoremap <leader>d :NERDTreeToggle<CR>
 " Single clicks open directories and files
 let g:NERDTreeMouseMode = 3
 let g:NERDTreeRespectWildIgnore = 1
-
 Plug 'scrooloose/syntastic'
 let g:syntastic_mode_map = { 'mode': 'active',
  \ 'active_filetypes': [],
@@ -113,6 +112,7 @@ Plug 'mitsuhiko/vim-jinja'
 Plug 'stephpy/vim-yaml'
 Plug 'chase/vim-ansible-yaml'
 Plug 'klen/python-mode'
+Plug 'elzr/vim-json'
 " Turn off stuff I don't use
 let g:pymode_doc = 0
 let g:pymode_run = 0
@@ -209,6 +209,12 @@ endif
 set list
 set listchars=tab:▸\ ,trail:▫
 
+" This check is needed because breakindent isn't yet available on Macvim =(
+if v:version > 704 || v:version == 704 && has("patch338")
+  set breakindent " indent on linebreak
+  set showbreak=..
+endif
+
 if &term =~ '256color'
   set t_ut=
 endif
@@ -291,6 +297,9 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
 """ SHORTCUTS """
+inoremap jk <Esc>
+inoremap kj <Esc>
+
 set pastetoggle=<leader>z  " toggle paste mode
 
 " in case you forgot to sudo
@@ -314,6 +323,9 @@ nmap <leader>, :tabedit $MYVIMRC<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>Q :wq<CR>
+
+" Quickly open netrw
+nnoremap <leader>e :e.<CR>
 
 " Unhighlight search
 nnoremap <Leader>n :nohlsearch<CR><C-L>
