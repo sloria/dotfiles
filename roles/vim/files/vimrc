@@ -49,7 +49,6 @@ map <leader>\ :Tagbar<CR>
 let g:tagbar_autofocus = 1
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'mattn/emmet-vim'
-imap <C-a> <C-y>,
 Plug 'ntpeters/vim-better-whitespace'
 " Strip whitespace with space-space-w
 nmap <leader><leader>w :StripWhitespace<CR>
