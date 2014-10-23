@@ -1,7 +1,7 @@
 vim
 ===
 
-Installs vim, [vim-plug](https://github.com/junegunn/vim-plug), and symlinks `.vimrc`.
+Installs vim, [vim-plug](https://github.com/junegunn/vim-plug), and symlinks [.vimrc](https://github.com/sloria/dotfiles/blob/master/roles/vim/files/vimrc).
 
 ## Want to install without using ansible?
 
@@ -15,12 +15,15 @@ Leader is `Space`.
 
 - `<space-w>`: Write file (who has time to type `:w<CR>`?).
 - `<space-q>`: Quit.
+- `<space-n>`: Remove search highlight.
 - `<space-v>`: Vertical split.
 - `<C-p>`: Go to file (default binding).
-- `<space-s>`: Go to symbol (method, function, etc.).
-- `<space-Tab>`: Open scratch buffer.
+- `<space-s>`: Go to symbol (method, function, etc.) in file.
 - `<space-/>`: Toggle comment.
 - `<space-d>`: Open filebrowser.
+- `<space-h>` and `<space-l>`: Go to beginning/end of line.
+- `<space-,>`: Open up vimrc.
+- `<space-Tab>`: Toggle scratch buffer.
 
 ### Python
 
@@ -35,7 +38,6 @@ Leader is `Space`.
 
 - `<C-c>g`: Go to definition (default binding).
 - `<C-c>rr`: Rename variable (default binding).
-
 
 ### Javascript
 
