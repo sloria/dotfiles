@@ -92,8 +92,6 @@ nmap [h <Plug>GitGutterPrevHunk
 nmap ]h <Plug>GitGutterNextHunk
 Plug 'tpope/vim-fugitive'
 map <leader>gs :Gstatus<CR>
-" <leader>gs mapping has a lag, so I use this one instead
-map <leader>S :Gstatus<CR>
 map <leader>gb :Gblame<CR>
 " Open current file on Github
 map <leader>gB :Gbrowse -<CR>
@@ -101,7 +99,7 @@ map <leader>gB :Gbrowse -<CR>
 vmap <leader>gB :Gbrowse -<CR>
 map <leader>gr :Gread<CR>
 map <leader>gw :Gwrite<CR>
-noremap <Leader>gsh :Git push<CR>
+noremap <Leader>gp :Git push<CR>
 
 " Colors
 Plug 'flazz/vim-colorschemes'

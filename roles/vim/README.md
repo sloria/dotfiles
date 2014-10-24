@@ -23,7 +23,6 @@ Leader is `Space`.
 - `<space-d>`: Open filebrowser.
 - `<space-h>` and `<space-l>`: Go to beginning/end of line.
 - `<space-,>`: Open up vimrc.
-- `<space-Tab>`: Toggle scratch buffer.
 
 ### Python
 
@@ -46,9 +45,9 @@ Leader is `Space`.
 
 ### Git
 
-- `<space-gs>` or `<space-S>` (which performs faster, for some reason): Open git status.
+- `<space-gs>`: Open git status.
 - `<space-gb>`: git blame
-- `<space-gsh>`: git push
+- `<space-gp>`: git push
 - `<space-gh>`: Stage hunk.
 - `<space-B>`: git Browse (go to corresponding file or selected lines on Github)
 - `]h` and `[h`: Go to next/previous hunk.
