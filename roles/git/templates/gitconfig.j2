@@ -1,7 +1,7 @@
 [hub]
         protocol = https
 [user]
-        name = {{ git_user }}
+        name = {{ full_name }}
         email = {{ git_email }}
 {% if ansible_os_family == 'Darwin' %}
 [credential]
