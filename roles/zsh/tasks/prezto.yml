@@ -16,4 +16,4 @@
     state: link
 
 - name: Add giddie prezto theme
-  copy: src="prompt_giddie_setup" dest="{{ '~/.zprezto/modules/prompt/functions' | expanduser }}"
+  copy: src="prompt_giddie_modified_setup" dest="{{ '~/.zprezto/modules/prompt/functions' | expanduser }}"
