@@ -25,7 +25,8 @@ Plug 'SirVer/ultisnips'
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 Plug 'honza/vim-snippets'
-
+Plug 'jeetsukumaran/vim-buffergator'
+let g:buffergator_viewport_split_policy = "T"
 Plug 'rking/ag.vim'
 Plug 'kien/ctrlp.vim'
 " Go to symbol
@@ -140,7 +141,6 @@ Plug 'sophacles/vim-bundle-mako'
 Plug 'plasticboy/vim-markdown'
 let g:vim_markdown_folding_disabled=1
 
-Plug 'ZoomWin'
 Plug 'terryma/vim-multiple-cursors'
 " For previewing markdown, rst ,etc
 Plug 'greyblake/vim-preview'
@@ -265,9 +265,6 @@ augroup line_return
         \     execute 'normal! g`"zvzz' |
         \ endif
 augroup END
-
-" Stop that stupid window from popping up
-map q: :q
 
 " Change cursor style when entering INSERT mode (works in tmux!)
 if exists('$TMUX')
