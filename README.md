@@ -130,6 +130,7 @@ $ cp remotehosts.example remotehosts
 Update the following variables in `group_vars/remote`:
 
 - `dotfiles_user_home` : Your user home directory.
+- `full_name`: Full name, for use in commit messages.
 - `git_user` : Your git user name.
 - `git_email` : Your git email.
 

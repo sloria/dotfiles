@@ -6,6 +6,8 @@ dotfiles_user_home: /home/sloria
 dotfiles_home: "{{dotfiles_user_home}}/dotfiles"
 
 # Git
+# Name used in commit messages
+full_name: Steven Loria
 git_user: sloria
 # If you use github, this should be the same as the email
 #  used on Github
