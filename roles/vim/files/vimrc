@@ -65,7 +65,7 @@ let g:syntastic_mode_map = { 'mode': 'active',
  \ 'active_filetypes': [],
  \ 'passive_filetypes': [ 'html', 'rst', 'md'] }
 let g:syntastic_python_checkers = ['flake8', 'python']
-let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_javascript_checkers = ['jsxhint', 'jshint']
 " Disable some features to make syntastic faster
 let g:syntastic_enable_signs = 0
 let g:syntastic_enable_balloons = 0
@@ -76,16 +76,16 @@ Plug 'tpope/vim-commentary'
 nmap <leader>/ gcc
 vmap <leader>/ gc
 Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
+Plug 'justinmk/vim-sneak'
 Plug 'mattn/webapi-vim' " needed by gist-vim
 " Github/Gist
 Plug 'mattn/gist-vim'
 " Make gists private by default
 let g:gist_post_private = 1
 Plug 'airblade/vim-gitgutter'
-" Disable gitgutter's bindings to avoid clashes
+" Set gitgutter's bindings manually to avoid clashes
 let g:gitgutter_map_keys = 0
 nmap <leader>gh <Plug>GitGutterStageHunk
 nmap <leader>gH <Plug>GitGutterRevertHunk
@@ -107,6 +107,7 @@ Plug 'flazz/vim-colorschemes'
 
 " Syntax and languages
 Plug 'mitsuhiko/vim-jinja'
+Plug 'mxw/vim-jsx'
 Plug 'stephpy/vim-yaml'
 Plug 'chase/vim-ansible-yaml'
 Plug 'klen/python-mode'
@@ -120,7 +121,6 @@ let g:pymode_breakpoint = 0
 " don't use linter, we use syntastic for that
 let g:pymode_lint = 0
 let g:pymode_lint_on_write = 0
-let g:pymode_indent = 0
 " Don't look for .ropeproject directories in parent directories
 let g:pymode_rope_lookup_project = 0
 set completeopt=menu " prevent pymode from showing documentation on autocomplete
@@ -161,6 +161,10 @@ endfunction
 
 nnoremap <silent> <leader><tab> :ScratchToggle<cr>
 
+" Sensible defaults
+Plug 'tpope/vim-sensible'
+Plug 'rstacruz/vim-opinion'
+
 " Load plugins
 call plug#end()            " required
 filetype plugin indent on    " required
@@ -169,13 +173,10 @@ filetype plugin indent on    " required
 
 """ BASE CUSTOMIZATIONS """
 set encoding=utf-8
-syntax enable
 set autoindent
 set autoread " reload files when changed on disk, i.e. via `git checkout`
 set backupcopy=yes
 set clipboard=unnamed " Make "yanks" work with system clipboard
-set ignorecase " case-insensitive search
-set incsearch " search as you type
 set wildmenu " show a navigable menu for tab completion
 set wildmode=longest,list,full
 
@@ -186,8 +187,6 @@ set softtabstop=4 " when hitting <BS>, pretend like a tab is removed, even if sp
 set shiftwidth=4 " number of spaces to use for autoindenting
 set shiftround " use multiple of shiftwidth when indenting with '<' and '>'
 
-set nobackup
-set noswapfile  " Prevent annoying swapfile dialogs
 " No bells
 set noerrorbells
 set visualbell
@@ -197,9 +196,9 @@ set t_vb=
 set t_Co=256 " Must be 256 for many themes to display correctly
 " May want to have different schemes for termvim vs gvim
 if has('gui_running')
-    silent! colorscheme hybrid
+  silent! colorscheme hybrid
 else
-    silent! colorscheme hybrid
+  silent! colorscheme hybrid
 endif
 
 " Show trailing whitespace
@@ -217,11 +216,8 @@ if &term =~ '256color'
 endif
 
 set cursorline  " have a line indicate cursor location
-set foldmethod=manual
 set previewheight=25  " Larger preview height
-set number " Show line numbers on the sidebar.
 " Do not fold by default.
-set nofoldenable
 
 " Set minimum window size to 79x5.
 set winwidth=79
@@ -279,10 +275,6 @@ endif
 nnoremap <C-w>s <C-w>s<C-w>w
 nnoremap <C-w>v <C-w>v<C-w>w
 
-""" Search
-set hlsearch " Highlight search results
-set ignorecase " Ignore case when searching.
-set smartcase " Don't ignore case when search has capital letter
 
 " Quicker window movement
 nnoremap <C-j> <C-w>j
@@ -340,15 +332,15 @@ nnoremap Y y$
 noremap <leader>h ^
 noremap <leader>l $
 
-" Split line (sister to [J]oin lines)
-nnoremap S i<cr><esc>^mwgk:silent! s/\v +$//<cr>:noh<cr>`w
+" Execute macro
+nnoremap Q @q
 
 " Move vertically over wrapped lines
 nmap j gj
 nmap k gk
 
 "" Tabs
-nnoremap <silent> <S-t> :tabnew<CR>
+nnoremap <silent> tt :tabnew<CR>
 
 """ Syntax
 " fdoc is yaml
@@ -370,6 +362,9 @@ autocmd FileType yaml setlocal shiftwidth=2 tabstop=2 softtabstop=2
 " vim
 autocmd FileType vim setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
+" javascript
+autocmd FileType javascript setlocal shiftwidth=4 tabstop=4 softtabstop=4
+
 " commit messages
 autocmd Filetype gitcommit setlocal nolist textwidth=72
 
@@ -377,7 +372,7 @@ autocmd Filetype gitcommit setlocal nolist textwidth=72
 set guifont=Ubuntu\ Mono:h14
 if has('gui_running')
     if has('mac')
-        set transparency=7
+        set transparency=5
         " Hide scrollbars in MacVim
         set guioptions-=T
         set guioptions-=r
