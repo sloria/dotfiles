@@ -13,5 +13,5 @@
 - name: Symlink .tmux.conf
   file:
     src: "{{ dotfiles_home }}/roles/tmux/files/tmux.conf"
-    dest: "{{'~/.tmux.conf' | expanduser }}"
+    dest: "{{dotfiles_user_home}}/.tmux.conf"
     state: link

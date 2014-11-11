@@ -284,8 +284,8 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
 """ SHORTCUTS """
+" Smash escape
 inoremap jk <Esc>
-inoremap kj <Esc>
 
 set pastetoggle=<leader>z  " toggle paste mode
 
