@@ -25,6 +25,7 @@ Plug 'SirVer/ultisnips'
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 Plug 'honza/vim-snippets'
+Plug 'justinj/vim-react-snippets'
 Plug 'jeetsukumaran/vim-buffergator'
 let g:buffergator_viewport_split_policy = "T"
 Plug 'rking/ag.vim'
@@ -107,7 +108,6 @@ Plug 'flazz/vim-colorschemes'
 
 " Syntax and languages
 Plug 'mitsuhiko/vim-jinja'
-Plug 'mxw/vim-jsx'
 Plug 'stephpy/vim-yaml'
 Plug 'chase/vim-ansible-yaml'
 Plug 'klen/python-mode'
@@ -140,6 +140,7 @@ endif
 Plug 'sophacles/vim-bundle-mako'
 Plug 'plasticboy/vim-markdown'
 let g:vim_markdown_folding_disabled=1
+Plug 'mxw/vim-jsx'
 
 Plug 'terryma/vim-multiple-cursors'
 " For previewing markdown, rst ,etc
