@@ -28,6 +28,11 @@ Leader is `Space`.
 - `<space-space-w>`: Strip trailing whitespace.
 - `<space-f>`: Search current directory with ag or ack (depending on which is installed).
 
+### Buffers
+
+- `[b` and `]b`: Previous/next buffer (default bindings of vim-unimpaired)
+- `<space-D>`: Delete current buffer without closing window.
+
 ### Python
 
 #### Running tests
