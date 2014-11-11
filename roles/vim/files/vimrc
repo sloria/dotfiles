@@ -17,7 +17,12 @@ nmap <silent><Leader>m :Pytest method verbose<CR>
 nmap <silent><Leader>tf :Pytest function verbose<CR>
 
 Plug 'bling/vim-airline'
+" Disable stuff I don't need to see
 let g:airline#extensions#hunks#enabled = 0
+let g:airline#extensions#bufferline#enabled = 0
+let g:airline#extensions#tagbar#enabled = 0
+let g:airline#extensions#virtualenv#enabled = 0
+let g:airline#extensions#whitespace#enabled = 0
 Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'ervandew/supertab'
@@ -26,8 +31,11 @@ let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 Plug 'honza/vim-snippets'
 Plug 'justinj/vim-react-snippets'
-Plug 'jeetsukumaran/vim-buffergator'
-let g:buffergator_viewport_split_policy = "T"
+
+" Buffers
+Plug 'bling/vim-bufferline'
+Plug 'moll/vim-bbye'
+
 Plug 'rking/ag.vim'
 Plug 'kien/ctrlp.vim'
 " Go to symbol
@@ -310,6 +318,7 @@ nmap <leader>, :tabedit $MYVIMRC<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>Q :wq<CR>
+nnoremap <leader>D :Bdelete<CR>
 
 " Quickly open netrw
 nnoremap <leader>e :e.<CR>

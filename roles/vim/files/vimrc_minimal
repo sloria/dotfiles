@@ -34,6 +34,10 @@ nnoremap <leader>d :NERDTreeToggle<CR>
 " Colors
 Plug 'flazz/vim-colorschemes'
 
+" Buffers
+Plug 'bling/vim-bufferline'
+Plug 'moll/vim-bbye'
+
 Plug 'tpope/vim-commentary'
 " Toggle comment with space-/
 nmap <leader>/ gcc
@@ -190,6 +194,7 @@ nmap <leader>, :tabedit $MYVIMRC<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>Q :wq<CR>
+nnoremap <leader>D :Bdelete<CR>
 
 " Quickly open netrw
 nnoremap <leader>e :e.<CR>
