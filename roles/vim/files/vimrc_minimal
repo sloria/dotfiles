@@ -35,8 +35,9 @@ nnoremap <leader>d :NERDTreeToggle<CR>
 Plug 'flazz/vim-colorschemes'
 
 " Buffers
-Plug 'bling/vim-bufferline'
+Plug 'ap/vim-buftabline'
 Plug 'moll/vim-bbye'
+nnoremap <leader>D :Bdelete<CR>
 
 Plug 'tpope/vim-commentary'
 " Toggle comment with space-/
@@ -160,6 +161,9 @@ endif
 nnoremap <C-w>s <C-w>s<C-w>w
 nnoremap <C-w>v <C-w>v<C-w>w
 
+""" SHORTCUTS """
+" Smash escape
+inoremap jk <Esc>
 
 " Quicker window movement
 nnoremap <C-j> <C-w>j
@@ -167,9 +171,12 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
-""" SHORTCUTS """
-" Smash escape
-inoremap jk <Esc>
+" Move across buffers with arrow keys
+nnoremap <silent> <Right> :bnext<CR>
+nnoremap <silent> <Left> :bprev<CR>
+
+" Remove trailing whitespace on <leader>S
+nnoremap <leader><leader>w :%s/\s\+$//<cr>:let @/=''<CR>
 
 set pastetoggle=<leader>z  " toggle paste mode
 
@@ -194,7 +201,6 @@ nmap <leader>, :tabedit $MYVIMRC<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>Q :wq<CR>
-nnoremap <leader>D :Bdelete<CR>
 
 " Quickly open netrw
 nnoremap <leader>e :e.<CR>

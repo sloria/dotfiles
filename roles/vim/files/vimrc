@@ -17,12 +17,14 @@ nmap <silent><Leader>m :Pytest method verbose<CR>
 nmap <silent><Leader>tf :Pytest function verbose<CR>
 
 Plug 'bling/vim-airline'
+" Show buffers in tabline
+let g:airline#extensions#tabline#enabled = 1
 " Disable stuff I don't need to see
 let g:airline#extensions#hunks#enabled = 0
 let g:airline#extensions#bufferline#enabled = 0
 let g:airline#extensions#tagbar#enabled = 0
 let g:airline#extensions#virtualenv#enabled = 0
-let g:airline#extensions#whitespace#enabled = 0
+let g:airline#extensions#csv#enabled = 0
 Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'ervandew/supertab'
@@ -33,8 +35,9 @@ Plug 'honza/vim-snippets'
 Plug 'justinj/vim-react-snippets'
 
 " Buffers
-Plug 'bling/vim-bufferline'
 Plug 'moll/vim-bbye'
+nnoremap <leader>D :Bdelete<CR>
+Plug 'BufOnly.vim'
 
 Plug 'rking/ag.vim'
 Plug 'kien/ctrlp.vim'
@@ -46,8 +49,6 @@ if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
   " Use ag in CtrlP for listing files.
   let g:ctrlp_user_command = 'ag %s -i -l --nocolor --nogroup --ignore ''.git'' --ignore ''.DS_Store'' --ignore ''.ropeproject'' --ignore ''node_modules'' --hidden -g ""'
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
   nnoremap <leader>f :Ag<space>
 else
   noremap <leader>f :Ack<space>
@@ -59,9 +60,6 @@ map <leader>\ :Tagbar<CR>
 let g:tagbar_autofocus = 1
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'mattn/emmet-vim'
-Plug 'ntpeters/vim-better-whitespace'
-" Strip whitespace with space-space-w
-nmap <leader><leader>w :StripWhitespace<CR>
 Plug 'Raimondi/delimitMate'  " autoclose parens, quotes, etc.
 
 Plug 'scrooloose/nerdtree'
@@ -284,6 +282,9 @@ endif
 nnoremap <C-w>s <C-w>s<C-w>w
 nnoremap <C-w>v <C-w>v<C-w>w
 
+""" SHORTCUTS """
+" Smash escape
+inoremap jk <Esc>
 
 " Quicker window movement
 nnoremap <C-j> <C-w>j
@@ -291,9 +292,12 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
-""" SHORTCUTS """
-" Smash escape
-inoremap jk <Esc>
+" Move across buffers with arrow keys
+nnoremap <silent> <Right> :bnext<CR>
+nnoremap <silent> <Left> :bprev<CR>
+
+" Remove trailing whitespace on <leader>S
+nnoremap <leader><leader>w :%s/\s\+$//<cr>:let @/=''<CR>
 
 set pastetoggle=<leader>z  " toggle paste mode
 
@@ -318,7 +322,6 @@ nmap <leader>, :tabedit $MYVIMRC<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>Q :wq<CR>
-nnoremap <leader>D :Bdelete<CR>
 
 " Quickly open netrw
 nnoremap <leader>e :e.<CR>
