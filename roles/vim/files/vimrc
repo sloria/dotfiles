@@ -36,7 +36,7 @@ Plug 'justinj/vim-react-snippets'
 
 " Buffers
 Plug 'moll/vim-bbye'
-nnoremap <leader>D :Bdelete<CR>
+nnoremap X :Bdelete<CR>
 Plug 'BufOnly.vim'
 
 Plug 'rking/ag.vim'

@@ -31,7 +31,7 @@ Leader is `Space`.
 ### Buffers
 
 - `[b` and `]b`: Previous/next buffer (default bindings of vim-unimpaired)
-- `<space-D>`: Delete current buffer without closing window.
+- `X`: Delete current buffer without closing window.
 
 ### Python
 
