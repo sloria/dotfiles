@@ -235,30 +235,25 @@ nmap k gk
 nnoremap <silent> tt :tabnew<CR>
 
 """ Syntax
-" fdoc is yaml
-autocmd BufRead,BufNewFile *.fdoc set filetype=yaml
-
-" rst
-autocmd BufNewFile,BufRead *.txt setlocal ft=rst
-autocmd FileType rst setlocal nolist expandtab lbr shiftwidth=4 tabstop=4 softtabstop=4
-\ formatoptions+=nqtl
-
-" markdown
-autocmd BufRead,BufNewFile *.md set filetype=markdown
-autocmd FileType markdown setlocal nolist expandtab lbr shiftwidth=4 tabstop=4 softtabstop=4
-\ formatoptions+=nqtl
-
-" yaml
-autocmd FileType yaml setlocal shiftwidth=2 tabstop=2 softtabstop=2
-
-" vim
-autocmd FileType vim setlocal shiftwidth=2 tabstop=2 softtabstop=2
-
-" javascript
-autocmd FileType javascript setlocal shiftwidth=4 tabstop=4 softtabstop=4
-
-" commit messages
-autocmd Filetype gitcommit setlocal nolist textwidth=72
+augroup configgroup
+  autocmd!
+  " rst
+  autocmd BufNewFile,BufRead *.txt setlocal ft=rst
+  autocmd FileType rst setlocal nolist expandtab lbr shiftwidth=4 tabstop=4 softtabstop=4
+  \ formatoptions+=nqtl
+  " markdown
+  autocmd BufRead,BufNewFile *.md set filetype=markdown
+  autocmd FileType markdown setlocal nolist expandtab lbr shiftwidth=4 tabstop=4 softtabstop=4
+  \ formatoptions+=nqtl
+  " yaml
+  autocmd FileType yaml setlocal shiftwidth=2 tabstop=2 softtabstop=2
+  " vim
+  autocmd FileType vim setlocal shiftwidth=2 tabstop=2 softtabstop=2
+  " javascript
+  autocmd FileType javascript setlocal shiftwidth=4 tabstop=4 softtabstop=4
+  " commit messages
+  autocmd Filetype gitcommit setlocal nolist textwidth=72
+augroup END
 
 " GUI settings, e.g. MacVim
 set guifont=Ubuntu\ Mono:h14
