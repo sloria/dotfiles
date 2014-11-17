@@ -1,4 +1,4 @@
-set nocompatible              " be iMproved, required for Vundle
+set nocompatible              " be iMproved
 
 " Spacebar is a much better leader than \ or ,
 let mapleader = "\<Space>"

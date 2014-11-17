@@ -14,6 +14,3 @@
     src: "{{ dotfiles_home }}/roles/zsh/files/zshrc.link"
     dest: "{{ '~/.zshrc' | expanduser }}"
     state: link
-
-- name: Add giddie prezto theme
-  copy: src="prompt_giddie_modified_setup" dest="{{ '~/.zprezto/modules/prompt/functions' | expanduser }}"
