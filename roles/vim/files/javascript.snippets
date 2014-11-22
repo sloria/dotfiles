@@ -1,0 +1,20 @@
+snippet rcc "createClass" b
+var ${1:`!p snip.rv = ''.join(x.title() for x in re.sub('\.js$', '', snip.basename or 'ModuleName').split('_'))`} = React.createClass({
+	/**
+	 * @return {Object}
+	 */
+	render: function() {
+		return (
+			$0
+		);
+	}
+});
+
+module.exports = $1;
+endsnippet
+
+snippet sst "set state" b
+this.setState({
+	${1}: ${2}
+});$0
+endsnippet

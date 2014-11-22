@@ -32,7 +32,6 @@ Plug 'SirVer/ultisnips'
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 Plug 'honza/vim-snippets'
-Plug 'justinj/vim-react-snippets'
 
 " Buffers
 Plug 'moll/vim-bbye'
@@ -64,6 +63,7 @@ Plug 'Raimondi/delimitMate'  " autoclose parens, quotes, etc.
 
 Plug 'scrooloose/nerdtree'
 nnoremap <leader>d :NERDTreeToggle<CR>
+nnoremap <leader>D :NERDTreeFind<CR>
 " Single clicks open directories and files
 let g:NERDTreeMouseMode = 3
 let g:NERDTreeRespectWildIgnore = 1
@@ -73,6 +73,7 @@ let g:syntastic_mode_map = { 'mode': 'active',
  \ 'passive_filetypes': [ 'html', 'rst', 'md'] }
 let g:syntastic_python_checkers = ['flake8', 'python']
 let g:syntastic_javascript_checkers = ['jsxhint', 'jshint']
+autocmd! BufEnter  *.jsx  let b:syntastic_checkers=['jsxhint']
 " Disable some features to make syntastic faster
 let g:syntastic_enable_signs = 0
 let g:syntastic_enable_balloons = 0
@@ -148,7 +149,7 @@ Plug 'plasticboy/vim-markdown'
 let g:vim_markdown_folding_disabled=1
 Plug 'mxw/vim-jsx'
 
-Plug 'terryma/vim-multiple-cursors'
+Plug 'kristijanhusak/vim-multiple-cursors'
 " For previewing markdown, rst ,etc
 Plug 'greyblake/vim-preview'
 Plug 'matchit.zip'
@@ -195,8 +196,7 @@ set shiftwidth=4 " number of spaces to use for autoindenting
 set shiftround " use multiple of shiftwidth when indenting with '<' and '>'
 
 " No bells
-set noerrorbells
-set visualbell
+set noerrorbells visualbell
 set t_vb=
 """ VISUAL SETTINGS """
 
@@ -209,14 +209,10 @@ else
 endif
 
 " Show trailing whitespace
-set list
-set listchars=tab:▸\ ,trail:▫
+set list listchars=tab:▸\ ,trail:▫
 
-" This check is needed because breakindent isn't yet available on Macvim =(
-if v:version > 704 || v:version == 704 && has("patch338")
-  set breakindent " indent on linebreak
-  set showbreak=..
-endif
+" Check is necessary because breakindent isn't yet available on MacVim =(
+if exists('&breakindent') | set breakindent showbreak=.. | endif
 
 if &term =~ '256color'
   set t_ut=
@@ -227,9 +223,7 @@ set previewheight=25  " Larger preview height
 " Do not fold by default.
 
 " Set minimum window size to 79x5.
-set winwidth=79
-set winheight=5
-set winminheight=5
+set winwidth=79 winheight=5 winminheight=5
 
 " Patterns for expand(), ctrlp, etc. to ignore
 set wildignore+=log/**,node_modules/**,target/**,tmp/**,*.rbc/,.git/*,*/.hg/*,*/.svn/*
@@ -240,8 +234,7 @@ set wildignore+=*/vendor/gems/*,*/vendor/cache/*,*/.bundle/*,*/.sass-cache/*
 set wildignore+=*.swp,*~,._*
 set wildignore+=*.pyc
 " Enable basic mouse behavior such as resizing buffers.
-set mouse=a
-set mousemodel=popup " Right-click pops up a menu
+set mouse=a mousemodel=popup " Right-click pops up a menu
 if exists('$TMUX') " Support resizing in tmux
   set ttymouse=xterm2
 endif
@@ -316,7 +309,7 @@ nnoremap <leader>Tj :set ft=javascript<CR>
 nnoremap <leader>Tr :set ft=rst<CR>
 
 " Quickly edit vimrc
-nmap <leader>, :tabedit $MYVIMRC<CR>
+nmap <leader>, :e $MYVIMRC<CR>
 
 " Quickly write/quit/save-and-quit
 nnoremap <leader>w :w<CR>
@@ -380,7 +373,7 @@ augroup END
 set guifont=Ubuntu\ Mono:h14
 if has('gui_running')
     if has('mac')
-        set transparency=5
+        " set transparency=5
         " Hide scrollbars in MacVim
         set guioptions-=T
         set guioptions-=r

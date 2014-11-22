@@ -21,15 +21,15 @@
     dest: "{{dotfiles_user_home}}/.vim/autoload/plug.vim"
 
 # Configuration
-- name: Makes sure snippets directory exists
-  file: path="{{dotfiles_user_home}}/.vim/snippets" state=directory
+- name: Makes sure UltiSnips directory exists
+  file: path="{{dotfiles_user_home}}/.vim/UltiSnips" state=directory
 
 - name: Copy all snippet files
-  copy: src={{ item }} dest={{ dotfiles_user_home + '/.vim/snippets/' + item }}
+  copy: src={{ item }} dest={{ dotfiles_user_home + '/.vim/UltiSnips/' + item }}
   with_items:
-    - "_.snippets"
     - "python.snippets"
     - "rst.snippets"
+    - "javascript.snippets"
 
 - name: Check if vimrc exists
   stat: path="{{dotfiles_user_home}}/.vimrc"

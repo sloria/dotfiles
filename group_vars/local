@@ -54,3 +54,4 @@ npm_global_packages:
   - gulp
   - coffee-script
   - bower
+  - jsxhint

@@ -30,7 +30,7 @@ Leader is `Space`.
 
 ### Buffers
 
-- `[b` and `]b`: Previous/next buffer (default bindings of vim-unimpaired)
+- `[b` and `]b` or Left/Right arrow keys: Previous/next buffer (default bindings of vim-unimpaired)
 - `X`: Delete current buffer without closing window.
 
 ### Python
