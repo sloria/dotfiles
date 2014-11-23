@@ -24,8 +24,11 @@
 - name: Makes sure UltiSnips directory exists
   file: path="{{dotfiles_user_home}}/.vim/UltiSnips" state=directory
 
-- name: Copy all snippet files
-  copy: src={{ item }} dest={{ dotfiles_user_home + '/.vim/UltiSnips/' + item }}
+- name: Symlink all snippet files
+  file:
+    src: "{{ dotfiles_home }}/roles/vim/files/{{item}}"
+    dest: "{{ dotfiles_user_home}}/.vim/UltiSnips/{{item}}"
+    state: link
   with_items:
     - "python.snippets"
     - "rst.snippets"

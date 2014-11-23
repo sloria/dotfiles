@@ -41,7 +41,7 @@ Plug 'BufOnly.vim'
 Plug 'rking/ag.vim'
 Plug 'kien/ctrlp.vim'
 " Go to symbol
-map <leader>s :CtrlPBufTag<CR>
+map <leader>r :CtrlPBufTag<CR>
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
 " Use Ag over Grep
@@ -68,6 +68,7 @@ nnoremap <leader>D :NERDTreeFind<CR>
 let g:NERDTreeMouseMode = 3
 let g:NERDTreeRespectWildIgnore = 1
 Plug 'scrooloose/syntastic'
+nnoremap <leader>s :SyntasticCheck<CR>
 let g:syntastic_mode_map = { 'mode': 'active',
  \ 'active_filetypes': [],
  \ 'passive_filetypes': [ 'html', 'rst', 'md'] }
@@ -119,6 +120,7 @@ Plug 'stephpy/vim-yaml'
 Plug 'chase/vim-ansible-yaml'
 Plug 'klen/python-mode'
 Plug 'elzr/vim-json'
+Plug 'groenewege/vim-less'
 " Turn off stuff I don't use
 let g:pymode_doc = 0
 let g:pymode_run = 0
@@ -185,8 +187,7 @@ set autoindent
 set autoread " reload files when changed on disk, i.e. via `git checkout`
 set backupcopy=yes
 set clipboard=unnamed " Make "yanks" work with system clipboard
-set wildmenu " show a navigable menu for tab completion
-set wildmode=longest,list,full
+set wildmenu wildmode=longest,list,full
 
 " Indents
 set expandtab " expand tabs by default (overloadable per file type later)
@@ -196,8 +197,7 @@ set shiftwidth=4 " number of spaces to use for autoindenting
 set shiftround " use multiple of shiftwidth when indenting with '<' and '>'
 
 " No bells
-set noerrorbells visualbell
-set t_vb=
+set noerrorbells visualbell t_vb=
 """ VISUAL SETTINGS """
 
 set t_Co=256 " Must be 256 for many themes to display correctly
@@ -214,13 +214,10 @@ set list listchars=tab:▸\ ,trail:▫
 " Check is necessary because breakindent isn't yet available on MacVim =(
 if exists('&breakindent') | set breakindent showbreak=.. | endif
 
-if &term =~ '256color'
-  set t_ut=
-endif
+if &term =~ '256color' | set t_ut= | endif
 
 set cursorline  " have a line indicate cursor location
 set previewheight=25  " Larger preview height
-" Do not fold by default.
 
 " Set minimum window size to 79x5.
 set winwidth=79 winheight=5 winminheight=5
@@ -247,9 +244,7 @@ if exists("+undofile")
   if isdirectory($HOME . '/.vim/undo') == 0
     :silent !mkdir -p ~/.vim/undo > /dev/null 2>&1
   endif
-  set undodir=./.vim-undo//
-  set undodir+=~/.vim/undo//
-  set undofile
+  set undodir=./.vim-undo// undodir+=~/.vim/undo// undofile
 endif
 
 " Make sure Vim returns to the same line when you reopen a file.
@@ -373,7 +368,6 @@ augroup END
 set guifont=Ubuntu\ Mono:h14
 if has('gui_running')
     if has('mac')
-        " set transparency=5
         " Hide scrollbars in MacVim
         set guioptions-=T
         set guioptions-=r

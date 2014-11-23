@@ -19,8 +19,6 @@ if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
   " Use ag in CtrlP for listing files.
   let g:ctrlp_user_command = 'ag %s -i -l --nocolor --nogroup --ignore ''.git'' --ignore ''.DS_Store'' --ignore ''.ropeproject'' --ignore ''node_modules'' --hidden -g ""'
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
   nnoremap <leader>f :Ag<space>
 else
   noremap <leader>f :Ack<space>
@@ -63,8 +61,7 @@ set autoindent
 set autoread " reload files when changed on disk, i.e. via `git checkout`
 set backupcopy=yes
 set clipboard=unnamed " Make "yanks" work with system clipboard
-set wildmenu " show a navigable menu for tab completion
-set wildmode=longest,list,full
+set wildmenu wildmode=longest,list,full
 
 " Indents
 set expandtab " expand tabs by default (overloadable per file type later)
@@ -74,9 +71,7 @@ set shiftwidth=4 " number of spaces to use for autoindenting
 set shiftround " use multiple of shiftwidth when indenting with '<' and '>'
 
 " No bells
-set noerrorbells
-set visualbell
-set t_vb=
+set noerrorbells visualbell t_vb=
 """ VISUAL SETTINGS """
 
 set t_Co=256 " Must be 256 for many themes to display correctly
@@ -88,27 +83,18 @@ else
 endif
 
 " Show trailing whitespace
-set list
-set listchars=tab:▸\ ,trail:▫
+set list listchars=tab:▸\ ,trail:▫
 
-" This check is needed because breakindent isn't yet available on Macvim =(
-if v:version > 704 || v:version == 704 && has("patch338")
-  set breakindent " indent on linebreak
-  set showbreak=..
-endif
+" Check is necessary because breakindent isn't yet available on MacVim =(
+if exists('&breakindent') | set breakindent showbreak=.. | endif
 
-if &term =~ '256color'
-  set t_ut=
-endif
+if &term =~ '256color' | set t_ut= | endif
 
 set cursorline  " have a line indicate cursor location
 set previewheight=25  " Larger preview height
-" Do not fold by default.
 
 " Set minimum window size to 79x5.
-set winwidth=79
-set winheight=5
-set winminheight=5
+set winwidth=79 winheight=5 winminheight=5
 
 " Patterns for expand(), ctrlp, etc. to ignore
 set wildignore+=log/**,node_modules/**,target/**,tmp/**,*.rbc/,.git/*,*/.hg/*,*/.svn/*
@@ -119,8 +105,7 @@ set wildignore+=*/vendor/gems/*,*/vendor/cache/*,*/.bundle/*,*/.sass-cache/*
 set wildignore+=*.swp,*~,._*
 set wildignore+=*.pyc
 " Enable basic mouse behavior such as resizing buffers.
-set mouse=a
-set mousemodel=popup " Right-click pops up a menu
+set mouse=a mousemodel=popup " Right-click pops up a menu
 if exists('$TMUX') " Support resizing in tmux
   set ttymouse=xterm2
 endif
@@ -133,9 +118,7 @@ if exists("+undofile")
   if isdirectory($HOME . '/.vim/undo') == 0
     :silent !mkdir -p ~/.vim/undo > /dev/null 2>&1
   endif
-  set undodir=./.vim-undo//
-  set undodir+=~/.vim/undo//
-  set undofile
+  set undodir=./.vim-undo// undodir+=~/.vim/undo// undofile
 endif
 
 " Make sure Vim returns to the same line when you reopen a file.
@@ -195,7 +178,7 @@ nnoremap <leader>Tj :set ft=javascript<CR>
 nnoremap <leader>Tr :set ft=rst<CR>
 
 " Quickly edit vimrc
-nmap <leader>, :tabedit $MYVIMRC<CR>
+nmap <leader>, :e $MYVIMRC<CR>
 
 " Quickly write/quit/save-and-quit
 nnoremap <leader>w :w<CR>
@@ -259,7 +242,6 @@ augroup END
 set guifont=Ubuntu\ Mono:h14
 if has('gui_running')
     if has('mac')
-        set transparency=5
         " Hide scrollbars in MacVim
         set guioptions-=T
         set guioptions-=r
