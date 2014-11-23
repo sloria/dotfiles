@@ -55,3 +55,4 @@ npm_global_packages:
   - coffee-script
   - bower
   - jsxhint
+  - webpack
