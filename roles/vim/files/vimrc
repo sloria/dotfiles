@@ -26,6 +26,7 @@ let g:airline#extensions#tagbar#enabled = 0
 let g:airline#extensions#virtualenv#enabled = 0
 let g:airline#extensions#csv#enabled = 0
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'nathanaelkane/vim-indent-guides'
 
 Plug 'ervandew/supertab'
 Plug 'SirVer/ultisnips'
@@ -87,6 +88,7 @@ vmap <leader>/ gc
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-abolish'
 Plug 'justinmk/vim-sneak'
 Plug 'mattn/webapi-vim' " needed by gist-vim
 " Github/Gist
@@ -284,7 +286,7 @@ nnoremap <C-l> <C-w>l
 nnoremap <silent> <Right> :bnext<CR>
 nnoremap <silent> <Left> :bprev<CR>
 
-" Remove trailing whitespace on <leader>S
+" Remove trailing whitespace on <space><space>w
 nnoremap <leader><leader>w :%s/\s\+$//<cr>:let @/=''<CR>
 
 set pastetoggle=<leader>z  " toggle paste mode
