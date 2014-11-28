@@ -370,6 +370,7 @@ augroup END
 set guifont=Ubuntu\ Mono:h14
 if has('gui_running')
     if has('mac')
+        set transparency=5
         " Hide scrollbars in MacVim
         set guioptions-=T
         set guioptions-=r
