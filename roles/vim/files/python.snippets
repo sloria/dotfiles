@@ -1,7 +1,5 @@
 
-snippet fixture
-@pytest.fixture(${1})
-endsnippet
+# Nose testing
 
 snippet _==
 assert_equal(${1}, ${2})
@@ -25,4 +23,43 @@ endsnippet
 
 snippet _false
 assert_false(${1})
+endsnippet
+
+# Pytest testing
+
+snippet fixture
+@pytest.fixture()
+def ${1:name}:
+	return ${2}
+endsnippet
+
+snippet yfixture
+@pytest.yield_fixture()
+def ${1:name}:
+	yield ${2}
+endsnippet
+
+snippet a==
+assert ${1} == ${2}
+endsnippet
+
+snippet a!=
+assert ${1} != ${2}
+endsnippet
+
+snippet ain
+assert ${1:obj} in ${2:container}
+endsnippet
+
+snippet araises
+with pytest.raises(${1:exc}) as excinfo:
+	${2}
+endsnippet
+
+snippet atrue
+assert ${1} is True
+endsnippet
+
+snippet afalse
+assert ${1} is False
 endsnippet
