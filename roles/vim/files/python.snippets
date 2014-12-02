@@ -33,6 +33,13 @@ def ${1:name}:
 	return ${2}
 endsnippet
 
+snippet parametrize
+@pytest.mark.parametrize('${1:name}',
+[
+	${2},
+])
+endsnippet
+
 snippet yfixture
 @pytest.yield_fixture()
 def ${1:name}:
@@ -47,8 +54,16 @@ snippet a!=
 assert ${1} != ${2}
 endsnippet
 
+snippet atype
+assert type(${1}) is ${2}
+endsnippet
+
 snippet ain
 assert ${1:obj} in ${2:container}
+endsnippet
+
+snippet a!in
+assert ${1:obj} not in ${2:container}
 endsnippet
 
 snippet araises
