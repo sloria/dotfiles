@@ -3,64 +3,44 @@ set nocompatible              " be iMproved
 let mapleader = "\<Space>"
 
 " Automatically source the vimrc file after saving it
-if has("autocmd")
-  autocmd bufwritepost .vimrc source $MYVIMRC
-endif
+autocmd bufwritepost .vimrc source $MYVIMRC
 
 """"" PLUGINS """""
 call plug#begin()
 
-Plug 'alfredodeza/pytest.vim'
-nmap <silent><Leader>F :Pytest file verbose<CR>
-nmap <silent><Leader>c :Pytest class verbose<CR>
-nmap <silent><Leader>m :Pytest method verbose<CR>
-nmap <silent><Leader>tf :Pytest function verbose<CR>
+" ESSENTIALS
 
-Plug 'bling/vim-airline'
-" Show buffers in tabline
-let g:airline#extensions#tabline#enabled = 1
-" Disable stuff I don't need to see
-let g:airline#extensions#hunks#enabled = 0
-let g:airline#extensions#bufferline#enabled = 0
-let g:airline#extensions#tagbar#enabled = 0
-let g:airline#extensions#virtualenv#enabled = 0
-let g:airline#extensions#csv#enabled = 0
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'nathanaelkane/vim-indent-guides'
-
+Plug 'tpope/vim-sensible'
+Plug 'rstacruz/vim-opinion'
 Plug 'ervandew/supertab'
-Plug 'SirVer/ultisnips'
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-Plug 'honza/vim-snippets'
-
-" Buffers
-Plug 'moll/vim-bbye'
-nnoremap X :Bdelete<CR>
-Plug 'BufOnly.vim'
-
-Plug 'rking/ag.vim'
 Plug 'kien/ctrlp.vim'
-" Go to symbol
+" Go to symbol (requires exuberant ctags)
 map <leader>r :CtrlPBufTag<CR>
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
+  Plug 'rking/ag.vim'
 " Use Ag over Grep
   set grepprg=ag\ --nogroup\ --nocolor
   " Use ag in CtrlP for listing files.
   let g:ctrlp_user_command = 'ag %s -i -l --nocolor --nogroup --ignore ''.git'' --ignore ''.DS_Store'' --ignore ''.ropeproject'' --ignore ''node_modules'' --hidden -g ""'
   nnoremap <leader>f :Ag<space>
 else
+  Plug 'mileszs/ack.vim'
   noremap <leader>f :Ack<space>
 endif
-
-Plug 'majutsushi/tagbar'
-" Open tagbar
-map <leader>\ :Tagbar<CR>
-let g:tagbar_autofocus = 1
-Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'mattn/emmet-vim'
-Plug 'Raimondi/delimitMate'  " autoclose parens, quotes, etc.
+Plug 'tpope/vim-rsi'  " unix keybindings in insert mode
+Plug 'tpope/vim-commentary'
+" Toggle comment with space-/
+nmap <leader>/ gcc
+vmap <leader>/ gc
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'matchit.zip'
+" Buffers
+Plug 'moll/vim-bbye'
+nnoremap X :Bdelete<CR>
+Plug 'BufOnly.vim'
 
 Plug 'scrooloose/nerdtree'
 nnoremap <leader>d :NERDTreeToggle<CR>
@@ -68,6 +48,7 @@ nnoremap <leader>D :NERDTreeFind<CR>
 " Single clicks open directories and files
 let g:NERDTreeMouseMode = 3
 let g:NERDTreeRespectWildIgnore = 1
+
 Plug 'scrooloose/syntastic'
 nnoremap <leader>s :SyntasticCheck<CR>
 let g:syntastic_mode_map = { 'mode': 'active',
@@ -79,22 +60,50 @@ autocmd! BufEnter  *.jsx  let b:syntastic_checkers=['jsxhint']
 " Disable some features to make syntastic faster
 let g:syntastic_enable_signs = 0
 let g:syntastic_enable_balloons = 0
-Plug 'tomtom/tlib_vim'
-Plug 'tpope/vim-rsi'  " unix keybindings in insert mode
-Plug 'tpope/vim-commentary'
-" Toggle comment with space-/
-nmap <leader>/ gcc
-vmap <leader>/ gc
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-abolish'
-Plug 'justinmk/vim-sneak'
-Plug 'mattn/webapi-vim' " needed by gist-vim
-" Github/Gist
-Plug 'mattn/gist-vim'
-" Make gists private by default
-let g:gist_post_private = 1
+
+" NICE TO HAVE
+
+Plug 'bling/vim-airline'
+let g:airline_theme='tomorrow'
+" Show buffers in tabline
+let g:airline#extensions#tabline#enabled = 1
+" Disable stuff I don't need to see
+let g:airline#extensions#hunks#enabled = 0
+let g:airline#extensions#bufferline#enabled = 0
+let g:airline#extensions#tagbar#enabled = 0
+let g:airline#extensions#virtualenv#enabled = 0
+let g:airline#extensions#csv#enabled = 0
+Plug 'christoomey/vim-tmux-navigator'
+
+Plug 'SirVer/ultisnips'
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+Plug 'honza/vim-snippets'
+
+Plug 'majutsushi/tagbar'
+" Open tagbar
+map <leader>\ :Tagbar<CR>
+let g:tagbar_autofocus = 1
+
+" Running Python tests
+Plug 'alfredodeza/pytest.vim'
+nmap <silent><Leader>F :Pytest file verbose<CR>
+nmap <silent><Leader>c :Pytest class verbose<CR>
+nmap <silent><Leader>m :Pytest method verbose<CR>
+nmap <silent><Leader>tf :Pytest function verbose<CR>
+
+Plug 'mattn/emmet-vim'  "Write HTML fast
+let g:user_emmet_leader_key='<C-h>'  " Expand emmet with <C-h>,
+Plug 'Raimondi/delimitMate'  " autoclose parens, quotes, etc.
+Plug 'justinmk/vim-sneak'  " Quickly move around
+Plug 'kristijanhusak/vim-multiple-cursors'
+Plug 'greyblake/vim-preview'  "For previewing markdown, rst, etc.
+Plug 'vim-scripts/SyntaxRange'  " Used by vimdeck
+Plug 'duff/vim-scratch'  " Scratch buffers
+" Open scratch buffer with space-tab
+nnoremap <silent> <leader><tab> :Scratch<cr>
+
+" GIT
 Plug 'airblade/vim-gitgutter'
 " Set gitgutter's bindings manually to avoid clashes
 let g:gitgutter_map_keys = 0
@@ -112,17 +121,30 @@ vmap <leader>gB :Gbrowse -<CR>
 map <leader>gr :Gread<CR>
 map <leader>gw :Gwrite<CR>
 noremap <Leader>gp :Git push<CR>
+Plug 'mattn/webapi-vim' " needed by gist-vim
+" Github/Gist
+Plug 'mattn/gist-vim'
+" Make gists private by default
+let g:gist_post_private = 1
+" Browse to gist after posting it
+let g:gist_open_browser_after_post = 1
 
-" Colors
+" COLOR
+
 Plug 'flazz/vim-colorschemes'
 
-" Syntax and languages
+" SYNTAX/LANGUAGES
+
 Plug 'mitsuhiko/vim-jinja'
 Plug 'stephpy/vim-yaml'
 Plug 'chase/vim-ansible-yaml'
-Plug 'klen/python-mode'
 Plug 'elzr/vim-json'
 Plug 'groenewege/vim-less'
+Plug 'sophacles/vim-bundle-mako'
+Plug 'tpope/vim-markdown'
+let g:vim_markdown_folding_disabled=1
+Plug 'mxw/vim-jsx'
+Plug 'klen/python-mode'
 " Turn off stuff I don't use
 let g:pymode_doc = 0
 let g:pymode_run = 0
@@ -148,38 +170,9 @@ if executable('npm')
   " Rename with <C-c>rr (also like in python-mode)
   autocmd Filetype javascript noremap <buffer> <C-c>rr :TernRename<CR>
 endif
-Plug 'sophacles/vim-bundle-mako'
-Plug 'plasticboy/vim-markdown'
-let g:vim_markdown_folding_disabled=1
-Plug 'mxw/vim-jsx'
 
-Plug 'kristijanhusak/vim-multiple-cursors'
-" For previewing markdown, rst ,etc
-Plug 'greyblake/vim-preview'
-Plug 'matchit.zip'
-Plug 'duff/vim-scratch'
-" Open scratch buffer with space-tab
-command! ScratchToggle call ScratchToggle()
-
-function! ScratchToggle()
-    if exists("w:is_scratch_window")
-        unlet w:is_scratch_window
-        exec "q"
-    else
-        exec "normal! :Sscratch\<cr>\<C-W>L"
-        let w:is_scratch_window = 1
-    endif
-endfunction
-
-nnoremap <silent> <leader><tab> :ScratchToggle<cr>
-
-" Sensible defaults
-Plug 'tpope/vim-sensible'
-Plug 'rstacruz/vim-opinion'
-
-" Load plugins
-call plug#end()            " required
-filetype plugin indent on    " required
+call plug#end()
+filetype plugin indent on
 
 """ end plugins """
 
@@ -203,12 +196,7 @@ set noerrorbells visualbell t_vb=
 """ VISUAL SETTINGS """
 
 set t_Co=256 " Must be 256 for many themes to display correctly
-" May want to have different schemes for termvim vs gvim
-if has('gui_running')
-  silent! colorscheme hybrid
-else
-  silent! colorscheme hybrid
-endif
+silent! colorscheme hybrid
 
 " Show trailing whitespace
 set list listchars=tab:▸\ ,trail:▫
@@ -275,86 +263,66 @@ nnoremap <C-w>v <C-w>v<C-w>w
 """ SHORTCUTS """
 " Smash escape
 inoremap jk <Esc>
-
+" Switch between files
+nnoremap <leader>b :e#<CR>
 " Quicker window movement
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
-
 " Move across buffers with arrow keys
 nnoremap <silent> <Right> :bnext<CR>
 nnoremap <silent> <Left> :bprev<CR>
-
 " Remove trailing whitespace on <space><space>w
 nnoremap <leader><leader>w :%s/\s\+$//<cr>:let @/=''<CR>
-
 set pastetoggle=<leader>z  " toggle paste mode
-
 " in case you forgot to sudo
 cnoremap w!! %!sudo tee > /dev/null %
-
 " select last pasted text
 nnoremap gp `[v`]
-
-" Open help in a new tab
-cabbrev h tab h
-
 " Easy syntax switching
 nnoremap <leader>Tp :set ft=python<CR>
 nnoremap <leader>Tj :set ft=javascript<CR>
 nnoremap <leader>Tr :set ft=rst<CR>
-
 " Quickly edit vimrc
 nmap <leader>, :e $MYVIMRC<CR>
-
 " Quickly write/quit/save-and-quit
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>Q :wq<CR>
-
 " Quickly open netrw
 nnoremap <leader>e :e.<CR>
-
 " Unhighlight search
 nnoremap <Leader>n :nohlsearch<CR><C-L>
-
 " Quick split
 nnoremap <Leader>v <C-w>v<C-w>w
-
 " Quick copy whole file
 map <leader>a :%y+<CR>
-
 " Make D delete to end of line
 nnoremap D d$
-
 " Make Y yank to end of line
 nnoremap Y y$
-
 " Go to beginning/end of line
 noremap <leader>h ^
 noremap <leader>l $
-
 " Execute macro
 nnoremap Q @q
-
 " Move vertically over wrapped lines
 nmap j gj
 nmap k gk
-
 "" Tabs
 nnoremap <silent> tt :tabnew<CR>
 
-""" Syntax
+""" Languages
 augroup configgroup
   autocmd!
   " rst
   autocmd BufNewFile,BufRead *.txt setlocal ft=rst
-  autocmd FileType rst setlocal nolist expandtab lbr shiftwidth=4 tabstop=4 softtabstop=4
+  autocmd FileType rst setlocal wrap nolist expandtab lbr shiftwidth=4 tabstop=4 softtabstop=4
   \ formatoptions+=nqtl
   " markdown
   autocmd BufRead,BufNewFile *.md set filetype=markdown
-  autocmd FileType markdown setlocal nolist expandtab lbr shiftwidth=4 tabstop=4 softtabstop=4
+  autocmd FileType markdown setlocal wrap nolist expandtab lbr shiftwidth=4 tabstop=4 softtabstop=4
   \ formatoptions+=nqtl
   " yaml
   autocmd FileType yaml setlocal shiftwidth=2 tabstop=2 softtabstop=2
@@ -372,8 +340,6 @@ if has('gui_running')
     if has('mac')
         set transparency=5
         " Hide scrollbars in MacVim
-        set guioptions-=T
-        set guioptions-=r
-        set go-=L
+        set guioptions-=Tr guioptions-=r go-=L
     endif
 endif

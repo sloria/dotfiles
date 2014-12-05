@@ -4,9 +4,7 @@ set nocompatible              " be iMproved
 let mapleader = "\<Space>"
 
 " Automatically source the vimrc file after saving it
-if has("autocmd")
-  autocmd bufwritepost .vimrc source $MYVIMRC
-endif
+autocmd bufwritepost .vimrc source $MYVIMRC
 
 """"" PLUGINS """""
 call plug#begin()
@@ -21,6 +19,7 @@ if executable('ag')
   let g:ctrlp_user_command = 'ag %s -i -l --nocolor --nogroup --ignore ''.git'' --ignore ''.DS_Store'' --ignore ''.ropeproject'' --ignore ''node_modules'' --hidden -g ""'
   nnoremap <leader>f :Ag<space>
 else
+  Plug 'mileszs/ack.vim'
   noremap <leader>f :Ack<space>
 endif
 map <leader>s :CtrlPBufTag<CR>
@@ -28,6 +27,7 @@ Plug 'ervandew/supertab'
 
 Plug 'scrooloose/nerdtree'
 nnoremap <leader>d :NERDTreeToggle<CR>
+nnoremap <leader>D :NERDTreeFind<CR>
 
 " Colors
 Plug 'flazz/vim-colorschemes'
@@ -75,12 +75,7 @@ set noerrorbells visualbell t_vb=
 """ VISUAL SETTINGS """
 
 set t_Co=256 " Must be 256 for many themes to display correctly
-" May want to have different schemes for termvim vs gvim
-if has('gui_running')
-  silent! colorscheme hybrid
-else
-  silent! colorscheme hybrid
-endif
+silent! colorscheme github
 
 " Show trailing whitespace
 set list listchars=tab:▸\ ,trail:▫
@@ -147,86 +142,66 @@ nnoremap <C-w>v <C-w>v<C-w>w
 """ SHORTCUTS """
 " Smash escape
 inoremap jk <Esc>
-
+" Switch between files
+nnoremap <leader>b :e#<CR>
 " Quicker window movement
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
-
 " Move across buffers with arrow keys
 nnoremap <silent> <Right> :bnext<CR>
 nnoremap <silent> <Left> :bprev<CR>
-
-" Remove trailing whitespace on <leader>S
+" Remove trailing whitespace on <space><space>w
 nnoremap <leader><leader>w :%s/\s\+$//<cr>:let @/=''<CR>
-
 set pastetoggle=<leader>z  " toggle paste mode
-
 " in case you forgot to sudo
 cnoremap w!! %!sudo tee > /dev/null %
-
 " select last pasted text
 nnoremap gp `[v`]
-
-" Open help in a new tab
-cabbrev h tab h
-
 " Easy syntax switching
 nnoremap <leader>Tp :set ft=python<CR>
 nnoremap <leader>Tj :set ft=javascript<CR>
 nnoremap <leader>Tr :set ft=rst<CR>
-
 " Quickly edit vimrc
 nmap <leader>, :e $MYVIMRC<CR>
-
 " Quickly write/quit/save-and-quit
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>Q :wq<CR>
-
 " Quickly open netrw
 nnoremap <leader>e :e.<CR>
-
 " Unhighlight search
 nnoremap <Leader>n :nohlsearch<CR><C-L>
-
 " Quick split
 nnoremap <Leader>v <C-w>v<C-w>w
-
 " Quick copy whole file
 map <leader>a :%y+<CR>
-
 " Make D delete to end of line
 nnoremap D d$
-
 " Make Y yank to end of line
 nnoremap Y y$
-
 " Go to beginning/end of line
 noremap <leader>h ^
 noremap <leader>l $
-
 " Execute macro
 nnoremap Q @q
-
 " Move vertically over wrapped lines
 nmap j gj
 nmap k gk
-
 "" Tabs
 nnoremap <silent> tt :tabnew<CR>
 
-""" Syntax
+""" Languages
 augroup configgroup
   autocmd!
   " rst
   autocmd BufNewFile,BufRead *.txt setlocal ft=rst
-  autocmd FileType rst setlocal nolist expandtab lbr shiftwidth=4 tabstop=4 softtabstop=4
+  autocmd FileType rst setlocal wrap nolist expandtab lbr shiftwidth=4 tabstop=4 softtabstop=4
   \ formatoptions+=nqtl
   " markdown
   autocmd BufRead,BufNewFile *.md set filetype=markdown
-  autocmd FileType markdown setlocal nolist expandtab lbr shiftwidth=4 tabstop=4 softtabstop=4
+  autocmd FileType markdown setlocal wrap nolist expandtab lbr shiftwidth=4 tabstop=4 softtabstop=4
   \ formatoptions+=nqtl
   " yaml
   autocmd FileType yaml setlocal shiftwidth=2 tabstop=2 softtabstop=2
@@ -242,9 +217,8 @@ augroup END
 set guifont=Ubuntu\ Mono:h14
 if has('gui_running')
     if has('mac')
+        set transparency=5
         " Hide scrollbars in MacVim
-        set guioptions-=T
-        set guioptions-=r
-        set go-=L
+        set guioptions-=Tr guioptions-=r go-=L
     endif
 endif
