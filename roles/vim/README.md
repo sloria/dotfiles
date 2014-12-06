@@ -27,6 +27,7 @@ Leader is `Space`.
 - `<C-h|j|k|l>`: Move around windows.
 - `<space-space-w>`: Strip trailing whitespace.
 - `<space-f>`: Search current directory with ag or ack (depending on which is installed).
+- `<C-y>,`: Expand an [Emmet](http://emmet.io/) abbreviation (default binding)
 
 ### Buffers
 

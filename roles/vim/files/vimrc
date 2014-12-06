@@ -93,7 +93,6 @@ nmap <silent><Leader>m :Pytest method verbose<CR>
 nmap <silent><Leader>tf :Pytest function verbose<CR>
 
 Plug 'mattn/emmet-vim'  "Write HTML fast
-let g:user_emmet_leader_key='<C-h>'  " Expand emmet with <C-h>,
 Plug 'Raimondi/delimitMate'  " autoclose parens, quotes, etc.
 Plug 'justinmk/vim-sneak'  " Quickly move around
 Plug 'kristijanhusak/vim-multiple-cursors'
