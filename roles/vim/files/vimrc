@@ -99,7 +99,8 @@ Plug 'justinmk/vim-sneak'  " Quickly move around
 Plug 'kristijanhusak/vim-multiple-cursors'
 Plug 'greyblake/vim-preview'  "For previewing markdown, rst, etc.
 Plug 'vim-scripts/SyntaxRange'  " Used by vimdeck
-Plug 'duff/vim-scratch'  " Scratch buffers
+Plug 'mtth/scratch.vim'
+let g:scratch_height = 20
 " Open scratch buffer with space-tab
 nnoremap <silent> <leader><tab> :Scratch<cr>
 
