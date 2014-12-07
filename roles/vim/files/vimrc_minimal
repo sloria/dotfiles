@@ -75,7 +75,7 @@ set noerrorbells visualbell t_vb=
 """ VISUAL SETTINGS """
 
 set t_Co=256 " Must be 256 for many themes to display correctly
-silent! colorscheme github
+silent! colorscheme hybrid
 
 " Show trailing whitespace
 set list listchars=tab:▸\ ,trail:▫
