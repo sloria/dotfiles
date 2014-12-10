@@ -144,23 +144,20 @@ Plug 'sophacles/vim-bundle-mako'
 Plug 'tpope/vim-markdown'
 let g:vim_markdown_folding_disabled=1
 Plug 'mxw/vim-jsx'
-Plug 'klen/python-mode'
-" Turn off stuff I don't use
-let g:pymode_doc = 0
-let g:pymode_run = 0
-let g:pymode_folding = 0
-let g:pymode_virtualenv = 0
-let g:pymode_breakpoint = 0
-" don't use linter, we use syntastic for that
-let g:pymode_lint = 0
-let g:pymode_lint_on_write = 0
-" Don't look for .ropeproject directories in parent directories
-let g:pymode_rope_lookup_project = 0
-set completeopt=menu " prevent pymode from showing documentation on autocomplete
-                    " https://github.com/klen/python-mode/issues/384
-" When using goto_definition, open in the current window instead of creating a
-" new window
-let g:pymode_rope_goto_definition_cmd = 'e'
+Plug 'davidhalter/jedi-vim'
+" Don't use default keymappings
+let g:jedi#auto_vim_configuration = 0
+let g:jedi#use_tabs_not_buffers = 0
+" Just let me type!
+let g:jedi#popup_select_first = 0
+let g:jedi#popup_on_dot = 0
+" Prefix all refactoring commands with <C-c> to avoid clashing
+let g:jedi#goto_definitions_command = "<C-c>g"
+let g:jedi#rename_command = "<C-c>r"
+let g:jedi#usages_command = "<C-c>u"
+let g:jedi#documentation_command = "<C-c>d"
+" Don't show annoying documentation window
+autocmd FileType python setlocal completeopt-=preview
 Plug 'pangloss/vim-javascript'
 if executable('npm')
   " Use tern for goto_definition and refactoring
