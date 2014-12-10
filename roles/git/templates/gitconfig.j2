@@ -14,7 +14,7 @@
         cob = checkout -b
         c = checkout
         ci = commit
-        amend = commit -a --amend
+        amend = commit --amend
         br = branch
         df = diff
         dfs = diff --staged
@@ -37,6 +37,9 @@
         publish = !legit publish \"$@\"
         graft = !legit graft \"$@\"
         sw = !legit switch \"$@\"
+
+        issues = !hub browse -- issues
+        url = "!f() { sha=$(git rev-parse ${1:-HEAD}); hub browse -u -- commit/$sha; }; f"
 
         f = flow
         fublish = flow feature publish
