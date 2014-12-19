@@ -13,7 +13,7 @@ call plug#begin()
 Plug 'tpope/vim-sensible'
 Plug 'rstacruz/vim-opinion'
 Plug 'ervandew/supertab'
-Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 " Go to symbol (requires exuberant ctags)
 map <leader>r :CtrlPBufTag<CR>
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
@@ -51,15 +51,18 @@ let g:NERDTreeRespectWildIgnore = 1
 
 Plug 'scrooloose/syntastic'
 nnoremap <leader>s :SyntasticCheck<CR>
+" NOTE: Don't use syntastic with python; we use khuno for that
 let g:syntastic_mode_map = { 'mode': 'active',
  \ 'active_filetypes': [],
- \ 'passive_filetypes': [ 'html', 'rst', 'md'] }
+ \ 'passive_filetypes': [ 'html', 'rst', 'md', 'python'] }
 let g:syntastic_python_checkers = ['flake8', 'python']
 let g:syntastic_javascript_checkers = ['jsxhint', 'jshint']
 autocmd! BufEnter  *.jsx  let b:syntastic_checkers=['jsxhint']
 " Disable some features to make syntastic faster
 let g:syntastic_enable_signs = 0
 let g:syntastic_enable_balloons = 0
+" Non-blocking python checking
+Plug 'alfredodeza/khuno.vim'
 
 " NICE TO HAVE
 
@@ -79,6 +82,8 @@ Plug 'SirVer/ultisnips'
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 Plug 'honza/vim-snippets'
+Plug 'rafaelfranca/rtf_pygmentize'
+let g:rtfp_font = 'Ubuntu Mono'
 
 Plug 'majutsushi/tagbar'
 " Open tagbar
@@ -165,7 +170,7 @@ if executable('npm')
   " Go to definition with <C-c>g (just like in python-mode)
   autocmd Filetype javascript noremap <buffer> <C-c>g :TernDef<CR>
   " Rename with <C-c>rr (also like in python-mode)
-  autocmd Filetype javascript noremap <buffer> <C-c>rr :TernRename<CR>
+  autocmd Filetype javascript noremap <buffer> <C-c>r :TernRename<CR>
 endif
 
 call plug#end()

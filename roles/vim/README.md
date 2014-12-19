@@ -43,15 +43,15 @@ Leader is `Space`.
 - `<space-tf>`: Run test function.
 - `<space-F>`: Run all test in file.
 
-#### Rope
+#### Jedi
 
-- `<C-c>g`: Go to definition (default binding).
-- `<C-c>rr`: Rename variable (default binding).
+- `<C-c>g`: Go to definition.
+- `<C-c>r`: Rename variable.
 
 ### Javascript
 
 - `<C-c>g`: Go to definition.
-- `<C-c>rr`: Rename variable.
+- `<C-c>r`: Rename variable.
 
 ### Git
 

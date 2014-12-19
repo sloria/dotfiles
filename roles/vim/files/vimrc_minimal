@@ -9,7 +9,7 @@ autocmd bufwritepost .vimrc source $MYVIMRC
 """"" PLUGINS """""
 call plug#begin()
 Plug 'rking/ag.vim'
-Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 " Go to symbol
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
