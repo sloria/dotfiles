@@ -14,8 +14,6 @@ Plug 'tpope/vim-sensible'
 Plug 'rstacruz/vim-opinion'
 Plug 'ervandew/supertab'
 Plug 'ctrlpvim/ctrlp.vim'
-" Go to symbol (requires exuberant ctags)
-map <leader>r :CtrlPBufTag<CR>
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
   Plug 'rking/ag.vim'
@@ -28,6 +26,10 @@ else
   Plug 'mileszs/ack.vim'
   noremap <leader>f :Ack<space>
 endif
+Plug 'tacahiroy/ctrlp-funky'
+" Go to symbol
+map <leader>r :CtrlPFunky<CR>
+let g:ctrlp_funky_syntax_highlight = 1
 Plug 'tpope/vim-rsi'  " unix keybindings in insert mode
 Plug 'tpope/vim-commentary'
 " Toggle comment with space-/
@@ -140,6 +142,8 @@ Plug 'flazz/vim-colorschemes'
 
 " SYNTAX/LANGUAGES
 
+Plug 'hdima/python-syntax'
+let g:python_highlight_all=1
 Plug 'mitsuhiko/vim-jinja'
 Plug 'stephpy/vim-yaml'
 Plug 'chase/vim-ansible-yaml'
@@ -161,8 +165,6 @@ let g:jedi#goto_definitions_command = "<C-c>g"
 let g:jedi#rename_command = "<C-c>r"
 let g:jedi#usages_command = "<C-c>u"
 let g:jedi#documentation_command = "<C-c>d"
-" Don't show annoying documentation window
-autocmd FileType python setlocal completeopt-=preview
 Plug 'pangloss/vim-javascript'
 if executable('npm')
   " Use tern for goto_definition and refactoring
