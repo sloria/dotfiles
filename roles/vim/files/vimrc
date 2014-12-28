@@ -20,7 +20,7 @@ if executable('ag')
 " Use Ag over Grep
   set grepprg=ag\ --nogroup\ --nocolor
   " Use ag in CtrlP for listing files.
-  let g:ctrlp_user_command = 'ag %s -i -l --nocolor --nogroup --ignore ''.git'' --ignore ''.DS_Store'' --ignore ''.ropeproject'' --ignore ''node_modules'' --hidden -g ""'
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
   nnoremap <leader>f :Ag<space>
 else
   Plug 'mileszs/ack.vim'
@@ -200,6 +200,7 @@ set noerrorbells visualbell t_vb=
 """ VISUAL SETTINGS """
 
 set t_Co=256 " Must be 256 for many themes to display correctly
+" Favorites: hybrid iceberg Tomorrow hybrid-light
 silent! colorscheme hybrid
 
 " Show trailing whitespace
@@ -223,7 +224,7 @@ set wildignore+=*.o,*.out,*.obj,.git,*.rbc,*.rbo,*.class,.svn,*.gem
 set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
 set wildignore+=*/vendor/gems/*,*/vendor/cache/*,*/.bundle/*,*/.sass-cache/*
 set wildignore+=*.swp,*~,._*
-set wildignore+=*.pyc
+set wildignore+=*.pyc,*__pycache__/*
 " Enable basic mouse behavior such as resizing buffers.
 set mouse=a mousemodel=popup " Right-click pops up a menu
 if exists('$TMUX') " Support resizing in tmux
