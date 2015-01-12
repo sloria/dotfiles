@@ -84,7 +84,8 @@ Plug 'SirVer/ultisnips'
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 Plug 'honza/vim-snippets'
-Plug 'rafaelfranca/rtf_pygmentize'
+Plug 'stefandtw/quickfix-reflector.vim'
+Plug 'rafaelfranca/rtf_pygmentize', {'on': 'RTFPygmentize'}
 let g:rtfp_font = 'Ubuntu Mono'
 
 Plug 'majutsushi/tagbar'
@@ -104,11 +105,10 @@ Plug 'Raimondi/delimitMate'  " autoclose parens, quotes, etc.
 Plug 'justinmk/vim-sneak'  " Quickly move around
 Plug 'kristijanhusak/vim-multiple-cursors'
 Plug 'greyblake/vim-preview'  "For previewing markdown, rst, etc.
-Plug 'vim-scripts/SyntaxRange'  " Used by vimdeck
 Plug 'mtth/scratch.vim'
 let g:scratch_height = 20
 " Open scratch buffer with space-tab
-nnoremap <silent> <leader><tab> :Scratch<cr>
+nnoremap <silent> <leader><tab> :Scratch<cr>:set ft=python<cr>
 
 " GIT
 Plug 'airblade/vim-gitgutter'
@@ -161,7 +161,8 @@ let g:jedi#use_tabs_not_buffers = 0
 let g:jedi#popup_select_first = 0
 let g:jedi#popup_on_dot = 0
 " Prefix all refactoring commands with <C-c> to avoid clashing
-let g:jedi#goto_definitions_command = "<C-c>g"
+let g:jedi#goto_assignments_command = "<C-c>g"
+let g:jedi#goto_definitions_command = "<C-c>G"
 let g:jedi#rename_command = "<C-c>r"
 let g:jedi#usages_command = "<C-c>u"
 let g:jedi#documentation_command = "<C-c>d"
@@ -294,7 +295,6 @@ nmap <leader>, :e $MYVIMRC<CR>
 " Quickly write/quit/save-and-quit
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
-nnoremap <leader>Q :wq<CR>
 " Quickly open netrw
 nnoremap <leader>e :e.<CR>
 " Unhighlight search
