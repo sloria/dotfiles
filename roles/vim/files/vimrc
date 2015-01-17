@@ -40,9 +40,9 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'matchit.zip'
 " Buffers
-Plug 'moll/vim-bbye'
+Plug 'moll/vim-bbye'  " delete buffer without closing window
 nnoremap X :Bdelete<CR>
-Plug 'BufOnly.vim'
+Plug 'BufOnly.vim'  " delete all but current buffer
 
 Plug 'scrooloose/nerdtree'
 nnoremap <leader>d :NERDTreeToggle<CR>
@@ -84,11 +84,10 @@ Plug 'SirVer/ultisnips'
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 Plug 'honza/vim-snippets'
-Plug 'stefandtw/quickfix-reflector.vim'
 Plug 'rafaelfranca/rtf_pygmentize', {'on': 'RTFPygmentize'}
 let g:rtfp_font = 'Ubuntu Mono'
 
-Plug 'majutsushi/tagbar'
+Plug 'majutsushi/tagbar', {'on': 'Tagbar'}
 " Open tagbar
 map <leader>\ :Tagbar<CR>
 let g:tagbar_autofocus = 1
@@ -170,9 +169,9 @@ Plug 'pangloss/vim-javascript'
 if executable('npm')
   " Use tern for goto_definition and refactoring
   Plug 'marijnh/tern_for_vim', {'do': 'npm install'}
-  " Go to definition with <C-c>g (just like in python-mode)
+  " Go to definition with <C-c>g (just like in python)
   autocmd Filetype javascript noremap <buffer> <C-c>g :TernDef<CR>
-  " Rename with <C-c>rr (also like in python-mode)
+  " Rename with <C-c>r (also like in python)
   autocmd Filetype javascript noremap <buffer> <C-c>r :TernRename<CR>
 endif
 
@@ -191,9 +190,7 @@ set wildmenu wildmode=longest,list,full
 
 " Indents
 set expandtab " expand tabs by default (overloadable per file type later)
-set tabstop=4 " a tab is 4 spaces
-set softtabstop=4 " when hitting <BS>, pretend like a tab is removed, even if spaces
-set shiftwidth=4 " number of spaces to use for autoindenting
+set tabstop=4 softtabstop=4 shiftwidth=4
 set shiftround " use multiple of shiftwidth when indenting with '<' and '>'
 
 " No bells
@@ -220,7 +217,6 @@ set winwidth=79 winheight=5 winminheight=5
 
 " Patterns for expand(), ctrlp, etc. to ignore
 set wildignore+=log/**,node_modules/**,target/**,tmp/**,*.rbc/,.git/*,*/.hg/*,*/.svn/*
-" Disable output, vcs, archive, rails, temp and backup files.
 set wildignore+=*.o,*.out,*.obj,.git,*.rbc,*.rbo,*.class,.svn,*.gem
 set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
 set wildignore+=*/vendor/gems/*,*/vendor/cache/*,*/.bundle/*,*/.sass-cache/*
@@ -244,7 +240,6 @@ if exists("+undofile")
 endif
 
 " Make sure Vim returns to the same line when you reopen a file.
-" Thanks, Amit
 augroup line_return
     au!
     au BufReadPost *
