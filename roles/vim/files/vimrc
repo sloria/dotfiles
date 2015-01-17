@@ -296,8 +296,8 @@ nnoremap <leader>e :e.<CR>
 nnoremap <Leader>n :nohlsearch<CR><C-L>
 " Quick split
 nnoremap <Leader>v <C-w>v<C-w>w
-" Quick copy whole file
-map <leader>a :%y+<CR>
+" Quick select whole file
+map <leader>a ggVG
 " Make D delete to end of line
 nnoremap D d$
 " Make Y yank to end of line
