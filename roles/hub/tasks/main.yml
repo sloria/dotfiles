@@ -1,4 +1,5 @@
 - include: osx.yml
   when: ansible_os_family == "Darwin"
 
-# TODO: Fedora and Debian
+- include: redhat.yml
+  when: ansible_os_family == "RedHat"
