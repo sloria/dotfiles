@@ -8,11 +8,11 @@ autocmd bufwritepost .vimrc source $MYVIMRC
 
 """"" PLUGINS """""
 call plug#begin()
-Plug 'rking/ag.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 " Go to symbol
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
+  Plug 'rking/ag.vim'
 " Use Ag over Grep
   set grepprg=ag\ --nogroup\ --nocolor
   " Use ag in CtrlP for listing files.
@@ -65,9 +65,7 @@ set wildmenu wildmode=longest,list,full
 
 " Indents
 set expandtab " expand tabs by default (overloadable per file type later)
-set tabstop=4 " a tab is 4 spaces
-set softtabstop=4 " when hitting <BS>, pretend like a tab is removed, even if spaces
-set shiftwidth=4 " number of spaces to use for autoindenting
+set tabstop=4 softtabstop=4 shiftwidth=4
 set shiftround " use multiple of shiftwidth when indenting with '<' and '>'
 
 " No bells
@@ -75,6 +73,7 @@ set noerrorbells visualbell t_vb=
 """ VISUAL SETTINGS """
 
 set t_Co=256 " Must be 256 for many themes to display correctly
+" Favorites: hybrid iceberg Tomorrow hybrid-light
 silent! colorscheme hybrid
 
 " Show trailing whitespace
@@ -93,12 +92,11 @@ set winwidth=79 winheight=5 winminheight=5
 
 " Patterns for expand(), ctrlp, etc. to ignore
 set wildignore+=log/**,node_modules/**,target/**,tmp/**,*.rbc/,.git/*,*/.hg/*,*/.svn/*
-" Disable output, vcs, archive, rails, temp and backup files.
 set wildignore+=*.o,*.out,*.obj,.git,*.rbc,*.rbo,*.class,.svn,*.gem
 set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
 set wildignore+=*/vendor/gems/*,*/vendor/cache/*,*/.bundle/*,*/.sass-cache/*
 set wildignore+=*.swp,*~,._*
-set wildignore+=*.pyc
+set wildignore+=*.pyc,*__pycache__*
 " Enable basic mouse behavior such as resizing buffers.
 set mouse=a mousemodel=popup " Right-click pops up a menu
 if exists('$TMUX') " Support resizing in tmux
@@ -117,10 +115,9 @@ if exists("+undofile")
 endif
 
 " Make sure Vim returns to the same line when you reopen a file.
-" Thanks, Amit
 augroup line_return
-    au!
-    au BufReadPost *
+    autocmd!
+    autocmd BufReadPost *
         \ if line("'\"") > 0 && line("'\"") <= line("$") |
         \     execute 'normal! g`"zvzz' |
         \ endif
@@ -168,15 +165,14 @@ nmap <leader>, :e $MYVIMRC<CR>
 " Quickly write/quit/save-and-quit
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
-nnoremap <leader>Q :wq<CR>
 " Quickly open netrw
 nnoremap <leader>e :e.<CR>
 " Unhighlight search
 nnoremap <Leader>n :nohlsearch<CR><C-L>
 " Quick split
 nnoremap <Leader>v <C-w>v<C-w>w
-" Quick copy whole file
-map <leader>a :%y+<CR>
+" Quick select whole file
+map <leader>a ggVG
 " Make D delete to end of line
 nnoremap D d$
 " Make Y yank to end of line
