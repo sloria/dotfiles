@@ -7,11 +7,6 @@
   when: ansible_os_family == "Darwin"
 
 # Plugin manager
-# - name: Install Vundle
-#   git: repo=https://github.com/gmarik/Vundle.vim.git
-#        dest=~/.vim/bundle/Vundle.vim
-#        update=no
-
 - name: Makes sure autoload directory exists
   file: path="{{dotfiles_user_home}}/.vim/autoload" state=directory
 
@@ -20,9 +15,10 @@
     url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     dest: "{{dotfiles_user_home}}/.vim/autoload/plug.vim"
 
-# Configuration
+# Snippets
 - name: Makes sure UltiSnips directory exists
   file: path="{{dotfiles_user_home}}/.vim/UltiSnips" state=directory
+  when: not vim_minimal
 
 - name: Symlink all snippet files
   file:
@@ -33,7 +29,9 @@
     - "python.snippets"
     - "rst.snippets"
     - "javascript.snippets"
+  when: not vim_minimal
 
+# Configuration
 - name: Check if vimrc exists
   stat: path="{{dotfiles_user_home}}/.vimrc"
   register: vimrc_stat
