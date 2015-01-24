@@ -14,6 +14,8 @@ Plug 'tpope/vim-sensible'
 Plug 'rstacruz/vim-opinion'
 Plug 'ervandew/supertab'
 Plug 'ctrlpvim/ctrlp.vim'
+" Faster and more accurate fuzzy-matching
+let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
   Plug 'rking/ag.vim'
@@ -26,6 +28,7 @@ else
   Plug 'mileszs/ack.vim'
   noremap <leader>f :Ack<space>
 endif
+Plug 'felikz/ctrlp-py-matcher'
 Plug 'tacahiroy/ctrlp-funky'
 " Go to symbol
 map <leader>r :CtrlPFunky<CR>
