@@ -132,7 +132,7 @@ map <leader>gw :Gwrite<CR>
 noremap <Leader>gp :Git push<CR>
 Plug 'mattn/webapi-vim' " needed by gist-vim
 " Github/Gist
-Plug 'mattn/gist-vim'
+Plug 'mattn/gist-vim', {'on': 'Gist'}
 " Make gists private by default
 let g:gist_post_private = 1
 " Browse to gist after posting it
@@ -162,6 +162,8 @@ let g:jedi#use_tabs_not_buffers = 0
 " Just let me type!
 let g:jedi#popup_select_first = 0
 let g:jedi#popup_on_dot = 0
+" Show call sigs slow things down for large projects
+let g:jedi#show_call_signatures = 0
 " Prefix all refactoring commands with <C-c> to avoid clashing
 let g:jedi#goto_assignments_command = "<C-c>g"
 let g:jedi#goto_definitions_command = "<C-c>G"
