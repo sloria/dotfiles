@@ -176,10 +176,10 @@ if executable('npm')
   " Rename with <C-c>r (also like in python)
   autocmd Filetype javascript noremap <buffer> <C-c>r :TernRename<CR>
 endif
+Plug 'kchmck/vim-coffee-script'
 
 call plug#end()
 filetype plugin indent on
-
 """ end plugins """
 
 """ BASE CUSTOMIZATIONS """
@@ -264,7 +264,7 @@ nnoremap <C-w>v <C-w>v<C-w>w
 " Quickly edit vimrc
 nmap <leader>, :e $MYVIMRC<CR>
 " Reload vimrc
-noremap <silent> <leader>V so $MYVIMRC
+noremap <silent> <leader>V :source $MYVIMRC<cr>
 " Smash escape
 inoremap jk <Esc>
 " Search and replace, using : as a separator instead of /
