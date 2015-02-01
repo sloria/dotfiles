@@ -3618,7 +3618,7 @@
 	<key>HotkeyCode</key>
 	<integer>50</integer>
 	<key>HotkeyModifiers</key>
-	<integer>262401</integer>
+	<integer>524576</integer>
 	<key>IRMemory</key>
 	<integer>4</integer>
 	<key>JobName</key>
@@ -3663,7 +3663,7 @@
 	<key>NSWindow Frame Preferences</key>
 	<string>449 165 924 485 0 0 1440 900 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 142 710 626 0 0 1440 878 </string>
+	<string>0 0 2560 1440 0 0 2560 1418 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>419 21 570 826 0 0 1440 900 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -5761,7 +5761,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2014-12-22T05:34:22Z</date>
+	<date>2015-01-23T22:14:07Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>
