@@ -1,10 +1,6 @@
 set nocompatible              " be iMproved
-
 " Spacebar is a much better leader than \ or ,
 let mapleader = "\<Space>"
-
-" Automatically source the vimrc file after saving it
-autocmd bufwritepost .vimrc source $MYVIMRC
 
 """"" PLUGINS """""
 call plug#begin()
@@ -73,6 +69,7 @@ set noerrorbells visualbell t_vb=
 """ VISUAL SETTINGS """
 
 set t_Co=256 " Must be 256 for many themes to display correctly
+if &term =~ '256color' | set t_ut= | endif
 " Favorites: hybrid iceberg Tomorrow hybrid-light
 silent! colorscheme hybrid
 
@@ -81,8 +78,6 @@ set list listchars=tab:▸\ ,trail:▫
 
 " Check is necessary because breakindent isn't yet available on MacVim =(
 if exists('&breakindent') | set breakindent showbreak=.. | endif
-
-if &term =~ '256color' | set t_ut= | endif
 
 set cursorline  " have a line indicate cursor location
 set previewheight=25  " Larger preview height
@@ -118,9 +113,7 @@ endif
 augroup line_return
     autocmd!
     autocmd BufReadPost *
-        \ if line("'\"") > 0 && line("'\"") <= line("$") |
-        \     execute 'normal! g`"zvzz' |
-        \ endif
+        \ if line("'\"") > 0 && line("'\"") <= line("$") | execute 'normal! g`"zvzz' | endif
 augroup END
 
 " Change cursor style when entering INSERT mode (works in tmux!)
@@ -137,8 +130,15 @@ nnoremap <C-w>s <C-w>s<C-w>w
 nnoremap <C-w>v <C-w>v<C-w>w
 
 """ SHORTCUTS """
+" Quickly edit vimrc
+nmap <leader>, :e $MYVIMRC<CR>
+" Reload vimrc
+noremap <silent> <leader>V :source $MYVIMRC<CR>
 " Smash escape
 inoremap jk <Esc>
+" Search and replace, using : as a separator instead of /
+noremap <leader>sr :%s:::cg<Left><Left><Left><Left>
+noremap <leader>sR :%s:::g<Left><Left><Left>
 " Switch between files
 nnoremap <leader>b :e#<CR>
 " Quicker window movement
@@ -160,8 +160,6 @@ nnoremap gp `[v`]
 nnoremap <leader>Tp :set ft=python<CR>
 nnoremap <leader>Tj :set ft=javascript<CR>
 nnoremap <leader>Tr :set ft=rst<CR>
-" Quickly edit vimrc
-nmap <leader>, :e $MYVIMRC<CR>
 " Quickly write/quit/save-and-quit
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>

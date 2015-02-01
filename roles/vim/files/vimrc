@@ -2,9 +2,6 @@ set nocompatible              " be iMproved
 " Spacebar is a much better leader than \ or ,
 let mapleader = "\<Space>"
 
-" Automatically source the vimrc file after saving it
-autocmd bufwritepost .vimrc source $MYVIMRC
-
 """"" PLUGINS """""
 call plug#begin()
 
@@ -264,6 +261,10 @@ nnoremap <C-w>s <C-w>s<C-w>w
 nnoremap <C-w>v <C-w>v<C-w>w
 
 """ SHORTCUTS """
+" Quickly edit vimrc
+nmap <leader>, :e $MYVIMRC<CR>
+" Reload vimrc
+noremap <silent> <leader>V :source $MYVIMRC<CR>
 " Smash escape
 inoremap jk <Esc>
 " Search and replace, using : as a separator instead of /
@@ -290,8 +291,6 @@ nnoremap gp `[v`]
 nnoremap <leader>Tp :set ft=python<CR>
 nnoremap <leader>Tj :set ft=javascript<CR>
 nnoremap <leader>Tr :set ft=rst<CR>
-" Quickly edit vimrc
-nmap <leader>, :e $MYVIMRC<CR>
 " Quickly write/quit/save-and-quit
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
