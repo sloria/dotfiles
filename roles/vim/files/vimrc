@@ -264,7 +264,7 @@ nnoremap <C-w>v <C-w>v<C-w>w
 " Quickly edit vimrc
 nmap <leader>, :e $MYVIMRC<CR>
 " Reload vimrc
-noremap <silent> <leader>V :source $MYVIMRC<CR>
+noremap <silent> <leader>V so $MYVIMRC
 " Smash escape
 inoremap jk <Esc>
 " Search and replace, using : as a separator instead of /
