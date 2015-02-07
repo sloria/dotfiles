@@ -41,7 +41,7 @@ Leader is `Space`.
 - `<space-m>`: Run test method.
 - `<space-c>`: Run test class.
 - `<space-tf>`: Run test function.
-- `<space-F>`: Run all test in file.
+- `<space-tF>`: Run all test in file.
 
 #### Jedi
 

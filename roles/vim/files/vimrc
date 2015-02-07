@@ -21,9 +21,12 @@ if executable('ag')
   " Use ag in CtrlP for listing files.
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
   nnoremap <leader>f :Ag<space>
+  " Search for term under the cursor
+  nmap <leader>F :Ag <c-r>=expand("<cword>")<cr>
 else
   Plug 'mileszs/ack.vim'
   noremap <leader>f :Ack<space>
+  nmap <leader>F :Ack <c-r>=expand("<cword>")<cr>
 endif
 Plug 'felikz/ctrlp-py-matcher'
 Plug 'tacahiroy/ctrlp-funky'
@@ -94,7 +97,7 @@ let g:tagbar_autofocus = 1
 
 " Running Python tests
 Plug 'alfredodeza/pytest.vim'
-nmap <silent><Leader>F :Pytest file verbose<CR>
+nmap <silent><Leader>tF :Pytest file verbose<CR>
 nmap <silent><Leader>c :Pytest class verbose<CR>
 nmap <silent><Leader>m :Pytest method verbose<CR>
 nmap <silent><Leader>tf :Pytest function verbose<CR>
@@ -341,9 +344,7 @@ augroup END
 " GUI settings, e.g. MacVim
 set guifont=Ubuntu\ Mono:h14
 if has('gui_running')
-    if has('mac')
-        set transparency=5
-        " Hide scrollbars in MacVim
-        set guioptions-=Tr guioptions-=r go-=L
-    endif
+  set transparency=5
+  " Hide scrollbars in MacVim
+  set guioptions-=Tr guioptions-=r go-=L
 endif

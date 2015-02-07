@@ -14,9 +14,12 @@ if executable('ag')
   " Use ag in CtrlP for listing files.
   let g:ctrlp_user_command = 'ag %s -i -l --nocolor --nogroup --ignore ''.git'' --ignore ''.DS_Store'' --ignore ''.ropeproject'' --ignore ''node_modules'' --hidden -g ""'
   nnoremap <leader>f :Ag<space>
+  " Search for term under the cursor
+  nmap <leader>F :Ag <c-r>=expand("<cword>")<cr>
 else
   Plug 'mileszs/ack.vim'
   noremap <leader>f :Ack<space>
+  nmap <leader>F :Ack <c-r>=expand("<cword>")<cr>
 endif
 map <leader>s :CtrlPBufTag<CR>
 Plug 'ervandew/supertab'
@@ -210,9 +213,7 @@ augroup END
 " GUI settings, e.g. MacVim
 set guifont=Ubuntu\ Mono:h14
 if has('gui_running')
-    if has('mac')
-        set transparency=5
-        " Hide scrollbars in MacVim
-        set guioptions-=Tr guioptions-=r go-=L
-    endif
+  set transparency=5
+  " Hide scrollbars in MacVim
+  set guioptions-=Tr guioptions-=r go-=L
 endif
