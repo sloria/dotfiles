@@ -70,7 +70,6 @@ let g:syntastic_enable_balloons = 0
 Plug 'alfredodeza/khuno.vim'
 
 " NICE TO HAVE
-
 Plug 'bling/vim-airline'
 let g:airline_theme='tomorrow'
 " Show buffers in tabline
@@ -180,6 +179,11 @@ if executable('npm')
   autocmd Filetype javascript noremap <buffer> <C-c>r :TernRename<CR>
 endif
 Plug 'kchmck/vim-coffee-script'
+" Lispy stuff
+Plug 'guns/vim-sexp'
+Plug 'tpope/vim-sexp-mappings-for-regular-people'
+Plug 'guns/vim-clojure-static'
+Plug 'tpope/vim-fireplace' " clojure repl
 
 call plug#end()
 filetype plugin indent on
