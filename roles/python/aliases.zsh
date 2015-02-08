@@ -8,6 +8,7 @@ alias pt="py.test"
 alias nt="nosetests"
 alias mn="python manage.py"
 alias pipgrep="pip freeze | grep "
+alias getpip="wget https://bootstrap.pypa.io/get-pip.py && python get-pip.py && rm get-pip.py"
 
 # Conda environments
 alias mkenv="conda create python=3 ipython pip -n "
