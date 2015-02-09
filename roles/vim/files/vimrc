@@ -224,23 +224,15 @@ set previewheight=25  " Larger preview height
 set winwidth=79 winheight=5 winminheight=5
 
 " Patterns for expand(), ctrlp, etc. to ignore
-set wildignore+=log/**,node_modules/**,target/**,tmp/**,*.rbc/,.git/*,*/.hg/*,*/.svn/*
-set wildignore+=*.o,*.out,*.obj,.git,*.rbc,*.rbo,*.class,.svn,*.gem
-set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
-set wildignore+=*/vendor/gems/*,*/vendor/cache/*,*/.bundle/*,*/.sass-cache/*
-set wildignore+=*.swp,*~,._*
-set wildignore+=*.pyc,*__pycache__*
+set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz,*.swp,*~,._*,*.pyc,*__pycache__*
 " Enable basic mouse behavior such as resizing buffers.
 set mouse=a mousemodel=popup " Right-click pops up a menu
 if exists('$TMUX') " Support resizing in tmux
   set ttymouse=xterm2
 endif
 
-" Persistent undo
+" Persistent undo (can use undos after exiting and restarting
 if exists("+undofile")
-" undofile - This allows you to use undos after exiting and restarting
-" This, like swap and backups, uses .vim-undo first, then ~/.vim/undo
-" :help undo-persistence
   if isdirectory($HOME . '/.vim/undo') == 0
     :silent !mkdir -p ~/.vim/undo > /dev/null 2>&1
   endif
@@ -349,6 +341,6 @@ augroup END
 set guifont=Ubuntu\ Mono:h14
 if has('gui_running')
   set transparency=5
-  " Hide scrollbars in MacVim
+  " Hide scrollbars
   set guioptions-=Tr guioptions-=r go-=L
 endif
