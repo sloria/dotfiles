@@ -190,10 +190,10 @@ filetype plugin indent on
 """ end plugins """
 
 """ BASE CUSTOMIZATIONS """
+" NOTE: Many base customzations come from vim-sensible and vim-opinion
 set encoding=utf-8
 set autoindent
 set autoread " reload files when changed on disk, i.e. via `git checkout`
-set backupcopy=yes
 set clipboard=unnamed " Make "yanks" work with system clipboard
 set wildmenu wildmode=longest,list,full
 
@@ -225,8 +225,6 @@ set winwidth=79 winheight=5 winminheight=5
 
 " Patterns for expand(), ctrlp, etc. to ignore
 set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz,*.swp,*~,._*,*.pyc,*__pycache__*
-" Enable basic mouse behavior such as resizing buffers.
-set mouse=a mousemodel=popup " Right-click pops up a menu
 if exists('$TMUX') " Support resizing in tmux
   set ttymouse=xterm2
 endif
