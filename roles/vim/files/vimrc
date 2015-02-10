@@ -93,22 +93,22 @@ Plug 'majutsushi/tagbar', {'on': 'Tagbar'}
 " Open tagbar
 map <leader>\ :Tagbar<CR>
 let g:tagbar_autofocus = 1
+Plug 'wellle/targets.vim'  " because cin), etc. is awesome
 
-" Running Python tests
-Plug 'alfredodeza/pytest.vim'
+Plug 'alfredodeza/pytest.vim' " Running Python tests
 nmap <silent><Leader>tF :Pytest file verbose<CR>
 nmap <silent><Leader>c :Pytest class verbose<CR>
 nmap <silent><Leader>m :Pytest method verbose<CR>
 nmap <silent><Leader>tf :Pytest function verbose<CR>
 
-Plug 'mattn/emmet-vim'  "Write HTML fast
+Plug 'mattn/emmet-vim'  " Write HTML fast
 Plug 'Raimondi/delimitMate'  " autoclose parens, quotes, etc.
 Plug 'justinmk/vim-sneak'  " Quickly move around
 Plug 'kristijanhusak/vim-multiple-cursors'
 Plug 'greyblake/vim-preview'  "For previewing markdown, rst, etc.
 Plug 'mtth/scratch.vim'
 let g:scratch_height = 20
-" Open scratch buffer with space-tab
+" Open scratch buffer with space-tab (automatically set syntax to python)
 nnoremap <silent> <leader><tab> :Scratch<cr>:set ft=python<cr>
 
 " GIT
