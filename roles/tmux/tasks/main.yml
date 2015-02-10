@@ -15,3 +15,13 @@
     src: "{{ dotfiles_home }}/roles/tmux/files/tmux.conf"
     dest: "{{dotfiles_user_home}}/.tmux.conf"
     state: link
+  when: ansible_os_family != "Darwin"
+
+# On OSX, use the same tmux.conf, but also use
+# reattach_to_user_namespace (for clipboard support)
+- name: Symlink .tmux.conf (OSX)
+  file:
+    src: "{{ dotfiles_home }}/roles/tmux/files/tmux-osx.conf"
+    dest: "{{dotfiles_user_home}}/.tmux.conf"
+    state: link
+  when: ansible_os_family == "Darwin"
