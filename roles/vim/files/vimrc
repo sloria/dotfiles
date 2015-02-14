@@ -7,10 +7,10 @@ call plug#begin()
 
 " ESSENTIALS
 
-Plug 'tpope/vim-sensible'
-Plug 'rstacruz/vim-opinion'
-Plug 'ervandew/supertab'
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tpope/vim-sensible' " Sensible defaults
+Plug 'rstacruz/vim-opinion' " More sensible defaults
+Plug 'ervandew/supertab' " Tab complete everything
+Plug 'ctrlpvim/ctrlp.vim' " Fuzzy-matching go-to file
 " Faster and more accurate fuzzy-matching
 let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
@@ -29,7 +29,7 @@ else
   nmap <leader>F :Ack <c-r>=expand("<cword>")<cr>
 endif
 Plug 'felikz/ctrlp-py-matcher'
-Plug 'tacahiroy/ctrlp-funky'
+Plug 'tacahiroy/ctrlp-funky' " Go-to class/method/etc. without ctags
 " Go to symbol
 map <leader>r :CtrlPFunky<CR>
 let g:ctrlp_funky_syntax_highlight = 1
@@ -104,7 +104,6 @@ nmap <silent><Leader>tf :Pytest function verbose<CR>
 Plug 'mattn/emmet-vim'  " Write HTML fast
 Plug 'Raimondi/delimitMate'  " autoclose parens, quotes, etc.
 Plug 'justinmk/vim-sneak'  " Quickly move around
-Plug 'kristijanhusak/vim-multiple-cursors'
 Plug 'greyblake/vim-preview'  "For previewing markdown, rst, etc.
 Plug 'mtth/scratch.vim'
 let g:scratch_height = 20
@@ -170,14 +169,6 @@ let g:jedi#rename_command = "<C-c>r"
 let g:jedi#usages_command = "<C-c>u"
 let g:jedi#documentation_command = "<C-c>d"
 Plug 'pangloss/vim-javascript'
-if executable('npm')
-  " Use tern for goto_definition and refactoring
-  Plug 'marijnh/tern_for_vim', {'do': 'npm install'}
-  " Go to definition with <C-c>g (just like in python)
-  autocmd Filetype javascript noremap <buffer> <C-c>g :TernDef<CR>
-  " Rename with <C-c>r (also like in python)
-  autocmd Filetype javascript noremap <buffer> <C-c>r :TernRename<CR>
-endif
 Plug 'kchmck/vim-coffee-script'
 " Lispy stuff
 Plug 'guns/vim-sexp'
@@ -288,7 +279,7 @@ nnoremap gp `[v`]
 nnoremap <leader>Tp :set ft=python<CR>
 nnoremap <leader>Tj :set ft=javascript<CR>
 nnoremap <leader>Tr :set ft=rst<CR>
-" Quickly write/quit/save-and-quit
+" Quickly write/quit
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
 " Quickly open netrw
