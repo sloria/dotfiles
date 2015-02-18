@@ -11,15 +11,14 @@ Plug 'tpope/vim-sensible' " Sensible defaults
 Plug 'rstacruz/vim-opinion' " More sensible defaults
 Plug 'ervandew/supertab' " Tab complete everything
 Plug 'ctrlpvim/ctrlp.vim' " Fuzzy-matching go-to file
+" Make ctrlp faster
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 " Faster and more accurate fuzzy-matching
 let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
-" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
   Plug 'rking/ag.vim'
-" Use Ag over Grep
-  set grepprg=ag\ --nogroup\ --nocolor
-  " Use ag in CtrlP for listing files.
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  " Use Ag over Grep
+  set grepprg=ag\ --nogroup\ --nocolor\ --column
   nnoremap <leader>f :Ag<space>
   " Search for term under the cursor
   nmap <leader>F :Ag <c-r>=expand("<cword>")<cr>

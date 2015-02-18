@@ -6,13 +6,13 @@ let mapleader = "\<Space>"
 call plug#begin()
 Plug 'ctrlpvim/ctrlp.vim'
 " Go to symbol
-" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
+Plug 'ctrlpvim/ctrlp.vim' " Fuzzy-matching go-to file
+" Make ctrlp faster
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 if executable('ag')
   Plug 'rking/ag.vim'
-" Use Ag over Grep
-  set grepprg=ag\ --nogroup\ --nocolor
-  " Use ag in CtrlP for listing files.
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  " Use Ag over Grep
+  set grepprg=ag\ --nogroup\ --nocolor\ --column
   nnoremap <leader>f :Ag<space>
   " Search for term under the cursor
   nmap <leader>F :Ag <c-r>=expand("<cword>")<cr>
@@ -153,7 +153,7 @@ nnoremap gp `[v`]
 nnoremap <leader>Tp :set ft=python<CR>
 nnoremap <leader>Tj :set ft=javascript<CR>
 nnoremap <leader>Tr :set ft=rst<CR>
-" Quickly write/quit/save-and-quit
+" Quickly write/quit
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
 " Quickly open netrw
