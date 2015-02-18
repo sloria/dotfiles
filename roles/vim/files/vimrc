@@ -129,7 +129,6 @@ map <leader>gr :Gread<CR>
 map <leader>gw :Gwrite<CR>
 noremap <Leader>gp :Git push<CR>
 Plug 'mattn/webapi-vim' " needed by gist-vim
-" Github/Gist
 Plug 'mattn/gist-vim', {'on': 'Gist'}
 " Make gists private by default
 let g:gist_post_private = 1
@@ -171,10 +170,10 @@ let g:jedi#documentation_command = "<C-c>d"
 Plug 'pangloss/vim-javascript'
 Plug 'kchmck/vim-coffee-script'
 " Lispy stuff
-Plug 'guns/vim-sexp'
-Plug 'tpope/vim-sexp-mappings-for-regular-people'
-Plug 'guns/vim-clojure-static'
-Plug 'tpope/vim-fireplace' " clojure repl
+Plug 'guns/vim-sexp', {'for': 'clojure'}
+Plug 'tpope/vim-sexp-mappings-for-regular-people', {'for': 'clojure'}
+Plug 'guns/vim-clojure-static', {'for': 'clojure'}
+Plug 'tpope/vim-fireplace', {'for': 'clojure'} " clojure repl
 
 call plug#end()
 filetype plugin indent on
