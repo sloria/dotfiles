@@ -57,6 +57,7 @@ filetype plugin indent on    " required
 """ BASE CUSTOMIZATIONS """
 " NOTE: Many base customzations come from vim-sensible and vim-opinion
 set encoding=utf-8
+set relativenumber
 set autoindent
 set autoread " reload files when changed on disk, i.e. via `git checkout`
 set clipboard=unnamed " Make "yanks" work with system clipboard
@@ -73,8 +74,8 @@ set noerrorbells visualbell t_vb=
 
 set t_Co=256 " Must be 256 for many themes to display correctly
 if &term =~ '256color' | set t_ut= | endif
-" Favorites: hybrid iceberg Tomorrow hybrid-light
-silent! colorscheme hybrid
+" Favorites: hybrid iceberg jellybeans Tomorrow hybrid-light
+silent! colorscheme iceberg
 
 " Show trailing whitespace
 set list listchars=tab:▸\ ,trail:▫
