@@ -67,6 +67,7 @@ let g:syntastic_enable_signs = 0
 let g:syntastic_enable_balloons = 0
 " Non-blocking python checking
 Plug 'alfredodeza/khuno.vim'
+nnoremap <leader>k :Khuno show<CR>
 
 " NICE TO HAVE
 Plug 'bling/vim-airline'
