@@ -16,10 +16,6 @@ if executable('ag')
   nnoremap <leader>f :Ag<space>
   " Search for term under the cursor
   nmap <leader>F :Ag <c-r>=expand("<cword>")<cr>
-else
-  Plug 'mileszs/ack.vim'
-  noremap <leader>f :Ack<space>
-  nmap <leader>F :Ack <c-r>=expand("<cword>")<cr>
 endif
 map <leader>s :CtrlPBufTag<CR>
 Plug 'ervandew/supertab'
