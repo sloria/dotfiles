@@ -228,13 +228,6 @@ if exists("+undofile")
   set undodir=./.vim-undo// undodir+=~/.vim/undo// undofile
 endif
 
-" Make sure Vim returns to the same line when you reopen a file.
-augroup line_return
-    autocmd!
-    autocmd BufReadPost *
-        \ if line("'\"") > 0 && line("'\"") <= line("$") | execute 'normal! g`"zvzz' | endif
-augroup END
-
 " Change cursor style when entering INSERT mode (works in tmux!)
 if exists('$TMUX')
   let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
@@ -305,9 +298,13 @@ nmap k gk
 "" Tabs
 nnoremap <silent> tt :tabnew<CR>
 
-""" Languages
 augroup configgroup
   autocmd!
+  " Make sure Vim returns to the same line when you reopen a file.
+  autocmd BufReadPost *
+      \ if line("'\"") > 0 && line("'\"") <= line("$") | execute 'normal! g`"zvzz' | endif
+
+  """ Languages
   " rst
   autocmd BufNewFile,BufRead *.txt setlocal ft=rst
   autocmd FileType rst setlocal wrap nolist expandtab lbr shiftwidth=4 tabstop=4 softtabstop=4
