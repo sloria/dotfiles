@@ -108,10 +108,6 @@ else
   let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
 
-" Always focus on splited window.
-nnoremap <C-w>s <C-w>s<C-w>w
-nnoremap <C-w>v <C-w>v<C-w>w
-
 """ SHORTCUTS """
 " Quickly edit vimrc
 nmap <leader>, :e $MYVIMRC<CR>
