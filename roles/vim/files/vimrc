@@ -67,14 +67,8 @@ Plug 'alfredodeza/khuno.vim'
 " NICE TO HAVE
 Plug 'bling/vim-airline'
 let g:airline_theme='tomorrow'
-" Show buffers in tabline
-let g:airline#extensions#tabline#enabled = 1
-" Disable stuff I don't need to see
-let g:airline#extensions#hunks#enabled = 0
-let g:airline#extensions#bufferline#enabled = 0
-let g:airline#extensions#tagbar#enabled = 0
-let g:airline#extensions#virtualenv#enabled = 0
-let g:airline#extensions#csv#enabled = 0
+" Explicitly specify which extensions to use
+let g:airline_extensions = ['branch', 'ctrlp', 'tabline', 'syntastic', 'whitespace']
 Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'SirVer/ultisnips'
@@ -134,7 +128,7 @@ let g:gist_open_browser_after_post = 1
 " COLOR
 
 Plug 'flazz/vim-colorschemes'
-Plug 'sloria/vim-hybrid'  " hybrid with easier-to-read line numbes
+Plug 'sloria/vim-hybrid'  " hybrid with easier-to-read line numbers
 
 " SYNTAX/LANGUAGES
 

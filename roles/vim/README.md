@@ -48,16 +48,12 @@ Leader is `Space`.
 - `<C-c>g`: Go to definition.
 - `<C-c>r`: Rename variable.
 
-### Javascript
-
-- `<C-c>g`: Go to definition.
-- `<C-c>r`: Rename variable.
-
 ### Git
 
 - `<space-gs>`: Open git status.
 - `<space-gb>`: git blame
 - `<space-gp>`: git push
 - `<space-gh>`: Stage hunk.
-- `<space-gB>`: git Browse (go to corresponding file or selected lines on Github)
+- `<space-gH>`: Unstage hunk.
 - `]h` and `[h`: Go to next/previous hunk.
+- `<space-gB>`: git Browse (go to corresponding file or selected lines on Github)

@@ -25,7 +25,7 @@ nnoremap <leader>d :NERDTreeToggle<CR>
 nnoremap <leader>D :NERDTreeFind<CR>
 
 " Colors
-Plug 'sloria/vim-hybrid'  " hybrid with easier-to-read line numbes
+Plug 'sloria/vim-hybrid'  " hybrid with easier-to-read line numbers
 
 " Buffers
 Plug 'ap/vim-buftabline'
