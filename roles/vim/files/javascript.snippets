@@ -80,3 +80,114 @@ shouldComponentUpdate(nextProps, nextState) {
 },
 endsnippet
 
+# Mocha testing
+snippet desc
+describe('${1:feature}', () => {
+	${2}
+});
+endsnippet
+
+snippet it
+it('${1:should do something}', () => {
+	${2}
+});
+endsnippet
+
+snippet bef
+before(() => {
+	${1}
+});
+endsnippet
+
+snippet af
+after(() => {
+	${1}
+});
+endsnippet
+
+snippet befe
+beforeEach(() => {
+	${1}
+});
+endsnippet
+
+snippet afe
+afterEach(() => {
+	${1}
+});
+endsnippet
+
+# Chai assertions
+
+snippet aok
+assert.ok(${1});
+endsnippet
+
+snippet a==
+assert.equal(${1}, ${2});
+endsnippet
+
+snippet a!=
+assert.notEqual(${1}, ${2});
+endsnippet
+
+snippet a===
+assert.strictEqual(${1}, ${2});
+endsnippet
+
+snippet a!==
+assert.notStrictEqual(${1}, ${2});
+endsnippet
+
+snippet ad=
+assert.deepEqual(${1}, ${2});
+endsnippet
+
+snippet a!d=
+assert.notDeepEqual(${1}, ${2});
+endsnippet
+
+snippet atrue
+assert.isTrue(${1});
+endsnippet
+
+snippet atrue
+assert.isFalse(${1});
+endsnippet
+
+snippet atype
+assert.typeOf(${1:obj}, '${2:type}');
+endsnippet
+
+snippet aio
+assert.instanceOf(${1:obj}, ${2:type});
+endsnippet
+
+# Chai-sinon
+
+snippet acalled
+assert.called(${1:spy});
+endsnippet
+
+snippet acalledw
+assert.calledWith(${1:spy}, ${2:args});
+endsnippet
+
+snippet acalledo
+assert.calledOnce(${1:spy});
+endsnippet
+
+snippet spy
+var ${1:spy} = new sinon.spy(${2:obj}, '${3:method}');
+endsnippet
+
+snippet testboiler
+/*global describe, it, expect, example, before, after, beforeEach, afterEach, mocha, sinon*/
+'use strict';
+var assert = require('chai').assert;
+
+describe('${1:feature}', () => {
+	${2}
+});
+endsnippet
+
