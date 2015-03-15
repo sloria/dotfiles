@@ -70,7 +70,7 @@ set noerrorbells visualbell t_vb=
 
 set t_Co=256 " Must be 256 for many themes to display correctly
 if &term =~ '256color' | set t_ut= | endif
-" Favorites: hybrid iceberg jellybeans Tomorrow hybrid-light
+" Favorites: hybrid-sl iceberg jellybeans Tomorrow hybrid-light hemisu
 silent! colorscheme hybrid-sl
 
 " Show trailing whitespace
@@ -194,6 +194,6 @@ augroup END
 set guifont=Ubuntu\ Mono:h14
 if has('gui_running')
   set transparency=5
-  " Hide scrollbars
-  set guioptions-=Tr guioptions-=r go-=L
+  " Hide scrollbars and menu
+  set guioptions-=Tr guioptions-=r guioptions-=m go-=L
 endif

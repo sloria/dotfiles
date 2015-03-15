@@ -91,14 +91,15 @@ nmap <silent><Leader>m :Pytest method verbose<CR>
 nmap <silent><Leader>tf :Pytest function verbose<CR>
 
 Plug 'mattn/emmet-vim'  " Write HTML fast
-Plug 'Raimondi/delimitMate'  " autoclose parens, quotes, etc.
-Plug 'justinmk/vim-sneak'  " Quickly move around
-let g:sneak#streak = 1
+Plug 'jiangmiao/auto-pairs' " autoclose parens, quotes, etc.
+Plug 'Lokaltog/vim-easymotion' " Quickly move around
+nmap s <Plug>(easymotion-s2)
 Plug 'greyblake/vim-preview'  "For previewing markdown, rst, etc.
 Plug 'mtth/scratch.vim'
 let g:scratch_height = 20
 " Open scratch buffer with space-tab (automatically set syntax to python)
 nnoremap <silent> <leader><tab> :Scratch<cr>:set ft=python<cr>
+Plug 'bronson/vim-visual-star-search'
 
 " GIT
 Plug 'airblade/vim-gitgutter'
@@ -190,7 +191,7 @@ set noerrorbells visualbell t_vb=
 
 set t_Co=256 " Must be 256 for many themes to display correctly
 if &term =~ '256color' | set t_ut= | endif
-" Favorites: hybrid iceberg jellybeans Tomorrow hybrid-light
+" Favorites: hybrid-sl iceberg jellybeans Tomorrow hybrid-light hemisu
 silent! colorscheme hybrid-sl
 
 " Show trailing whitespace
@@ -314,6 +315,6 @@ augroup END
 set guifont=Ubuntu\ Mono:h14
 if has('gui_running')
   set transparency=5
-  " Hide scrollbars
-  set guioptions-=Tr guioptions-=r go-=L
+  " Hide scrollbars and menu
+  set guioptions-=Tr guioptions-=r guioptions-=m go-=L
 endif

@@ -28,6 +28,7 @@ Leader is `Space`.
 - `<space-space-w>`: Strip trailing whitespace.
 - `<space-f>`: Search current directory with ag or ack (depending on which is installed).
 - `<C-y>,`: Expand an [Emmet](http://emmet.io/) abbreviation (default binding)
+- `s{char}{char}`: Quickly move around ([sneak](https://github.com/justinmk/vim-sneak)-style motion).
 
 ### Buffers
 
