@@ -2,17 +2,6 @@
 # shortcut to this dotfiles path is $ZSH
 export ZSH=$HOME/dotfiles
 
-# your project folder that we can `c [tab]` to
-export PROJECTS=~/projects
-
-# use .localrc for SUPER SECRET CRAP that you don't
-# want in your public, versioned repo.
-if [[ -a ~/.localrc ]]
-then
-  source ~/.localrc
-fi
-
-
 # all of our zsh files
 typeset -U config_files
 config_files=($ZSH/**/*.zsh)
@@ -47,7 +36,9 @@ done
 
 unset config_files
 
-if [ -f ~/.zshrc.local ]
+# use .localrc for SUPER SECRET CRAP that you don't
+# want in your public, versioned repo.
+if [[ -a ~/.localrc ]]
 then
-    source ~/.zshrc.local
+  source ~/.localrc
 fi

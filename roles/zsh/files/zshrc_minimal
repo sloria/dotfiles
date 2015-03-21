@@ -44,11 +44,15 @@ export VISUAL=vim
 alias c=clear
 alias g=git
 alias reload!='source ~/.zshrc'
-alias j=autojump
 alias e=$EDITOR
 alias pg='ps -ef | grep'
 
-if [ -f ~/.zshrc.local ]
+# Enable z script
+source ~/dotfiles/roles/z/enable.zsh
+
+# use .localrc for SUPER SECRET CRAP that you don't
+# want in your public, versioned repo.
+if [[ -a ~/.localrc ]]
 then
-    source ~/.zshrc.local
+  source ~/.localrc
 fi
