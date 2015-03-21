@@ -1,3 +1,0 @@
-
-- name: Homebrew ensure autojump is installed
-  homebrew: name=autojump state=latest
