@@ -38,6 +38,8 @@ osx_cask_packages:
   # Utilities
   - bettertouchtool
   - iterm2
+  - caffeine
+  - flux
   # Vagrant/Virtualbox
   - vagrant
   - virtualbox
@@ -45,12 +47,14 @@ osx_cask_packages:
   - limechat
   - flowdock
   # Password manager
-  - onepassword
+  - 1password
   # Backup/storage
   - crashplan
   - dropbox
   # Music
   - spotify
+  # Notetaking
+  - evernote
 
 # Node utilities
 npm_global_packages:
