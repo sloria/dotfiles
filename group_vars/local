@@ -41,12 +41,16 @@ osx_cask_packages:
   # Vagrant/Virtualbox
   - vagrant
   - virtualbox
-  # IRC client
+  # chat
   - limechat
+  - flowdock
   # Password manager
   - onepassword
-  # Backup service
+  # Backup/storage
   - crashplan
+  - dropbox
+  # Music
+  - spotify
 
 # Node utilities
 npm_global_packages:
