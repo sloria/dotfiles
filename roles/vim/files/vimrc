@@ -197,7 +197,7 @@ silent! colorscheme hybrid-sl
 " Show trailing whitespace
 set list listchars=tab:▸\ ,trail:▫
 
-" Check is necessary because breakindent isn't yet available on MacVim =(
+" Check is necessary
 if exists('&breakindent') | set breakindent showbreak=.. | endif
 
 set cursorline  " have a line indicate cursor location

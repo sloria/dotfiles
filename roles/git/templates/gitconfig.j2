@@ -41,6 +41,8 @@
 
         issues = !hub browse -- issues
         url = "!f() { sha=$(git rev-parse ${1:-HEAD}); hub browse -u -- commit/$sha; }; f"
+        # Copy current branch name to clipboard (MacOSX only)
+        cb = "!git rev-parse --abbrev-ref HEAD | tr -d '\n' | pbcopy"
 
         f = flow
         fublish = flow feature publish
