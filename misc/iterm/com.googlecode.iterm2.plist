@@ -3634,7 +3634,7 @@
 	<key>NSFontPanelAttributes</key>
 	<string>1, 4</string>
 	<key>NSNavLastRootDirectory</key>
-	<string>~/dotfiles/misc/iterm</string>
+	<string>~</string>
 	<key>NSQuotedKeystrokeBinding</key>
 	<string></string>
 	<key>NSRepeatCountBinding</key>
@@ -3652,7 +3652,7 @@
 		BAtzdHJlYW10eXBlZIHoA4QBQISEhAhOU1N0cmluZwGEhAhOU09iamVjdACF
 		hAErATGG
 		</data>
-		<string>198</string>
+		<string>302</string>
 	</array>
 	<key>NSTableView Hidden Columns KeyBingingTable</key>
 	<array/>
@@ -3663,7 +3663,7 @@
 	<key>NSWindow Frame Preferences</key>
 	<string>449 165 924 485 0 0 1440 900 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 0 2560 1440 0 0 2560 1418 </string>
+	<string>0 251 710 626 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>419 21 570 826 0 0 1440 900 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -3845,7 +3845,7 @@
 			<key>Blinking Cursor</key>
 			<true/>
 			<key>Blur</key>
-			<true/>
+			<false/>
 			<key>Blur Radius</key>
 			<real>3.9572484493255615</real>
 			<key>Bold Color</key>
@@ -4874,7 +4874,7 @@
 			<key>Rows</key>
 			<integer>50</integer>
 			<key>Screen</key>
-			<integer>-1</integer>
+			<integer>0</integer>
 			<key>Scrollback Lines</key>
 			<integer>10000</integer>
 			<key>Scrollback With Status Bar</key>
@@ -5761,7 +5761,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2015-01-23T22:14:07Z</date>
+	<date>2015-03-26T15:51:33Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>
