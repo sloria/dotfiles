@@ -25,8 +25,7 @@ if executable('ag')
 endif
 Plug 'felikz/ctrlp-py-matcher'
 Plug 'tacahiroy/ctrlp-funky' " Go-to class/method/etc. without ctags
-" Go to symbol
-map <leader>r :CtrlPFunky<CR>
+map <C-t> :CtrlPFunky<CR>
 let g:ctrlp_funky_syntax_highlight = 1
 Plug 'tpope/vim-rsi'  " unix keybindings in insert mode
 Plug 'tpope/vim-commentary'

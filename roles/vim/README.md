@@ -18,7 +18,7 @@ Leader is `Space`.
 - `<space-n>`: Remove search highlight.
 - `<space-v>`: Vertical split.
 - `<C-p>`: Go to file (default binding).
-- `<space-r>`: Go to symbol (method, function, etc.) in file.
+- `<C-t>`: Go to symbol (method, function, etc.) in file.
 - `<space-/>`: Toggle comment.
 - `<space-d>`: Open filebrowser.
 - `<space-h>` and `<space-l>`: Go to beginning/end of line.
