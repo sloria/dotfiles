@@ -91,6 +91,10 @@ nmap <silent><Leader>m :Pytest method verbose<CR>
 nmap <silent><Leader>tf :Pytest function verbose<CR>
 
 Plug 'mattn/emmet-vim'  " Write HTML fast
+" When in javascript, expand to 'className' (for jsx support)
+let g:user_emmet_settings = {
+\    'javascript': {'extends': 'html', 'attribute_name': {'class': 'className'}}
+\ }
 Plug 'jiangmiao/auto-pairs' " autoclose parens, quotes, etc.
 Plug 'Lokaltog/vim-easymotion' " Quickly move around
 nmap s <Plug>(easymotion-s2)
@@ -197,7 +201,6 @@ silent! colorscheme hybrid-sl
 " Show trailing whitespace
 set list listchars=tab:▸\ ,trail:▫
 
-" Check is necessary
 if exists('&breakindent') | set breakindent showbreak=.. | endif
 
 set cursorline  " have a line indicate cursor location
