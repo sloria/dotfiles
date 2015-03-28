@@ -179,12 +179,12 @@ filetype plugin indent on
 " NOTE: Many base customzations come from vim-sensible and vim-opinion
 set encoding=utf-8
 set relativenumber
-set autoindent
 set autoread " reload files when changed on disk, i.e. via `git checkout`
 set clipboard=unnamed " Make "yanks" work with system clipboard
 set wildmenu wildmode=longest,list,full
 
 " Indents
+set autoindent
 set expandtab " expand tabs by default (overloadable per file type later)
 set tabstop=4 softtabstop=4 shiftwidth=4
 set shiftround " use multiple of shiftwidth when indenting with '<' and '>'
@@ -209,11 +209,8 @@ set previewheight=25  " Larger preview height
 " Set minimum window size to 79x5.
 set winwidth=79 winheight=5 winminheight=5
 
-" Patterns for expand(), ctrlp, etc. to ignore
+" Patterns to ignore for expand(), ctrlp, etc.
 set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz,*.swp,*~,._*,*.pyc,*__pycache__*
-if exists('$TMUX') " Support resizing in tmux
-  set ttymouse=xterm2
-endif
 
 " Persistent undo (can use undos after exiting and restarting
 if exists("+undofile")
