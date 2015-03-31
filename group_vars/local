@@ -29,6 +29,7 @@ vim_install_plugins: no
 osx_homebrew_packages:
   - wget
   - tree
+  - highlight
 
 # Mac Apps to be installed with homebrew-cask
 osx_cask_packages:

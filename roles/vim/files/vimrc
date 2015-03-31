@@ -74,8 +74,6 @@ Plug 'SirVer/ultisnips'
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 Plug 'honza/vim-snippets'
-Plug 'rafaelfranca/rtf_pygmentize', {'on': 'RTFPygmentize'}
-let g:rtfp_font = 'Ubuntu Mono'
 
 Plug 'majutsushi/tagbar', {'on': 'Tagbar'}
 " Open tagbar
@@ -146,6 +144,7 @@ Plug 'groenewege/vim-less'
 Plug 'sophacles/vim-bundle-mako'
 Plug 'tpope/vim-markdown'
 let g:vim_markdown_folding_disabled=1
+let g:markdown_fenced_languages = ['javascript', 'python', 'clojure', 'ruby']
 Plug 'mxw/vim-jsx'
 Plug 'davidhalter/jedi-vim'
 " Don't use default keymappings
@@ -185,7 +184,7 @@ set wildmenu wildmode=longest,list,full
 " Indents
 set autoindent
 set expandtab " expand tabs by default (overloadable per file type later)
-set tabstop=4 softtabstop=4 shiftwidth=4
+set tabstop=2 softtabstop=2 shiftwidth=2
 set shiftround " use multiple of shiftwidth when indenting with '<' and '>'
 
 " No bells
