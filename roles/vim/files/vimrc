@@ -19,7 +19,7 @@ if executable('ag')
   Plug 'rking/ag.vim'
   " Use Ag over Grep
   set grepprg=ag\ --nogroup\ --nocolor\ --column
-  nnoremap <leader>f :Ag<space>
+  nnoremap <leader>f :Ag<space>''<Left>
   " Search for term under the cursor
   nmap <leader>F :Ag <c-r>=expand("<cword>")<cr>
 endif
@@ -184,7 +184,7 @@ set wildmenu wildmode=longest,list,full
 " Indents
 set autoindent
 set expandtab " expand tabs by default (overloadable per file type later)
-set tabstop=2 softtabstop=2 shiftwidth=2
+set tabstop=4 softtabstop=4 shiftwidth=4
 set shiftround " use multiple of shiftwidth when indenting with '<' and '>'
 
 " No bells
