@@ -53,7 +53,7 @@ nnoremap <leader>s :SyntasticCheck<CR>
 " NOTE: Don't use syntastic with python; we use khuno for that
 let g:syntastic_mode_map = { 'mode': 'active',
  \ 'active_filetypes': [],
- \ 'passive_filetypes': [ 'html', 'rst', 'md', 'python'] }
+ \ 'passive_filetypes': [ 'html', 'rst', 'md', 'python', 'javascript'] }
 let g:syntastic_python_checkers = ['flake8', 'python']
 let g:syntastic_javascript_checkers = ['jsxhint', 'jshint']
 autocmd! BufEnter  *.jsx  let b:syntastic_checkers=['jsxhint']
