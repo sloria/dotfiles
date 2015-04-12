@@ -11,6 +11,7 @@ Plug 'tpope/vim-sensible' " Sensible defaults
 Plug 'rstacruz/vim-opinion' " More sensible defaults
 Plug 'ervandew/supertab' " Tab complete everything
 Plug 'ctrlpvim/ctrlp.vim' " Fuzzy-matching go-to file
+nnoremap <C-b> :CtrlPBuffer<CR>
 " Make ctrlp faster
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 " Faster and more accurate fuzzy-matching
@@ -264,7 +265,7 @@ nnoremap <leader>q :q<CR>
 " Quickly open netrw
 nnoremap <leader>e :e.<CR>
 " Unhighlight search
-nnoremap <Leader>n :nohlsearch<CR><C-L>
+nnoremap <Enter> :nohlsearch<CR><C-L>
 " Quick split
 nnoremap <Leader>v <C-w>v<C-w>w
 " Quick select whole file

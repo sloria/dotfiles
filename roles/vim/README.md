@@ -15,7 +15,7 @@ Leader is `Space`.
 
 - `<space-w>`: Write file (who has time to type `:w<CR>`?).
 - `<space-q>`: Quit.
-- `<space-n>`: Remove search highlight.
+- `<Enter>`: Remove search highlight.
 - `<space-v>`: Vertical split.
 - `<C-p>`: Go to file (default binding).
 - `<C-t>`: Go to symbol (method, function, etc.) in file.
