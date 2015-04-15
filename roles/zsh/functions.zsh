@@ -35,3 +35,16 @@ function scratch {
   cd $cur_dir
   echo "New scratch dir ready for grinding ;>"
 }
+
+ # Allow returning to Vim by pressing Ctrl+Z
+fancy-ctrl-z () {
+  if [[ $#BUFFER -eq 0 ]]; then
+    BUFFER="fg"
+    zle accept-line
+  else
+    zle push-input
+    zle clear-screen
+  fi
+}
+zle -N fancy-ctrl-z
+bindkey '^Z' fancy-ctrl-z
