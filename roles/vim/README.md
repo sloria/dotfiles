@@ -15,7 +15,7 @@ Leader is `Space`.
 
 - `<space-w>`: Write file (who has time to type `:w<CR>`?).
 - `<space-q>`: Quit.
-- `<Enter>`: Remove search highlight.
+- `<Enter>` or `<space-n>`: Remove search highlight.
 - `<space-v>`: Vertical split.
 - `<C-p>`: Go to file (default binding).
 - `<C-t>`: Go to symbol (method, function, etc.) in file.
@@ -35,14 +35,14 @@ Leader is `Space`.
 - `[b` and `]b` or Left/Right arrow keys: Previous/next buffer (default bindings of vim-unimpaired)
 - `X`: Delete current buffer without closing window.
 
+### Running tests (Python, JS, Clojure, Ruby)
+
+- `<space-tt>`: Run nearest test.
+- `<space-tf>`: Run test file.
+- `<space-tl>`: Run last test.
+- `<space-ts>`: Run full test suite.
+
 ### Python
-
-#### Running tests
-
-- `<space-m>`: Run test method.
-- `<space-c>`: Run test class.
-- `<space-tf>`: Run test function.
-- `<space-tF>`: Run all test in file.
 
 #### Jedi
 

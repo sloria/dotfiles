@@ -81,12 +81,13 @@ Plug 'majutsushi/tagbar', {'on': 'Tagbar'}
 map <leader>\ :Tagbar<CR>
 let g:tagbar_autofocus = 1
 Plug 'wellle/targets.vim'  " because cin), etc. is awesome
-
-Plug 'alfredodeza/pytest.vim' " Running Python tests
-nmap <silent><Leader>tF :Pytest file verbose<CR>
-nmap <silent><Leader>c :Pytest class verbose<CR>
-nmap <silent><Leader>m :Pytest method verbose<CR>
-nmap <silent><Leader>tf :Pytest function verbose<CR>
+Plug 'tpope/vim-dispatch' " So we can run tests asynchronously
+Plug 'janko-m/vim-test'  " For running tests
+nmap <silent> <leader>tt :TestNearest<CR>
+nmap <silent> <leader>tf :TestFile<CR>
+nmap <silent> <leader>ts :TestSuite<CR>
+nmap <silent> <leader>tl :TestLast<CR>
+let test#strategy = "dispatch"
 
 Plug 'mattn/emmet-vim'  " Write HTML fast
 " When in javascript, expand to 'className' (for jsx support)
