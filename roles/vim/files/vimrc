@@ -123,7 +123,7 @@ map <leader>gB :Gbrowse -<CR>
 vmap <leader>gB :Gbrowse -<CR>
 map <leader>gr :Gread<CR>
 map <leader>gw :Gwrite<CR>
-noremap <Leader>gp :Git push<CR>
+noremap <Leader>gp :Gpush<CR>
 Plug 'mattn/webapi-vim' " needed by gist-vim
 Plug 'mattn/gist-vim', {'on': 'Gist'}
 " Make gists private by default
@@ -268,7 +268,6 @@ nnoremap <leader>q :q<CR>
 " Quickly open netrw
 nnoremap <leader>e :e.<CR>
 " Unhighlight search (use Enter in a regular buffer; <space-n> in NERDTree)
-nnoremap <Enter> :nohlsearch<CR><C-L>
 nnoremap <leader>n :nohlsearch<CR><C-L>
 " Quick split
 nnoremap <Leader>v <C-w>v<C-w>w
