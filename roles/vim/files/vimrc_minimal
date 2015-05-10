@@ -139,7 +139,7 @@ nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
 " Quickly open netrw
 nnoremap <leader>e :e.<CR>
-" Unhighlight search (use Enter in a regular buffer; <space-n> in NERDTree)
+" Unhighlight search
 nnoremap <leader>n :nohlsearch<CR><C-L>
 " Quick split
 nnoremap <Leader>v <C-w>v<C-w>w
