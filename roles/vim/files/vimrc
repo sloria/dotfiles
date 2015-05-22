@@ -102,8 +102,9 @@ nmap s <Plug>(easymotion-s2)
 Plug 'greyblake/vim-preview'  "For previewing markdown, rst, etc.
 Plug 'mtth/scratch.vim'
 let g:scratch_height = 20
+let g:scratch_filetype = 'markdown'
 " Open scratch buffer with space-tab (automatically set syntax to python)
-nnoremap <silent> <leader><tab> :Scratch<cr>:set ft=python<cr>
+nnoremap <silent> <leader><tab> :Scratch<cr>
 Plug 'bronson/vim-visual-star-search'
 
 " GIT
