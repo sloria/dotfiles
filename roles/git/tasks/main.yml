@@ -6,10 +6,12 @@
 - include: redhat.yml
   when: ansible_os_family == "RedHat"
 
-- name: Copy global gitignore file
-  copy:
-    src: gitignore_global
-    dest: "{{dotfiles_user_home}}/.gitignore_global"
+- name: Link global gitignore file
+  file:
+    src: "{{ dotfiles_home }}/roles/git/files/gitignore_global.link"
+    dest: "{{ '~/.gitignore_global' | expanduser }}"
+    state: link
+    force: yes
 
 - name: Check if gitconfig exists
   stat: path="{{dotfiles_user_home}}/.gitconfig"
