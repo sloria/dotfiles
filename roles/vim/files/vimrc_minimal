@@ -124,7 +124,7 @@ nnoremap <C-l> <C-w>l
 nnoremap <silent> <Right> :bnext<CR>
 nnoremap <silent> <Left> :bprev<CR>
 " Remove trailing whitespace on <space><space>w
-nnoremap <leader><leader>w :%s/\s\+$//<cr>:let @/=''<CR>
+nnoremap <BS> :%s/\s\+$//<cr>:let @/=''<CR>
 set pastetoggle=<leader>z  " toggle paste mode
 " in case you forgot to sudo
 cnoremap w!! %!sudo tee > /dev/null %
