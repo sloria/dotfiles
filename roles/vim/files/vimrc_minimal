@@ -123,7 +123,7 @@ nnoremap <C-l> <C-w>l
 " Move across buffers with arrow keys
 nnoremap <silent> <Right> :bnext<CR>
 nnoremap <silent> <Left> :bprev<CR>
-" Remove trailing whitespace on <space><space>w
+" Remove trailing whitespace with Backspace
 nnoremap <BS> :%s/\s\+$//<cr>:let @/=''<CR>
 set pastetoggle=<leader>z  " toggle paste mode
 " in case you forgot to sudo

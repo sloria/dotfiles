@@ -152,8 +152,6 @@ let g:vim_markdown_folding_disabled=1
 let g:markdown_fenced_languages = ['javascript', 'python', 'clojure', 'ruby']
 Plug 'mxw/vim-jsx'
 Plug 'davidhalter/jedi-vim'
-" Use buffers
-let g:jedi#use_tabs_not_buffers = 0
 " Just let me type!
 let g:jedi#popup_select_first = 0
 let g:jedi#popup_on_dot = 0
@@ -250,7 +248,7 @@ nnoremap <C-l> <C-w>l
 " Move across buffers with arrow keys
 nnoremap <silent> <Right> :bnext<CR>
 nnoremap <silent> <Left> :bprev<CR>
-" Remove trailing whitespace on <space><space>w
+" Remove trailing whitespace with Backspace
 nnoremap <BS> :%s/\s\+$//<cr>:let @/=''<CR>
 set pastetoggle=<leader>z  " toggle paste mode
 " in case you forgot to sudo
