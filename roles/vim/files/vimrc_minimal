@@ -157,8 +157,6 @@ nnoremap Q @q
 " Move vertically over wrapped lines
 nmap j gj
 nmap k gk
-"" Tabs
-nnoremap <silent> tt :tabnew<CR>
 
 augroup configgroup
   autocmd!
@@ -187,8 +185,6 @@ augroup END
 
 " GUI settings, e.g. MacVim
 set guifont=Ubuntu\ Mono:h14
-if has('gui_running')
-  set transparency=5
-  " Hide scrollbars and menu
-  set guioptions-=Tr guioptions-=r guioptions-=m go-=L
-endif
+" Hide scrollbars and menu
+set guioptions-=T guioptions-=R guioptions-=r guioptions-=m guioptions-=l guioptions-=L
+if has('gui_running') | set transparency=5 | endif
