@@ -50,6 +50,7 @@ export VISUAL=vim
 alias c=clear
 alias l='ls -1A'
 alias g=git
+alias v=vim
 alias reload!='source ~/.zshrc'
 alias e=$EDITOR
 alias pg='ps -ef | grep'
