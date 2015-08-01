@@ -6,6 +6,8 @@ prompt redhat
 
 setopt histignorealldups sharehistory
 
+export ZSH=$HOME/dotfiles
+
 # Use emacs keybindings even if our EDITOR is set to vi
 bindkey -e
 
@@ -36,12 +38,17 @@ zstyle ':completion:*' verbose true
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
+# Path
+# shortcut to this dotfiles path is $ZSH
+export PATH=$PATH:$ZSH/bin
+
 # Envvars
 export EDITOR=vim
 export VISUAL=vim
 
 # Aliases
 alias c=clear
+alias l='ls -1A'
 alias g=git
 alias reload!='source ~/.zshrc'
 alias e=$EDITOR
