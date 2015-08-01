@@ -4,6 +4,9 @@ alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pa
 # Get OS X Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
 alias update!='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm update npm -g; npm update -g; sudo gem update --system; sudo gem update'
 
+# Syntax-highlighted cat (requires python-pygments)
+alias dog="pygmentize -g"
+
 alias cl="clear"
 alias c="clear"
 alias pg='ps -ef | grep'

@@ -46,6 +46,8 @@ alias g=git
 alias reload!='source ~/.zshrc'
 alias e=$EDITOR
 alias pg='ps -ef | grep'
+# Syntax-highlighted cat (requires python-pygments)
+alias dog="pygmentize -g"
 
 # Enable z script
 source ~/dotfiles/roles/z/enable.zsh
