@@ -16,9 +16,11 @@ nnoremap <C-b> :CtrlPBuffer<CR>
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 " Faster and more accurate fuzzy-matching
 let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
-Plug 'wincent/ferret'  " Async multi-file search with support for ag
-nmap <leader>f <Plug>(FerretAck)
-nmap <leader>F <Plug>(FerretAckWord)
+Plug 'dyng/ctrlsf.vim'  " ag-powered search with in-place editing
+nmap     <C-f>f <Plug>CtrlSFPrompt
+vmap     <C-f>f <Plug>CtrlSFVwordPath
+nmap     <C-f>n <Plug>CtrlSFCwordPath
+nnoremap <C-f>t :CtrlSFToggle<CR>
 Plug 'felikz/ctrlp-py-matcher'
 Plug 'tacahiroy/ctrlp-funky' " Go-to class/method/etc. without ctags
 map <C-t> :CtrlPFunky<CR>
@@ -315,4 +317,3 @@ augroup END
 set guifont=Ubuntu\ Mono:h14
 " Hide scrollbars and menu
 set guioptions-=T guioptions-=R guioptions-=r guioptions-=m guioptions-=l guioptions-=L
-if has('gui_running') | set transparency=5 | endif

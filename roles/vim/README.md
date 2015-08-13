@@ -26,9 +26,14 @@ Leader is `Space`.
 - `<space-a>`: Copy whole file.
 - `<C-h|j|k|l>`: Move around windows.
 - `<BS>` (Backspace): Strip trailing whitespace.
-- `<space-f>`: Search current directory with ag or ack (depending on which is installed).
 - `<C-y>,`: Expand an [Emmet](http://emmet.io/) abbreviation (default binding)
 - `s{char}{char}`: Quickly move around ([sneak](https://github.com/justinmk/vim-sneak)-style motion).
+
+### Search
+
+- `<C-f>f`: Search current project (works with visual selection).
+- `<C-f>n`: Search current word under cursor.
+- `<C-f>t`: Toggle search window.
 
 ### Buffers
 

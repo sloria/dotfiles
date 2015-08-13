@@ -187,4 +187,3 @@ augroup END
 set guifont=Ubuntu\ Mono:h14
 " Hide scrollbars and menu
 set guioptions-=T guioptions-=R guioptions-=r guioptions-=m guioptions-=l guioptions-=L
-if has('gui_running') | set transparency=5 | endif
