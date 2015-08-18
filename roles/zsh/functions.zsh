@@ -25,6 +25,14 @@ extract () {
     fi
 }
 
+# get gzipped size
+function gz() {
+    echo "orig size    (bytes): "
+    cat "$1" | wc -c
+    echo "gzipped size (bytes): "
+    gzip -c "$1" | wc -c
+}
+
 # credit: http://ku1ik.com/2012/05/04/scratch-dir.html
 # Creates a new scratch directory and cds to it
 function scratch {

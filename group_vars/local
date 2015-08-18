@@ -18,8 +18,6 @@ git_email: sloria1@gmail.com
 
 # Vim
 
-# Only applies to OSX. Ignored on other platforms.
-vim_install_macvim: yes
 # Whether to install plugins automatically. If not, just run
 # :PlugInstall while in vim.
 vim_install_plugins: no
