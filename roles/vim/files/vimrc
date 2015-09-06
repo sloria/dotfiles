@@ -166,7 +166,7 @@ let g:jedi#goto_command = "<C-c>G"  " goto still has problems, so giving this a 
 let g:jedi#rename_command = "<C-c>r"
 let g:jedi#usages_command = "<C-c>u"
 let g:jedi#documentation_command = "<C-c>d"
-Plug 'othree/yajs.vim'
+Plug 'jelera/vim-javascript-syntax'
 Plug 'kchmck/vim-coffee-script'
 " Lispy stuff
 Plug 'guns/vim-sexp', {'for': 'clojure'}
