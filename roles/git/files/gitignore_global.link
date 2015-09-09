@@ -26,3 +26,5 @@ Icon
 _sandbox
 
 .ipynb_checkpoints
+
+.xmark.*
