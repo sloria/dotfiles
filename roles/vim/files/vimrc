@@ -75,8 +75,7 @@ let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 Plug 'honza/vim-snippets'
 
-Plug 'junegunn/vim-pseudocl' " Dependency of vim-oblique
-Plug 'junegunn/vim-oblique' " Better / search
+Plug 'junegunn/vim-pseudocl' | Plug 'junegunn/vim-oblique' " Better / search
 
 Plug 'majutsushi/tagbar', {'on': 'Tagbar'}
 " Open tagbar
@@ -101,7 +100,9 @@ let g:user_emmet_settings = {
 Plug 'jiangmiao/auto-pairs' " autoclose parens, quotes, etc.
 Plug 'Lokaltog/vim-easymotion' " Quickly move around
 nmap s <Plug>(easymotion-s2)
-Plug 'greyblake/vim-preview'  "For previewing markdown, rst, etc.
+if has('mac')
+  Plug 'junegunn/vim-xmark', { 'do': 'make' }  " Live markdown preview
+endif
 Plug 'mtth/scratch.vim'
 let g:scratch_height = 20
 let g:scratch_filetype = 'markdown'
@@ -139,8 +140,6 @@ Plug 'sloria/vim-hybrid'  " hybrid with easier-to-read line numbers
 
 " SYNTAX/LANGUAGES
 
-Plug 'hdima/python-syntax'
-let g:python_highlight_all=1
 Plug 'mitsuhiko/vim-jinja'
 Plug 'stephpy/vim-yaml'
 Plug 'chase/vim-ansible-yaml'
@@ -150,10 +149,9 @@ Plug 'sophacles/vim-bundle-mako'
 Plug 'tpope/vim-markdown'
 let g:vim_markdown_folding_disabled=1
 let g:markdown_fenced_languages = ['javascript', 'python', 'clojure', 'ruby']
-Plug 'mxw/vim-jsx'
-Plug 'heavenshell/vim-jsdoc'  " For making JS docstrings
-let g:jsdoc_default_mapping = 0
-map <C-c>j :JsDoc<CR>
+" --- Python ---
+Plug 'hdima/python-syntax'
+let g:python_highlight_all=1
 Plug 'davidhalter/jedi-vim'
 " Just let me type!
 let g:jedi#popup_select_first = 0
@@ -166,9 +164,18 @@ let g:jedi#goto_command = "<C-c>G"  " goto still has problems, so giving this a 
 let g:jedi#rename_command = "<C-c>r"
 let g:jedi#usages_command = "<C-c>u"
 let g:jedi#documentation_command = "<C-c>d"
+Plug 'sloria/vim-ped'  " Open Python modules quickly
+let g:ped_edit_command = 'tabedit'
+nmap <C-c>e <Plug>PedPrompt
+vmap <C-c>e <Plug>PedVwordExec
+" --- Javascript ---
 Plug 'jelera/vim-javascript-syntax'
+Plug 'mxw/vim-jsx'
+Plug 'heavenshell/vim-jsdoc'  " For making JS docstrings
+let g:jsdoc_default_mapping = 0
+map <C-c>j :JsDoc<CR>
 Plug 'kchmck/vim-coffee-script'
-" Lispy stuff
+" --- Lispy stuff ---
 Plug 'guns/vim-sexp', {'for': 'clojure'}
 Plug 'tpope/vim-sexp-mappings-for-regular-people', {'for': 'clojure'}
 Plug 'guns/vim-clojure-static', {'for': 'clojure'}
@@ -213,7 +220,7 @@ set previewheight=25  " Larger preview height
 set winwidth=79 winheight=5 winminheight=5
 
 " Patterns to ignore for expand(), ctrlp, etc.
-set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz,*.swp,*~,._*,*.pyc,*__pycache__*
+set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz,*.swp,*~,._*,*.pyc,*__pycache__*,*.egg-info
 
 " Persistent undo (can use undos after exiting and restarting
 if exists("+undofile")
