@@ -84,6 +84,7 @@ let g:tagbar_autofocus = 1
 Plug 'wellle/targets.vim'  " because cin), etc. is awesome
 Plug 'tpope/vim-dispatch' " So we can run tests asynchronously
 Plug 'janko-m/vim-test'  " For running tests
+let test#python#runner = 'pytest'
 nmap <silent> <leader>tt :TestNearest<CR>
 nmap <silent> <leader>tf :TestFile<CR>
 nmap <silent> <leader>ts :TestSuite<CR>
@@ -163,6 +164,7 @@ let g:jedi#goto_assignments_command = "<C-c>g"
 let g:jedi#goto_command = "<C-c>G"  " goto still has problems, so giving this a 2nd-class mapping
 let g:jedi#rename_command = "<C-c>r"
 let g:jedi#usages_command = "<C-c>u"
+let g:jedi#smart_auto_mappings = 0
 let g:jedi#documentation_command = "<C-c>d"
 Plug 'sloria/vim-ped'  " Open Python modules quickly
 let g:ped_edit_command = 'tabedit'

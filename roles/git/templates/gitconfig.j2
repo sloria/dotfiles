@@ -32,7 +32,6 @@
         # Open unstaged files in vim
         edit = "!f() { ${1-vim} `git ls-files -m`; }; f"
 
-        nuke = delete-branch
         switch = !legit switch \"$@\"
         branches = !legit branches
         sprout = !legit sprout \"$@\"
