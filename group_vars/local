@@ -50,10 +50,15 @@ osx_cask_packages:
   # Backup/storage
   - crashplan
   - dropbox
-  # Music
+  # Media/Music
   - spotify
+  - vlc
   # Notetaking
   - evernote
+  - skitch
+  # Fonts
+  - font-ubuntu
+  - font-cousine
 
 # Node utilities
 npm_global_packages:

@@ -17,4 +17,3 @@
     - tmux
     - git-flow
     - {role: osx, when: ansible_os_family == "Darwin"}
-

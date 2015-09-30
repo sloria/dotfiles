@@ -138,6 +138,7 @@ let g:gist_open_browser_after_post = 1
 
 Plug 'flazz/vim-colorschemes'
 Plug 'sloria/vim-hybrid'  " hybrid with easier-to-read line numbers
+Plug 'chriskempson/base16-vim'
 
 " SYNTAX/LANGUAGES
 
@@ -166,7 +167,7 @@ let g:jedi#rename_command = "<C-c>r"
 let g:jedi#usages_command = "<C-c>u"
 let g:jedi#smart_auto_mappings = 0
 let g:jedi#documentation_command = "<C-c>d"
-Plug 'sloria/vim-ped'  " Open Python modules quickly
+Plug '~/projects/vim-projects/vim-ped'  " Open Python modules quickly
 let g:ped_edit_command = 'tabedit'
 nmap <C-c>e <Plug>PedPrompt
 vmap <C-c>e <Plug>PedVwordExec
@@ -207,8 +208,8 @@ set noerrorbells visualbell t_vb=
 
 set t_Co=256 " Must be 256 for many themes to display correctly
 if &term =~ '256color' | set t_ut= | endif
-" Favorites: hybrid-sl iceberg jellybeans Tomorrow hybrid-light hemisu
-silent! colorscheme hybrid-sl
+" Favorites: hybrid-sl iceberg jellybeans hemisu PaperColor
+  silent! colorscheme hybrid-sl
 
 " Show trailing whitespace
 set list listchars=tab:▸\ ,trail:▫
