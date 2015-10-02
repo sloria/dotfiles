@@ -153,7 +153,7 @@ let g:vim_markdown_folding_disabled=1
 let g:markdown_fenced_languages = ['javascript', 'python', 'clojure', 'ruby']
 " --- Python ---
 Plug 'hdima/python-syntax'
-let g:python_highlight_all=1
+let g:python_highlight_all = 1
 Plug 'davidhalter/jedi-vim'
 " Just let me type!
 let g:jedi#popup_select_first = 0
