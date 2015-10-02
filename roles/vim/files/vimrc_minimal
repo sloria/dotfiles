@@ -4,6 +4,7 @@ let mapleader = "\<Space>"
 
 """"" PLUGINS """""
 call plug#begin()
+Plug 'christoomey/vim-tmux-navigator'
 Plug 'ctrlpvim/ctrlp.vim' " Fuzzy-matching go-to file
 nnoremap <C-b> :CtrlPBuffer<CR>
 " Make ctrlp faster
@@ -115,11 +116,6 @@ noremap <leader>sr :%s:::cg<Left><Left><Left><Left>
 noremap <leader>sR :%s:::g<Left><Left><Left>
 " Switch between files
 nnoremap <leader>b :e#<CR>
-" Quicker window movement
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-h> <C-w>h
-nnoremap <C-l> <C-w>l
 " Move across buffers with arrow keys
 nnoremap <silent> <Right> :bnext<CR>
 nnoremap <silent> <Left> :bprev<CR>
@@ -183,7 +179,7 @@ augroup configgroup
   autocmd Filetype gitcommit setlocal nolist textwidth=72
 augroup END
 
-" GUI settings, e.g. MacVim
+" GUI settings
 set guifont=Ubuntu\ Mono:h14
 " Hide scrollbars and menu
 set guioptions-=T guioptions-=R guioptions-=r guioptions-=m guioptions-=l guioptions-=L
