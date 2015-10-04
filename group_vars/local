@@ -39,6 +39,7 @@ osx_cask_packages:
   - iterm2
   - caffeine
   - flux
+  - appcleaner
   # Vagrant/Virtualbox
   - vagrant
   - virtualbox
