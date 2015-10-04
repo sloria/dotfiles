@@ -160,17 +160,14 @@ let g:jedi#popup_select_first = 0
 let g:jedi#popup_on_dot = 0
 " Show call sigs slow things down for large projects
 let g:jedi#show_call_signatures = 0
-" Prefix all refactoring commands with <C-c> to avoid clashing
-let g:jedi#goto_assignments_command = "<C-c>g"
-let g:jedi#goto_command = "<C-c>G"  " goto still has problems, so giving this a 2nd-class mapping
+let g:jedi#goto_assignments_command = "gd"
+let g:jedi#goto_command = "gD"  " goto still has problems, so giving this a 2nd-class mapping
 let g:jedi#rename_command = "<C-c>r"
 let g:jedi#usages_command = "<C-c>u"
-let g:jedi#smart_auto_mappings = 0
-let g:jedi#documentation_command = "<C-c>d"
+let g:jedi#smart_auto_mappings = 0  " don't autoadd 'import'
 Plug '~/projects/vim-projects/vim-ped'  " Open Python modules quickly
 let g:ped_edit_command = 'tabedit'
 nmap <C-c>e <Plug>PedPrompt
-vmap <C-c>e <Plug>PedVwordExec
 " --- Javascript ---
 Plug 'jelera/vim-javascript-syntax'
 Plug 'mxw/vim-jsx'
