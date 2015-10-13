@@ -154,6 +154,7 @@ let g:markdown_fenced_languages = ['javascript', 'python', 'clojure', 'ruby']
 " --- Python ---
 Plug 'hdima/python-syntax'
 let g:python_highlight_all = 1
+Plug 'hynek/vim-python-pep8-indent'
 Plug 'davidhalter/jedi-vim'
 " Just let me type!
 let g:jedi#popup_select_first = 0
@@ -165,7 +166,7 @@ let g:jedi#goto_command = "gD"  " goto still has problems, so giving this a 2nd-
 let g:jedi#rename_command = "<C-c>r"
 let g:jedi#usages_command = "<C-c>u"
 let g:jedi#smart_auto_mappings = 0  " don't autoadd 'import'
-Plug '~/projects/vim-projects/vim-ped'  " Open Python modules quickly
+Plug 'sloria/vim-ped'  " Open Python modules quickly
 let g:ped_edit_command = 'tabedit'
 nmap <C-c>e <Plug>PedPrompt
 " --- Javascript ---
