@@ -16,3 +16,11 @@
   command: chsh -s /usr/local/bin/zsh
   # Only run this if above task was changed
   when: zsh_shells.changed
+
+# Fix broken /etc/zshenv, which runs path_helper
+# We rename it to prevent unwanted reordering of $PATH
+# https://github.com/sorin-ionescu/prezto/issues/381
+# https://github.com/thoughtbot/dotfiles/pull/426#issue-109716011
+- name: Fix broken /etc/zshenv
+  command: creates="/etc/zprofile" mv /etc/zshenv /etc/zprofile
+  sudo: yes
