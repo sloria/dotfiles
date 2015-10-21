@@ -69,3 +69,8 @@ function hit() {
   fi
   $src | highlight -O rtf --syntax $1 --font 'Ubuntu Mono' --style solarized-light --font-size 24 | pbcopy
 }
+
+# SSH and attach tmux session
+function sst() {
+  ssh "$1" -t tmux attach
+}

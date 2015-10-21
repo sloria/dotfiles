@@ -203,7 +203,6 @@ set shiftround " use multiple of shiftwidth when indenting with '<' and '>'
 set noerrorbells visualbell t_vb=
 """ VISUAL SETTINGS """
 
-set t_Co=256 " Must be 256 for many themes to display correctly
 if &term =~ '256color' | set t_ut= | endif
 " Favorites: hybrid-sl iceberg jellybeans hemisu PaperColor
   silent! colorscheme hybrid-sl
@@ -289,6 +288,10 @@ nnoremap Q @q
 " Move vertically over wrapped lines
 nmap j gj
 nmap k gk
+" Set cwd to current file
+nnoremap <leader>cd :lcd %:p:h<CR>
+" Split lines (opposite of J)
+nnoremap S i<CR><Esc>
 
 augroup configgroup
   autocmd!
