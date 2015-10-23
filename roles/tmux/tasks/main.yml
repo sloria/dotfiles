@@ -10,6 +10,11 @@
   gem: name=tmuxinator state=latest
   when: tmux_install_tmuxinator
 
+- name: Install tpm
+  git:
+    repo: git clone https://github.com/tmux-plugins/tpm 
+    dest: "{{dotfiles_user_home}}/.tmux/plugins/tpm"
+
 - name: Symlink .tmux.conf
   file:
     src: "{{ dotfiles_home }}/roles/tmux/files/tmux.conf"
