@@ -54,6 +54,7 @@ osx_cask_packages:
   # Media/Music
   - spotify
   - vlc
+  - beardedspice
   # Notetaking
   - evernote
   - skitch

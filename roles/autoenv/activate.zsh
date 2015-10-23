@@ -1,2 +1,4 @@
 source /usr/local/opt/autoenv/activate.sh
-cd .
+if [ -z "$VIRTUAL_ENV" ]; then
+    cd .
+fi
