@@ -108,6 +108,7 @@ let g:scratch_height = 20
 let g:scratch_filetype = 'markdown'
 " Open scratch buffer with space-tab (automatically set syntax to python)
 nnoremap <silent> <leader><tab> :Scratch<cr>
+Plug 'tpope/vim-sleuth'  " Detect indent settings
 
 " GIT
 Plug 'airblade/vim-gitgutter'
@@ -169,8 +170,9 @@ Plug 'sloria/vim-ped'  " Open Python modules quickly
 let g:ped_edit_command = 'tabedit'
 nmap <C-c>e <Plug>PedPrompt
 " --- Javascript ---
-Plug 'jelera/vim-javascript-syntax'
+Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
+let g:jsx_ext_required = 0
 Plug 'heavenshell/vim-jsdoc'  " For making JS docstrings
 let g:jsdoc_default_mapping = 0
 map <C-c>j :JsDoc<CR>
