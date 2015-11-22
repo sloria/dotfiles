@@ -25,10 +25,10 @@ Plug 'tacahiroy/ctrlp-funky' " Go-to class/method/etc. without ctags
 map <C-t> :CtrlPFunky<CR>
 let g:ctrlp_funky_syntax_highlight = 1
 Plug 'tpope/vim-rsi'  " unix keybindings in insert mode
-Plug 'tpope/vim-commentary'
+Plug 'tomtom/tcomment_vim'
 " Toggle comment with space-/
-nmap <leader>/ <Plug>CommentaryLine
-vmap <leader>/ <Plug>Commentary
+nmap <leader>/ <Plug>TComment_<c-_><c-_>
+vmap <leader>/ <Plug>TComment_<c-_><c-_>
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
