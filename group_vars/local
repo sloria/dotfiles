@@ -64,9 +64,11 @@ osx_cask_packages:
 
 # Node utilities
 npm_global_packages:
-  - grunt-cli
   - gulp
-  - coffee-script
   - bower
   - jsxhint
   - webpack
+  - eslint
+  - eslint-config-airbnb
+  - eslint-plugin-react
+  - babel-eslint

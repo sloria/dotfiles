@@ -6,14 +6,27 @@ endsnippet
 # React stuff
 
 snippet rcc "createClass" b
-var ${1:`!p snip.rv = ''.join(x.title() for x in re.sub('\.js$', '', snip.basename or 'ModuleName').split('_'))`} = React.createClass({
+var ${1:`!p snip.rv = ''.join(x for x in re.sub('\.js$', '', snip.basename or 'ModuleName').split('_'))`} = React.createClass({
 	render() {
 		return (
 			$0
 		);
 	}
 });
+endsnippet
 
+snippet rccc "React.Component" b
+export default class ${1:`!p snip.rv = ''.join(x for x in re.sub('\.js$', '', snip.basename or 'ModuleName').split('_'))`} extends React.Component {
+	render() {
+		return (
+			$0
+		);
+	}
+}
+endsnippet
+
+snippet importreact "import React" b
+import React, {PropTypes as t} from 'react';
 endsnippet
 
 snippet cdm "componentDidMount" b

@@ -16,7 +16,7 @@ let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclu
 " Faster and more accurate fuzzy-matching
 let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 Plug 'dyng/ctrlsf.vim'  " ag-powered search with in-place editing
-nmap     <C-f>f <Plug>CtrlSFPrompt
+nmap     <C-f>f :CtrlSF ''<Left>
 vmap     <C-f>f <Plug>CtrlSFVwordPath
 nmap     <C-f>n <Plug>CtrlSFCwordPath
 nnoremap <C-f>t :CtrlSFToggle<CR>
@@ -52,8 +52,13 @@ let g:syntastic_mode_map = { 'mode': 'active',
  \ 'active_filetypes': [],
  \ 'passive_filetypes': [ 'html', 'rst', 'md', 'python', 'javascript'] }
 let g:syntastic_python_checkers = ['flake8', 'python']
-let g:syntastic_javascript_checkers = ['eslint', 'jsxhint', 'jshint']
-autocmd! BufEnter  *.jsx  let b:syntastic_checkers=['eslint', 'jsxhint']
+function! HasConfig(file, dir)
+    return findfile(a:file, escape(a:dir, ' ') . ';') !=# ''
+endfunction
+autocmd BufNewFile,BufReadPre *.js  let b:syntastic_checkers =
+    \ HasConfig('.eslintrc', expand('<amatch>:h')) ? ['eslint'] :
+    \ HasConfig('.jshintrc', expand('<amatch>:h')) ? ['jshint'] :
+    \     ['standard']
 " Disable some features to make syntastic faster
 let g:syntastic_enable_signs = 0
 let g:syntastic_enable_balloons = 0
@@ -207,7 +212,8 @@ set noerrorbells visualbell t_vb=
 
 if &term =~ '256color' | set t_ut= | endif
 " Favorites: hybrid-sl iceberg jellybeans hemisu PaperColor
-  silent! colorscheme hybrid-sl
+set background=dark
+silent! colorscheme hybrid-sl
 
 " Show trailing whitespace
 set list listchars=tab:▸\ ,trail:▫
@@ -314,8 +320,6 @@ augroup configgroup
   autocmd FileType yaml setlocal shiftwidth=2 tabstop=2 softtabstop=2
   " vim
   autocmd FileType vim setlocal shiftwidth=2 tabstop=2 softtabstop=2
-  " javascript
-  autocmd FileType javascript setlocal shiftwidth=4 tabstop=4 softtabstop=4
   " commit messages
   autocmd Filetype gitcommit setlocal nolist textwidth=72
 augroup END
