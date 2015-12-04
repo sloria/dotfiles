@@ -17,7 +17,6 @@ let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclu
 let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 Plug 'dyng/ctrlsf.vim'  " ag-powered search with in-place editing
 nmap     <C-f>f :CtrlSF ''<Left>
-vmap     <C-f>f <Plug>CtrlSFVwordPath
 nmap     <C-f>n <Plug>CtrlSFCwordPath
 nnoremap <C-f>t :CtrlSFToggle<CR>
 Plug 'felikz/ctrlp-py-matcher'
@@ -211,7 +210,7 @@ set noerrorbells visualbell t_vb=
 """ VISUAL SETTINGS """
 
 if &term =~ '256color' | set t_ut= | endif
-" Favorites: hybrid-sl iceberg jellybeans hemisu PaperColor
+" Favorites: hybrid-sl iceberg jellybeans hemisu PaperColor apprentice
 set background=dark
 silent! colorscheme hybrid-sl
 
@@ -264,7 +263,6 @@ nnoremap <silent> <Right> :bnext<CR>
 nnoremap <silent> <Left> :bprev<CR>
 " Remove trailing whitespace with Backspace
 nnoremap <BS> :%s/\s\+$//<cr>:let @/=''<CR>
-set pastetoggle=<leader>z  " toggle paste mode
 " in case you forgot to sudo
 cnoremap w!! %!sudo tee > /dev/null %
 " select last pasted text

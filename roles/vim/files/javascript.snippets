@@ -100,8 +100,20 @@ describe('${1:feature}', () => {
 });
 endsnippet
 
+snippet descf
+describe('${1:feature}', function() {
+	${2}
+});
+endsnippet
+
 snippet it
 it('${1:should do something}', () => {
+	${2}
+});
+endsnippet
+
+snippet itf
+it('${1:should do something}', function() {
 	${2}
 });
 endsnippet
@@ -112,8 +124,20 @@ before(() => {
 });
 endsnippet
 
+snippet beff
+before(function() {
+	${1}
+});
+endsnippet
+
 snippet af
 after(() => {
+	${1}
+});
+endsnippet
+
+snippet aff
+after(function() {
 	${1}
 });
 endsnippet
@@ -124,8 +148,20 @@ beforeEach(() => {
 });
 endsnippet
 
+snippet befef
+beforeEach(function() {
+	${1}
+});
+endsnippet
+
 snippet afe
 afterEach(() => {
+	${1}
+});
+endsnippet
+
+snippet afef
+afterEach(function() {
 	${1}
 });
 endsnippet
