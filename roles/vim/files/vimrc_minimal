@@ -31,10 +31,10 @@ Plug 'ap/vim-buftabline'
 Plug 'moll/vim-bbye'
 nnoremap X :Bdelete<CR>
 
-Plug 'tpope/vim-commentary'
+Plug 'tomtom/tcomment_vim'
 " Toggle comment with space-/
-nmap <leader>/ <Plug>CommentaryLine
-vmap <leader>/ <Plug>Commentary
+nmap <leader>/ <Plug>TComment_<c-_><c-_>
+vmap <leader>/ <Plug>TComment_<c-_><c-_>
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
@@ -68,7 +68,8 @@ set noerrorbells visualbell t_vb=
 """ VISUAL SETTINGS """
 
 if &term =~ '256color' | set t_ut= | endif
-" Favorites: hybrid-sl iceberg jellybeans Tomorrow hybrid-light hemisu
+" Favorites: hybrid-sl iceberg jellybeans hemisu PaperColor apprentice
+set background=dark
 silent! colorscheme hybrid-sl
 
 " Show trailing whitespace
@@ -83,9 +84,9 @@ set previewheight=25  " Larger preview height
 set winwidth=79 winheight=5 winminheight=5
 
 " Patterns to ignore for expand(), ctrlp, etc.
-set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz,*.swp,*~,._*,*.pyc,*__pycache__*
+set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz,*.swp,*~,._*,*.pyc,*__pycache__*,*.egg-info
 
-" Persistent undo (can use undos after exiting and restarting
+" Persistent undo (can use undos after exiting and restarting)
 if exists("+undofile")
   if isdirectory($HOME . '/.vim/undo') == 0
     :silent !mkdir -p ~/.vim/undo > /dev/null 2>&1
@@ -101,6 +102,7 @@ else
   let &t_SI = "\<Esc>]50;CursorShape=1\x7"
   let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
 """ SHORTCUTS """
 " Quickly edit vimrc
@@ -111,15 +113,10 @@ noremap <silent> <leader>V :source $MYVIMRC<cr>
 inoremap jk <Esc>
 " Search and replace, using : as a separator instead of /
 noremap <leader>sr :%s:::cg<Left><Left><Left><Left>
-noremap <leader>sR :%s:::g<Left><Left><Left>
 " Switch between files
 nnoremap <leader>b :e#<CR>
-" Move across buffers with arrow keys
-nnoremap <silent> <Right> :bnext<CR>
-nnoremap <silent> <Left> :bprev<CR>
 " Remove trailing whitespace with Backspace
 nnoremap <BS> :%s/\s\+$//<cr>:let @/=''<CR>
-set pastetoggle=<leader>z  " toggle paste mode
 " in case you forgot to sudo
 cnoremap w!! %!sudo tee > /dev/null %
 " select last pasted text
@@ -171,17 +168,13 @@ augroup configgroup
   autocmd BufRead,BufNewFile *.md set filetype=markdown
   autocmd FileType markdown setlocal wrap nolist expandtab lbr shiftwidth=4 tabstop=4 softtabstop=4
   \ formatoptions+=nqtl
-  " yaml
-  autocmd FileType yaml setlocal shiftwidth=2 tabstop=2 softtabstop=2
   " vim
   autocmd FileType vim setlocal shiftwidth=2 tabstop=2 softtabstop=2
-  " javascript
-  autocmd FileType javascript setlocal shiftwidth=4 tabstop=4 softtabstop=4
   " commit messages
   autocmd Filetype gitcommit setlocal nolist textwidth=72
 augroup END
 
-" GUI settings
+" GUI settings, e.g. MacVim
 set guifont=Ubuntu\ Mono:h14
 " Hide scrollbars and menu
 set guioptions-=T guioptions-=R guioptions-=r guioptions-=m guioptions-=l guioptions-=L

@@ -24,14 +24,14 @@ Plug 'tacahiroy/ctrlp-funky' " Go-to class/method/etc. without ctags
 map <C-t> :CtrlPFunky<CR>
 let g:ctrlp_funky_syntax_highlight = 1
 Plug 'tpope/vim-rsi'  " unix keybindings in insert mode
-Plug 'tomtom/tcomment_vim'
-" Toggle comment with space-/
-nmap <leader>/ <Plug>TComment_<c-_><c-_>
-vmap <leader>/ <Plug>TComment_<c-_><c-_>
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'matchit.zip'
+Plug 'tomtom/tcomment_vim'
+" Toggle comment with space-/
+nmap <leader>/ <Plug>TComment_<c-_><c-_>
+vmap <leader>/ <Plug>TComment_<c-_><c-_>
 " Buffers
 Plug 'moll/vim-bbye'  " delete buffer without closing window
 nnoremap X :Bdelete<CR>
@@ -51,6 +51,7 @@ let g:syntastic_mode_map = { 'mode': 'active',
  \ 'active_filetypes': [],
  \ 'passive_filetypes': [ 'html', 'rst', 'md', 'python', 'javascript'] }
 let g:syntastic_python_checkers = ['flake8', 'python']
+" Set JS linter based on whether current project has .jshintrc or .eslintrc
 function! HasConfig(file, dir)
     return findfile(a:file, escape(a:dir, ' ') . ';') !=# ''
 endfunction
@@ -90,7 +91,6 @@ Plug 'janko-m/vim-test'  " For running tests
 let test#python#runner = 'pytest'
 nmap <silent> <leader>tt :TestNearest<CR>
 nmap <silent> <leader>tf :TestFile<CR>
-nmap <silent> <leader>ts :TestSuite<CR>
 nmap <silent> <leader>tl :TestLast<CR>
 let test#strategy = "dispatch"
 " Pass -s option to pytest so that we can use ipdb
@@ -170,9 +170,6 @@ let g:jedi#goto_command = "gD"  " goto still has problems, so giving this a 2nd-
 let g:jedi#rename_command = "<C-c>r"
 let g:jedi#usages_command = "<C-c>u"
 let g:jedi#smart_auto_mappings = 0  " don't autoadd 'import'
-Plug 'sloria/vim-ped'  " Open Python modules quickly
-let g:ped_edit_command = 'tabedit'
-nmap <C-c>e <Plug>PedPrompt
 " --- Javascript ---
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
@@ -180,7 +177,6 @@ let g:jsx_ext_required = 0
 Plug 'heavenshell/vim-jsdoc'  " For making JS docstrings
 let g:jsdoc_default_mapping = 0
 map <C-c>j :JsDoc<CR>
-Plug 'kchmck/vim-coffee-script'
 " --- Lispy stuff ---
 Plug 'guns/vim-sexp', {'for': 'clojure'}
 Plug 'tpope/vim-sexp-mappings-for-regular-people', {'for': 'clojure'}
@@ -228,7 +224,7 @@ set winwidth=79 winheight=5 winminheight=5
 " Patterns to ignore for expand(), ctrlp, etc.
 set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz,*.swp,*~,._*,*.pyc,*__pycache__*,*.egg-info
 
-" Persistent undo (can use undos after exiting and restarting
+" Persistent undo (can use undos after exiting and restarting)
 if exists("+undofile")
   if isdirectory($HOME . '/.vim/undo') == 0
     :silent !mkdir -p ~/.vim/undo > /dev/null 2>&1
@@ -255,12 +251,8 @@ noremap <silent> <leader>V :source $MYVIMRC<cr>
 inoremap jk <Esc>
 " Search and replace, using : as a separator instead of /
 noremap <leader>sr :%s:::cg<Left><Left><Left><Left>
-noremap <leader>sR :%s:::g<Left><Left><Left>
 " Switch between files
 nnoremap <leader>b :e#<CR>
-" Move across buffers with arrow keys
-nnoremap <silent> <Right> :bnext<CR>
-nnoremap <silent> <Left> :bprev<CR>
 " Remove trailing whitespace with Backspace
 nnoremap <BS> :%s/\s\+$//<cr>:let @/=''<CR>
 " in case you forgot to sudo
@@ -314,8 +306,6 @@ augroup configgroup
   autocmd BufRead,BufNewFile *.md set filetype=markdown
   autocmd FileType markdown setlocal wrap nolist expandtab lbr shiftwidth=4 tabstop=4 softtabstop=4
   \ formatoptions+=nqtl
-  " yaml
-  autocmd FileType yaml setlocal shiftwidth=2 tabstop=2 softtabstop=2
   " vim
   autocmd FileType vim setlocal shiftwidth=2 tabstop=2 softtabstop=2
   " commit messages

@@ -6,7 +6,7 @@ endsnippet
 # React stuff
 
 snippet rcc "createClass" b
-var ${1:`!p snip.rv = ''.join(x for x in re.sub('\.js$', '', snip.basename or 'ModuleName').split('_'))`} = React.createClass({
+export const ${1:`!p snip.rv = ''.join(x for x in re.sub('\.js$', '', snip.basename or 'ModuleName').split('_'))`} = React.createClass({
 	render() {
 		return (
 			$0
