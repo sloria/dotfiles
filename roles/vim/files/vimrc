@@ -75,7 +75,7 @@ let g:airline_theme='tomorrow'
 let g:airline_extensions = ['branch', 'ctrlp', 'tabline', 'syntastic', 'whitespace']
 Plug 'christoomey/vim-tmux-navigator'
 
-Plug 'SirVer/ultisnips'
+if has('python') | Plug 'SirVer/ultisnips' | endif
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 Plug 'honza/vim-snippets'
@@ -160,7 +160,7 @@ let g:markdown_fenced_languages = ['javascript', 'python', 'clojure', 'ruby']
 Plug 'hdima/python-syntax'
 let g:python_highlight_all = 1
 Plug 'hynek/vim-python-pep8-indent'
-Plug 'davidhalter/jedi-vim'
+if has('python') | Plug 'davidhalter/jedi-vim' | endif
 " Just let me type!
 let g:jedi#popup_select_first = 0
 let g:jedi#popup_on_dot = 0
