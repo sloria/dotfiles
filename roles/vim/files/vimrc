@@ -50,7 +50,6 @@ nnoremap <leader>s :SyntasticCheck<CR>
 let g:syntastic_mode_map = { 'mode': 'active',
  \ 'active_filetypes': [],
  \ 'passive_filetypes': [ 'html', 'rst', 'md', 'python', 'javascript'] }
-let g:syntastic_python_checkers = ['flake8', 'python']
 " Set JS linter based on whether current project has .jshintrc or .eslintrc
 function! HasConfig(file, dir)
     return findfile(a:file, escape(a:dir, ' ') . ';') !=# ''
@@ -75,7 +74,7 @@ let g:airline_theme='tomorrow'
 let g:airline_extensions = ['branch', 'ctrlp', 'tabline', 'syntastic', 'whitespace']
 Plug 'christoomey/vim-tmux-navigator'
 
-if has('python') | Plug 'SirVer/ultisnips' | endif
+if has('python') || has('python3') | Plug 'SirVer/ultisnips' | endif
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 Plug 'honza/vim-snippets'
@@ -160,7 +159,7 @@ let g:markdown_fenced_languages = ['javascript', 'python', 'clojure', 'ruby']
 Plug 'hdima/python-syntax'
 let g:python_highlight_all = 1
 Plug 'hynek/vim-python-pep8-indent'
-if has('python') | Plug 'davidhalter/jedi-vim' | endif
+if has('python') ||  has('python3') | Plug 'davidhalter/jedi-vim' | endif
 " Just let me type!
 let g:jedi#popup_select_first = 0
 let g:jedi#popup_on_dot = 0
@@ -169,7 +168,6 @@ let g:jedi#show_call_signatures = 0
 let g:jedi#goto_assignments_command = "gd"
 let g:jedi#goto_command = "gD"  " goto still has problems, so giving this a 2nd-class mapping
 let g:jedi#rename_command = "<C-c>r"
-let g:jedi#usages_command = "<C-c>u"
 let g:jedi#smart_auto_mappings = 0  " don't autoadd 'import'
 " --- Javascript ---
 Plug 'pangloss/vim-javascript'
@@ -264,6 +262,7 @@ nnoremap gp `[v`]
 nnoremap <leader>Tp :set ft=python<CR>
 nnoremap <leader>Tj :set ft=javascript<CR>
 nnoremap <leader>Tr :set ft=rst<CR>
+nnoremap <leader>Tm :set ft=markdown<CR>
 " Quickly write/quit
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
