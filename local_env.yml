@@ -16,4 +16,5 @@
     - ag
     - tmux
     - git-flow
+    - fzf
     - {role: osx, when: ansible_os_family == "Darwin"}
