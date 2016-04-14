@@ -1,4 +1,4 @@
 
 - name: Install tmux with apt
   apt: name=tmux state=latest
-  sudo: yes
+  become_method: sudo
