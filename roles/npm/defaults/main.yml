@@ -1,5 +1,6 @@
 npm_global_packages:
-  - grunt-cli
-  - gulp
-  - coffee-script
   - jshint
+  - eslint
+  - webpack
+  - tldr
+  - surge
