@@ -45,3 +45,5 @@ fi
 
 # Docker
 # $(boot2docker shellinit)
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -10,7 +10,7 @@
     dest: /etc/shells
     state: present
   register: zsh_shells
-  sudo: yes
+  become_method: sudo
 
 - name: Change default shell to zsh
   command: chsh -s /usr/local/bin/zsh
@@ -23,4 +23,4 @@
 # https://github.com/thoughtbot/dotfiles/pull/426#issue-109716011
 - name: Fix broken /etc/zshenv
   command: creates="/etc/zprofile" mv /etc/zshenv /etc/zprofile
-  sudo: yes
+  become_method: sudo

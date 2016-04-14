@@ -1,4 +1,4 @@
 
 - name: Install git with apt
   apt: name=git state=latest
-  sudo: yes
+  become_method: sudo
