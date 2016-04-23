@@ -13,16 +13,18 @@ Plug 'ctrlpvim/ctrlp.vim' " Fuzzy-matching go-to file
 nnoremap <C-b> :CtrlPBuffer<CR>
 " Make ctrlp faster
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
-" Faster and more accurate fuzzy-matching
-let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+if has('python') ||  has('python3')
+  " Faster and more accurate fuzzy-matching
+  Plug 'felikz/ctrlp-py-matcher'
+  let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+endif
+Plug 'tacahiroy/ctrlp-funky' " Go-to class/method/etc. without ctags
+map <C-t> :CtrlPFunky<CR>
+let g:ctrlp_funky_syntax_highlight = 1
 Plug 'dyng/ctrlsf.vim'  " ag-powered search with in-place editing
 nmap     <C-f>f :CtrlSF ''<Left>
 nmap     <C-f>n <Plug>CtrlSFCwordPath
 nnoremap <C-f>t :CtrlSFToggle<CR>
-Plug 'felikz/ctrlp-py-matcher'
-Plug 'tacahiroy/ctrlp-funky' " Go-to class/method/etc. without ctags
-map <C-t> :CtrlPFunky<CR>
-let g:ctrlp_funky_syntax_highlight = 1
 Plug 'tpope/vim-rsi'  " unix keybindings in insert mode
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
@@ -206,8 +208,8 @@ set noerrorbells visualbell t_vb=
 
 if &term =~ '256color' | set t_ut= | endif
 " Favorites: hybrid-sl iceberg jellybeans hemisu PaperColor apprentice
-set background=dark
-silent! colorscheme hybrid-sl
+set background=dark | silent! colorscheme hybrid-sl
+" silent! colorscheme PaperColor
 
 " Show trailing whitespace
 set list listchars=tab:▸\ ,trail:▫
