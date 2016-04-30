@@ -28,6 +28,7 @@ osx_homebrew_packages:
   - wget
   - tree
   - highlight
+  - terminal-notifier
 
 # Mac Apps to be installed with homebrew-cask
 osx_cask_packages:
