@@ -146,21 +146,15 @@ Plug 'flazz/vim-colorschemes'
 Plug 'sloria/vim-hybrid'  " hybrid with easier-to-read line numbers
 Plug 'chriskempson/base16-vim'
 
-" SYNTAX/LANGUAGES
-
-Plug 'mitsuhiko/vim-jinja'
-Plug 'stephpy/vim-yaml'
-Plug 'chase/vim-ansible-yaml'
-Plug 'elzr/vim-json'
-Plug 'groenewege/vim-less'
-Plug 'sophacles/vim-bundle-mako'
-Plug 'tpope/vim-markdown'
+" LANGUAGE-SPECIFIC
+Plug 'sloria/vim-polyglot'  " fork of sheerun/vim-polyglot with better python highlighting
+let g:polyglot_disabled = ['javascript']
+let g:python_highlight_all = 1
+let g:jsx_ext_required = 0
 let g:vim_markdown_folding_disabled=1
 let g:markdown_fenced_languages = ['javascript', 'python', 'clojure', 'ruby']
+Plug 'sophacles/vim-bundle-mako'
 " --- Python ---
-Plug 'hdima/python-syntax'
-let g:python_highlight_all = 1
-Plug 'hynek/vim-python-pep8-indent'
 if has('python') ||  has('python3') | Plug 'davidhalter/jedi-vim' | endif
 " Just let me type!
 let g:jedi#popup_select_first = 0
@@ -173,15 +167,12 @@ let g:jedi#rename_command = "<C-c>r"
 let g:jedi#smart_auto_mappings = 0  " don't autoadd 'import'
 " --- Javascript ---
 Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
-let g:jsx_ext_required = 0
 Plug 'heavenshell/vim-jsdoc'  " For making JS docstrings
 let g:jsdoc_default_mapping = 0
 map <C-c>j :JsDoc<CR>
 " --- Lispy stuff ---
 Plug 'guns/vim-sexp', {'for': 'clojure'}
 Plug 'tpope/vim-sexp-mappings-for-regular-people', {'for': 'clojure'}
-Plug 'guns/vim-clojure-static', {'for': 'clojure'}
 Plug 'tpope/vim-fireplace', {'for': 'clojure'} " clojure repl
 
 call plug#end()
