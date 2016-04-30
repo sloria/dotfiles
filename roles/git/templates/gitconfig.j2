@@ -26,6 +26,11 @@
         pup = pull upstream
         shorg = push -u origin
 
+        # http://gggritso.com/human-git-aliases
+        unstage = reset -q HEAD --
+        discard = checkout --
+        uncommit = reset --mixed HEAD~
+
         l = log --graph --decorate --oneline --abbrev-commit --all
         h = log --graph --decorate --oneline --abbrev-commit
 
