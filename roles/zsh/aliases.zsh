@@ -7,6 +7,11 @@ alias update!='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanu
 # Syntax-highlighted cat (requires python-pygments)
 alias dog="pygmentize -g"
 
+# Display a notification with a given message
+alias growl="terminal-notifier -message"
+# Useful for notifying when a long script finishes
+alias yell="terminal-notifier -title WOOOO -message OOOO!!!"
+
 alias cl="clear"
 alias c="clear"
 alias pg='ps -ef | grep'

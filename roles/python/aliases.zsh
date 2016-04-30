@@ -1,3 +1,4 @@
+alias condaclean="conda clean -tipsy"
 alias py="python"
 alias py3="python3"
 alias ipy="ipython"
