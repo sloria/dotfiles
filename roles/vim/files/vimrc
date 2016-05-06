@@ -162,7 +162,8 @@ let g:jedi#popup_on_dot = 0
 " Show call sigs slow things down for large projects
 let g:jedi#show_call_signatures = 0
 let g:jedi#goto_assignments_command = "gd"
-let g:jedi#goto_command = "gD"  " goto still has problems, so giving this a 2nd-class mapping
+let g:jedi#goto_command = "gd"  " goto still has problems, so giving this a 2nd-class mapping
+let g:jedi#usages_command = "gu"  " goto still has problems, so giving this a 2nd-class mapping
 let g:jedi#rename_command = "<C-c>r"
 let g:jedi#smart_auto_mappings = 0  " don't autoadd 'import'
 " --- Javascript ---
@@ -195,8 +196,8 @@ set shiftround " use multiple of shiftwidth when indenting with '<' and '>'
 
 " No bells
 set noerrorbells visualbell t_vb=
-""" VISUAL SETTINGS """
 
+""" VISUAL SETTINGS """
 if &term =~ '256color' | set t_ut= | endif
 " Favorites: hybrid-sl iceberg jellybeans hemisu PaperColor apprentice
 set background=dark | silent! colorscheme hybrid-sl
