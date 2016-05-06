@@ -1,9 +1,3 @@
 - name: Install fzf with Homebrew
   homebrew: name=fzf state=latest
   when: ansible_os_family == "Darwin"
-
-- name: Install extras
-  script: /usr/local/opt/fzf/install --all
-  when: ansible_os_family == "Darwin"
-
-# TODO: Debian and RedHat
