@@ -26,11 +26,11 @@ nmap     <C-f>f :CtrlSF ''<Left>
 nmap     <C-f>n <Plug>CtrlSFCwordPath
 nnoremap <C-f>t :CtrlSFToggle<CR>
 Plug 'tpope/vim-rsi'  " unix keybindings in insert mode
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-unimpaired'
-Plug 'matchit.zip'
-Plug 'tomtom/tcomment_vim'
+Plug 'tpope/vim-repeat'  " make more actions repeatable with .
+Plug 'tpope/vim-surround'  " motions for handling surrounding characters
+Plug 'tpope/vim-unimpaired'  " useful bracket maps and option toggling
+Plug 'matchit.zip' " improved matching with %
+Plug 'tomtom/tcomment_vim'  " for code comments
 " Toggle comment with space-/
 nmap <leader>/ <Plug>TComment_<c-_><c-_>
 vmap <leader>/ <Plug>TComment_<c-_><c-_>
@@ -42,8 +42,6 @@ Plug 'BufOnly.vim'  " delete all but current buffer
 Plug 'scrooloose/nerdtree'
 nnoremap <leader>d :NERDTreeToggle<CR>
 nnoremap <leader>D :NERDTreeFind<CR>
-" Single clicks open directories and files
-let g:NERDTreeMouseMode = 3
 let g:NERDTreeRespectWildIgnore = 1
 
 Plug 'scrooloose/syntastic'
@@ -159,13 +157,13 @@ if has('python') ||  has('python3') | Plug 'davidhalter/jedi-vim' | endif
 " Just let me type!
 let g:jedi#popup_select_first = 0
 let g:jedi#popup_on_dot = 0
+let g:jedi#smart_auto_mappings = 0  " don't autoadd 'import'
 " Show call sigs slow things down for large projects
 let g:jedi#show_call_signatures = 0
 let g:jedi#goto_assignments_command = "gd"
 let g:jedi#goto_command = "gd"  " goto still has problems, so giving this a 2nd-class mapping
-let g:jedi#usages_command = "gu"  " goto still has problems, so giving this a 2nd-class mapping
+let g:jedi#usages_command = "gu"
 let g:jedi#rename_command = "<C-c>r"
-let g:jedi#smart_auto_mappings = 0  " don't autoadd 'import'
 " --- Javascript ---
 Plug 'pangloss/vim-javascript'
 Plug 'heavenshell/vim-jsdoc'  " For making JS docstrings
@@ -181,12 +179,11 @@ filetype plugin indent on
 """ end plugins """
 
 """ BASE CUSTOMIZATIONS """
-" NOTE: Many base customzations come from vim-sensible and vim-opinion
+" NOTE: Many base customizations come from vim-sensible and vim-opinion
 set encoding=utf-8
 set relativenumber
 set autoread " reload files when changed on disk, i.e. via `git checkout`
 set clipboard=unnamed " Make "yanks" work with system clipboard
-set wildmenu wildmode=longest,list,full
 
 " Indents
 set autoindent
@@ -255,7 +252,6 @@ nnoremap gp `[v`]
 " Easy syntax switching
 nnoremap <leader>Tp :set ft=python<CR>
 nnoremap <leader>Tj :set ft=javascript<CR>
-nnoremap <leader>Tr :set ft=rst<CR>
 nnoremap <leader>Tm :set ft=markdown<CR>
 " Quickly write/quit
 nnoremap <leader>w :w<CR>
@@ -289,7 +285,7 @@ augroup configgroup
   autocmd!
   " Make sure Vim returns to the same line when you reopen a file.
   autocmd BufReadPost *
-      \ if line("'\"") > 0 && line("'\"") <= line("$") | execute 'normal! g`"zvzz' | endif
+  \ if line("'\"") > 0 && line("'\"") <= line("$") | execute 'normal! g`"zvzz' | endif
 
   """ Languages
   " rst
