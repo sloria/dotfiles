@@ -3,9 +3,7 @@ let mapleader = "\<Space>"
 
 """"" PLUGINS """""
 call plug#begin()
-
 " ESSENTIALS
-
 Plug 'tpope/vim-sensible' " Sensible defaults
 Plug 'rstacruz/vim-opinion' " More sensible defaults
 Plug 'ervandew/supertab' " Tab complete everything
@@ -73,6 +71,7 @@ let g:airline_theme='tomorrow'
 " Explicitly specify which extensions to use
 let g:airline_extensions = ['branch', 'ctrlp', 'tabline', 'syntastic', 'whitespace']
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'jszakmeister/vim-togglecursor'  " change cursor shape when entering insert mode
 
 if has('python') || has('python3') | Plug 'SirVer/ultisnips' | endif
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
@@ -151,7 +150,6 @@ let g:python_highlight_all = 1
 let g:jsx_ext_required = 0
 let g:vim_markdown_folding_disabled=1
 let g:markdown_fenced_languages = ['javascript', 'python', 'clojure', 'ruby']
-Plug 'sophacles/vim-bundle-mako'
 " --- Python ---
 if has('python') ||  has('python3') | Plug 'davidhalter/jedi-vim' | endif
 " Just let me type!
@@ -222,16 +220,6 @@ if exists("+undofile")
   set undodir=./.vim-undo// undodir+=~/.vim/undo// undofile
 endif
 
-" Change cursor style when entering INSERT mode (works in tmux!)
-if exists('$TMUX')
-  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-else
-  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-endif
-let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-
 """ SHORTCUTS """
 " Quickly edit vimrc
 nmap <leader>, :e $MYVIMRC<CR>
@@ -289,7 +277,6 @@ augroup configgroup
 
   """ Languages
   " rst
-  autocmd BufNewFile,BufRead *.txt setlocal ft=rst
   autocmd FileType rst setlocal wrap nolist expandtab lbr shiftwidth=4 tabstop=4 softtabstop=4
   \ formatoptions+=nqtl
   " markdown
