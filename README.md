@@ -81,10 +81,6 @@ All configuration is done in `~/dotfiles`. Each role may contain (in addition to
 notes
 -----
 
-**fonts**
-
-To install fonts on OSX, simply drag the `.ttf` files in `misc/fonts` directory onto the Font Book application.
-
 **python**
 
 The `python` topic installs the [Anaconda Python distribution](https://store.continuum.io/cshop/anaconda/) using the [miniconda](http://conda.pydata.org/miniconda.html) installer. The installation is entirely self-contained, and lives at `~/miniconda`.
