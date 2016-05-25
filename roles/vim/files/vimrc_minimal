@@ -8,15 +8,14 @@ Plug 'ctrlpvim/ctrlp.vim' " Fuzzy-matching go-to file
 nnoremap <C-b> :CtrlPBuffer<CR>
 " Make ctrlp faster
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
-if executable('ag')
-  Plug 'rking/ag.vim'
-  " Use Ag over Grep
-  set grepprg=ag\ --nogroup\ --nocolor\ --column
-  nnoremap <leader>f :Ag<space>
-  " Search for term under the cursor
-  nmap <leader>F :Ag <c-r>=expand("<cword>")<cr>
+if has('python') ||  has('python3')
+  " Faster and more accurate fuzzy-matching
+  Plug 'felikz/ctrlp-py-matcher'
+  let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 endif
-map <leader>s :CtrlPBufTag<CR>
+Plug 'tacahiroy/ctrlp-funky' " Go-to class/method/etc. without ctags
+map <C-t> :CtrlPFunky<CR>
+let g:ctrlp_funky_syntax_highlight = 1
 Plug 'ervandew/supertab' " Tab complete everything
 
 Plug 'scrooloose/nerdtree'
@@ -50,12 +49,11 @@ filetype plugin indent on    " required
 """ end plugins """
 
 """ BASE CUSTOMIZATIONS """
-" NOTE: Many base customzations come from vim-sensible and vim-opinion
+" NOTE: Many base customizations come from vim-sensible and vim-opinion
 set encoding=utf-8
 set relativenumber
 set autoread " reload files when changed on disk, i.e. via `git checkout`
 set clipboard=unnamed " Make "yanks" work with system clipboard
-set wildmenu wildmode=longest,list,full
 
 " Indents
 set autoindent
@@ -65,12 +63,12 @@ set shiftround " use multiple of shiftwidth when indenting with '<' and '>'
 
 " No bells
 set noerrorbells visualbell t_vb=
-""" VISUAL SETTINGS """
 
+""" VISUAL SETTINGS """
 if &term =~ '256color' | set t_ut= | endif
 " Favorites: hybrid-sl iceberg jellybeans hemisu PaperColor apprentice
-set background=dark
-silent! colorscheme hybrid-sl
+set background=dark | silent! colorscheme hybrid-sl
+" silent! colorscheme PaperColor
 
 " Show trailing whitespace
 set list listchars=tab:▸\ ,trail:▫
@@ -94,16 +92,6 @@ if exists("+undofile")
   set undodir=./.vim-undo// undodir+=~/.vim/undo// undofile
 endif
 
-" Change cursor style when entering INSERT mode (works in tmux!)
-if exists('$TMUX')
-  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-else
-  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-endif
-let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-
 """ SHORTCUTS """
 " Quickly edit vimrc
 nmap <leader>, :e $MYVIMRC<CR>
@@ -124,7 +112,7 @@ nnoremap gp `[v`]
 " Easy syntax switching
 nnoremap <leader>Tp :set ft=python<CR>
 nnoremap <leader>Tj :set ft=javascript<CR>
-nnoremap <leader>Tr :set ft=rst<CR>
+nnoremap <leader>Tm :set ft=markdown<CR>
 " Quickly write/quit
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
@@ -157,11 +145,10 @@ augroup configgroup
   autocmd!
   " Make sure Vim returns to the same line when you reopen a file.
   autocmd BufReadPost *
-      \ if line("'\"") > 0 && line("'\"") <= line("$") | execute 'normal! g`"zvzz' | endif
+  \ if line("'\"") > 0 && line("'\"") <= line("$") | execute 'normal! g`"zvzz' | endif
 
   """ Languages
   " rst
-  autocmd BufNewFile,BufRead *.txt setlocal ft=rst
   autocmd FileType rst setlocal wrap nolist expandtab lbr shiftwidth=4 tabstop=4 softtabstop=4
   \ formatoptions+=nqtl
   " markdown
@@ -178,3 +165,4 @@ augroup END
 set guifont=Ubuntu\ Mono:h14
 " Hide scrollbars and menu
 set guioptions-=T guioptions-=R guioptions-=r guioptions-=m guioptions-=l guioptions-=L
+et guioptions-=T guioptions-=R guioptions-=r guioptions-=m guioptions-=l guioptions-=L

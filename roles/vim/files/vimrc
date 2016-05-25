@@ -27,7 +27,6 @@ Plug 'tpope/vim-rsi'  " unix keybindings in insert mode
 Plug 'tpope/vim-repeat'  " make more actions repeatable with .
 Plug 'tpope/vim-surround'  " motions for handling surrounding characters
 Plug 'tpope/vim-unimpaired'  " useful bracket maps and option toggling
-Plug 'matchit.zip' " improved matching with %
 Plug 'tomtom/tcomment_vim'  " for code comments
 " Toggle comment with space-/
 nmap <leader>/ <Plug>TComment_<c-_><c-_>
@@ -72,7 +71,7 @@ let g:airline_theme='tomorrow'
 let g:airline_extensions = ['branch', 'ctrlp', 'tabline', 'syntastic', 'whitespace']
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'jszakmeister/vim-togglecursor'  " change cursor shape when entering insert mode
-
+" Snippets
 if has('python') || has('python3') | Plug 'SirVer/ultisnips' | endif
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
@@ -148,7 +147,6 @@ Plug 'sloria/vim-polyglot'  " fork of sheerun/vim-polyglot with better python hi
 let g:polyglot_disabled = ['javascript']
 let g:python_highlight_all = 1
 let g:jsx_ext_required = 0
-let g:vim_markdown_folding_disabled=1
 let g:markdown_fenced_languages = ['javascript', 'python', 'clojure', 'ruby']
 " --- Python ---
 if has('python') ||  has('python3') | Plug 'davidhalter/jedi-vim' | endif
@@ -156,10 +154,8 @@ if has('python') ||  has('python3') | Plug 'davidhalter/jedi-vim' | endif
 let g:jedi#popup_select_first = 0
 let g:jedi#popup_on_dot = 0
 let g:jedi#smart_auto_mappings = 0  " don't autoadd 'import'
-" Show call sigs slow things down for large projects
-let g:jedi#show_call_signatures = 0
-let g:jedi#goto_assignments_command = "gd"
-let g:jedi#goto_command = "gd"  " goto still has problems, so giving this a 2nd-class mapping
+let g:jedi#show_call_signatures = 0  " Call sigs slow things down for large projects
+let g:jedi#goto_command = "gd"
 let g:jedi#usages_command = "gu"
 let g:jedi#rename_command = "<C-c>r"
 " --- Javascript ---
