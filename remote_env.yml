@@ -15,10 +15,9 @@
 
 - name: Set up remote development environments (roles)
   hosts: remote
-  # No prezto, minimal vimrc
+  # No prezto
   vars:
     zsh_prezto: no
-    vim_minimal: yes
   roles:
     - git
     - zsh

@@ -18,7 +18,6 @@
 # Snippets
 - name: Makes sure UltiSnips directory exists
   file: path="{{dotfiles_user_home}}/.vim/UltiSnips" state=directory
-  when: not vim_minimal
 
 - name: Symlink all snippet files
   file:
@@ -29,7 +28,6 @@
     - "python.snippets"
     - "rst.snippets"
     - "javascript.snippets"
-  when: not vim_minimal
 
 # Configuration
 - name: Check if vimrc exists
@@ -48,14 +46,6 @@
     src: "{{ dotfiles_home }}/roles/vim/files/vimrc"
     dest: "{{dotfiles_user_home}}/.vimrc"
     state: link
-  when: not vim_minimal
-
-- name: Symlink minimal vimrc
-  file:
-    src: "{{ dotfiles_home }}/roles/vim/files/vimrc_minimal"
-    dest: "{{dotfiles_user_home}}/.vimrc"
-    state: link
-  when: vim_minimal
 
 - name: Install plugins
   command: vim +PlugInstall +qall
