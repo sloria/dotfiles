@@ -22,9 +22,6 @@
         dfs = diff --staged
         # Get changes for a single commit
         dfc = "!dfc() { git diff $1^ $1; }; dfc"
-        pl = pull
-        pup = pull upstream
-        shorg = push -u origin
 
         # http://gggritso.com/human-git-aliases
         unstage = reset -q HEAD --
@@ -52,10 +49,7 @@
         # Copy current branch name to clipboard (MacOSX only)
         cb = "!git rev-parse --abbrev-ref HEAD | tr -d '\n' | pbcopy"
 
-        f = flow
-        fublish = flow feature publish
         feature = flow feature start
-        fart = flow feature start
         finfeature = flow feature finish
         fix = flow hotfix start
         finfix = flow hotfix finish
