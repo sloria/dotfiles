@@ -1,0 +1,6 @@
+# Fuzzy branch picker
+# Requires fzf
+# https://github.com/junegunn/fzf/wiki/Examples
+branches=$(git branch -vv) &&
+branch=$(echo "$branches" | fzf-tmux +m) &&
+git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
