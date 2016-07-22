@@ -63,6 +63,8 @@ osx_cask_packages:
   # Fonts
   - font-ubuntu
   - font-cousine
+  # Databases
+  - postgres
 
 # Node utilities
 npm_global_packages:

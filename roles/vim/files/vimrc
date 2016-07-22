@@ -191,7 +191,7 @@ set noerrorbells visualbell t_vb=
 
 """ VISUAL SETTINGS """
 if &term =~ '256color' | set t_ut= | endif
-" Favorites: hybrid-sl iceberg jellybeans hemisu PaperColor apprentice
+" Favorites: hybrid-sl iceberg jellybeans PaperColor apprentice
 set background=dark | silent! colorscheme hybrid-sl
 " silent! colorscheme PaperColor
 
