@@ -38,8 +38,8 @@ endsnippet
 
 snippet fixture
 @pytest.fixture()
-def ${1:name}():
-	return ${2}
+def ${1:name}(${2}):
+	return ${3}
 endsnippet
 
 snippet parametrize
@@ -51,8 +51,8 @@ endsnippet
 
 snippet yfixture
 @pytest.yield_fixture()
-def ${1:name}:
-	yield ${2}
+def ${1:name}(${2}):
+	yield ${3}
 endsnippet
 
 snippet a==
