@@ -138,6 +138,12 @@ $ ./bin/dot-remote
 what if I only want your vim?
 -----------------------------
 
+First make sure you have a sane vim compiled. On MacOSX, the following will do:
+
+```
+brew install macvim --HEAD --with-override-system-vim --with-python
+```
+
 The following commands will install vim-plug and download my `.vimrc`.
 
 After backing up your `~/.vim` directory and `~/.vimrc`:
