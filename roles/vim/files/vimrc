@@ -90,8 +90,8 @@ nmap <silent> <leader>tt :TestNearest<CR>
 nmap <silent> <leader>tf :TestFile<CR>
 nmap <silent> <leader>tl :TestLast<CR>
 let test#strategy = "dispatch"
-" Pass -s option to pytest so that we can use ipdb
-let test#python#pytest#options = '-s'
+" -s for ipdb support; disable cacheprovider so we don't break 'py.test --lf'
+let test#python#pytest#options = '-s -p no:cacheprovider'
 
 Plug 'mattn/emmet-vim'  " Write HTML fast
 " When in javascript, expand to 'className' (for jsx support)

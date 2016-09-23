@@ -8,6 +8,12 @@ snippet ipdb
 import ipdb; ipdb.set_trace()
 endsnippet
 
+snippet lipdb
+from ipdb import launch_ipdb_on_exception
+with launch_ipdb_on_exception():
+	${1}
+endsnippet
+
 snippet rdb
 from celery.contrib import rdb; rdb.set_trace()
 endsnippet
