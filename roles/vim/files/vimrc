@@ -44,16 +44,16 @@ Plug 'scrooloose/syntastic'
 nnoremap <leader>s :SyntasticCheck<CR>
 " NOTE: Don't use syntastic with python; we use khuno for that
 let g:syntastic_mode_map = { 'mode': 'active',
- \ 'active_filetypes': [],
- \ 'passive_filetypes': [ 'html', 'rst', 'md', 'python', 'javascript'] }
+  \ 'active_filetypes': [],
+  \ 'passive_filetypes': [ 'html', 'rst', 'md', 'python', 'javascript'] }
 " Set JS linter based on whether current project has .jshintrc or .eslintrc
 function! HasConfig(file, dir)
-    return findfile(a:file, escape(a:dir, ' ') . ';') !=# ''
+  return findfile(a:file, escape(a:dir, ' ') . ';') !=# ''
 endfunction
 autocmd BufNewFile,BufReadPre *.js  let b:syntastic_checkers =
-    \ HasConfig('.eslintrc', expand('<amatch>:h')) ? ['eslint'] :
-    \ HasConfig('.jshintrc', expand('<amatch>:h')) ? ['jshint'] :
-    \     ['standard']
+  \ HasConfig('.eslintrc', expand('<amatch>:h')) ? ['eslint'] :
+  \ HasConfig('.jshintrc', expand('<amatch>:h')) ? ['jshint'] :
+  \     ['standard']
 " Disable some features to make syntastic faster
 let g:syntastic_enable_signs = 0
 let g:syntastic_enable_balloons = 0
@@ -96,8 +96,8 @@ let test#python#pytest#options = '-s'
 Plug 'mattn/emmet-vim'  " Write HTML fast
 " When in javascript, expand to 'className' (for jsx support)
 let g:user_emmet_settings = {
-\    'javascript': {'extends': 'html', 'attribute_name': {'class': 'className'}}
-\ }
+  \    'javascript': {'extends': 'html', 'attribute_name': {'class': 'className'}}
+  \ }
 Plug 'jiangmiao/auto-pairs' " autoclose parens, quotes, etc.
 Plug 'Lokaltog/vim-easymotion' " Quickly move around
 nmap s <Plug>(easymotion-s2)
@@ -269,7 +269,7 @@ augroup configgroup
   autocmd!
   " Make sure Vim returns to the same line when you reopen a file.
   autocmd BufReadPost *
-  \ if line("'\"") > 0 && line("'\"") <= line("$") | execute 'normal! g`"zvzz' | endif
+    \ if line("'\"") > 0 && line("'\"") <= line("$") | execute 'normal! g`"zvzz' | endif
 
   " Automatically adjust quickfix window depending on how much text there is
   autocmd FileType qf call AdjustWindowHeight(3, 20)
@@ -280,11 +280,11 @@ augroup configgroup
   """ Languages
   " rst
   autocmd FileType rst setlocal wrap nolist expandtab lbr shiftwidth=4 tabstop=4 softtabstop=4
-  \ formatoptions+=nqtl
+    \ formatoptions+=nqtl
   " markdown
   autocmd BufRead,BufNewFile *.md set filetype=markdown
   autocmd FileType markdown setlocal wrap nolist expandtab lbr shiftwidth=4 tabstop=4 softtabstop=4
-  \ formatoptions+=nqtl
+    \ formatoptions+=nqtl
   " vim
   autocmd FileType vim setlocal shiftwidth=2 tabstop=2 softtabstop=2
   " commit messages
