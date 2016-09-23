@@ -14,7 +14,6 @@ a few neat features
 - vim with [vim-plug](https://github.com/junegunn/vim-plug) for plugin management. All configuration in a single file [.vimrc](https://github.com/sloria/dotfiles/blob/master/roles/vim/files/vimrc).
 - pluggable. Everything is optional. Fork this. Remove what you don't use. Configure what you do use.
 - Mac packages installed with [homebrew][]. Mac apps installed with [homebrew-cask][].
-- support for deploying to remote environments.
 
 prerequisites (install these first)
 -----------------------------------
@@ -22,7 +21,6 @@ prerequisites (install these first)
 - ansible >= 1.6
 - homebrew (If on Mac OSX)
 - git (homebrew installable on Mac OSX)
-
 
 install
 -------
@@ -68,7 +66,6 @@ There are three main commands in the `bin` directory for setting up and updating
 
 - `dot-bootstrap`: sets up local environment by executing all roles in `local_env.yml`.
 - `dot`: updates local environment by executing all roles in `local_env.yml` except for the ones tagged with "bootstrap".
-- `dot-remote`: sets up remote environments.
 
 special files
 -------------
@@ -83,7 +80,7 @@ notes
 
 **python**
 
-The `python` topic installs the [Anaconda Python distribution](https://store.continuum.io/cshop/anaconda/) using the [miniconda](http://conda.pydata.org/miniconda.html) installer. The installation is entirely self-contained, and lives at `~/miniconda`.
+The `python` topic installs [miniconda](http://conda.pydata.org/miniconda.html). The installation is entirely self-contained, and lives at `~/miniconda`.
 
 **iterm2**
 
@@ -103,37 +100,6 @@ There are a few keyboard customizations that must be done manually:
 - Mapping Caps Lock to Ctrl.
 
 ![Modifier keys](https://dl.dropboxusercontent.com/u/1693233/github/dotfiles-mod-keys.png)
-
-setting up remote dev environments
-----------------------------------
-
-The `remote_env.yml` playbook can set up a minimal subset of these dotfiles on remote machines.
-
-- Copy `remotehosts.example` to `remotehosts`. The `remotehosts` file will note be added to version control.
-
-```
-$ cp remotehosts.example remotehosts
-```
-
-- Add the remote hosts you want to target under the `[remote]` group of the `remotehosts` file.
-
-```
-[remote]
-123.456.789.111
-```
-
-Update the following variables in `group_vars/remote`:
-
-- `dotfiles_user_home` : Your user home directory.
-- `full_name`: Full name, for use in commit messages.
-- `git_user` : Your git user name.
-- `git_email` : Your git email.
-
-Then run the `dot-remote` command.
-
-```bash
-$ ./bin/dot-remote
-```
 
 what if I only want your vim?
 -----------------------------
