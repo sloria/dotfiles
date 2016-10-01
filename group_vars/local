@@ -55,7 +55,6 @@ osx_cask_packages:
   # Media/Music
   - spotify
   - vlc
-  - beardedspice
   - google-play-music-desktop-player
   # Images
   - imageoptim
@@ -71,11 +70,11 @@ osx_cask_packages:
   - postgres
   - robomongo  # mongo client
   - psequel  # postgres client
+  # VPN
+  - cloak
 
 # Node utilities
 npm_global_packages:
-  - gulp
-  - bower
   - jsxhint
   - webpack
   - eslint
