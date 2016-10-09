@@ -24,6 +24,8 @@
         # Get changes for a single commit
         dfc = "!dfc() { git diff $1^ $1; }; dfc"
 
+        please = push --force-with-lease
+
         # http://gggritso.com/human-git-aliases
         unstage = reset -q HEAD --
         discard = checkout --

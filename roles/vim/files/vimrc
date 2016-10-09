@@ -110,6 +110,8 @@ let g:scratch_filetype = 'markdown'
 " Open scratch buffer with space-tab (automatically set syntax to python)
 nnoremap <silent> <leader><tab> :Scratch<cr>
 Plug 'tpope/vim-sleuth'  " Detect indent settings
+Plug 'machakann/vim-highlightedyank'
+map y <Plug>(highlightedyank)
 
 " GIT
 Plug 'airblade/vim-gitgutter'
@@ -177,7 +179,7 @@ filetype plugin indent on
 set encoding=utf-8
 set relativenumber
 set autoread " reload files when changed on disk, i.e. via `git checkout`
-set clipboard=unnamed " Make "yanks" work with system clipboard
+set clipboard^=unnamedplus,unnamed " Make "yanks" work with system clipboard
 
 " Indents
 set autoindent
