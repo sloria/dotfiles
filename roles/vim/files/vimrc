@@ -40,25 +40,10 @@ nnoremap <leader>d :NERDTreeToggle<CR>
 nnoremap <leader>D :NERDTreeFind<CR>
 let g:NERDTreeRespectWildIgnore = 1
 
-Plug 'scrooloose/syntastic'
-nnoremap <leader>s :SyntasticCheck<CR>
-" NOTE: Don't use syntastic with python; we use khuno for that
-let g:syntastic_mode_map = { 'mode': 'active',
-  \ 'active_filetypes': [],
-  \ 'passive_filetypes': [ 'html', 'rst', 'md', 'python', 'javascript'] }
-" Set JS linter based on whether current project has .jshintrc or .eslintrc
-function! HasConfig(file, dir)
-  return findfile(a:file, escape(a:dir, ' ') . ';') !=# ''
-endfunction
-autocmd BufNewFile,BufReadPre *.js  let b:syntastic_checkers =
-  \ HasConfig('.eslintrc', expand('<amatch>:h')) ? ['eslint'] :
-  \ HasConfig('.jshintrc', expand('<amatch>:h')) ? ['jshint'] :
-  \     ['standard']
-" Disable some features to make syntastic faster
-let g:syntastic_enable_signs = 0
-let g:syntastic_enable_balloons = 0
-" Non-blocking python checking
-Plug 'alfredodeza/khuno.vim'
+Plug 'neomake/neomake'  " Async syntax checking
+autocmd! BufWritePost * Neomake  " Lint on save
+let g:neomake_open_list = 2  " Show errors in location list, if any
+let g:neomake_python_enabled_makers = ['flake8']  " Only use flake8 for Python
 
 " NICE TO HAVE
 Plug 'vim-airline/vim-airline'
@@ -67,7 +52,7 @@ let g:airline_left_sep=''
 let g:airline_right_sep=''
 let g:airline_theme='tomorrow'
 " Explicitly specify which extensions to use
-let g:airline_extensions = ['branch', 'ctrlp', 'tabline', 'syntastic', 'whitespace']
+let g:airline_extensions = ['branch', 'ctrlp', 'tabline', 'neomake', 'whitespace']
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'jszakmeister/vim-togglecursor'  " change cursor shape when entering insert mode
 " Snippets
@@ -231,8 +216,6 @@ noremap <leader>sr :%s:::cg<Left><Left><Left><Left>
 nnoremap <leader>b :e#<CR>
 " Remove trailing whitespace with Backspace
 nnoremap <BS> :%s/\s\+$//<cr>:let @/=''<CR>
-" in case you forgot to sudo
-cnoremap w!! %!sudo tee > /dev/null %
 " select last pasted text
 nnoremap gp `[v`]
 " Easy syntax switching
