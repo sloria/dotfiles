@@ -8,7 +8,7 @@ alias pyserv="python3 -m http.server"
 alias pt="py.test"
 alias nt="nosetests"
 alias mn="python manage.py"
-alias pipgrep="pip freeze | grep "
+alias pipgrep="pip freeze | grep -i "
 alias getpip="wget https://bootstrap.pypa.io/get-pip.py && python get-pip.py && rm get-pip.py"
 
 # Conda environments
