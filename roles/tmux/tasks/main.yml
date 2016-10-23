@@ -6,9 +6,9 @@
 
 # TODO: Fedora
 
-- name: Install tmuxinator
-  gem: name=tmuxinator state=latest
-  when: tmux_install_tmuxinator
+- name: Install tmuxp
+  pip: name=tmuxp state=latest
+  when: tmux_install_tmuxp
 
 - name: Install tpm
   git:

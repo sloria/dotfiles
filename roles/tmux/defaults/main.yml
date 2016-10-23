@@ -1,2 +1,3 @@
 
-tmux_install_tmuxinator: yes
+tmux_install_tmuxp: yes
+

@@ -13,4 +13,4 @@ git_user: sloria
 #  used on Github
 git_email: sloria1@gmail.com
 
-tmux_install_tmuxinator: false
+tmux_install_tmuxp: false
