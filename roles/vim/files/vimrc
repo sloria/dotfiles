@@ -41,7 +41,7 @@ nnoremap <leader>D :NERDTreeFind<CR>
 let g:NERDTreeRespectWildIgnore = 1
 
 Plug 'neomake/neomake'  " Async syntax checking
-if has('nvim') || has('channel') && has('job') && has('patch-7-4-2260')
+if has('nvim') || has('channel') && has('job') && has('patch-8-0-0027')
     autocmd! BufWritePost * Neomake " Lint on save
 endif
 let g:neomake_open_list = 2  " Show errors in location list, if any
@@ -105,7 +105,7 @@ Plug 'airblade/vim-gitgutter'
 " Set gitgutter's bindings manually to avoid clashes
 let g:gitgutter_map_keys = 0
 nmap <leader>gh <Plug>GitGutterStageHunk
-nmap <leader>gH <Plug>GitGutterRevertHunk
+nmap <leader>gH <Plug>GitGutterUndoHunk
 nmap [h <Plug>GitGutterPrevHunk
 nmap ]h <Plug>GitGutterNextHunk
 Plug 'tpope/vim-fugitive'
