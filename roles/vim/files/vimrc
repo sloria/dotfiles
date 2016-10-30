@@ -273,6 +273,7 @@ augroup configgroup
     \ formatoptions+=nqtl
   " markdown
   autocmd BufRead,BufNewFile *.md set filetype=markdown
+  autocmd BufRead,BufNewFile .eslintrc set filetype=json
   autocmd FileType markdown setlocal wrap nolist expandtab lbr shiftwidth=4 tabstop=4 softtabstop=4
     \ formatoptions+=nqtl
   " vim
