@@ -8,4 +8,4 @@
 #
 #   git nuke add-git-nuke
 
-git branch -d $1 && git push origin :$1
+git branch -D $1 && git push origin :$1
