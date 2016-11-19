@@ -29,6 +29,10 @@ osx_homebrew_packages:
   - tree
   - highlight
   - terminal-notifier
+  - wifi-password
+  - youtube-dl
+  - curl
+  - htop-osx
 
 # Mac Apps to be installed with homebrew-cask
 osx_cask_packages:
