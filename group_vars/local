@@ -33,6 +33,9 @@ osx_homebrew_packages:
   - youtube-dl
   - curl
   - htop-osx
+  - httpie
+  - redis
+  - kubernetes-cli
 
 # Mac Apps to be installed with homebrew-cask
 osx_cask_packages:
