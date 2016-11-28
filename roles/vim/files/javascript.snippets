@@ -26,43 +26,43 @@ export default class ${1:`!p snip.rv = ''.join(x for x in re.sub('\.js$', '', sn
 endsnippet
 
 snippet importreact "import React" b
-import React, {PropTypes as t} from 'react';
+import React, { PropTypes as t } from 'react';
 endsnippet
 
 snippet cdm "componentDidMount" b
 componentDidMount() {
 	$0
-},
+}
 endsnippet
 
 snippet cdu "componentDidUpdate" b
 componentDidUpdate(prevProps, prevState) {
 	$0
-},
+}
 endsnippet
 
 snippet cwm "componentWillMount" b
 componentWillMount: function() {
 	$0
-},
+}
 endsnippet
 
 snippet cwrp "componentWillReceiveProps" b
 componentWillReceiveProps(nextProps) {
 	$0
-},
+}
 endsnippet
 
 snippet cwum "componentWillUnmount" b
 componentWillUnmount() {
 	$0
-},
+}
 endsnippet
 
 snippet cwu "componentWillUpdate" b
 componentWillUpdate(nextProps, nextState) {
 	$0
-},
+}
 endsnippet
 
 snippet gdp "getDefaultProps" b
@@ -70,7 +70,7 @@ getDefaultProps() {
 	return {
 		$0
 	};
-},
+}
 endsnippet
 
 snippet gis "getInitialState" b
@@ -78,19 +78,19 @@ getInitialState() {
 	return {
 		$0
 	};
-},
+}
 endsnippet
 
 snippet pt "propTypes" b
-propTypes: {
+static propTypes = {
 	$0
-},
+}
 endsnippet
 
 snippet scu "shouldComponentUpdate" b
 shouldComponentUpdate(nextProps, nextState) {
 	return ${1:true};
-},
+}
 endsnippet
 
 # Mocha testing
@@ -107,14 +107,16 @@ describe('${1:feature}', function() {
 endsnippet
 
 snippet it
-it('${1:should do something}', () => {
+it('${1:should do something}', (done) => {
 	${2}
+	done();
 });
 endsnippet
 
 snippet itf
-it('${1:should do something}', function() {
+it('${1:should do something}', function(done) {
 	${2}
+	done()
 });
 endsnippet
 
