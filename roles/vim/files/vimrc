@@ -66,7 +66,7 @@ let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 Plug 'honza/vim-snippets'
 
-Plug 'junegunn/vim-pseudocl' | Plug 'junegunn/vim-oblique' " Better / search
+Plug 'junegunn/vim-slash' " Better / search
 
 Plug 'majutsushi/tagbar', {'on': 'Tagbar'}
 " Open tagbar
