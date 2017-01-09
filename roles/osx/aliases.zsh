@@ -1,6 +1,8 @@
 alias cask="brew cask"
 alias ss="open /System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app"
 
+alias sha256="shasum -a 256"
+
 # Display a notification with a given message
 alias growl="terminal-notifier -message"
 # Useful for notifying when a long script finishes
