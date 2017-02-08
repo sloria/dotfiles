@@ -34,9 +34,6 @@
         l = log --graph --decorate --oneline --abbrev-commit --all
         h = log --graph --decorate --oneline --abbrev-commit
 
-        # Open unstaged files in vim
-        edit = "!f() { ${1-vim} `git ls-files -m`; }; f"
-
         switch = !legit switch \"$@\"
         branches = !legit branches
         sprout = !legit sprout \"$@\"
@@ -52,6 +49,9 @@
         # Copy current branch name to clipboard (MacOSX only)
         cb = "!git rev-parse --abbrev-ref HEAD | tr -d '\n' | pbcopy"
 
+        remote-branches = "!f() { git ls-remote --heads ${1:origin} | sed 's?.*refs/heads/??'; }; f "
+
+        # Git flow
         feature = flow feature start
         finfeature = flow feature finish
         fix = flow hotfix start
