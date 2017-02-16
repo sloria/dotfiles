@@ -63,7 +63,7 @@ osx_cask_packages:
   - vlc
   - google-play-music-desktop-player
   # Images
-  - imageoptim
+  - imageoptim  # optimizing images
   - licecap  # capturing gifs
   # Notetaking
   - evernote

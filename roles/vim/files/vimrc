@@ -100,7 +100,7 @@ let g:scratch_filetype = 'markdown'
 " Open scratch buffer with space-tab (automatically set syntax to python)
 nnoremap <silent> <leader><tab> :Scratch<cr>
 Plug 'tpope/vim-sleuth'  " Detect indent settings
-Plug 'machakann/vim-highlightedyank'
+Plug 'machakann/vim-highlightedyank'  " Highlight yank
 map y <Plug>(highlightedyank)
 
 " GIT
@@ -184,7 +184,7 @@ set noerrorbells visualbell t_vb=
 if &term =~ '256color' | set t_ut= | endif
 " Favorites: hybrid-sl iceberg jellybeans PaperColor apprentice
 set background=dark | silent! colorscheme hybrid-sl
-" silent! colorscheme PaperColor
+" set background=light | silent! colorscheme PaperColor
 
 " Show trailing whitespace
 set list listchars=tab:▸\ ,trail:▫
