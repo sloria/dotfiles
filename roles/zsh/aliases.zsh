@@ -8,6 +8,8 @@ alias cl="clear"
 alias c="clear"
 alias pg='ps -ef | grep'
 alias lj='jobs'
+alias dil='doitlive'
+alias dilp='doitlive play'
 
 alias reload!='. ~/.zshrc'
 alias vi="vim"
