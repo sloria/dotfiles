@@ -189,8 +189,6 @@ set background=dark | silent! colorscheme hybrid-sl
 " Show trailing whitespace
 set list listchars=tab:▸\ ,trail:▫
 
-if exists('&breakindent') | set breakindent showbreak=.. | endif
-
 set cursorline  " have a line indicate cursor location
 set previewheight=25  " Larger preview height
 
