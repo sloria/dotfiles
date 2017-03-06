@@ -91,7 +91,7 @@ function prompt_sorin_precmd {
   _prompt_sorin_precmd_async_pid=$!
 }
 
-function prompt_sorin_setup {
+function prompt_sorin_simple_setup {
   setopt LOCAL_OPTIONS
   unsetopt XTRACE KSH_ARRAYS
   prompt_opts=(cr percent subst)
@@ -134,4 +134,4 @@ function prompt_sorin_setup {
   SPROMPT='zsh: correct %F{1}%R%f to %F{2}%r%f [nyae]? '
 }
 
-prompt_sorin_setup "$@"
+prompt_sorin_simple_setup "$@"
