@@ -35,6 +35,7 @@ osx_homebrew_packages:
   - htop-osx
   - httpie
   - redis
+  - diff-so-fancy
 
 # Mac Apps to be installed with homebrew-cask
 osx_cask_packages:

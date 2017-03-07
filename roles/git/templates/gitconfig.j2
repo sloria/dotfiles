@@ -17,12 +17,14 @@
         ci = commit
         noff = merge --no-ff
         amend = commit --amend
-        wip = commit -m "WIP"
+        wip = commit -am "WIP"
         br = branch
-        df = diff
-        dfs = diff --staged
+        # diff-so-fancy
+        # https://github.com/so-fancy/diff-so-fancy/#usage
+        df = "!f() { [ -z \"$GIT_PREFIX\" ] || cd \"$GIT_PREFIX\" && git diff --color \"$@\" | diff-so-fancy  | less --tabs=4 -RFX; }; f"
+        dfs = df --staged
         # Get changes for a single commit
-        dfc = "!dfc() { git diff $1^ $1; }; dfc"
+        dfc = "!dfc() { git df $1^ $1; }; dfc"
 
         please = push --force-with-lease
 
