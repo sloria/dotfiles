@@ -3,6 +3,9 @@
 [user]
         name = {{ full_name }}
         email = {{ git_email }}
+{% if git_signing_key %}
+        signingkey = BDFBA4D7
+{% endif %}
 {% if ansible_os_family == 'Darwin' %}
 [credential]
         helper = osxkeychain
@@ -84,3 +87,7 @@
         default = simple
 [github]
         user = {{ git_user }}
+{% if git_signing_key %}
+[commit]
+        gpgsign = true
+{% endif %}

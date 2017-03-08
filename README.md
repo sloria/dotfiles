@@ -15,6 +15,8 @@ a few neat features
 - vim with [vim-plug](https://github.com/junegunn/vim-plug) for plugin management. All configuration in a single file [.vimrc](https://github.com/sloria/dotfiles/blob/master/roles/vim/files/vimrc).
 - pluggable. Everything is optional. Fork this. Remove what you don't use. Configure what you do use.
 - Mac packages installed with [homebrew][]. Mac apps installed with [homebrew-cask][].
+- Useful git aliases
+- Optional git commit signing with GPG
 
 prerequisites (install these first)
 -----------------------------------

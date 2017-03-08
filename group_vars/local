@@ -16,6 +16,10 @@ git_user: sloria
 #  used on Github
 git_email: sloria1@gmail.com
 
+# GPG Key ID used to sign git commits
+# See https://github.com/pstadler/keybase-gpg-github setup instructions
+git_signing_key: BDFBA4D7
+
 # Vim
 
 # Whether to install plugins automatically. If not, just run
