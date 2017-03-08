@@ -51,13 +51,23 @@ $ cd ~/dotfiles
 $ ./bin/dot-bootstrap
 ```
 
-updating
---------
+updating your local environment
+-------------------------------
 
 Once you have the dotfiles installed you can run the following command to rerun the ansible playbook:
 
 ```bash
 $ dot
+```
+
+updating your dotfiles repo
+---------------------------
+
+To keep your fork up to date with the `sloria` fork:
+
+```
+$ git remote add sloria https://github.com/sloria/dotfiles.git
+$ git pull sloria master
 ```
 
 commands
