@@ -1,7 +1,0 @@
-# vi: set ft=yaml :
-
-dotfiles_user_home: /home/vagrant
-dotfiles_home: "{{dotfiles_user_home}}/dotfiles"
-
-git_user: vagrant
-git_email: vagrant@vagrant.com

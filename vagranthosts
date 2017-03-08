@@ -1,6 +1,0 @@
-# Test ubuntu and fedora boxes
-[vagrant]
-192.168.111.227
-
-[remote:children]
-vagrant
