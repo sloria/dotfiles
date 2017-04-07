@@ -1,6 +1,7 @@
 alias dk="docker "
 alias dklog="docker logs -f --tail 100 "
 alias dkl="docker logs -f --tail 100 "
+alias dkdf="dk system df"
 
 alias dc="docker-compose"
 alias dcup="docker-compose up -d "

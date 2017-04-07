@@ -41,6 +41,7 @@ osx_homebrew_packages:
   - postgresql
   - redis
   - diff-so-fancy
+  - docker-clean
 
 # Mac Apps to be installed with homebrew-cask
 osx_cask_packages:
@@ -82,7 +83,7 @@ osx_cask_packages:
   - robomongo  # mongo client
   - psequel  # postgres client
   # VPN
-  - cloak
+  - tunnelblick
 
 # Node utilities
 npm_global_packages:
