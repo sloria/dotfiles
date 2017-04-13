@@ -6,7 +6,7 @@ dotfiles
 a few neat features
 -------------------
 
-- zsh configured with [prezto](https://github.com/zsh-users/prezto).
+- zsh configured with [prezto](https://github.com/sorin-ionescu/prezto).
 - nice fonts for the terminal and coding.
 - iterm2 profile (w/ hotkey, themes, etc.)
 - anaconda python (Miniconda 3 distribution).
