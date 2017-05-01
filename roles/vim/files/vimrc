@@ -111,7 +111,8 @@ nmap <leader>gh <Plug>GitGutterStageHunk
 nmap <leader>gH <Plug>GitGutterUndoHunk
 nmap [h <Plug>GitGutterPrevHunk
 nmap ]h <Plug>GitGutterNextHunk
-Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'  " git integration
+Plug 'tpope/vim-rhubarb'  " For :Gbrowse
 map <leader>gs :Gstatus<CR>
 map <leader>gb :Gblame<CR>
 " Open current file on Github
@@ -129,7 +130,7 @@ let g:gist_open_browser_after_post = 1
 
 " COLOR
 
-Plug 'flazz/vim-colorschemes'
+Plug 'NLKNguyen/papercolor-theme'
 Plug 'sloria/vim-hybrid'  " hybrid with easier-to-read line numbers
 Plug 'chriskempson/base16-vim'
 
@@ -182,7 +183,7 @@ set noerrorbells visualbell t_vb=
 
 """ VISUAL SETTINGS """
 if &term =~ '256color' | set t_ut= | endif
-" Favorites: hybrid-sl iceberg jellybeans PaperColor apprentice
+" Favorites: hybrid-sl iceberg PaperColor
 set background=dark | silent! colorscheme hybrid-sl
 " set background=light | silent! colorscheme PaperColor
 
