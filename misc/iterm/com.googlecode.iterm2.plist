@@ -4253,7 +4253,7 @@
 	gAKACoAN0xAJChEVGVdOUy5rZXlzoxITFIADgASABaMWFxiABoAHgAiACVpJZGVudGlm
 	aWVyVVdpZHRoVkhpZGRlblEwI0BowAAAAAAACNIhIiMkWiRjbGFzc25hbWVYJGNsYXNz
 	ZXNcTlNEaWN0aW9uYXJ5oiMlWE5TT2JqZWN00xAJCicrGaMSExSAA4AEgAWjLC0YgAuA
-	DIAIgAlRMSNAdCAAAAAAANIhIjM0Xk5TTXV0YWJsZUFycmF5ozM1JVdOU0FycmF5XxAP
+	DIAIgAlRMSNAczAAAAAAANIhIjM0Xk5TTXV0YWJsZUFycmF5ozM1JVdOU0FycmF5XxAP
 	TlNLZXllZEFyY2hpdmVy0Tg5VUFycmF5gAEACAARABoAIwAtADIANwBGAEwAUQBcAGMA
 	ZgBoAGoAbABzAHsAfwCBAIMAhQCJAIsAjQCPAJEAnACiAKkAqwC0ALUAugDFAM4A2wDe
 	AOcA7gDyAPQA9gD4APwA/gEAAQIBBAEGAQ8BFAEjAScBLwFBAUQBSgAAAAAAAAIBAAAA
@@ -4279,15 +4279,15 @@
 	<key>NSWindow Frame Preferences</key>
 	<string>449 408 606 456 0 0 1440 877 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>410 382 620 392 0 0 1440 900 </string>
+	<string>970 786 620 392 0 0 2560 1440 </string>
 	<key>NSWindow Frame SessionsPreferences</key>
-	<string>269 139 606 456 0 0 1440 877 </string>
+	<string>630 325 606 456 0 0 2560 1417 </string>
 	<key>NSWindow Frame SharedPreferences</key>
 	<string>258 363 796 473 0 0 1440 877 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>99 293 592 584 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 0 1440 900 0 0 1440 877 </string>
+	<string>0 0 2560 1440 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>436 173 585 667 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -6440,6 +6440,8 @@
 	<integer>1</integer>
 	<key>NoSyncHaveShownPromoWithId_4</key>
 	<true/>
+	<key>NoSyncHaveWarnedAboutIncompatibleSoftware</key>
+	<true/>
 	<key>NoSyncInstallationId</key>
 	<string>C2EC4075-3379-4FFE-842A-E9CCC75E8706</string>
 	<key>NoSyncPermissionToShowTip</key>
@@ -6468,6 +6470,8 @@
 	<dict/>
 	<key>PrefsCustomFolder</key>
 	<string>/Users/sloria/dotfiles/misc/iterm</string>
+	<key>Print In Black And White</key>
+	<true/>
 	<key>PromptOnClose</key>
 	<true/>
 	<key>PromptOnQuit</key>
@@ -6487,7 +6491,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-01-09T14:06:47Z</date>
+	<date>2017-04-24T21:08:32Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>
@@ -6545,7 +6549,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.0.13</string>
+	<string>3.0.15</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
