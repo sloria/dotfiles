@@ -19,6 +19,7 @@ if has('python') ||  has('python3')
 endif
 let g:ctrlp_funky_syntax_highlight = 1
 Plug 'dyng/ctrlsf.vim'  " ag-powered search with in-place editing
+let g:ctrlsf_ackprg = 'rg'
 nmap     <C-f>f :CtrlSF ''<Left>
 nmap     <C-f>n <Plug>CtrlSFCwordPath
 nnoremap <C-f>t :CtrlSFToggle<CR>
@@ -132,7 +133,7 @@ let g:gist_open_browser_after_post = 1
 
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'sloria/vim-hybrid'  " hybrid with easier-to-read line numbers
-Plug 'chriskempson/base16-vim'
+" Plug 'chriskempson/base16-vim'
 
 " LANGUAGE-SPECIFIC
 Plug 'sloria/vim-polyglot'  " fork of sheerun/vim-polyglot with better python highlighting

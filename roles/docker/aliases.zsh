@@ -21,6 +21,8 @@ alias dsx="docker-sync stop"
 
 alias dcbomb!="docker-compose down -v"
 
+alias dclean="docker-clean"
+
 # Open bash in a container. Pass docker-compose name
 function dcbash {
   docker-compose exec $1 /bin/bash
