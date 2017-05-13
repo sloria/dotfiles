@@ -34,7 +34,7 @@ vmap <leader>/ <Plug>TComment_<c-_><c-_>
 " Buffers
 Plug 'moll/vim-bbye'  " delete buffer without closing window
 nnoremap X :Bdelete<CR>
-Plug 'BufOnly.vim'  " delete all but current buffer
+Plug 'vim-scripts/BufOnly.vim'  " delete all but current buffer
 
 Plug 'scrooloose/nerdtree'
 nnoremap <leader>d :NERDTreeToggle<CR>
@@ -50,6 +50,14 @@ let g:neomake_open_list = 2  " Show errors in location list, if any
 let g:neomake_python_enabled_makers = ['flake8']  " Only use flake8 for Python
 let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_html_enabled_makers = []
+Plug 'sbdchd/neoformat'
+" Make neoformat play nicely with eslint-airbnb
+let g:neoformat_javascript_prettier = {
+\ 'exe': 'prettier',
+\ 'args': ['--single-quote', '--trailing-comma all'],
+\ }
+let g:neoformat_enabled_javascript = ['prettier']
+nmap <leader>= :Neoformat<CR>
 
 " NICE TO HAVE
 Plug 'vim-airline/vim-airline'
