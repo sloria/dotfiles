@@ -144,12 +144,15 @@ Plug 'sloria/vim-hybrid'  " hybrid with easier-to-read line numbers
 " Plug 'chriskempson/base16-vim'
 
 " LANGUAGE-SPECIFIC
-Plug 'sloria/vim-polyglot'  " fork of sheerun/vim-polyglot with better python highlighting
-let g:polyglot_disabled = ['javascript']
-let g:python_highlight_all = 1
+Plug 'sheerun/vim-polyglot'
+let g:polyglot_disabled = ['python']
 let g:jsx_ext_required = 0
 let g:markdown_fenced_languages = ['javascript', 'python', 'clojure', 'ruby']
 " --- Python ---
+Plug 'vim-python/python-syntax'  " Improved python syntax
+let g:python_highlight_all = 1
+Plug 'Vimjas/vim-python-pep8-indent'  " Proper python indenting
+
 if has('python') ||  has('python3') | Plug 'davidhalter/jedi-vim' | endif
 " Just let me type!
 let g:jedi#popup_select_first = 0
@@ -161,7 +164,6 @@ let g:jedi#goto_command = "gD"  " goto still has problems, so giving it a 2nd-cl
 let g:jedi#usages_command = "gu"
 let g:jedi#rename_command = "<C-c>r"
 " --- Javascript ---
-Plug 'pangloss/vim-javascript'
 Plug 'heavenshell/vim-jsdoc'  " For making JS docstrings
 let g:jsdoc_default_mapping = 0
 map <C-c>j :JsDoc<CR>
