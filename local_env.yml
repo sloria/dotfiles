@@ -13,7 +13,7 @@
     - npm
     - hub
     - autoenv
-    - ag
+    - rg
     - tmux
     - git-flow
     - fzf
