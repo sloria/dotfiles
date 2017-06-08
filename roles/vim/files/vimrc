@@ -41,23 +41,18 @@ nnoremap <leader>d :NERDTreeToggle<CR>
 nnoremap <leader>D :NERDTreeFind<CR>
 let g:NERDTreeRespectWildIgnore = 1
 
-Plug 'neomake/neomake'  " Async syntax checking
-Plug 'jaawerth/neomake-local-eslint-first'
-if has('nvim') || has('channel') && has('job') && has('patch-8-0-0027')
-    autocmd! BufWritePost * Neomake " Lint on save
-endif
-let g:neomake_open_list = 2  " Show errors in location list, if any
-let g:neomake_python_enabled_makers = ['flake8']  " Only use flake8 for Python
-let g:neomake_javascript_enabled_makers = ['eslint']
-let g:neomake_html_enabled_makers = []
-Plug 'sbdchd/neoformat'
-" Make neoformat play nicely with eslint-airbnb
-let g:neoformat_javascript_prettier = {
-\ 'exe': 'prettier',
-\ 'args': ['--single-quote', '--trailing-comma all'],
-\ }
-let g:neoformat_enabled_javascript = ['prettier']
-nmap <leader>= :Neoformat<CR>
+Plug 'w0rp/ale'  " Async linting
+nmap <silent> [s <Plug>(ale_previous_wrap)
+nmap <silent> ]s <Plug>(ale_next_wrap)
+nmap <leader>= <Plug>(ale_fix)
+" Quickly open the loclist to see syntax errors
+nmap <leader>; :lopen<CR>
+let g:ale_linters = {}
+let g:ale_linters.javascript = ['eslint']
+let g:ale_fixers = {}
+let g:ale_fixers.javascript = ['prettier']
+" Make prettier play nicely with eslint-airbnb
+let g:ale_javascript_prettier_options = ' --single-quote --trailing-comma all'
 
 " NICE TO HAVE
 Plug 'vim-airline/vim-airline'
@@ -66,7 +61,7 @@ let g:airline_left_sep=''
 let g:airline_right_sep=''
 let g:airline_theme='tomorrow'
 " Explicitly specify which extensions to use
-let g:airline_extensions = ['branch', 'ctrlp', 'tabline', 'neomake', 'whitespace']
+let g:airline_extensions = ['branch', 'ctrlp', 'tabline', 'ale', 'whitespace']
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'jszakmeister/vim-togglecursor'  " change cursor shape when entering insert mode
 " Snippets
