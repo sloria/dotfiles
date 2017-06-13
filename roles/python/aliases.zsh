@@ -13,8 +13,8 @@ alias getpip="wget https://bootstrap.pypa.io/get-pip.py && python get-pip.py && 
 
 # Conda environments
 alias condaclean="conda clean -tipsy"
-alias mkenv="conda create python=3 ipython jupyter pip -n "
-alias mkenv2="conda create python=2 ipython jupyter pip -n "
+alias mkenv="conda create python=3 ipython jupyter pip -y -n "
+alias mkenv2="conda create python=2 ipython jupyter pip -y -n "
 alias rmenv="conda remove --all --name "
 alias lsenv="conda info -e"
 alias wo="source activate"
