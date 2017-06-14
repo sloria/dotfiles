@@ -47,6 +47,7 @@ nmap <silent> ]s <Plug>(ale_next_wrap)
 nmap <leader>= <Plug>(ale_fix)
 " Quickly open the loclist to see syntax errors
 nmap <leader>; :lopen<CR>
+let g:ale_maximum_file_size = 500000  " Don't lint large files (> 500KB), it can slow things down
 let g:ale_linters = {}
 let g:ale_linters.javascript = ['eslint']
 let g:ale_fixers = {}
@@ -136,7 +137,6 @@ let g:gist_open_browser_after_post = 1
 
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'sloria/vim-hybrid'  " hybrid with easier-to-read line numbers
-" Plug 'chriskempson/base16-vim'
 
 " LANGUAGE-SPECIFIC
 Plug 'sheerun/vim-polyglot'
@@ -161,7 +161,7 @@ let g:jedi#rename_command = "<C-c>r"
 " --- Javascript ---
 Plug 'heavenshell/vim-jsdoc'  " For making JS docstrings
 let g:jsdoc_default_mapping = 0
-map <C-c>j :JsDoc<CR>
+map <C-c>j <Plug>(jsdoc)
 " --- Lispy stuff ---
 Plug 'guns/vim-sexp', {'for': 'clojure'}
 Plug 'tpope/vim-sexp-mappings-for-regular-people', {'for': 'clojure'}
