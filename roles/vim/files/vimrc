@@ -260,6 +260,8 @@ nmap k gk
 nnoremap <leader>cd :lcd %:p:h<CR>
 " Split lines (opposite of J)
 nnoremap S i<CR><Esc>
+nnoremap <leader>N "=strftime("%F")<CR>P
+inoremap <C-r>n <C-R>=strftime("%F")<CR>
 
 augroup configgroup
   autocmd!
