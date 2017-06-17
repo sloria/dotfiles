@@ -15,7 +15,7 @@ import giturlparse
 
 VIRTUALENV_CMD = 'conda create python=3 ipython jupyter pip -y -n {name}'
 
-ENV_FILE_TEMPLATE = 'workon {name}\n'
+ENV_FILE_TEMPLATE = 'source activate {name}\n'
 
 
 def run(cmd):
@@ -39,6 +39,7 @@ def main():
     print('Done!')
     print('cd into {}/ and start hacking.'.format(name))
     sys.exit(0)
+
 
 if __name__ == "__main__":
     main()
