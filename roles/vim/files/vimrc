@@ -53,6 +53,7 @@ let g:ale_linters.javascript = ['eslint']
 let g:ale_linters.html = []
 let g:ale_fixers = {}
 let g:ale_fixers.javascript = ['prettier']
+let g:ale_fixers.python = ['isort']
 " Make prettier play nicely with eslint-airbnb
 let g:ale_javascript_prettier_options = ' --single-quote --trailing-comma all'
 
@@ -95,8 +96,6 @@ let g:user_emmet_settings = {
   \    'javascript': {'extends': 'html', 'attribute_name': {'class': 'className'}}
   \ }
 Plug 'jiangmiao/auto-pairs' " autoclose parens, quotes, etc.
-Plug 'Lokaltog/vim-easymotion' " Quickly move around
-nmap s <Plug>(easymotion-s2)
 if has('mac')
   Plug 'junegunn/vim-xmark', { 'do': 'make' }  " Live markdown preview
 endif

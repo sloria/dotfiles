@@ -27,7 +27,6 @@ Leader is `Space`.
 - `<C-h|j|k|l>`: Move around windows.
 - `<BS>` (Backspace): Strip trailing whitespace.
 - `<C-y>,`: Expand an [Emmet](http://emmet.io/) abbreviation (default binding)
-- `s{char}{char}`: Quickly move around ([sneak](https://github.com/justinmk/vim-sneak)-style motion).
 
 ### Search
 
