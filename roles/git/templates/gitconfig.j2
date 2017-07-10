@@ -39,16 +39,6 @@
         l = log --graph --decorate --oneline --abbrev-commit --all
         h = log --graph --decorate --oneline --abbrev-commit
 
-        switch = !legit switch \"$@\"
-        branches = !legit branches
-        sprout = !legit sprout \"$@\"
-        unpublish = !legit unpublish \"$@\"
-        harvest = !legit harvest \"$@\"
-        sync = !legit sync \"$@\"
-        publish = !legit publish \"$@\"
-        graft = !legit graft \"$@\"
-        sw = !legit switch \"$@\"
-
         issues = !hub browse -- issues
         url = "!f() { sha=$(git rev-parse ${1:-HEAD}); hub browse -u -- commit/$sha; }; f"
         # Copy current branch name to clipboard (MacOSX only)

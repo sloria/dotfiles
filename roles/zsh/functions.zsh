@@ -1,10 +1,3 @@
-function update-prezto() {
-  cwd=$(pwd)
-  cd ~/.zprezto
-  git pull && git submodule update --init --recursive
-  cd $cwd
-}
-
 # credit: http://nparikh.org/notes/zshrc.txt
 # Usage: extract <file>
 # Description: extracts archived files / mounts disk images
