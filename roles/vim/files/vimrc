@@ -275,7 +275,8 @@ augroup configgroup
 
   """ Languages
   " prose (hard wrap and autoformat paragraphs)
-  autocmd BufRead,BufNewFile jrnl*.txt,*.md,*.rst setlocal nolist formatoptions+=antl textwidth=72 wrapmargin=0
+  autocmd BufRead,BufNewFile jrnl*.txt,editor*.txt set filetype=markdown
+  autocmd BufRead,BufNewFile jrnl*.txt,editor*.txt,*.md,*.rst setlocal nolist formatoptions+=ntl textwidth=72 wrapmargin=0
   autocmd BufRead,BufNewFile .eslintrc set filetype=json
   " vim
   autocmd FileType vim setlocal shiftwidth=2 tabstop=2 softtabstop=2
