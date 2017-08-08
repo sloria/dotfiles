@@ -102,6 +102,7 @@ endif
 Plug 'mtth/scratch.vim'
 let g:scratch_height = 20
 let g:scratch_filetype = 'markdown'
+let g:scratch_persistence_file = '.scratch'
 " Open scratch buffer with space-tab (automatically set syntax to python)
 nnoremap <silent> <leader><tab> :Scratch<cr>
 Plug 'tpope/vim-sleuth'  " Detect indent settings
@@ -274,8 +275,6 @@ augroup configgroup
   autocmd BufRead,BufNewFile jrnl*.txt,editor*.txt set filetype=markdown
   autocmd BufRead,BufNewFile jrnl*.txt,editor*.txt,*.md,*.rst setlocal nolist formatoptions+=ntl textwidth=72 wrapmargin=0
   autocmd BufRead,BufNewFile .eslintrc set filetype=json
-  " vim
-  autocmd FileType vim setlocal shiftwidth=2 tabstop=2 softtabstop=2
   " commit messages
   autocmd Filetype gitcommit setlocal nolist textwidth=72
 augroup END
