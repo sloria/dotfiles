@@ -59,7 +59,7 @@ updating your local environment
 Once you have the dotfiles installed you can run the following command to rerun the ansible playbook:
 
 ```bash
-$ dot
+$ dot-update
 ```
 
 updating your dotfiles repo
@@ -78,7 +78,7 @@ commands
 There are three main commands in the `bin` directory for setting up and updating development environments:
 
 - `dot-bootstrap`: sets up local environment by executing all roles in `local_env.yml`.
-- `dot`: updates local environment by executing all roles in `local_env.yml` except for the ones tagged with "bootstrap".
+- `dot-update`: updates local environment by executing all roles in `local_env.yml` except for the ones tagged with "bootstrap".
 
 special files
 -------------
