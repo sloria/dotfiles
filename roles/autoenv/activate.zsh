@@ -1,2 +1,2 @@
-export AUTOENV_ENV_FILENAME='.autoenv'
-source /usr/local/opt/autoenv/activate.sh
+export AUTOENV_AUTH_FILE=~/.local/share/autoenv_auth
+source ~/.dotfiles/lib/zsh-autoenv/autoenv.zsh

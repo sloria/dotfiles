@@ -21,6 +21,7 @@ Icon
 ## autoenv ##
 .env
 .autoenv
+.autoenv.zsh
 .ropeproject
 
 # Sandbox for notes, throwaway scripts, etc.
