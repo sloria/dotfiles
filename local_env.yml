@@ -12,7 +12,7 @@
     - python
     - npm
     - hub
-    - autoenv
+    - zsh-autoenv
     - rg
     - tmux
     - git-flow
