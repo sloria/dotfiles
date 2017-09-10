@@ -14,6 +14,8 @@
     - hub
     - zsh-autoenv
     - rg
+    - exa
+    - ccat
     - tmux
     - git-flow
     - fzf

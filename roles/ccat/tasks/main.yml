@@ -1,0 +1,3 @@
+- name: Install ccat with Homebrew
+  homebrew: name=ccat state=latest
+  when: ansible_os_family == "Darwin"
