@@ -27,7 +27,7 @@ git_signing_key: BDFBA4D7
 vim_install_plugins: no
 
 
-# Utiliities that don't get installed by a role
+# Utilities that don't get installed by a role
 osx_homebrew_packages:
   - curl
   - wget
@@ -67,11 +67,11 @@ osx_cask_packages:
   - dropbox
   # Media/Music
   - spotify
-  - vlc
+  - iina
   - google-play-music-desktop-player
   # Images
   - imageoptim  # optimizing images
-  - licecap  # capturing gifs
+  - kap  # capturing gifs
   # Notetaking
   - evernote
   - nvalt
