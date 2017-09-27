@@ -10,6 +10,7 @@
     dest: /etc/shells
     state: present
   register: zsh_shells
+  become: true
   become_method: sudo
 
 - name: Change default shell to zsh
