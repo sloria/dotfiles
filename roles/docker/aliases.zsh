@@ -16,7 +16,7 @@ alias dclog="docker-compose logs -f --tail 100 "
 alias dcl="docker-compose logs -f --tail 100 "
 
 alias ds="docker-sync"
-alias dss="docker-sync start --daemon"
+alias dss="docker-sync start"
 alias dsx="docker-sync stop"
 
 alias dcbomb!="docker-compose down -v"

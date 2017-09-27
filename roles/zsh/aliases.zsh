@@ -14,3 +14,5 @@ alias dilp='doitlive play'
 alias reload!='. ~/.zshrc'
 alias vi="vim"
 alias v="vim"
+# resize images
+alias resize="mogrify -resize"
