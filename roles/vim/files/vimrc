@@ -94,7 +94,8 @@ let test#python#pytest#options = '-s -p no:cacheprovider'
 Plug 'mattn/emmet-vim'  " Write HTML fast
 " When in javascript, expand to 'className' (for jsx support)
 let g:user_emmet_settings = {
-  \    'javascript': {'extends': 'html', 'attribute_name': {'class': 'className'}}
+  \    'javascript': {'extends': 'jsx'},
+  \    'javascript.jsx': {'extends': 'jsx'}
   \ }
 Plug 'jiangmiao/auto-pairs' " autoclose parens, quotes, etc.
 if has('mac')
