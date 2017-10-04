@@ -22,8 +22,9 @@ prerequisites (install these first)
 -----------------------------------
 
 - ansible >= 1.6
-- homebrew (If on Mac OSX)
-- git (homebrew installable on Mac OSX)
+- homebrew (If on macOS)
+- git (homebrew installable on macOS)
+- Latest version of Xcode (If on macOS)
 
 install
 -------
