@@ -18,7 +18,7 @@ git_email: sloria1@gmail.com
 
 # GPG Key ID used to sign git commits
 # See https://github.com/pstadler/keybase-gpg-github setup instructions
-git_signing_key: BDFBA4D7
+git_signing_key: 631262B829DDB506
 
 # Vim
 
@@ -42,11 +42,13 @@ osx_homebrew_packages:
   - redis
   - diff-so-fancy
   - docker-clean
+  - gpg
+  - fwknop  # for COS vpn
 
 # Mac Apps to be installed with homebrew-cask
 osx_cask_packages:
   # Browsers
-  - firefox
+  - caskroom/versions/firefox-beta
   - google-chrome
   # Utilities
   - bettertouchtool
@@ -54,16 +56,20 @@ osx_cask_packages:
   - caffeine
   - flux
   - appcleaner
+  - daisydisk
   # Vagrant/Virtualbox
   - vagrant
   - virtualbox
+  # Docker
+  - docker
   # chat
   - limechat
   - flowdock
+  - slack
+  - keybase
   # Password manager
   - 1password
   # Backup/storage
-  - crashplan
   - dropbox
   # Media/Music
   - spotify
@@ -80,7 +86,6 @@ osx_cask_packages:
   - font-ubuntu
   - font-cousine
   # Databases
-  - robomongo  # mongo client
   - psequel  # postgres client
   # VPN
   - tunnelblick
