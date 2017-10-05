@@ -1,2 +1,2 @@
-- include: osx.yml
+- import_tasks: osx.yml
   when: ansible_os_family == "Darwin"

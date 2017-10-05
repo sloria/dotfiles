@@ -1,9 +1,9 @@
 
-- include: osx.yml
+- import_tasks: osx.yml
   when: ansible_os_family == "Darwin"
-- include: debian.yml
+- import_tasks: debian.yml
   when: ansible_os_family == "Debian"
-- include: redhat.yml
+- import_tasks: redhat.yml
   when: ansible_os_family == "RedHat"
 
 - name: Link global gitignore file

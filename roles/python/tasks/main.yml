@@ -3,10 +3,10 @@
   stat: path="{{ '~/miniconda' | expanduser }}"
   register: miniconda_stat
 
-- include: install_miniconda.yml
+- import_tasks: install_miniconda.yml
   when: not miniconda_stat.stat.exists
 
-- include: install_osx.yml
+- import_tasks: install_osx.yml
   when: ansible_os_family == "Darwin"
 
 - name: Check if pytest.ini file exists
