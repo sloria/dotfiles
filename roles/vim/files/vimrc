@@ -188,8 +188,8 @@ set noerrorbells visualbell t_vb=
 """ VISUAL SETTINGS """
 if &term =~ '256color' | set t_ut= | endif
 " Favorites: hybrid-sl iceberg PaperColor
-set background=dark | silent! colorscheme hybrid-sl
-" set background=light | silent! colorscheme PaperColor
+" set background=dark | silent! colorscheme hybrid-sl
+set background=light | silent! colorscheme PaperColor
 
 " Show trailing whitespace
 set list listchars=tab:▸\ ,trail:▫

@@ -26,7 +26,6 @@ git_signing_key: 631262B829DDB506
 # :PlugInstall while in vim.
 vim_install_plugins: no
 
-
 # Utilities that don't get installed by a role
 osx_homebrew_packages:
   - curl
@@ -45,6 +44,8 @@ osx_homebrew_packages:
   - gpg
   - ctop
   - fwknop  # for COS vpn
+  - heroku/brew/heroku
+  - tldr
 
 # Mac Apps to be installed with homebrew-cask
 osx_cask_packages:
@@ -68,6 +69,8 @@ osx_cask_packages:
   - flowdock
   - slack
   - keybase
+  # Video conferencing
+  - zoomus
   # Password manager
   - 1password
   # Backup/storage
@@ -87,13 +90,15 @@ osx_cask_packages:
   - font-ubuntu
   - font-cousine
   # Databases
-  - psequel  # postgres client
+  - datagrip  # RDBMS client
   # VPN
   - tunnelblick
   # Docs
   - dash
-  # Video conferencing
-  - zoomus
+  # Text expansion
+  - typinator
+  # Bibliography
+  - bibdesk
 
 # Node utilities
 npm_global_packages:
