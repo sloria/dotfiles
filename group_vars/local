@@ -92,6 +92,8 @@ osx_cask_packages:
   - tunnelblick
   # Docs
   - dash
+  # Video conferencing
+  - zoomus
 
 # Node utilities
 npm_global_packages:
