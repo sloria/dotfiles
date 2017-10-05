@@ -20,4 +20,5 @@
     - git-flow
     - fzf
     - kubernetes
+    - jrnl
     - {role: osx, when: ansible_os_family == "Darwin"}
