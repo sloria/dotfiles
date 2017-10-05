@@ -216,8 +216,6 @@ endif
 nmap <leader>, :e $MYVIMRC<CR>
 " Reload vimrc
 noremap <silent> <leader>V :source $MYVIMRC<cr>
-" Smash escape
-inoremap jk <Esc>
 " Search and replace, using : as a separator instead of /
 noremap <leader>sr :%s:::cg<Left><Left><Left><Left>
 " Switch between files
