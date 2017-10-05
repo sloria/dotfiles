@@ -43,6 +43,7 @@ osx_homebrew_packages:
   - diff-so-fancy
   - docker-clean
   - gpg
+  - ctop
   - fwknop  # for COS vpn
 
 # Mac Apps to be installed with homebrew-cask
@@ -89,6 +90,8 @@ osx_cask_packages:
   - psequel  # postgres client
   # VPN
   - tunnelblick
+  # Docs
+  - dash
 
 # Node utilities
 npm_global_packages:
