@@ -50,7 +50,7 @@ osx_homebrew_packages:
 # Mac Apps to be installed with homebrew-cask
 osx_cask_packages:
   # Browsers
-  - caskroom/versions/firefox-beta
+  - firefox-beta
   - google-chrome
   # Utilities
   - bettertouchtool
