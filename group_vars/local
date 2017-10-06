@@ -99,6 +99,8 @@ osx_cask_packages:
   - typinator
   # Bibliography
   - bibdesk
+  # Stay focused
+  - selfcontrol
 
 # Node utilities
 npm_global_packages:
