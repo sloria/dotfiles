@@ -55,7 +55,7 @@ osx_cask_packages:
   # Utilities
   - bettertouchtool
   - iterm2
-  - caffeine
+  - keepingyouawake  # maintained caffeinate wrapper
   - flux
   - appcleaner
   - daisydisk
