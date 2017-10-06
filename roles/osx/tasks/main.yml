@@ -18,3 +18,10 @@
 - name: Install Mac apps with homebrew cask
   homebrew_cask: name={{item}} state=present
   with_items: '{{osx_cask_packages}}'
+
+- name: Install mas
+  homebrew: name=mas state=latest
+
+- name: Install Mac-App-Store-only apps with mas
+  command: mas install {{item}}
+  with_items: '{{osx_mas_packages}}'

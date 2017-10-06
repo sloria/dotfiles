@@ -85,7 +85,6 @@ osx_cask_packages:
   # Notetaking
   - evernote
   - nvalt
-  - skitch
   # Fonts
   - font-ubuntu
   - font-cousine
@@ -101,6 +100,12 @@ osx_cask_packages:
   - bibdesk
   # Stay focused
   - selfcontrol
+
+# Mac-App-Store-only apps to be installed with mas
+# Use App IDs found with `mas search <name>`
+osx_mas_packages:
+  - 585829637  # Todoist
+  - 540348655  # Monosnap
 
 # Node utilities
 npm_global_packages:
