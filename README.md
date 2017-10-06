@@ -136,6 +136,16 @@ curl -fLo ~/.vimrc https://raw.githubusercontent.com/sloria/dotfiles/master/role
 
 You will now be able to open vim and run `:PlugInstall` to install all plugins.
 
+
+troubleshooting
+---------------
+
+If you get an error about Xcode command-line tools, you may need to run
+
+```
+sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
+```
+
 todo
 ----
 
