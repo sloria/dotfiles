@@ -2,4 +2,5 @@
   homebrew: name=ruby state=present
   when: ansible_os_family == "Darwin"
 
+# TODO: Install rvm
 # TODO: Fedora and Debian
