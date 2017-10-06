@@ -164,6 +164,8 @@ let g:jedi#rename_command = "<C-c>r"
 Plug 'heavenshell/vim-jsdoc'  " For making JS docstrings
 let g:jsdoc_default_mapping = 0
 map <C-c>j <Plug>(jsdoc)
+" --- CSS ---
+Plug 'gko/vim-coloresque'  " Highlight CSS colors
 
 call plug#end()
 filetype plugin indent on
