@@ -30,10 +30,10 @@ def main():
     name = parsed.repo
     print('Creating virtualenv named {}...'.format(name))
     run(VIRTUALENV_CMD.format(name=name))
-    print('Creating .autoenv.zsh...')
+    print('Creating .autoenv...')
     autoenv_path = os.path.join(os.getcwd(),
                                 name,
-                                '.autoenv.zsh')
+                                '.autoenv')
     with open(autoenv_path, 'w') as fp:
         fp.write(ENV_FILE_TEMPLATE.format(name=name))
     print('Done!')
