@@ -139,6 +139,7 @@ let g:gist_open_browser_after_post = 1
 " COLOR
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'sloria/vim-hybrid'  " hybrid with easier-to-read line numbers
+Plug 'nightsense/night-and-day'  " switch colorschemes based on time of day
 
 " LANGUAGE-SPECIFIC
 Plug 'sheerun/vim-polyglot'
@@ -189,9 +190,11 @@ set noerrorbells visualbell t_vb=
 
 """ VISUAL SETTINGS """
 if &term =~ '256color' | set t_ut= | endif
-" Favorites: hybrid-sl iceberg PaperColor
-set background=dark | silent! colorscheme hybrid-sl
-" set background=light | silent! colorscheme PaperColor
+" PaperColor in the day, hybrid-sl at night
+let g:nd_themes = [
+  \ ['6:00',  'PaperColor', 'light' ],
+  \ ['18:00', 'hybrid-sl', 'dark' ],
+  \ ]
 
 " Show trailing whitespace
 set list listchars=tab:▸\ ,trail:▫
