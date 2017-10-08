@@ -114,3 +114,7 @@ npm_global_packages:
   - eslint-config-airbnb
   - eslint-plugin-react
   - babel-eslint
+
+ruby_global_gems:
+  - lunchy
+  - travis
