@@ -109,7 +109,6 @@ osx_mas_packages:
 
 # Node utilities
 npm_global_packages:
-  - jsxhint
   - webpack
   - eslint
   - eslint-config-airbnb

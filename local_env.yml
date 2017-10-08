@@ -10,7 +10,7 @@
     - {role: zsh, tags: ['bootstrap']}
     - vim
     - python
-    - npm
+    - node
     - hub
     - zsh-autoenv
     - rg
