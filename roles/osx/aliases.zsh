@@ -2,7 +2,9 @@ alias cask="brew cask"
 alias services="brew services"
 alias ss="open /System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app"
 
-alias sha256="shasum -a 256"
+function sha256() {
+  shasum -a 256 $1 | head -1 | grep -o '^\S\+'
+}
 
 # Display a notification with a given message
 alias growl="terminal-notifier -message"
