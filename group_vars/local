@@ -106,6 +106,7 @@ osx_cask_packages:
 osx_mas_packages:
   - 585829637  # Todoist
   - 540348655  # Monosnap
+  - 409203825  # Numbers
 
 # Node utilities
 npm_global_packages:
