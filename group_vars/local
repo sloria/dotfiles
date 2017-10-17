@@ -46,6 +46,7 @@ osx_homebrew_packages:
   - fwknop  # for COS vpn
   - heroku/brew/heroku
   - tldr
+  - wifi-password
 
 # Mac Apps to be installed with homebrew-cask
 osx_cask_packages:
@@ -107,6 +108,7 @@ osx_mas_packages:
   - 585829637  # Todoist
   - 540348655  # Monosnap
   - 409203825  # Numbers
+  - 847496013  # Deckset
 
 # Node utilities
 npm_global_packages:
