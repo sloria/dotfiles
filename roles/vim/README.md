@@ -26,7 +26,7 @@ Leader is `Space`.
 - `<space-a>`: Select whole file.
 - `<C-h|j|k|l>`: Move around windows.
 - `<BS>` (Backspace): Strip trailing whitespace.
-- `<C-y>,`: Expand an [Emmet](http://emmet.io/) abbreviation (default binding)
+- `,,`: Expand an [Emmet](http://emmet.io/) abbreviation (default binding)
 
 ### Search
 

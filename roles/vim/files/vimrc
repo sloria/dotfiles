@@ -17,7 +17,6 @@ if has('python') ||  has('python3')
   Plug 'felikz/ctrlp-py-matcher'
   let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 endif
-let g:ctrlp_funky_syntax_highlight = 1
 Plug 'dyng/ctrlsf.vim'  " ag-powered search with in-place editing
 let g:ctrlsf_ackprg = 'rg'
 nmap     <C-f>f :CtrlSF ''<Left>
@@ -96,6 +95,7 @@ let g:user_emmet_settings = {
   \    'javascript': {'extends': 'jsx'},
   \    'javascript.jsx': {'extends': 'jsx'}
   \ }
+let g:user_emmet_leader_key = ','
 Plug 'jiangmiao/auto-pairs' " autoclose parens, quotes, etc.
 if has('mac')
   Plug 'junegunn/vim-xmark', { 'do': 'make' }  " Live markdown preview
