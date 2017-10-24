@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-"""Clone a github repo, create a virtualenv (using conda),
-and create an .autoenv file.
+"""Clone a github repo, create a virtualenv, and create an .autoenv file.
 
 Requires giturlparse.py (pip install giturlparse.py).
 """
@@ -13,9 +12,13 @@ import subprocess
 
 import giturlparse
 
-VIRTUALENV_CMD = 'conda create python=3 ipython jupyter pip -y -n {name}'
+VIRTUALENV_CMD = 'pew new --python=python3 -i ipython -i jupyter {name}'
 
-ENV_FILE_TEMPLATE = 'source activate {name}\n'
+ENV_FILE_TEMPLATE = '''
+if [ -z "$VIRTUAL_ENV" ]; then
+  pew workon {name}
+fi
+'''
 
 
 def run(cmd):

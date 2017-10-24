@@ -1,23 +1,3 @@
-con () {
-    echo "Activating miniconda"
-    source $HOME/miniconda/bin/activate ${1:-root}
-}
-
-coff () {
-    echo "Deactivating miniconda"
-    typeset -a _path
-    typeset _p
-    for _p in $path
-    do
-        if [[ $_p != $HOME/miniconda/* ]]
-        then
-            _path+=$_p
-        fi
-    done
-    path=($_path)
-    unset CONDA_DEFAULT_ENV
-}
-
 # Remove python compiled byte-code in either current directory or in a
 # list of specified directories
 function pyclean() {
@@ -31,4 +11,12 @@ function pyclean() {
 function rmpdb() {
     git ls-files -oc --exclude-standard "*.py" | cat | xargs sed -i '' '/import ipdb;/d'
     echo "Cleared breakpoints"
+}
+
+# Generate fake data, e.g. `fake name`, `fake url`, `fake email`
+# Requires faker to be installed (pip install faker)
+function fake() {
+    result=$(PYTHONIOENCODING=UTF-8 faker -s="" $1)
+    echo "$result"
+    echo "$result" | pbcopy
 }

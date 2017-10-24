@@ -9,7 +9,7 @@ a few neat features
 - zsh configured with [prezto](https://github.com/sorin-ionescu/prezto).
 - nice fonts for the terminal and coding.
 - iterm2 profile (w/ hotkey, themes, etc.)
-- anaconda python (Miniconda 3 distribution).
+- python2, python3, pew (for managing virtualenvs), and pipenv
 - a tmux.conf that's pretty neat.
 - [tmuxp](https://tmuxp.git-pull.com/en/latest/) for tmux session management
 - vim with [vim-plug](https://github.com/junegunn/vim-plug) for plugin management. All configuration in a single file [.vimrc](https://github.com/sloria/dotfiles/blob/master/roles/vim/files/vimrc).
@@ -91,10 +91,6 @@ All configuration is done in `~/dotfiles`. Each role may contain (in addition to
 
 notes
 -----
-
-**python**
-
-The `python` topic installs [miniconda](http://conda.pydata.org/miniconda.html). The installation is entirely self-contained, and lives at `~/miniconda`.
 
 **iterm2**
 
