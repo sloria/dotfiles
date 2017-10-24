@@ -15,4 +15,4 @@ alias yell="terminal-notifier -title WOOOO -message OOOO!!!"
 alias update!='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm update npm -g; npm update -g; sudo gem update --system; sudo gem update'
 
 # When you need disk space
-alias cleanup!='brew cleanup --force; brew cask cleanup; conda clean -tipsy;'
+alias cleanup!='brew cleanup --force; brew cask cleanup;'
