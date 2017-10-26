@@ -42,6 +42,3 @@ if [[ -a ~/.localrc ]]
 then
   source ~/.localrc
 fi
-
-# Docker
-# $(boot2docker shellinit)
