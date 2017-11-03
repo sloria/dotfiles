@@ -30,7 +30,6 @@ vim_install_plugins: no
 osx_homebrew_packages:
   - curl
   - wget
-  - tree
   - highlight
   - terminal-notifier
   - wifi-password
