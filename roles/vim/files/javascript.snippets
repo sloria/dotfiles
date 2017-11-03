@@ -3,9 +3,16 @@ snippet me "module.exports" b
 module.exports = $1;
 endsnippet
 
+snippet constr "constructor" b
+constructor() {
+	super();
+	$0
+}
+endsnippet
+
 # React stuff
 
-snippet rcc "createClass" b
+snippet rccc "createClass" b
 export const ${1:`!p snip.rv = ''.join(x for x in re.sub('\.js$', '', snip.basename or 'ModuleName').split('_'))`} = React.createClass({
 	render() {
 		return (
@@ -15,7 +22,7 @@ export const ${1:`!p snip.rv = ''.join(x for x in re.sub('\.js$', '', snip.basen
 });
 endsnippet
 
-snippet rccc "React.Component" b
+snippet rcc "React.Component" b
 export default class ${1:`!p snip.rv = ''.join(x for x in re.sub('\.js$', '', snip.basename or 'ModuleName').split('_'))`} extends React.Component {
 	render() {
 		return (
@@ -26,7 +33,8 @@ export default class ${1:`!p snip.rv = ''.join(x for x in re.sub('\.js$', '', sn
 endsnippet
 
 snippet importreact "import React" b
-import React, { PropTypes as t } from 'react';
+import React from 'react';
+import PropTypes as PT from 'prop-types';
 endsnippet
 
 snippet cdm "componentDidMount" b
@@ -42,7 +50,7 @@ componentDidUpdate(prevProps, prevState) {
 endsnippet
 
 snippet cwm "componentWillMount" b
-componentWillMount: function() {
+componentWillMount() {
 	$0
 }
 endsnippet
