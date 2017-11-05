@@ -6,6 +6,14 @@ function pyclean() {
     find ${ZSH_PYCLEAN_PLACES} -type d -name "__pycache__" -delete
 }
 
+function build-readme() {
+    if [[ -e README.html ]]; then
+        rm README.html
+    fi
+    rst2html.py README.rst > README.html
+    open README.html
+}
+
 
 # Clear all ipdb statements
 function rmpdb() {
