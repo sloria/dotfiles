@@ -58,6 +58,7 @@ let g:ale_fixers.python = ['isort']
 let g:ale_javascript_prettier_options = ' --single-quote --trailing-comma all'
 
 " NICE TO HAVE
+Plug 'AndrewRadev/splitjoin.vim'
 Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 let g:airline_left_sep=''
 let g:airline_right_sep=''
@@ -101,6 +102,7 @@ if has('mac')
   Plug 'junegunn/vim-xmark', { 'do': 'make' }  " Live markdown preview
 endif
 Plug 'mtth/scratch.vim'
+let g:scratch_no_mappings = 1
 let g:scratch_height = 20
 let g:scratch_filetype = 'markdown'
 let g:scratch_persistence_file = '.scratch'
