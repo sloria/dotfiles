@@ -73,7 +73,9 @@ let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 Plug 'honza/vim-snippets'
 
+Plug 'henrik/vim-indexed-search'  " Show number of matches when searching
 Plug 'junegunn/vim-slash' " Better / search
+noremap <plug>(slash-after) zz
 
 Plug 'majutsushi/tagbar', {'on': 'Tagbar'}
 " Open tagbar
