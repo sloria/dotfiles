@@ -24,7 +24,7 @@ nmap     <C-f>n <Plug>CtrlSFCwordPath
 nnoremap <C-f>t :CtrlSFToggle<CR>
 Plug 'tpope/vim-rsi'  " unix keybindings in insert mode
 Plug 'tpope/vim-repeat'  " make more actions repeatable with .
-Plug 'tpope/vim-surround'  " motions for handling surrounding characters
+Plug 'machakann/vim-sandwich' " motions for handling surrounding characters
 Plug 'tpope/vim-unimpaired'  " useful bracket maps and option toggling
 Plug 'tomtom/tcomment_vim'  " for code comments
 " Toggle comment with space-/
@@ -45,17 +45,17 @@ nmap <silent> [s <Plug>(ale_previous_wrap)
 nmap <silent> ]s <Plug>(ale_next_wrap)
 nmap <leader>= <Plug>(ale_fix)
 " Quickly open the loclist to see syntax errors
-nmap <leader>; :lopen<CR>
+nmap <leader>' :lopen<CR>
 let g:ale_maximum_file_size = 500000  " Don't lint large files (> 500KB), it can slow things down
 let g:ale_linters = {}
-let g:ale_linters.javascript = ['eslint']
+let g:ale_linters.javascript = ['eslint', 'xo']
 let g:ale_linters.python = ['flake8']
 let g:ale_linters.html = []
 let g:ale_fixers = {}
 let g:ale_fixers.javascript = ['prettier']
 let g:ale_fixers.python = ['isort']
 " Make prettier play nicely with eslint-airbnb
-let g:ale_javascript_prettier_options = ' --single-quote --trailing-comma all'
+let g:ale_javascript_prettier_options = ' --single-quote --trailing-comma es5 --no-bracket-spacing'
 
 " NICE TO HAVE
 Plug 'AndrewRadev/splitjoin.vim'
@@ -170,11 +170,17 @@ let g:jedi#goto_command = "gD"  " goto still has problems, so giving it a 2nd-cl
 let g:jedi#usages_command = "gu"
 let g:jedi#rename_command = "<C-c>r"
 " --- Javascript ---
+Plug 'lfilho/cosco.vim'  " Quick insertion of commas and semicolons
+augroup cosco
+  autocmd!
+  autocmd FileType javascript,css nmap <silent> <Leader>; <Plug>(cosco-commaOrSemiColon)
+augroup END
 Plug 'heavenshell/vim-jsdoc'  " For making JS docstrings
 let g:jsdoc_default_mapping = 0
 map <C-c>j <Plug>(jsdoc)
 " --- CSS ---
-Plug 'gko/vim-coloresque'  " Highlight CSS colors
+Plug 'chrisbra/Colorizer'  " Highlight CSS colors
+let g:colorizer_auto_filetype='css,html'
 
 call plug#end()
 filetype plugin indent on
