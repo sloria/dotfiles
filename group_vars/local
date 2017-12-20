@@ -81,7 +81,6 @@ osx_cask_packages:
   - google-play-music-desktop-player
   # Images
   - imageoptim  # optimizing images
-  - kap  # capturing gifs
   # Notetaking
   - evernote
   - nvalt
@@ -108,6 +107,7 @@ osx_mas_packages:
   - 540348655  # Monosnap
   - 409203825  # Numbers
   - 847496013  # Deckset
+  # - 668208984  # Giphy capture
 
 # Node utilities
 npm_global_packages:
