@@ -54,7 +54,8 @@ let g:ale_linters.html = []
 let g:ale_fixers = {}
 let g:ale_fixers.javascript = ['prettier']
 let g:ale_fixers.python = ['isort']
-" Make prettier play nicely with eslint-airbnb
+let g:ale_fixers.css = ['prettier']
+" Make prettier play nicely with xo + my custom rules
 let g:ale_javascript_prettier_options = ' --single-quote --trailing-comma es5 --no-bracket-spacing'
 
 " NICE TO HAVE
@@ -72,11 +73,7 @@ if version >= 704 && has('python') || has('python3') | Plug 'SirVer/ultisnips' |
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 Plug 'honza/vim-snippets'
-
-Plug 'henrik/vim-indexed-search'  " Show number of matches when searching
-Plug 'junegunn/vim-slash' " Better / search
-noremap <plug>(slash-after) zz
-
+Plug 'fcpg/vim-spotlightify'  " Highlight and show number of matches when searching
 Plug 'majutsushi/tagbar', {'on': 'Tagbar'}
 " Open tagbar
 map <leader>\ :Tagbar<CR>
