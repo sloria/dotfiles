@@ -34,9 +34,10 @@ def main():
     print('Creating virtualenv named {}...'.format(name))
     run(VIRTUALENV_CMD.format(name=name))
     print('Creating .autoenv...')
+    autoenv_filename = os.environ.get('AUTOENV_FILE_ENTER', '.autoenv')
     autoenv_path = os.path.join(os.getcwd(),
                                 name,
-                                '.autoenv')
+                                autoenv_filename)
     with open(autoenv_path, 'w') as fp:
         fp.write(ENV_FILE_TEMPLATE.format(name=name))
     print('Done!')
