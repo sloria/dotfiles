@@ -1,3 +1,13 @@
+# Usage: kubewatch
+#        kubewatch stage-3
+function kubewatch() {
+  if [ $# -eq 0 ]; then
+    watch -n 1 "kubectl get pods --all-namespaces"
+  else
+    watch -n 1 "kubectl get pods --all-namespaces | grep $1"
+  fi
+}
+
 # Usage: kubepods
 #        kubepods stage-3
 function kubepods() {
