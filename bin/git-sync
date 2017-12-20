@@ -10,5 +10,6 @@ for branch in "$@"
 do
   git checkout $branch
   git pull origin $branch
+  git pull origin $branch --tags
 done
 git checkout $current_branch
