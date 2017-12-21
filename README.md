@@ -96,7 +96,7 @@ notes
 
 To import the iterm2 profile, go to your iterm2 preferences, and enable "Load preferences from custom folder" and select the iterm2 folder in the `misc/` directory.
 
-![iterm2 profile](https://dl.dropboxusercontent.com/u/1693233/github/dotfiles-iterm2.png)
+![iterm2 profile](https://user-images.githubusercontent.com/2379650/34223487-859f2752-e58d-11e7-8024-9e6af5c1ec4e.png)
 
 **macosx keyboard settings**
 
@@ -104,12 +104,12 @@ There are a few keyboard customizations that must be done manually:
 
 - Turning repeat speed up to 11.
 
-![Keyboard settings](https://dl.dropboxusercontent.com/u/1693233/github/dotfiles-mac-keys.png "Key repeat settings")
+![Keyboard settings](https://user-images.githubusercontent.com/2379650/34223505-91f95072-e58d-11e7-9b36-78aec4203b0d.png "Key repeat settings")
 
 
 - Mapping Caps Lock to Ctrl.
 
-![Modifier keys](https://dl.dropboxusercontent.com/u/1693233/github/dotfiles-mod-keys.png)
+![Modifier keys](https://user-images.githubusercontent.com/2379650/34223523-a2c8e4e4-e58d-11e7-9532-d74b95d8408a.png)
 
 what if I only want your vim?
 -----------------------------
