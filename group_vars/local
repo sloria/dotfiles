@@ -83,7 +83,8 @@ osx_cask_packages:
   - imageoptim  # optimizing images
   # Notetaking
   - evernote
-  - nvalt
+  - nvalt  # for my commonplace book
+  - notion # slowly replacing evernote
   # Fonts
   - font-ubuntu
   - font-cousine
