@@ -1,12 +1,12 @@
 
 # A number of utilities that don't get installed by any of the other
 # roles
-osx_homebrew_packages:
+mac_homebrew_packages:
   - wget
   - tree
 
 # Mac Apps to be installed with homebrew-cask
-osx_cask_packages:
+mac_cask_packages:
   - firefox
   - google-chrome
   - bettertouchtool

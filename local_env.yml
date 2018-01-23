@@ -2,6 +2,7 @@
   hosts: local
   gather_facts: yes
 
+
 - name: Set up local development environment
   hosts: local
   roles:
@@ -22,4 +23,4 @@
     - fzf
     - kubernetes
     - jrnl
-    - {role: osx, when: ansible_os_family == "Darwin"}
+    - {role: macos, when: ansible_os_family == "Darwin"}

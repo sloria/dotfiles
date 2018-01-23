@@ -1,7 +1,7 @@
 dotfiles
 ========
 
-[sloria's dotfiles](https://github.com/sloria/dotfiles-old), rewritten as Ansible roles. Fully supports MacOSX. Red Hat and Debian support is good but not as complete.
+[sloria's dotfiles](https://github.com/sloria/dotfiles-old), rewritten as Ansible roles. Fully supports macOS. Red Hat and Debian support is good but not as complete.
 
 a few neat features
 -------------------
@@ -44,8 +44,8 @@ $ cd ~/dotfiles
     - `git_user`: Your Github username.
     - `git_email`: Your git email address.
 - Optional, but recommended: Update `group_vars/local` with the programs you want installed by [homebrew][], [homebrew-cask][], and npm.
-    - `osx_homebrew_packages`:  Utilities that don't get installed by the roles.
-    - `osx_cask_packages`: Mac Apps you want installed with [homebrew-cask][].
+    - `mac_homebrew_packages`:  Utilities that don't get installed by the roles.
+    - `mac_cask_packages`: Mac Apps you want installed with [homebrew-cask][].
     - `npm_global_packages`: Node utilities.
 - Edit `local_env.yml` as you see fit. Remove any roles you don't use. Edit roles that you do use.
 - Run the installation script.
@@ -98,7 +98,7 @@ To import the iterm2 profile, go to your iterm2 preferences, and enable "Load pr
 
 ![iterm2 profile](https://user-images.githubusercontent.com/2379650/34223487-859f2752-e58d-11e7-8024-9e6af5c1ec4e.png)
 
-**macosx keyboard settings**
+**macOS keyboard settings**
 
 There are a few keyboard customizations that must be done manually:
 
@@ -114,7 +114,7 @@ There are a few keyboard customizations that must be done manually:
 what if I only want your vim?
 -----------------------------
 
-First make sure you have a sane vim compiled. On MacOSX, the following will do:
+First make sure you have a sane vim compiled. On macOS, the following will do:
 
 ```
 brew install macvim --HEAD --with-override-system-vim --with-python

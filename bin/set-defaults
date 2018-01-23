@@ -1,5 +1,2 @@
 #!/bin/sh
-#
-# Sets OS X defaults by running $ZSH/osx/set-defaults.sh.
-
-bash $ZSH/roles/osx/files/set-defaults.sh
+bash $ZSH/roles/macos/files/set-defaults.sh

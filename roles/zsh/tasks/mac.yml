@@ -1,4 +1,4 @@
-# OSX zsh installation and setup
+# macOS zsh installation and setup
 
 - name: Make sure zsh is installed
   homebrew: name=zsh state=latest

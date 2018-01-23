@@ -48,6 +48,7 @@ let g:ale_pattern_options = {
 \   '.*\.md$': {'ale_enabled': 0},
 \   '.*\.rst$': {'ale_enabled': 0},
 \   '.*\.txt$': {'ale_enabled': 0},
+\   '.*\.tex$': {'ale_enabled': 0},
 \}
 nmap <leader>+ :let b:ale_enabled=1<cr>
 " Quickly open the loclist to see syntax errors
@@ -154,9 +155,10 @@ let g:nd_themes = [
 
 " LANGUAGE-SPECIFIC
 Plug 'sheerun/vim-polyglot'  " syntax files for most languages
-let g:polyglot_disabled = ['python'] " Use python-syntax
+let g:polyglot_disabled = ['python', 'latex'] " Use python-syntax and vimtex
 let g:jsx_ext_required = 0
 let g:markdown_fenced_languages = ['javascript', 'python', 'clojure', 'ruby']
+Plug 'lervag/vimtex'
 " --- Python ---
 Plug 'vim-python/python-syntax'  " Improved python syntax
 let g:python_highlight_all = 1

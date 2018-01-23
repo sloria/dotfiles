@@ -2,5 +2,5 @@
 # install all plugins
 vim_install_plugins: no
 
-# Only used on OSX machines. Ignored on other platforms
+# Only used on Mac machines. Ignored on other platforms
 vim_install_macvim: yes

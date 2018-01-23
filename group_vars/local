@@ -27,7 +27,7 @@ git_signing_key: 631262B829DDB506
 vim_install_plugins: no
 
 # Utilities that don't get installed by a role
-osx_homebrew_packages:
+mac_homebrew_packages:
   - curl
   - wget
   - highlight
@@ -48,7 +48,7 @@ osx_homebrew_packages:
   - wifi-password
 
 # Mac Apps to be installed with homebrew-cask
-osx_cask_packages:
+mac_cask_packages:
   # Browsers
   - firefox-beta
   - google-chrome
@@ -103,7 +103,7 @@ osx_cask_packages:
 
 # Mac-App-Store-only apps to be installed with mas
 # Use App IDs found with `mas search <name>`
-osx_mas_packages:
+mac_mas_packages:
   - 585829637  # Todoist
   - 540348655  # Monosnap
   - 409203825  # Numbers
