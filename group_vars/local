@@ -32,7 +32,6 @@ mac_homebrew_packages:
   - wget
   - highlight
   - terminal-notifier
-  - wifi-password
   - youtube-dl
   - htop-osx
   - httpie
@@ -100,6 +99,8 @@ mac_cask_packages:
   - bibdesk
   # Stay focused
   - selfcontrol
+  # Design
+  - sketch
 
 # Mac-App-Store-only apps to be installed with mas
 # Use App IDs found with `mas search <name>`
