@@ -250,6 +250,7 @@ nnoremap gp `[v`]
 nnoremap <leader>Tp :set ft=python<CR>
 nnoremap <leader>Tj :set ft=javascript<CR>
 nnoremap <leader>Tm :set ft=markdown<CR>
+nnoremap <leader>Ty :set ft=yaml<CR>
 " Quickly write/quit
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
