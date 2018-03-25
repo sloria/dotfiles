@@ -1,4 +1,4 @@
 node
 ====
 
-Installs node, npm, and common node utilities.
+Installs nvm for downloading and managing Node.js versions.

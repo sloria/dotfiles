@@ -111,15 +111,6 @@ mac_mas_packages:
   - 847496013  # Deckset
   # - 668208984  # Giphy capture
 
-# Node utilities
-npm_global_packages:
-  - webpack
-  - eslint
-  - eslint-config-airbnb
-  - eslint-plugin-react
-  - babel-eslint
-  - np
-
 ruby_global_gems:
   - lunchy
   - travis

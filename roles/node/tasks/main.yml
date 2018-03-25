@@ -1,10 +1,6 @@
-- import_tasks: mac.yml
-  when: ansible_os_family == "Darwin"
-# TODO: Fedora and debian installation
-
 - name: Install nvm
   script: install_nvm.sh
 
-- name: Install common npm utilities
-  npm: name={{item}} state=present global=yes
-  with_items: '{{npm_global_packages}}'
+# - name: Install common npm utilities
+#   npm: name={{item}} state=present global=yes
+#   with_items: '{{npm_global_packages}}'

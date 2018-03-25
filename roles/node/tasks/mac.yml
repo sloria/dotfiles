@@ -1,6 +1,0 @@
-
-- name: Install node and npm with homebrew
-  homebrew: name=node state=latest
-
-- name: Install yarn with homebrew
-  homebrew: name=yarn state=latest
