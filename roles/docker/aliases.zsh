@@ -2,6 +2,8 @@ alias dk="docker "
 alias dklog="docker logs -f --tail 100 "
 alias dkl="docker logs -f --tail 100 "
 alias dkdf="dk system df"
+# Stop and remove a single container
+alias dkrm='docker rm -f '
 # Stop and remove all running containers
 alias dkrm!='docker rm -f $(docker ps -a -q)'
 
