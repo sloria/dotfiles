@@ -116,8 +116,7 @@ let g:scratch_persistence_file = '.scratch'
 nnoremap <silent> <leader><tab> :Scratch<cr>
 Plug 'tpope/vim-sleuth'  " Detect indent settings
 Plug 'machakann/vim-highlightedyank'  " Highlight yank
-map y <Plug>(highlightedyank)
-
+if !exists('##TextYankPost') | map y <Plug>(highlightedyank) | endif
 " GIT
 Plug 'airblade/vim-gitgutter'
 " Set gitgutter's bindings manually to avoid clashes
