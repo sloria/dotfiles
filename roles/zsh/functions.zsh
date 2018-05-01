@@ -74,3 +74,7 @@ function hit() {
 function sst() {
   ssh "$1" -t tmux attach
 }
+
+function countfiles() {
+  find "$1" -type f | wc -l
+}
