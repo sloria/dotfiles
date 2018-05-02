@@ -1,8 +1,12 @@
-#!/bin/sh
-#
-# Delete all local branches that have been merged into HEAD. Stolen from
-# our favorite @tekkub:
-#
-#   https://plus.google.com/115587336092124934674/posts/dXsagsvLakJ
+#!/bin/bash
+# Delete local branches that have been removed upstream.
+# Use -d for a dry-run (just print the branches that would be deleted)
 
-git branch -d `git branch --merged  | grep -v '^*' | grep -v 'master' | tr -d '\n'`
+git fetch -p
+
+if [ "$1" == "-d" ]; then
+    echo "Branches that would be deleted:"
+    git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print $1}'
+else
+    git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print $1}' | xargs git branch -d
+fi
