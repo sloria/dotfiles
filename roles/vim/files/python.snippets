@@ -18,6 +18,29 @@ snippet rdb
 from celery.contrib import rdb; rdb.set_trace()
 endsnippet
 
+# Logging
+
+snippet glog
+import logging
+logger = logging.getLogger(__name__)
+endsnippet
+
+snippet ldeb
+logger.debug('${1}')
+endsnippet
+
+snippet linfo
+logger.info('${1}')
+endsnippet
+
+snippet lerr
+logger.error('${1}')
+endsnippet
+
+snippet lwarn
+logger.warn('${1}')
+endsnippet
+
 # Nose testing
 
 snippet _==
