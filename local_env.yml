@@ -17,7 +17,7 @@
     - zsh-autoenv
     - rg
     - exa
-    - ccat
+    - bat
     - tmux
     - git-flow
     - fzf

@@ -1,0 +1,3 @@
+- name: Install bat with Homebrew
+  homebrew: name=bat state=latest
+  when: ansible_os_family == "Darwin"
