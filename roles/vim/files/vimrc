@@ -163,14 +163,15 @@ Plug 'vim-python/python-syntax'  " Improved python syntax
 let g:python_highlight_all = 1
 Plug 'Vimjas/vim-python-pep8-indent'  " Proper python indenting
 
-if has('python') ||  has('python3') | Plug 'davidhalter/jedi-vim' | endif
+" Use goto-fix branch until https://github.com/davidhalter/jedi-vim/pull/808 is merged
+if has('python') ||  has('python3') | Plug 'davidhalter/jedi-vim', { 'branch': 'goto-fix' } | endif
 " Just let me type!
 let g:jedi#popup_select_first = 0
 let g:jedi#popup_on_dot = 0
 let g:jedi#smart_auto_mappings = 0  " don't autoadd 'import'
 let g:jedi#show_call_signatures = 0  " Call sigs slow things down for large projects
-let g:jedi#goto_assignments_command = "gd"
-let g:jedi#goto_command = "gD"  " goto still has problems, so giving it a 2nd-class mapping
+let g:jedi#goto_assignments_command = "gD"
+let g:jedi#goto_command = "gd"
 let g:jedi#usages_command = "gu"
 let g:jedi#rename_command = "<C-c>r"
 " --- Javascript ---
