@@ -14,6 +14,12 @@ function build-readme() {
     open README.html
 }
 
+# Build docs in watch mode.
+# requires sphinx-autobuild (pip install sphinx-autobuild)
+function sphinxwatch() {
+    sphinx-autobuild --open-browser docs docs/_build
+}
+
 
 # Clear all ipdb statements
 function rmpdb() {
