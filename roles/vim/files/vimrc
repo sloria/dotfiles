@@ -17,8 +17,10 @@ if has('python') ||  has('python3')
   Plug 'felikz/ctrlp-py-matcher'
   let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 endif
-Plug 'dyng/ctrlsf.vim'  " ag-powered search with in-place editing
+" rg-powered search with in-place editing
+Plug 'dyng/ctrlsf.vim'
 let g:ctrlsf_ackprg = 'rg'
+let g:ctrlsf_auto_focus = {'at': 'start'}  " Automatically focus search results
 nmap     <C-f>f :CtrlSF ''<Left>
 nmap     <C-f>n <Plug>CtrlSFCwordPath
 nnoremap <C-f>t :CtrlSFToggle<CR>
@@ -81,10 +83,6 @@ let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 Plug 'honza/vim-snippets'
 Plug 'fcpg/vim-spotlightify'  " Highlight and show number of matches when searching
-Plug 'majutsushi/tagbar', {'on': 'Tagbar'}
-" Open tagbar
-map <leader>\ :Tagbar<CR>
-let g:tagbar_autofocus = 1
 Plug 'wellle/targets.vim'  " because cin), etc. is awesome
 Plug 'tpope/vim-dispatch' " So we can run tests asynchronously
 Plug 'janko-m/vim-test'  " For running tests
@@ -141,6 +139,8 @@ Plug 'mattn/webapi-vim' | Plug 'mattn/gist-vim', {'on': 'Gist'}
 let g:gist_post_private = 1
 " Browse to gist after posting it
 let g:gist_open_browser_after_post = 1
+" Use gr to replace text without blowing away clipboard
+Plug 'vim-scripts/ReplaceWithRegister'
 
 " COLOR
 Plug 'NLKNguyen/papercolor-theme'
@@ -164,7 +164,7 @@ let g:python_highlight_all = 1
 Plug 'Vimjas/vim-python-pep8-indent'  " Proper python indenting
 
 " Use goto-fix branch until https://github.com/davidhalter/jedi-vim/pull/808 is merged
-if has('python') ||  has('python3') | Plug 'davidhalter/jedi-vim', { 'branch': 'goto-fix' } | endif
+if has('python') ||  has('python3') | Plug 'davidhalter/jedi-vim' | endif
 " Just let me type!
 let g:jedi#popup_select_first = 0
 let g:jedi#popup_on_dot = 0
