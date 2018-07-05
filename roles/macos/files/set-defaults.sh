@@ -22,3 +22,6 @@ defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 
 echo "  › show path bar"
 defaults write com.apple.finder ShowPathbar -bool true
+
+echo "  › Don't use native full-screen (separate Space) for MacVim"
+defaults write org.vim.MacVim MMNativeFullScreen 0
