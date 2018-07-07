@@ -6,14 +6,11 @@
   homebrew: name={{item}} state=latest
   with_items: '{{mac_homebrew_packages}}'
 
-- name: Tap into caskroom/cask
-  homebrew_tap: tap=caskroom/cask state=present
+- name: Tap into homebrew/cask-fonts
+  homebrew_tap: tap=homebrew/cask-fonts state=present
 
-- name: Tap into caskroom/fonts
-  homebrew_tap: tap=caskroom/fonts state=present
-
-- name: Tap into caskroom/versions
-  homebrew_tap: tap=caskroom/versions state=present
+- name: Tap into homebrew/cask-versions
+  homebrew_tap: tap=homebrew/cask-versions state=present
 
 - name: Install Mac apps with homebrew cask
   homebrew_cask: name={{item}} state=present
