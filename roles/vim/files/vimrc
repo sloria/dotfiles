@@ -148,8 +148,8 @@ Plug 'sloria/vim-hybrid'  " hybrid with easier-to-read line numbers
 Plug 'nightsense/night-and-day'  " switch colorschemes based on time of day
 " PaperColor in the day, hybrid-sl at night
 let g:nd_themes = [
-  \ ['6:00',  'PaperColor', 'light' ],
-  \ ['17:00', 'hybrid-sl', 'dark' ],
+  \ ['6:00',  'PaperColor', 'light'],
+  \ ['17:00', 'hybrid-sl', 'dark'],
   \ ]
 
 " LANGUAGE-SPECIFIC

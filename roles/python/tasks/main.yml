@@ -5,9 +5,6 @@
 - name: Install pew
   pip: name=pew state=latest executable=pip3
 
-- name: Install pipenv
-  pip: name=pipenv state=latest executable=pip3
-
 - name: Check if pytest.ini file exists
   stat: path="{{dotfiles_user_home}}/pytest.ini"
   register: pytest_stat
