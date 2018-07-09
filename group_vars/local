@@ -79,7 +79,6 @@ mac_cask_packages:
   # Media/Music
   - spotify
   - iina
-  - google-play-music-desktop-player
   # Images
   - imageoptim  # optimizing images
   # Notetaking
