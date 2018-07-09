@@ -16,6 +16,7 @@ function dcdebug {
 }
 # Stop and recreate a container
 alias dcreup="docker-compose up -d --force-recreate --no-deps "
+alias dcre="docker-compose up -d --force-recreate --no-deps "
 alias dclog="docker-compose logs -f --tail 100 "
 alias dcl="docker-compose logs -f --tail 100 "
 
