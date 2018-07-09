@@ -6,21 +6,21 @@
 - name: Set up local development environment
   hosts: local
   roles:
-    - git
-    - {role: package_manager, tags: ['bootstrap']}
-    - {role: zsh, tags: ['bootstrap']}
-    - vim
+    # - git
+    # - {role: package_manager, tags: ['bootstrap']}
+    # - {role: zsh, tags: ['bootstrap']}
+    # - vim
     - python
-    - node
-    - ruby
-    - hub
-    - zsh-autoenv
-    - rg
-    - exa
-    - bat
-    - tmux
-    - git-flow
-    - fzf
-    - kubernetes
-    - jrnl
-    - {role: macos, when: ansible_os_family == "Darwin"}
+    # - node
+    # - ruby
+    # - hub
+    # - zsh-autoenv
+    # - rg
+    # - exa
+    # - bat
+    # - tmux
+    # - git-flow
+    # - fzf
+    # - kubernetes
+    # - jrnl
+    # - {role: macos, when: ansible_os_family == "Darwin"}
