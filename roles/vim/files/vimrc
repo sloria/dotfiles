@@ -1,3 +1,7 @@
+" Temporary workaround for python 3.7: https://github.com/vim/vim/issues/3117#issuecomment-402622616
+if has('python3')
+  silent! python3 1
+endif
 " Spacebar is a much better leader than \ or ,
 let mapleader = "\<Space>"
 
@@ -62,7 +66,7 @@ let g:ale_linters.python = ['flake8']
 let g:ale_linters.html = []
 let g:ale_fixers = {}
 let g:ale_fixers.javascript = ['prettier']
-let g:ale_fixers.python = ['isort']
+let g:ale_fixers.python = ['black']
 let g:ale_fixers.css = ['prettier']
 " Make prettier play nicely with xo + my custom rules
 let g:ale_javascript_prettier_options = ' --single-quote --trailing-comma es5 --no-bracket-spacing'
