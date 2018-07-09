@@ -116,3 +116,10 @@ mac_mas_packages:
 ruby_global_gems:
   - lunchy
   - travis
+
+# Python versions to install with pyenv and set as global
+# Especially useful when using tox
+# NOTE: 2.7 gets installed by Homebrew
+pyenv_global_versions:
+  - 3.6.5
+  - 3.5.5

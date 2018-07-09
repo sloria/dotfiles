@@ -9,7 +9,7 @@ a few neat features
 - zsh configured with [prezto](https://github.com/sorin-ionescu/prezto).
 - nice fonts for the terminal and coding.
 - iterm2 profile (w/ hotkey, themes, etc.)
-- python2, python3, pew (for managing virtualenvs), and pipenv
+- python2, python3, pew (for managing virtualenvs), and pyenv (for managing Python versions)
 - a tmux.conf that's pretty neat.
 - [tmuxp](https://tmuxp.git-pull.com/en/latest/) for tmux session management
 - vim with [vim-plug](https://github.com/junegunn/vim-plug) for plugin management. All configuration in a single file [.vimrc](https://github.com/sloria/dotfiles/blob/master/roles/vim/files/vimrc).
