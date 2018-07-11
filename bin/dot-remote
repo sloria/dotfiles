@@ -1,2 +1,0 @@
-echo "Setting up remote development environments..."
-ansible-playbook -i ~/dotfiles/remotehosts ~/dotfiles/remote_env.yml --ask-sudo-pass

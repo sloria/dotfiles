@@ -7,12 +7,12 @@
 #
 # USAGE:
 #
-#   $ e
+#   e
 #   # => opens the current directory in your editor
 #
-#   $ e .
-#   $ e /usr/local
-#   # => opens the specified directory in your editor
+#   e .
+#   e /usr/local
+#   => opens the specified directory in your editor
 
 if [ "$1" = "" ] ; then
   exec $EDITOR .

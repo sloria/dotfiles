@@ -1,26 +1,22 @@
-- name: Collecting Facts
-  hosts: local
-  gather_facts: yes
-
-
 - name: Set up local development environment
   hosts: local
   roles:
-    - git
-    - {role: package_manager, tags: ['bootstrap']}
-    - {role: zsh, tags: ['bootstrap']}
-    - vim
-    - python
-    - node
-    - ruby
-    - hub
-    - zsh-autoenv
-    - rg
-    - exa
-    - bat
-    - tmux
-    - git-flow
-    - fzf
-    - kubernetes
-    - jrnl
-    - {role: macos, when: ansible_os_family == "Darwin"}
+    # Tag each role so that we can select individual roles to run with ansible-playbook --tags
+    - {role: git, tags: ['git']}
+    - {role: package_manager, tags: ['package_manager', 'bootstrap']}
+    - {role: zsh, tags: ['zsh', 'bootstrap']}
+    - {role: vim, tags: ['vim']}
+    - {role: python, tags: ['python']}
+    - {role: node, tags: ['node']}
+    - {role: ruby, tags: ['ruby']}
+    - {role: hub, tags: ['hub']}
+    - {role: zsh-autoenv, tags: ['zsh-autoenv']}
+    - {role: rg, tags: ['rg']}
+    - {role: exa, tags: ['exa']}
+    - {role: bat, tags: ['bat']}
+    - {role: tmux, tags: ['tmux']}
+    - {role: git-flow, tags: ['git-flow']}
+    - {role: fzf, tags: ['fzf']}
+    - {role: kubernetes, tags: ['kubernetes']}
+    - {role: jrnl, tags: ['jrnl']}
+    - {role: macos, tags: ['macos'], when: ansible_os_family == "Darwin"}

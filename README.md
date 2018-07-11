@@ -1,7 +1,9 @@
 dotfiles
 ========
 
-[sloria's dotfiles](https://github.com/sloria/dotfiles-old), rewritten as Ansible roles. Fully supports macOS. Red Hat and Debian support is good but not as complete.
+[sloria's dotfiles](https://github.com/sloria/dotfiles-old), rewritten as Ansible roles. Sets up a full local development environment with a **single command.**
+
+Fully supports macOS. Red Hat and Debian support is good but not as complete.
 
 a few neat features
 -------------------
@@ -35,8 +37,8 @@ install
 ```bash
 # Replace git url with your fork
 # NOTE: It is important that you clone to ~/dotfiles
-$ git clone https://github.com/YOU/dotfiles.git ~/dotfiles
-$ cd ~/dotfiles
+git clone https://github.com/YOU/dotfiles.git ~/dotfiles
+cd ~/dotfiles
 ```
 
 - Update the following variables in `group_vars/local` (at a minimum)
@@ -51,7 +53,7 @@ $ cd ~/dotfiles
 - Run the installation script.
 
 ```bash
-$ ./bin/dot-bootstrap
+./bin/dot-bootstrap
 ```
 
 updating your local environment
@@ -60,7 +62,13 @@ updating your local environment
 Once you have the dotfiles installed you can run the following command to rerun the ansible playbook:
 
 ```bash
-$ dot-update
+dot-update
+```
+
+You can optionally pass role names
+
+```bash
+dot-update git python
 ```
 
 updating your dotfiles repo
@@ -69,8 +77,8 @@ updating your dotfiles repo
 To keep your fork up to date with the `sloria` fork:
 
 ```
-$ git remote add sloria https://github.com/sloria/dotfiles.git
-$ git pull sloria master
+git remote add sloria https://github.com/sloria/dotfiles.git
+git pull sloria master
 ```
 
 commands
@@ -146,7 +154,6 @@ todo
 ----
 
 - Full Debian and Red Hat support
-- Add more options to `dot` script, e.g. for skipping tasks
 
 [homebrew]: http://brew.sh/
 [homebrew-cask]: https://github.com/caskroom/homebrew-cask
