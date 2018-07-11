@@ -122,3 +122,4 @@ ruby_global_gems:
 pyenv_global_versions:
   - 3.6.5
   - 3.5.5
+  - 2.7.15

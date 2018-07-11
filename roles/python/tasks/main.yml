@@ -14,9 +14,6 @@
     content: "system\n{% for version in pyenv_global_versions %}{{ version }}\n{% endfor %}"
     dest: "{{ '~/.pyenv/version' }}"
 
-- name: Install pew
-  pip: name=pew state=latest executable=pip3
-
 - name: Check if pytest.ini file exists
   stat: path="{{dotfiles_user_home}}/pytest.ini"
   register: pytest_stat
