@@ -13,3 +13,5 @@ alias vi="vim"
 alias v="vim"
 # resize images
 alias resize="mogrify -resize"
+
+alias timezsh="time zsh -i -c echo"
