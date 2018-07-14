@@ -9,7 +9,6 @@ alias pt="py.test"
 alias nt="nosetests"
 alias mn="python manage.py"
 alias pipgrep="pip freeze | grep -i "
-alias getpip="wget https://bootstrap.pypa.io/get-pip.py && python get-pip.py && rm get-pip.py"
 
 alias pywhich="pyenv which"
 alias wo="pyenv activate"
