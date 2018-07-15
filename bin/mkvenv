@@ -4,6 +4,7 @@
 #   * Create a new virtualenv (named as the current directory by default)
 #   * Create .python-version if it doesn't exist
 #   * Install common dev packages
+#   * Install dev-requirements.txt, if it exists
 #
 # Examples:
 #   mkvenv
@@ -25,7 +26,7 @@ bold_python="\e[1m$python_version\e[m"
 printf "Creating a Python $bold_python environment called $bold_name...\n"
 
 # Ask for confirmation (https://stackoverflow.com/a/1885534/1157536)
-read -p "Proceed? [y|n] " -n 1 -r
+read -p "Proceed? (y|n) " -n 1 -r
 echo
 if [[ ! $REPLY =~ ^[Yy]$ ]]; then
     [[ "$0" = "$BASH_SOURCE" ]] && exit 1 || return 1 # handle exits from shell or function but don't exit interactive shell
@@ -45,5 +46,17 @@ pip install -U pip
 # Install common dev packages
 printf "Installing common dev packages: \e[1m${common_packages[*]}\e[m\n"
 pip install ${common_packages[*]}
+
+if [[ -f dev-requirements.txt ]]; then
+    printf "Found \e[1mdev-requirements.txt\e[m...\n"
+    read -p "Install dev-requirements.txt? (y|n) " -n 1 -r
+    echo
+    if [[ $REPLY =~ ^[Yy]$ ]]
+    then
+        pip install -r dev-requirements.txt
+    else
+        printf "Skipping dev-requirements.txt...\n"
+    fi
+fi
 
 printf "\e[1mDone!\e[m 🎉\n"
