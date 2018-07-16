@@ -15,6 +15,10 @@
     "work": {
       "journal": "~/Dropbox/.work.txt",
       "encrypt": true
+    },
+    "til": {
+      "journal": "~/Dropbox/.til.txt",
+      "encrypt": false
     }
   }
 }
