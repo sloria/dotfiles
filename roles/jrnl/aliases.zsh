@@ -1,0 +1,1 @@
+alias til="jrnl til"
