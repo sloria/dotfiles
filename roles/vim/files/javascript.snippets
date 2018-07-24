@@ -12,6 +12,51 @@ endsnippet
 
 # React stuff
 
+snippet ss "setState" b
+this.setState({ $1 });
+endsnippet
+
+snippet ir "Import React"
+import React from "react";
+endsnippet
+
+snippet ipt "Import prop-types"
+import t from "prop-types";
+endsnippet
+
+snippet rfc "React Functional Component" b
+const ${1:`!v expand('%:t:r')`} = (${2:{...props}}) => {
+	return (
+		<div>
+			$3
+		</div>
+	);
+}
+$1.defaultProps = {
+};
+$1.propTypes = {
+};
+endsnippet
+
+snippet rfc! "React Functional Component (with imports)" b
+import React from "react";
+import t from "prop-types";
+
+const ${1:`!v expand('%:t:r')`} = (${2:{...props}}) => {
+	return (
+		<div>
+			$3
+		</div>
+	);
+}
+$1.defaultProps = {
+};
+$1.propTypes = {
+};
+
+export default $1;
+endsnippet
+
 snippet rccc "createClass" b
 export const ${1:`!p snip.rv = ''.join(x for x in re.sub('\.js$', '', snip.basename or 'ModuleName').split('_'))`} = React.createClass({
 	render() {
@@ -115,6 +160,12 @@ describe('${1:feature}', function() {
 endsnippet
 
 snippet it
+it('${1:should do something}', () => {
+	${2}
+});
+endsnippet
+
+snippet itd
 it('${1:should do something}', (done) => {
 	${2}
 	done();
