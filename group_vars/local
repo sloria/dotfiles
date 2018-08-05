@@ -52,7 +52,7 @@ mac_homebrew_packages:
   # README rendering
   - grip
   # Prose linting
-  - vale
+  - ValeLint/vale/vale
   # For repeating commands
   - watch
 
