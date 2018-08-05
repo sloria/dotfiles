@@ -5,11 +5,11 @@
     - {role: git, tags: ['git']}
     - {role: package_manager, tags: ['package_manager', 'bootstrap']}
     - {role: zsh, tags: ['zsh', 'bootstrap']}
-    - {role: vim, tags: ['vim']}
     - {role: python, tags: ['python']}
     - {role: node, tags: ['node']}
     - {role: ruby, tags: ['ruby']}
     - {role: hub, tags: ['hub']}
+    - {role: vim, tags: ['vim']}
     - {role: zsh-autoenv, tags: ['zsh-autoenv']}
     - {role: rg, tags: ['rg']}
     - {role: exa, tags: ['exa']}
