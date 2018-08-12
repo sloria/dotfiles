@@ -116,6 +116,8 @@ mac_cask_packages:
   - now
   # REST client
   - insomnia
+  # Markdown-based presentations
+  - deckset
 
 # Mac-App-Store-only apps to be installed with mas
 # Use App IDs found with `mas search <name>`
@@ -123,7 +125,6 @@ mac_mas_packages:
   - 585829637  # Todoist
   - 540348655  # Monosnap
   - 409203825  # Numbers
-  - 847496013  # Deckset
   # - 668208984  # Giphy capture
 
 ruby_global_gems:
