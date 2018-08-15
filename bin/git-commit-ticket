@@ -1,0 +1,50 @@
+#!/bin/sh
+# Create a commit using COS's PR description conventions
+# as the commit message template.
+# Assumes git-flow naming conventions for
+# branch names, e.g.
+# hotfix/fix-bug-with-user-merge will be given the title
+# "Fix bug with user merge" in the commit message
+# Optionally pass a ticket ID to populate the "Ticket" section
+# with the JIRA URL
+# 
+# Examples:
+#   git commit-ticket
+#   git commit-ticket PLAT-1234
+
+set -e
+if [ $# -eq 0 ]; then
+  ticket="No ticket"
+else
+  ticket="https://openscience.atlassian.net/browse/$1"
+fi
+current_branch=$(git rev-parse --abbrev-ref HEAD)
+
+# Trim off feature/ or hotfix from the branch name
+trimmed=${current_branch#"feature/"}
+trimmed=${trimmed#"hotfix/"}
+
+# Replace "_" or "-" with a space
+unslugified=$(echo "$trimmed" | tr _- ' ')
+# Capitalize first letter of string
+# https://stackoverflow.com/a/12487465/1157536
+title="$(tr '[:lower:]' '[:upper:]' <<< ${unslugified:0:1})${unslugified:1}"
+
+template="$title
+
+**Purpose**
+
+**Changes**
+
+**QA Notes**
+
+**Documentation**
+
+**Side Effects**
+
+**Ticket**
+
+$ticket
+"
+
+git commit -m "$template" -e
