@@ -1,0 +1,3 @@
+#!/bin/sh
+# Remove branches that match a certain pattern
+git branch -D `git branch | grep $1`
