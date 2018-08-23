@@ -98,6 +98,7 @@ mac_cask_packages:
   # Fonts
   - font-ubuntu
   - font-cousine
+  - font-hack
   # Databases
   - tableplus  # RDBMS client
   # VPN
