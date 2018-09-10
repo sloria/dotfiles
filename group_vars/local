@@ -29,6 +29,7 @@ vim_install_plugins: no
 # Utilities that don't get installed by a role
 mac_homebrew_packages:
   - curl
+  - jq
   - wget
   - highlight
   - terminal-notifier
@@ -72,9 +73,7 @@ mac_cask_packages:
   - vagrant
   - virtualbox
   # Docker
-  # Using "edge" for compatibility with docker-sync
-  # https://github.com/EugenMayer/docker-sync/issues/517#issuecomment-396652578
-  - docker-edge
+  - docker
   # chat
   - limechat
   - flowdock
