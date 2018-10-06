@@ -1,0 +1,7 @@
+#!/bin/bash
+# Fuzzy-find and checkout PRs for current repo
+# Usage:
+#    git prs
+pullrequests=$(hub pr list -f "%i %au %t% l%n")
+targetpr=$(echo "$pullrequests" | fzf-tmux)
+hub pr checkout $(echo "$targetpr" | sed -E 's!^#([0-9]+).*$!\1!')
