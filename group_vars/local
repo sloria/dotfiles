@@ -56,6 +56,8 @@ mac_homebrew_packages:
   - ValeLint/vale/vale
   # For repeating commands
   - watch
+  # For displaying a notification when a command finishes
+  - noti
 
 # Mac Apps to be installed with homebrew-cask
 mac_cask_packages:
