@@ -71,6 +71,8 @@ let g:ale_fixers.css = ['prettier']
 
 " NICE TO HAVE
 Plug 'AndrewRadev/splitjoin.vim'  " Language-specific split/join with gS and gJ
+let g:splitjoin_python_brackets_on_separate_lines = 1
+let g:splitjoin_trailing_comma = 1
 Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 let g:airline_left_sep=''
 let g:airline_right_sep=''
