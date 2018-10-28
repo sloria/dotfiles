@@ -137,6 +137,7 @@ ruby_global_gems:
 # Especially useful when using tox
 # NOTE: 2.7 gets installed by Homebrew
 pyenv_global_versions:
+  - 3.7.0
   - 3.6.5
   - 3.5.5
   - 2.7.15
