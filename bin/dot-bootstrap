@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+set -e
+
 echo "Setting up local dev environment..."
 ansible-playbook -i ~/dotfiles/hosts ~/dotfiles/local_env.yml --ask-become-pass
 

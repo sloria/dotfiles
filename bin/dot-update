@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Update local dev environment using ansible-playbook.
 # Optionally pass role names.
+set -e
 
 if [[ $# -eq 0 ]]; then
   # Run all roles except for the ones tagged with 'bootstrap'
