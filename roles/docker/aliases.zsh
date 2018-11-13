@@ -1,11 +1,11 @@
-alias dk="docker "
-alias dklog="docker logs -f --tail 100 "
-alias dkl="docker logs -f --tail 100 "
-alias dkdf="dk system df"
+alias d="docker "
+alias dlog="docker logs -f --tail 100 "
+alias dl="docker logs -f --tail 100 "
+alias ddf="docker system df"
 # Stop and remove a single container
-alias dkrm='docker rm -f '
+alias drm='docker rm -f '
 # Stop and remove all running containers
-alias dkrm!='docker rm -f $(docker ps -a -q)'
+alias drm!='docker rm -f $(docker ps -a -q)'
 
 alias dc="docker-compose"
 alias dcup="docker-compose up -d "
@@ -30,6 +30,6 @@ function dcbash {
 }
 
 # Open bash in a container. Pass container name
-function dkbash {
+function dbash {
   docker exec -it $1 /bin/bash
 }
