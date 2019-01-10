@@ -142,7 +142,10 @@ let g:gist_post_private = 1
 let g:gist_open_browser_after_post = 1
 " Use gr to replace text without blowing away clipboard
 Plug 'vim-scripts/ReplaceWithRegister'
-
+Plug 'majutsushi/tagbar', {'on': 'Tagbar'}
+" Open tagbar
+map <leader>\ :Tagbar<CR>
+let g:tagbar_autofocus = 1
 " COLOR
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'sloria/vim-hybrid'  " hybrid with easier-to-read line numbers
@@ -163,8 +166,6 @@ Plug 'lervag/vimtex'
 Plug 'vim-python/python-syntax'  " Improved python syntax
 let g:python_highlight_all = 1
 Plug 'Vimjas/vim-python-pep8-indent'  " Proper python indenting
-
-" Use goto-fix branch until https://github.com/davidhalter/jedi-vim/pull/808 is merged
 if has('python') ||  has('python3') | Plug 'davidhalter/jedi-vim' | endif
 " Just let me type!
 let g:jedi#popup_select_first = 0
