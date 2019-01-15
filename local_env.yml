@@ -13,6 +13,7 @@
     - {role: zsh-autoenv, tags: ['zsh-autoenv']}
     - {role: rg, tags: ['rg']}
     - {role: exa, tags: ['exa']}
+    - {role: gsed, tags: ['gsed']}
     - {role: bat, tags: ['bat']}
     - {role: tmux, tags: ['tmux']}
     - {role: git-flow, tags: ['git-flow']}

@@ -1,0 +1,5 @@
+# gnu-sed is needed by all-repos
+# https://github.com/asottile/all-repos#all-repos-sed-options-expression-filenames
+- name: Install GNU sed with Homebrew
+  homebrew: name=gnu-sed state=latest
+  when: ansible_os_family == "Darwin"
