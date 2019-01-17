@@ -135,7 +135,6 @@ ruby_global_gems:
 
 # Python versions to install with pyenv and set as global
 # Especially useful when using tox
-# NOTE: 2.7 gets installed by Homebrew
 pyenv_global_versions:
   - 3.7.0
   - 3.6.5
