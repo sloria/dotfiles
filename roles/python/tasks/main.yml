@@ -29,3 +29,7 @@
     src: "{{dotfiles_home}}/roles/python/files/pytest.ini"
     dest: "{{dotfiles_user_home}}/pytest.ini"
     state: link
+
+- name: Install pipx
+  tags: pipx
+  shell: "PYENV_VERSION=system curl https://raw.githubusercontent.com/cs01/pipx/master/get-pipx.py | python3 - --no-modify-path"
