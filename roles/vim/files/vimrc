@@ -310,3 +310,5 @@ augroup END
 " GUI settings, e.g. MacVim
 " set guifont=Ubuntu\ Mono:h14
 set guifont=Hack:h12
+" Hide scrollbars and menu
+set guioptions-=T guioptions-=R guioptions-=r guioptions-=m guioptions-=l guioptions-=L
