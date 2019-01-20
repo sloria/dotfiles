@@ -118,6 +118,15 @@ There are a few keyboard customizations that must be done manually:
 
 ![Modifier keys](https://user-images.githubusercontent.com/2379650/34223523-a2c8e4e4-e58d-11e7-9532-d74b95d8408a.png)
 
+**Tree Style Tabs**
+
+If you use the Tree Style Tabs Firefox addon, you may want to hide
+the default horizontal tab bar.
+
+To do this, you'll need to edit (or create) `userChrome.css` in the `~/Library/Application Support/Firefox/Profiles/<something>/chrome` directory
+
+See https://gist.github.com/collinbarrett/45c90f7d427e08d69d32dfef402c86f6
+
 what if I only want your vim?
 -----------------------------
 
