@@ -52,6 +52,7 @@ nmap <silent> ]s <Plug>(ale_next_wrap)
 nmap <leader>= <Plug>(ale_fix)
 let g:ale_pattern_options = {
 \   '.*\.md$': {'ale_enabled': 0},
+\   '.*\.markdown$': {'ale_enabled': 0},
 \   '.*\.rst$': {'ale_enabled': 0},
 \   '.*\.txt$': {'ale_enabled': 0},
 \   '.*\.tex$': {'ale_enabled': 0},
