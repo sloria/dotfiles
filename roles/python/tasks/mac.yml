@@ -9,13 +9,15 @@
     state: latest
 
 - name: Install python2
-  homebrew: name=python state=latest
+  homebrew: name=python state=present
 
 - name: Install python3
-  homebrew: name=python3 state=latest
+  homebrew: name=python3 state=present
 
 - name: Install pyenv
-  homebrew: name=pyenv state=latest
+  homebrew: name=pyenv state=present
+  tags: pyenv
 
 - name: Install pyenv-virtualenv
-  homebrew: name=pyenv-virtualenv state=latest
+  homebrew: name=pyenv-virtualenv state=present
+  tags: pyenv
