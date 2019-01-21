@@ -70,9 +70,8 @@ let g:ale_fixers.javascript = ['prettier']
 let g:ale_fixers.python = ['black']
 let g:ale_fixers.css = ['prettier']
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
-augroup coc
-  autocmd BufNew,BufEnter *.md,*.rst,*.txt,*.json execute "silent! CocDisable"
-augroup END
+autocmd BufNew,BufEnter *.md,*.rst,*.txt,*.json execute "silent! CocDisable"
+autocmd FileType gitcommit execute "silent! CocDisable"
 
 " NICE TO HAVE
 Plug 'AndrewRadev/splitjoin.vim'  " Language-specific split/join with gS and gJ
@@ -111,6 +110,8 @@ let g:user_emmet_settings = {
   \ }
 let g:user_emmet_leader_key = ','
 Plug 'jiangmiao/auto-pairs' " autoclose parens, quotes, etc.
+autocmd FileType markdown let b:AutoPairs = AutoPairsDefine({'```' : '```'})
+autocmd FileType python let b:AutoPairs = AutoPairsDefine({'"""' : '"""', "'''": "'''"})
 Plug 'mtth/scratch.vim'
 let g:scratch_no_mappings = 1
 let g:scratch_height = 20
