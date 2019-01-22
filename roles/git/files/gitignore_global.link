@@ -36,3 +36,6 @@ _sandbox
 .scratch
 
 .python-version
+
+# throwaway code
+t.py
