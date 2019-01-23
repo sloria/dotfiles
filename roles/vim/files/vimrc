@@ -155,12 +155,6 @@ let g:tagbar_autofocus = 1
 " COLOR
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'sloria/vim-hybrid'  " hybrid with easier-to-read line numbers
-Plug 'nightsense/night-and-day'  " switch colorschemes based on time of day
-" PaperColor in the day, hybrid-sl at night
-let g:nd_themes = [
-  \ ['6:00',  'PaperColor', 'light'],
-  \ ['17:00', 'hybrid-sl', 'dark'],
-  \ ]
 
 " LANGUAGE-SPECIFIC
 Plug 'sheerun/vim-polyglot'  " syntax files for most languages
@@ -217,9 +211,12 @@ set noerrorbells visualbell t_vb=
 
 """ VISUAL SETTINGS """
 if &term =~ '256color' | set t_ut= | endif
-" NOTE: colorscheme will be set by night-and-day. This will only
-" be in effect if night-and-day is disabled
-set background=dark | colorscheme hybrid-sl
+" PaperColor in the day, hybrid-sl at night
+if strftime('%H') >= 6 && strftime('%H') < 17
+  set background=light | colorscheme PaperColor
+else
+  set background=dark | colorscheme hybrid-sl
+endif
 
 " Show trailing whitespace
 set list listchars=tab:▸\ ,trail:▫
