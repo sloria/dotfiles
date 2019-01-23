@@ -69,10 +69,15 @@ let g:ale_fixers = {}
 let g:ale_fixers.javascript = ['prettier']
 let g:ale_fixers.python = ['black']
 let g:ale_fixers.css = ['prettier']
+" Language server support (for IDE functionality like autocomplete, goto, etc.)
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+" Disable for text files
 autocmd BufNew,BufEnter *.md,*.rst,*.txt,*.json execute "silent! CocDisable"
-autocmd FileType gitcommit execute "silent! CocDisable"
-
+" Remap goto
+nmap <silent> gd <Plug>(coc-definition)
+nmap <C-c>r <Plug>(coc-rename)
+" Remap 'usages'
+nmap <silent> gu <Plug>(coc-references)
 " NICE TO HAVE
 Plug 'AndrewRadev/splitjoin.vim'  " Language-specific split/join with gS and gJ
 let g:splitjoin_python_brackets_on_separate_lines = 1
@@ -166,16 +171,6 @@ Plug 'lervag/vimtex'
 Plug 'vim-python/python-syntax'  " Improved python syntax
 let g:python_highlight_all = 1
 Plug 'Vimjas/vim-python-pep8-indent'  " Proper python indenting
-if has('python') ||  has('python3') | Plug 'davidhalter/jedi-vim' | endif
-" Just let me type!
-let g:jedi#popup_select_first = 0
-let g:jedi#popup_on_dot = 0
-let g:jedi#smart_auto_mappings = 0  " don't autoadd 'import'
-let g:jedi#show_call_signatures = 0  " Call sigs slow things down for large projects
-let g:jedi#goto_assignments_command = "gD"
-let g:jedi#goto_command = "gd"
-let g:jedi#usages_command = "gu"
-let g:jedi#rename_command = "<C-c>r"
 " --- Javascript ---
 Plug 'lfilho/cosco.vim'  " Quick insertion of commas and semicolons
 augroup cosco
