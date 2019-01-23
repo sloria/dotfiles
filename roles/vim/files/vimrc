@@ -115,7 +115,7 @@ let g:user_emmet_settings = {
   \ }
 let g:user_emmet_leader_key = ','
 Plug 'jiangmiao/auto-pairs' " autoclose parens, quotes, etc.
-autocmd FileType python let b:AutoPairs = AutoPairsDefine({'"""' : '"""', "'''": "'''", 'f"': '"', "f'": "'"})
+autocmd FileType python let b:AutoPairs = AutoPairsDefine({'f"': '"', "f'": "'"})
 Plug 'mtth/scratch.vim'
 let g:scratch_no_mappings = 1
 let g:scratch_height = 20
