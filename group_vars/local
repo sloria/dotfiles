@@ -61,6 +61,10 @@ mac_homebrew_packages:
 
 # Mac Apps to be installed with homebrew-cask
 mac_cask_packages:
+  # Password manager
+  - 1password
+  # Backup/storage
+  - dropbox
   # Browsers
   - firefox
   - google-chrome
@@ -71,9 +75,7 @@ mac_cask_packages:
   - flux
   - appcleaner
   - daisydisk
-  # Vagrant/Virtualbox
   - vagrant
-  - virtualbox
   # Docker
   - docker
   # chat
@@ -83,10 +85,6 @@ mac_cask_packages:
   - keybase
   # Video conferencing
   - zoomus
-  # Password manager
-  - 1password
-  # Backup/storage
-  - dropbox
   # Media/Music
   - spotify
   - iina
