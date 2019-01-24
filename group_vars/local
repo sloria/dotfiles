@@ -104,8 +104,6 @@ mac_cask_packages:
   - tunnelblick
   # Docs
   - dash
-  # Text expansion
-  - typinator
   # Bibliography
   - bibdesk
   # Stay focused
