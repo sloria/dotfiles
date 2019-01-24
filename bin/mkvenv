@@ -9,7 +9,7 @@
 # Examples:
 #   mkvenv
 #   mkvenv name-of-env
-#   mkvenv my-3.7-env 3.7.0
+#   mkvenv my-3.7-env 3.7.2
 #   mkvenv my-2.7-env 2.7.15
 
 set -e
@@ -18,7 +18,7 @@ current_dir=${PWD##*/}
 # If name is passed as first argument, use that, otherwise use the current dirname
 name=${1:-$current_dir}
 # If python version is passed as second argument, use that, otherwise use 3.7
-python_version=${2:-3.7.0}
+python_version=${2:-3.7.2}
 common_packages=("ipython" "ipdb" "ped")
 
 bold_name="\e[1m$name\e[m"
@@ -47,15 +47,15 @@ pip install -U pip
 printf "Installing common dev packages: \e[1m${common_packages[*]}\e[m\n"
 pip install ${common_packages[*]}
 
-if [[ -f dev-requirements.txt ]]; then
-    printf "Found \e[1mdev-requirements.txt\e[m...\n"
-    read -p "Install dev-requirements.txt? (y|n) " -n 1 -r
+if [[ -f setup.py ]]; then
+    printf "Found \e[1msetup.py\e[m...\n"
+    read -p "pip install -e .[dev]? (y|n) " -n 1 -r
     echo
     if [[ $REPLY =~ ^[Yy]$ ]]
     then
-        pip install -r dev-requirements.txt
+        pip install -e '.[dev]'
     else
-        printf "Skipping dev-requirements.txt...\n"
+        printf "Skipping setup.py installation...\n"
     fi
 fi
 
