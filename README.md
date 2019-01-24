@@ -20,13 +20,12 @@ a few neat features
 - Useful git aliases
 - Optional git commit signing with GPG
 
-prerequisites (install these first)
------------------------------------
+prerequisites
+-------------
 
-- ansible >= 1.6
-- homebrew (If on macOS)
-- git (homebrew installable on macOS)
-- Latest version of Xcode (If on macOS)
+- homebrew (If on macOS) - **Install this first**
+- git: `brew install git`
+- ansible >= 1.6: `brew install ansible`
 
 install
 -------
