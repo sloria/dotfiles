@@ -3,7 +3,7 @@
   changed_when: false
 
 - name: Install mac-specific homebrew packages
-  homebrew: name={{mac_homebrew_packages}} state=latest
+  homebrew: name={{mac_homebrew_packages}} state=present
 
 - name: Tap into homebrew/cask-fonts
   homebrew_tap: tap=homebrew/cask-fonts state=present
@@ -16,7 +16,7 @@
   with_items: '{{mac_cask_packages}}'
 
 - name: Install mas
-  homebrew: name=mas state=latest
+  homebrew: name=mas state=present
 
 - name: Install Mac-App-Store-only apps with mas
   command: mas install {{item}}

@@ -206,7 +206,7 @@ set noerrorbells visualbell t_vb=
 """ VISUAL SETTINGS """
 if &term =~ '256color' | set t_ut= | endif
 " PaperColor in the day, hybrid-sl at night
-if strftime('%H') >= 6 && strftime('%H') < 17
+if strftime('%H') >= 7 && strftime('%H') < 17
   set background=light | colorscheme PaperColor
 else
   set background=dark | colorscheme hybrid-sl

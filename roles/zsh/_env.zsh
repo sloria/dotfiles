@@ -5,6 +5,8 @@ export PED_EDITOR='vim'
 export KONCH_EDITOR='vim'
 export TERM=xterm-256color
 
+export GPG_TTY=$(tty)
+
 # Used by karma: Since we use cask to install browsers, the bin files will be located
 # in ~/Applications instead of /Applications (Mac-specific)
 export CHROME_BIN="$HOME/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"

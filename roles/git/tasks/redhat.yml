@@ -1,4 +1,4 @@
 
 - name: Install git with yum
-  yum: name=git state=latest
+  yum: name=git state=present
   become_method: sudo

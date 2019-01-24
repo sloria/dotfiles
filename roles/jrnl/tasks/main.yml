@@ -1,9 +1,9 @@
 - name: Install jrnl with Homebrew
-  homebrew: name=jrnl state=latest
+  homebrew: name=jrnl state=present
   when: ansible_os_family == "Darwin"
 
 - name: Install jrnl with pip
-  pip: name=jrnl state=latest
+  pip: name=jrnl state=present
   when: ansible_os_family != "Darwin"
 
 - name: Symlink jrnl config file

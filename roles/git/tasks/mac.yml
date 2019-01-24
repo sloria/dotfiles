@@ -1,2 +1,2 @@
 - name: Install git with Homebrew
-  homebrew: name=git state=latest
+  homebrew: name=git state=present
