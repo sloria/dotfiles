@@ -20,8 +20,11 @@ echo "  › disable smart quotes and smart dashes as they're annoying when typin
 defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 
-echo "  › show path bar"
+echo "  › Show path bar"
 defaults write com.apple.finder ShowPathbar -bool true
+
+echo "  › Autohide Dock"
+defaults write com.apple.dock autohide -bool true && killall Dock
 
 echo "  › Don't use native full-screen (separate Space) for MacVim"
 defaults write org.vim.MacVim MMNativeFullScreen 0
