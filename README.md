@@ -48,6 +48,19 @@ cd ~/dotfiles
     - `mac_homebrew_packages`:  Utilities that don't get installed by the roles.
     - `mac_cask_packages`: Mac Apps you want installed with [homebrew-cask][].
 - Edit `local_env.yml` as you see fit. Remove any roles you don't use. Edit roles that you do use.
+- Optional: If you want to sign Git commits with a GPG key, follow the
+    instructions [here](https://github.com/pstadler/keybase-gpg-github)
+    to generate a GPG key from Keybase. Then set the
+    `GIT_SIGNING_KEY_ID` environment variable before running the
+    `dot-bootstrap` script.
+
+```
+export GIT_SIGNING_KEY_ID=631262B829DDB506
+```
+
+Note: After running the dot-bootstrap script, you should put the above
+line in `~/.localrc`.
+
 - Run the installation script.
 
 ```bash

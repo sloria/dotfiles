@@ -18,7 +18,7 @@ git_email: sloria1@gmail.com
 
 # GPG Key ID used to sign git commits
 # See https://github.com/pstadler/keybase-gpg-github setup instructions
-git_signing_key: 631262B829DDB506
+git_signing_key: "{{ lookup('env','GIT_SIGNING_KEY_ID') }}"
 
 # Vim
 
