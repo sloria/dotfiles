@@ -1,5 +1,5 @@
 - name: Install tmux with homebrew
-  homebrew: name=tmux state=head
+  homebrew: name=tmux state=present
 
 - name: Install reattach-to-user-namespace
   homebrew: name=reattach-to-user-namespace state=present
