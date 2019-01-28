@@ -5,7 +5,7 @@
 	<key>AdjustWindowForFontSizeChange</key>
 	<true/>
 	<key>AllowClipboardAccess</key>
-	<false/>
+	<true/>
 	<key>AnimateDimming</key>
 	<false/>
 	<key>AppleAntiAliasingThreshold</key>
@@ -4969,7 +4969,7 @@
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>668 181 456 274 0 0 1440 877 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>276 250 916 514 0 0 1440 877 </string>
+	<string>276 222 814 486 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
 	<string>0 0 1440 900 0 0 1440 877 </string>
 	<key>New Bookmarks</key>
@@ -6209,7 +6209,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>UbuntuMono-Regular 18</string>
+			<string>Hack-Regular 18</string>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
 			<key>Prompt Before Closing 2</key>
@@ -7139,7 +7139,7 @@
 	<key>NoSyncInstallationId</key>
 	<string>1B81CDB8-F898-4E04-9E53-4295FDF80E24</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>4</integer>
+	<integer>5</integer>
 	<key>NoSyncNextAnnoyanceTime</key>
 	<real>570105343.58545101</real>
 	<key>NoSyncOnboardingWindowHasBeenShown</key>
