@@ -91,7 +91,6 @@ mac_cask_packages:
   # Images
   - imageoptim  # optimizing images
   # Notetaking
-  - evernote
   - nvalt  # for my commonplace book
   - notion # slowly replacing evernote
   # Fonts
