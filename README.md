@@ -139,6 +139,14 @@ To do this, you'll need to edit (or create) `userChrome.css` in the `~/Library/A
 
 See https://gist.github.com/collinbarrett/45c90f7d427e08d69d32dfef402c86f6
 
+**login message**
+
+You can add a message to the login screen using the following command:
+
+```
+sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText "This laptop is connected to an iCloud account and is valueless if lost. Contact (123) 456-7890 if found. Reward included."
+```
+
 what if I only want your vim?
 -----------------------------
 
