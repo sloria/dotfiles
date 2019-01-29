@@ -6,10 +6,8 @@
 - import_tasks: mac.yml
   when: ansible_os_family == "Darwin"
 
-- name: Install vim-node-rpc (needed for coc.vim)
-  # Note: state=present is broken in the yarn module
-  # fix: https://github.com/ansible/ansible/pull/39557
-  yarn: global=yes name=vim-node-rpc state=latest
+- name: Install python-language-server (used by ale)
+  command: "pipx install --force python-language-server"
 
 # Plugin manager
 - name: Makes sure autoload directory exists

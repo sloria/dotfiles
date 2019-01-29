@@ -63,21 +63,16 @@ nmap <leader>' :lopen<CR>
 let g:ale_maximum_file_size = 500000  " Don't lint large files (> 500KB), it can slow things down
 let g:ale_linters = {}
 let g:ale_linters.javascript = ['eslint']
-let g:ale_linters.python = ['flake8', 'mypy']
+let g:ale_linters.python = ['flake8', 'mypy', 'pyls']
 let g:ale_linters.html = []
 let g:ale_fixers = {}
 let g:ale_fixers.javascript = ['prettier']
 let g:ale_fixers.python = ['black']
 let g:ale_fixers.css = ['prettier']
-" Language server support (for IDE functionality like autocomplete, goto, etc.)
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
-" Disable for text files
-autocmd BufNew,BufEnter *.md,*.rst,*.txt,*.json execute "silent! CocDisable"
-" Remap goto
-nmap <silent> gd <Plug>(coc-definition)
-nmap <C-c>r <Plug>(coc-rename)
-" Remap 'usages'
-nmap <silent> gu <Plug>(coc-references)
+let g:ale_completion_enabled = 1
+" Disable pycodestyle in pyls; let flake8 do that
+let g:ale_python_pyls_config = {'pyls': {'plugins': {'pycodestyle': {'enabled': v:false}}}}
+nmap gd <Plug>(ale_go_to_definition)
 " NICE TO HAVE
 Plug 'AndrewRadev/splitjoin.vim'  " Language-specific split/join with gS and gJ
 let g:splitjoin_python_brackets_on_separate_lines = 1
