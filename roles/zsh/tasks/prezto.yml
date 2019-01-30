@@ -14,9 +14,3 @@
     src: "{{ dotfiles_home }}/roles/zsh/files/zshrc.link"
     dest: "{{ '~/.zshrc' | expanduser }}"
     state: link
-
-- name: Link custom prompt
-  file:
-    src: "{{ dotfiles_home }}/roles/zsh/files/prompt_sorin_simple_setup"
-    dest: "{{ '~/.zprezto/modules/prompt/functions/prompt_sorin_simple_setup' | expanduser }}"
-    state: link
