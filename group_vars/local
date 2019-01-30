@@ -119,9 +119,10 @@ mac_cask_packages:
 # Mac-App-Store-only apps to be installed with mas
 # Use App IDs found with `mas search <name>`
 mac_mas_packages:
-  - 585829637  # Todoist
-  - 540348655  # Monosnap
-  - 409203825  # Numbers
+  # NOTE: the IDs can be found with `mas search <app name>`
+  - {"id": 585829637, "name": "Todoist"}
+  - {"id": 540348655, "name": "Monosnap"}
+  - {"id": 409203825, "name": "Numbers"}
 
 ruby_global_gems:
   - lunchy
