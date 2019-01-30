@@ -6,7 +6,7 @@
       - sqlite3
       - xz
       - zlib
-    state: latest
+    state: present
 
 - name: Install python2
   homebrew: name=python state=present
