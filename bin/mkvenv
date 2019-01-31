@@ -37,6 +37,8 @@ pyenv virtualenv $python_version $name
 if [[ ! -f .python-version ]]; then
     printf "Creating \e[1m.python-version\e[m...\n"
     echo "$name" > .python-version
+    # Include all global versions, for tox
+    echo "$(pyenv global | grep -v system)" >> .python-version
 else
     printf ".python-version already exists..."
 fi
