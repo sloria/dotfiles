@@ -70,6 +70,8 @@ let g:ale_fixers.javascript = ['prettier']
 let g:ale_fixers.python = ['black']
 let g:ale_fixers.css = ['prettier']
 let g:ale_completion_enabled = 1
+" Prevent completion from autoinserting. See :help ale-completion-completopt-bug
+set completeopt=menu,menuone,preview,noselect,noinsert
 " Disable pycodestyle in pyls; let flake8 do that
 let g:ale_python_pyls_config = {'pyls': {'plugins': {'pycodestyle': {'enabled': v:false}}}}
 nmap gd <Plug>(ale_go_to_definition)
