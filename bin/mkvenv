@@ -61,4 +61,9 @@ if [[ -f setup.py ]]; then
     fi
 fi
 
+if [[ -f ".pre-commit-config.yml" ]]; then
+    printf "Found \e[1m.pre-commit-config.yml\e[m. Installing pre-commit hooks\n"
+    pre-commit install
+fi
+
 printf "\e[1mDone!\e[m 🎉\n"
