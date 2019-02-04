@@ -41,7 +41,7 @@ Plug 'moll/vim-bbye'  " delete buffer without closing window
 nnoremap X :Bdelete<CR>
 Plug 'vim-scripts/BufOnly.vim'  " delete all but current buffer
 
-Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
+Plug 'scrooloose/nerdtree', {'on': ['NERDTreeToggle', 'NERDTreeFind']}
 nnoremap <leader>d :NERDTreeToggle<CR>
 nnoremap <leader>D :NERDTreeFind<CR>
 let g:NERDTreeRespectWildIgnore = 1
