@@ -1,10 +1,7 @@
-- name: Install jrnl with Homebrew
-  homebrew: name=jrnl state=present
-  when: ansible_os_family == "Darwin"
-
-- name: Install jrnl with pip
-  pip: name=jrnl state=present
-  when: ansible_os_family != "Darwin"
+- name: Install jrnl with pipx
+  command: "pipx install --force --spec='jrnl[encrypted]' jrnl"
+  args:
+    creates: "{{dotfiles_user_home}}/.local/pipx/venvs/jrnl"
 
 - name: Symlink jrnl config file
   file:
