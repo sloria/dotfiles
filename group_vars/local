@@ -75,12 +75,9 @@ mac_cask_packages:
   - flux
   - appcleaner
   - daisydisk
-  - vagrant
   # Docker
   - docker
   # chat
-  - limechat
-  - flowdock
   - slack
   - keybase
   # Video conferencing
@@ -92,7 +89,7 @@ mac_cask_packages:
   - imageoptim  # optimizing images
   # Notetaking
   - nvalt  # for my commonplace book
-  - notion # slowly replacing evernote
+  - notion  # for organizing everything
   # Fonts
   - font-ubuntu
   - font-cousine
