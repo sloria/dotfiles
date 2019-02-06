@@ -62,11 +62,12 @@ nmap <leader>+ :let b:ale_enabled=1<cr>
 nmap <leader>' :lopen<CR>
 let g:ale_maximum_file_size = 500000  " Don't lint large files (> 500KB), it can slow things down
 let g:ale_linters = {}
-let g:ale_linters.javascript = ['eslint']
+let g:ale_linters.javascript = ['eslint', 'tsserver']
 let g:ale_linters.python = ['flake8', 'mypy', 'pyls']
 let g:ale_linters.html = []
 let g:ale_fixers = {}
 let g:ale_fixers.javascript = ['prettier']
+let g:ale_fixers.typescript = ['prettier']
 let g:ale_fixers.python = ['black']
 let g:ale_fixers.css = ['prettier']
 let g:ale_completion_enabled = 1
@@ -162,6 +163,7 @@ Plug 'sheerun/vim-polyglot'  " syntax files for most languages
 let g:polyglot_disabled = ['python', 'latex'] " Use python-syntax and vimtex
 let g:jsx_ext_required = 0
 let g:markdown_fenced_languages = ['javascript', 'python', 'clojure', 'ruby']
+Plug 'peitalin/vim-jsx-typescript'
 Plug 'lervag/vimtex'
 " --- Python ---
 Plug 'vim-python/python-syntax'  " Improved python syntax
