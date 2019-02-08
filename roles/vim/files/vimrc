@@ -176,7 +176,6 @@ augroup cosco
   autocmd FileType javascript,css nmap <silent> <Leader>; <Plug>(cosco-commaOrSemiColon)
 augroup END
 Plug 'heavenshell/vim-jsdoc'  " For making JS docstrings
-let g:jsdoc_default_mapping = 0
 map <C-c>j <Plug>(jsdoc)
 " --- CSS ---
 Plug 'chrisbra/Colorizer'  " Highlight CSS colors
