@@ -1,5 +1,5 @@
 ---
-- name: Check if rg is installed
+- name: Check if ripgrep is installed
   command: dpkg-query -W ripgrep
   register: rg_check_deb
   failed_when: rg_check_deb.rc > 1
