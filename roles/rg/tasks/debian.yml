@@ -1,0 +1,13 @@
+---
+- name: Check if rg is installed
+  command: dpkg-query -W ripgrep
+  register: rg_check_deb
+  failed_when: rg_check_deb.rc > 1
+  changed_when: rg_check_deb.rc == 1
+
+- name: Install ripgrep with a .deb file
+  apt:
+    deb: "{{ rg_release_url }}/{{ rg_version }}/{{ rg_dpkg_file }}"
+  become: yes
+  become_user: root
+  when: rg_check_deb.rc == 1

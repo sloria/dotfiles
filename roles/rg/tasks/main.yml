@@ -1,5 +1,8 @@
+- import_tasks: debian.yml
+  when: ansible_os_family == "Debian"
+
 - name: Install ripgrep with homebrew
   homebrew: name=ripgrep state=present
   when: ansible_os_family == "Darwin"
 
-# TODO: Debian, RedHat
+# TODO: RedHat
