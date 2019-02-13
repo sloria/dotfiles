@@ -11,3 +11,19 @@
   become: yes
   become_user: root
   when: rg_check_deb.rc == 1
+  
+- name: Check if ripgrep is up to date
+  shell: rg --version | awk NR==1'{print $2}'
+  register: rg_check_ver
+  when: rg_check_deb.rc == 1
+
+- set_fact: rg_ver="{{ rg_check_ver }}"
+- set_fact: rg_installed_ver="{{ rg_version }}"
+
+- name: Update ripgrep
+  apt:
+    deb: "{{ rg_release_url }}/{{ rg_version }}/{{ rg_dpkg_file }}"
+  become: yes
+  become_user: root
+  when: rg_ver != rg_installed_ver
+
