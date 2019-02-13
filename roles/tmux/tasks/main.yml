@@ -11,6 +11,8 @@
   args:
     creates: "{{dotfiles_user_home}}/.local/pipx/venvs/tmuxp"
   when: tmux_install_tmuxp
+  tags:
+    - pipx
 
 - name: Install tpm
   git:

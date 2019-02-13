@@ -34,6 +34,6 @@
 
 - name: Install pipx
   tags: pipx
-  shell: "PYENV_VERSION=system curl https://raw.githubusercontent.com/cs01/pipx/master/get-pipx.py | python3 - --no-modify-path"
+  shell: "PYENV_VERSION=system python3 -m pip install --user pipx && PYENV_VERSION=system python3 -m pipx install pipx"
   args:
     creates: "{{dotfiles_user_home}}/.local/bin/pipx"

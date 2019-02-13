@@ -10,6 +10,8 @@
   command: "pipx install --force python-language-server"
   args:
     creates: "{{dotfiles_user_home}}/.local/pipx/venvs/python-language-server"
+  tags:
+    - pipx
 
 # Plugin manager
 - name: Makes sure autoload directory exists

@@ -2,6 +2,8 @@
   command: "pipx install --force --spec='jrnl[encrypted]' jrnl"
   args:
     creates: "{{dotfiles_user_home}}/.local/pipx/venvs/jrnl"
+  tags:
+    - pipx
 
 - name: Symlink jrnl config file
   file:
