@@ -1,0 +1,29 @@
+---
+
+- name: Check if bat is installed
+  command: dpkg-query -W bat
+  register: bat_check_deb
+  failed_when: bat_check_deb.rc > 1
+  changed_when: bat_check_deb.rc == 1
+
+- name: Install bat with a .deb file
+  apt:
+    deb: "{{ bat_release_url }}/{{ bat_release_version }}/{{ bat_dpkg_file }}"
+  become: yes
+  become_user: root
+  when: bat_check_deb.rc == 1
+
+- name: Check if bat is up to date
+  shell: bat --version | awk NR==1'{print $2}'
+  register: bat_check_ver
+  when: bat_check_deb.rc == 1
+
+- set_fact: bat_ver="{{ bat_check_ver }}"
+- set_fact: bat_installed_ver="{{ bat_version }}"
+
+- name: Update bat
+  apt:
+    deb: "{{ bat_release_url }}/{{ bat_release_version }}/{{ bat_dpkg_file }}"
+  become: yes
+  become_user: root
+  when: bat_ver != bat_installed_ver
