@@ -178,6 +178,10 @@ If you get an error about Xcode command-line tools, you may need to run
 sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
 ```
 
+If pyenv versions fail to install, try the steps here:
+
+https://github.com/pyenv/pyenv/issues/1219#issuecomment-459333831
+
 todo
 ----
 
