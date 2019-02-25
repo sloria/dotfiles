@@ -37,3 +37,10 @@
   shell: "PYENV_VERSION=system python3 -m pip install --user pipx && PYENV_VERSION=system python3 -m pipx install pipx"
   args:
     creates: "{{dotfiles_user_home}}/.local/bin/pipx"
+
+# A global `virtualenv` command is needed for prezto's pyenv-virtualenv to work
+- name: Install virtualenv
+  shell: "PYENV_VERSION=system python3 -m pip install virtualenv"
+  args:
+    creates: "/usr/local/bin/virtualenv"
+  when: ansible_os_family == "Darwin"
