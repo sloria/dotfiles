@@ -39,3 +39,6 @@ _sandbox
 
 # throwaway code
 t.py
+
+# project-specific vimrc
+.vimrc

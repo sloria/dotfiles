@@ -191,6 +191,7 @@ set encoding=utf-8
 set relativenumber
 set autoread " reload files when changed on disk, i.e. via `git checkout`
 set clipboard^=unnamedplus,unnamed " Make "yanks" work with system clipboard
+set exrc secure  " Project-specific vimrcs
 
 " Indents
 set autoindent
