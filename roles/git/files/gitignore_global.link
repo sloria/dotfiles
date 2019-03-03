@@ -42,3 +42,6 @@ t.py
 
 # project-specific vimrc
 .vimrc
+
+# local konchrc files
+.konchrc.local
