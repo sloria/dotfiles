@@ -63,6 +63,7 @@ nmap <leader>' :lopen<CR>
 let g:ale_maximum_file_size = 500000  " Don't lint large files (> 500KB), it can slow things down
 let g:ale_linters = {}
 let g:ale_linters.javascript = ['eslint', 'tsserver']
+let g:ale_linters.typescript = ['eslint', 'tsserver']
 let g:ale_linters.python = ['flake8', 'mypy', 'pyls']
 let g:ale_linters.html = []
 let g:ale_fixers = {}
