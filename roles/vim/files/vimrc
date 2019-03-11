@@ -161,10 +161,11 @@ Plug 'sloria/vim-hybrid'  " hybrid with easier-to-read line numbers
 
 " LANGUAGE-SPECIFIC
 Plug 'sheerun/vim-polyglot'  " syntax files for most languages
-let g:polyglot_disabled = ['python', 'latex'] " Use python-syntax and vimtex
+let g:polyglot_disabled = ['python', 'latex', 'typescript', 'jsx'] " Use python-syntax and vimtex
 let g:jsx_ext_required = 0
 let g:markdown_fenced_languages = ['javascript', 'python', 'clojure', 'ruby']
-Plug 'peitalin/vim-jsx-typescript'
+Plug 'leafgarland/typescript-vim'
+Plug 'maxmellon/vim-jsx-pretty'
 Plug 'lervag/vimtex'
 " --- Python ---
 Plug 'vim-python/python-syntax'  " Improved python syntax
