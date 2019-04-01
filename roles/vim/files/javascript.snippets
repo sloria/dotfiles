@@ -153,6 +153,12 @@ describe('${1:feature}', () => {
 });
 endsnippet
 
+snippet desca
+describe('${1:feature}', async () => {
+	${2}
+});
+endsnippet
+
 snippet descf
 describe('${1:feature}', function() {
 	${2}
@@ -161,6 +167,12 @@ endsnippet
 
 snippet it
 it('${1:should do something}', () => {
+	${2}
+});
+endsnippet
+
+snippet ita
+it('${1:should do something}', async () => {
 	${2}
 });
 endsnippet
