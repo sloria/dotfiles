@@ -45,3 +45,5 @@ t.py
 
 # local konchrc files
 .konchrc.local
+
+.testmondata
