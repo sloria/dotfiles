@@ -40,6 +40,9 @@ _sandbox
 # throwaway code
 t.py
 
+# vim session
+.session
+
 # project-specific vimrc
 .vimrc
 

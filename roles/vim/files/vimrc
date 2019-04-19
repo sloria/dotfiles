@@ -260,6 +260,8 @@ nnoremap <leader>e :e.<CR>
 nnoremap <Leader>v <C-w>v<C-w>w
 " Quick select whole file
 map <leader>a ggVG
+" Quickly save session
+nnoremap <leader>S :mksession! .session<CR>
 " Make D delete to end of line
 nnoremap D d$
 " Make Y yank to end of line
