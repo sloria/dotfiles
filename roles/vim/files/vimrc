@@ -44,7 +44,6 @@ Plug 'vim-scripts/BufOnly.vim'  " delete all but current buffer
 Plug 'scrooloose/nerdtree', {'on': ['NERDTreeToggle', 'NERDTreeFind']}
 nnoremap <leader>d :NERDTreeToggle<CR>
 nnoremap <leader>D :NERDTreeFind<CR>
-let g:NERDTreeRespectWildIgnore = 1
 
 Plug 'w0rp/ale'  " Async linting
 nmap <silent> [s <Plug>(ale_previous_wrap)
