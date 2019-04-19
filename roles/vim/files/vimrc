@@ -32,10 +32,10 @@ Plug 'tpope/vim-rsi'  " unix keybindings in insert mode
 Plug 'tpope/vim-repeat'  " make more actions repeatable with .
 Plug 'machakann/vim-sandwich' " motions for handling surrounding characters
 Plug 'tpope/vim-unimpaired'  " useful bracket maps and option toggling
-Plug 'tomtom/tcomment_vim'  " for code comments
 " Toggle comment with space-/
-nmap <leader>/ <Plug>TComment_<c-_><c-_>
-vmap <leader>/ <Plug>TComment_<c-_><c-_>
+Plug 'tpope/vim-commentary' " for code comments
+nmap <leader>/ <Plug>CommentaryLine
+vmap <leader>/ <Plug>Commentary
 " Buffers
 Plug 'moll/vim-bbye'  " delete buffer without closing window
 nnoremap X :Bdelete<CR>
