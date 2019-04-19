@@ -28,6 +28,16 @@ snippet ipt "Import prop-types"
 import t from "prop-types";
 endsnippet
 
+snippet irt "Import relay type"
+import { `!p snip.rv = ''.join(x for x in re.sub('\.js$', '', snip.basename or 'ModuleName').split('_'))`_$1 as `!p snip.rv = t[1].capitalize()` } from './__generated__/`!p snip.rv = ''.join(x for x in re.sub('\.js$', '', snip.basename or 'ModuleName').split('_'))`_$1';
+endsnippet
+
+snippet iprops "interface Props"
+interface Props
+	${1:name}: ${2:type};
+}
+endsnippet
+
 snippet rfc "React Functional Component" b
 const ${1:`!v expand('%:t:r')`} = (${2:{...props}}) => {
 	return (
