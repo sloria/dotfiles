@@ -57,6 +57,7 @@ let g:ale_pattern_options = {
 \   '.*\.tex$': {'ale_enabled': 0},
 \}
 nmap <leader>+ :let b:ale_enabled=1<cr>
+let g:ale_fix_on_save = 1
 " Quickly open the loclist to see syntax errors
 nmap <leader>' :lopen<CR>
 let g:ale_maximum_file_size = 500000  " Don't lint large files (> 500KB), it can slow things down
@@ -99,8 +100,11 @@ Plug 'tpope/vim-dispatch' " So we can run tests asynchronously
 Plug 'janko-m/vim-test'  " For running tests
 let test#python#runner = 'pytest'
 nmap <silent> <leader>tt :TestNearest<CR>
+nmap <silent> <leader>tT :TestNearest --snapshot-update<CR>
 nmap <silent> <leader>tf :TestFile<CR>
+nmap <silent> <leader>tF :TestFile --snapshot-update<CR>
 nmap <silent> <leader>tl :TestLast<CR>
+nmap <silent> <leader>tL :TestLast --snapshot-update<CR>
 let test#strategy = "dispatch"
 " -s for ipdb support; disable cacheprovider so we don't break 'py.test --lf'
 let test#python#pytest#options = '-s -p no:cacheprovider'
