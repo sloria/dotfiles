@@ -53,8 +53,14 @@ let g:ale_pattern_options = {
 \   '.*\.txt$': {'ale_enabled': 0},
 \   '.*\.tex$': {'ale_enabled': 0},
 \}
-nmap <leader>+ :let b:ale_enabled=1<cr>
+nmap <leader>- :ALEToggleBuffer<cr>
 let g:ale_fix_on_save = 1
+" nnoremap <leader>+ :let g:ale_fix_on_save = !g:ale_fix_on_save<cr>
+nnoremap <leader>+ :call ToggleFixOnSave()<cr>
+function! ToggleFixOnSave()
+    let g:ale_fix_on_save = !g:ale_fix_on_save
+    echo g:ale_fix_on_save == 1 ? "ale_fix_on_save enabled" : "ale_fix_on_save disabled"
+endfunction
 " Quickly open the loclist to see syntax errors
 nmap <leader>' :lopen<CR>
 let g:ale_maximum_file_size = 500000  " Don't lint large files (> 500KB), it can slow things down
