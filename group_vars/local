@@ -58,6 +58,8 @@ mac_homebrew_packages:
   - watch
   # For displaying a notification when a command finishes
   - noti
+  # For encrypting envvars in Travis
+  - travis
 
 # Mac Apps to be installed with homebrew-cask
 mac_cask_packages:
