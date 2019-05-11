@@ -114,6 +114,8 @@ mac_cask_packages:
   - insomnia
   # Markdown-based presentations
   - deckset
+  # Screen recording
+  - kap
 
 # Mac-App-Store-only apps to be installed with mas
 # Use App IDs found with `mas search <name>`
