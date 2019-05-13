@@ -4,6 +4,7 @@ let mapleader = "\<Space>"
 """"" PLUGINS """""
 call plug#begin()
 " ESSENTIALS
+Plug 'andymass/vim-matchup'  " enhanced % (NOTE: must come before vim-sensible)
 Plug 'tpope/vim-sensible' " Sensible defaults
 Plug 'rstacruz/vim-opinion' " More sensible defaults
 Plug 'ervandew/supertab' " Tab complete everything
