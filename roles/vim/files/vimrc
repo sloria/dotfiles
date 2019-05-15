@@ -126,7 +126,7 @@ let g:scratch_no_mappings = 1
 let g:scratch_height = 20
 let g:scratch_filetype = 'markdown'
 let g:scratch_persistence_file = '.scratch'
-" Open scratch buffer with space-tab (automatically set syntax to python)
+" Open scratch buffer with space-tab (automatically set syntax to markdown)
 nnoremap <silent> <leader><tab> :Scratch<cr>
 Plug 'tpope/vim-sleuth'  " Detect indent settings
 Plug 'machakann/vim-highlightedyank'  " Highlight yank
