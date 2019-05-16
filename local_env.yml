@@ -16,7 +16,6 @@
     - {role: gsed, tags: ['gsed']}
     - {role: bat, tags: ['bat']}
     - {role: tmux, tags: ['tmux']}
-    - {role: git-flow, tags: ['git-flow']}
     - {role: fzf, tags: ['fzf']}
     - {role: kubernetes, tags: ['kubernetes']}
     - {role: jrnl, tags: ['jrnl']}

@@ -70,11 +70,6 @@ function hit() {
   $src | highlight -O rtf --syntax $1 --font 'Ubuntu Mono' --style solarized-light --font-size 24 | pbcopy
 }
 
-# SSH and attach tmux session
-function sst() {
-  ssh "$1" -t tmux attach
-}
-
 function countfiles() {
   find "$1" -type f | wc -l
 }

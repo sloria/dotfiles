@@ -16,7 +16,7 @@ a few neat features
 - [tmuxp](https://tmuxp.git-pull.com/en/latest/) for tmux session management
 - vim with [vim-plug](https://github.com/junegunn/vim-plug) for plugin management. All configuration in a single file [.vimrc](https://github.com/sloria/dotfiles/blob/master/roles/vim/files/vimrc).
 - pluggable. Everything is optional. Fork this. Remove what you don't use. Configure what you do use.
-- Mac packages installed with [homebrew][]. Mac apps installed with [homebrew-cask][].
+- Mac packages installed with [homebrew][]. Mac apps installed with [homebrew-cask][] and [mas][].
 - Useful git aliases
 - Optional git commit signing with GPG
 
@@ -180,6 +180,7 @@ todo
 
 [homebrew]: http://brew.sh/
 [homebrew-cask]: https://github.com/caskroom/homebrew-cask
+[mas]: https://github.com/mas-cli/mas
 
 
 license

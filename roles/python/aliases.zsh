@@ -6,7 +6,6 @@ alias jpnb="jupyter notebook"
 alias pyserv2="python2 -m SimpleHTTPServer"
 alias pyserv="python3 -m http.server"
 alias pt="pytest"
-alias nt="nosetests"
 alias mn="python manage.py"
 alias pipgrep="pip freeze | grep -i "
 

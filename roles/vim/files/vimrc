@@ -150,7 +150,6 @@ map <leader>gB :Gbrowse -<CR>
 vmap <leader>gB :Gbrowse -<CR>
 map <leader>gr :Gread<CR>
 map <leader>gw :Gwrite<CR>
-noremap <Leader>gp :Gpush<CR>
 Plug 'mattn/webapi-vim' | Plug 'mattn/gist-vim', {'on': 'Gist'}
 " Make gists private by default
 let g:gist_post_private = 1
@@ -180,11 +179,6 @@ Plug 'vim-python/python-syntax'  " Improved python syntax
 let g:python_highlight_all = 1
 Plug 'Vimjas/vim-python-pep8-indent'  " Proper python indenting
 " --- Javascript ---
-Plug 'lfilho/cosco.vim'  " Quick insertion of commas and semicolons
-augroup cosco
-  autocmd!
-  autocmd FileType javascript,css nmap <silent> <Leader>; <Plug>(cosco-commaOrSemiColon)
-augroup END
 Plug 'heavenshell/vim-jsdoc'  " For making JS docstrings
 map <C-c>j <Plug>(jsdoc)
 " --- CSS ---

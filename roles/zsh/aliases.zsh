@@ -5,7 +5,6 @@ alias cl="clear"
 alias c="clear"
 alias pg='ps -ef | grep'
 alias pkill!="pkill -9 -f "
-alias fkill="fkill -v"
 alias lj='jobs'
 alias dil='doitlive'
 alias dilp='doitlive play'
