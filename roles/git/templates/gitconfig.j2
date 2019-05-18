@@ -49,14 +49,6 @@
         cb = "!git rev-parse --abbrev-ref HEAD | tr -d '\n' | pbcopy"
 
         remote-branches = "!f() { git ls-remote --heads ${1:origin} | sed 's?.*refs/heads/??'; }; f "
-
-        # Git flow
-        feature = flow feature start
-        finfeature = flow feature finish
-        fix = flow hotfix start
-        finfix = flow hotfix finish
-        release = flow release start
-        finrelease = flow release finish
 [color]
         diff = auto
         status = auto
