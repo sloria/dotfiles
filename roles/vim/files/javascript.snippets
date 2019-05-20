@@ -28,14 +28,45 @@ snippet ipt "Import prop-types"
 import t from "prop-types";
 endsnippet
 
-snippet irt "Import relay type"
-import { `!p snip.rv = ''.join(x for x in re.sub('\.js$', '', snip.basename or 'ModuleName').split('_'))`_$1 as `!p snip.rv = t[1].capitalize()` } from './__generated__/`!p snip.rv = ''.join(x for x in re.sub('\.js$', '', snip.basename or 'ModuleName').split('_'))`_$1.graphql';
-endsnippet
-
 snippet iprops "interface Props"
 interface Props {
 	${1:name}: ${2:type};
 }
+endsnippet
+
+# Relay
+
+snippet relayboiler "Relay fragment container component with TS" b
+import React from 'react';
+import { FormattedMessage } from 'react-intl';
+
+import { createFragmentContainer, graphql } from 'react-relay';
+import { $2_$1 as `!p snip.rv = t[1].capitalize()` } from './__generated__/$2_$1.graphql';
+
+interface Props {
+	$1: `!p snip.rv = t[1].capitalize()`;
+}
+
+function ${2:`!v expand('%:t:r')`}({ ${1:thing} }: Props) {
+	return (
+		<div>
+			${3:<FormattedMessage id="todo" defaultMessage="TODO" />}
+		</div>
+	);
+}
+
+export default createFragmentContainer(
+	$2,
+	graphql\`
+		fragment $2_$1 on `!p snip.rv = t[1].capitalize()` {
+			id
+		}
+	\`,
+);
+endsnippet
+
+snippet irt "Import relay type"
+import { `!p snip.rv = ''.join(x for x in re.sub('\.js$', '', snip.basename or 'ModuleName').split('_'))`_$1 as `!p snip.rv = t[1].capitalize()` } from './__generated__/`!p snip.rv = ''.join(x for x in re.sub('\.js$', '', snip.basename or 'ModuleName').split('_'))`_$1.graphql';
 endsnippet
 
 snippet irprops "Relay type with props"
@@ -259,78 +290,3 @@ afterEach(function() {
 	${1}
 });
 endsnippet
-
-# Chai assertions
-
-snippet aok
-assert.ok(${1});
-endsnippet
-
-snippet a==
-assert.equal(${1}, ${2});
-endsnippet
-
-snippet a!=
-assert.notEqual(${1}, ${2});
-endsnippet
-
-snippet a===
-assert.strictEqual(${1}, ${2});
-endsnippet
-
-snippet a!==
-assert.notStrictEqual(${1}, ${2});
-endsnippet
-
-snippet ad=
-assert.deepEqual(${1}, ${2});
-endsnippet
-
-snippet a!d=
-assert.notDeepEqual(${1}, ${2});
-endsnippet
-
-snippet atrue
-assert.isTrue(${1});
-endsnippet
-
-snippet atrue
-assert.isFalse(${1});
-endsnippet
-
-snippet atype
-assert.typeOf(${1:obj}, '${2:type}');
-endsnippet
-
-snippet aio
-assert.instanceOf(${1:obj}, ${2:type});
-endsnippet
-
-# Chai-sinon
-
-snippet acalled
-assert.called(${1:spy});
-endsnippet
-
-snippet acalledw
-assert.calledWith(${1:spy}, ${2:args});
-endsnippet
-
-snippet acalledo
-assert.calledOnce(${1:spy});
-endsnippet
-
-snippet spy
-var ${1:spy} = new sinon.spy(${2:obj}, '${3:method}');
-endsnippet
-
-snippet testboiler
-/*global describe, it, expect, example, before, after, beforeEach, afterEach, mocha, sinon*/
-'use strict';
-var assert = require('chai').assert;
-
-describe('${1:feature}', () => {
-	${2}
-});
-endsnippet
-
