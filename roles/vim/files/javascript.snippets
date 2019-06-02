@@ -14,27 +14,31 @@ snippet ce "console.error" b
 console.error($1);
 endsnippet
 
-# React stuff
-
-snippet ss "setState" b
-this.setState({ $1 });
-endsnippet
-
-snippet ir "Import React"
-import React from "react";
-endsnippet
-
-snippet ipt "Import prop-types"
-import t from "prop-types";
-endsnippet
-
-snippet iprops "interface Props"
-interface Props {
-	${1:name}: ${2:type};
-}
-endsnippet
+# -----------------------------------------------------------------------------
 
 # Relay
+
+snippet irelay "import Relay"
+import { createFragmentContainer, graphql } from 'react-relay';
+endsnippet
+
+snippet frag "GraphQL fragment" b
+${1:thing}: graphql\`
+	fragment `!v expand('%:t:r')`_$1 on ${2:`!p snip.rv = t[1].capitalize()`} {
+		${3:id}
+	}
+\`,
+endsnippet
+
+snippet cfc "createFragmentContainer" b
+export default createFragmentContainer(`!v expand('%:t:r')`, {
+	${1:thing}: graphql\`
+		fragment `!v expand('%:t:r')`_$1 on ${2:`!p snip.rv = t[1].capitalize()`} {
+			${3:id}
+		}
+	\`,
+})
+endsnippet
 
 snippet relayboiler "Relay fragment container component with TS" b
 import React from 'react';
@@ -76,6 +80,41 @@ interface Props {
 	$1: `!p snip.rv = t[1].capitalize()`;
 }
 endsnippet
+
+# -----------------------------------------------------------------------------
+
+# react-intl
+
+snippet iintl "Import react-intl"
+import { FormattedMessage } from 'react-intl';
+endsnippet
+
+snippet fm "FormattedMessage"
+<FormattedMessage id="$1" defaultMessage="$2" />
+endsnippet
+
+# -----------------------------------------------------------------------------
+
+# React
+
+snippet ss "setState" b
+this.setState({ $1 });
+endsnippet
+
+snippet ir "Import React"
+import React from "react";
+endsnippet
+
+snippet ipt "Import prop-types"
+import t from "prop-types";
+endsnippet
+
+snippet iprops "interface Props"
+interface Props {
+	${1:name}: ${2:type};
+}
+endsnippet
+
 snippet rfc "React Functional Component" b
 const ${1:`!v expand('%:t:r')`} = (${2:{...props}}) => {
 	return (
@@ -198,6 +237,8 @@ shouldComponentUpdate(nextProps, nextState) {
 }
 endsnippet
 
+# -----------------------------------------------------------------------------
+
 # Mocha testing
 snippet desc
 describe('${1:feature}', () => {
@@ -289,4 +330,20 @@ snippet afef
 afterEach(function() {
 	${1}
 });
+endsnippet
+
+# -----------------------------------------------------------------------------
+
+# Selenium testing
+
+snippet ats "await takeScreenshot"
+await takeScreenshot($1);
+endsnippet
+
+snippet asl "await browser.sleep"
+await browser.sleep(${1:200});
+endsnippet
+
+snippet apr "await empty promise"
+await new Promise(() => {});
 endsnippet
