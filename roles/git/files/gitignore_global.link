@@ -50,3 +50,6 @@ t.py
 .konchrc.local
 
 .testmondata
+
+## VS code
+.vscode

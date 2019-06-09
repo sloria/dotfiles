@@ -1,6 +1,6 @@
 export TERM=xterm-256color
-export EDITOR='mvim'
-export VISUAL='mvim'
+export EDITOR='code'
+export VISUAL='code'
 export GPG_TTY=$(tty)
 
 # Settings for various CLIs I use
