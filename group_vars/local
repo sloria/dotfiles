@@ -65,6 +65,8 @@ mac_homebrew_packages:
 mac_cask_packages:
   # Password manager
   - 1password
+  # Editor
+  - visual-studio-code
   # Backup/storage
   - dropbox
   # Browsers

@@ -28,3 +28,6 @@ defaults write com.apple.dock autohide -bool true && killall Dock
 
 echo "  › Don't use native full-screen (separate Space) for MacVim"
 defaults write org.vim.MacVim MMNativeFullScreen 0
+
+echo "  › Enable key repeat in VSCodeVim"
+defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false 
