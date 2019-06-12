@@ -264,6 +264,10 @@ nnoremap <Leader>v <C-w>v<C-w>w
 map <leader>a ggVG
 " Quickly save session
 nnoremap <leader>S :mksession! .session<CR>
+" Make D delete to end of line
+nnoremap D d$
+" Make Y yank to end of line
+nnoremap Y y$
 " Go to beginning/end of line
 noremap <leader>h ^
 noremap <leader>l $
