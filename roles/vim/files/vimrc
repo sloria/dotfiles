@@ -27,7 +27,7 @@ nmap     <C-f>n <Plug>CtrlSFCwordPath
 nnoremap <C-f>t :CtrlSFToggle<CR>
 Plug 'tpope/vim-rsi'  " unix keybindings in insert mode
 Plug 'tpope/vim-repeat'  " make more actions repeatable with .
-Plug 'machakann/vim-sandwich' " motions for handling surrounding characters
+Plug 'tpope/vim-surround' " motions for handling surrounding characters
 Plug 'tpope/vim-unimpaired'  " useful bracket maps and option toggling
 " Toggle comment with space-/
 Plug 'tpope/vim-commentary' " for code comments
