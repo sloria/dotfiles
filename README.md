@@ -111,6 +111,11 @@ All configuration is done in `~/dotfiles`. Each role may contain (in addition to
 notes
 -----
 
+**vscode**
+
+I use the [Settings Sync](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync) extension to sync my VSCode setup.
+My settings are uploaded here: https://gist.github.com/sloria/1256526bc7e1a52d3c14954d1d26740b
+
 **iterm2**
 
 To import the iterm2 profile, go to your iterm2 preferences, and enable "Load preferences from custom folder" and select the iterm2 folder in the `misc/` directory.
