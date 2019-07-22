@@ -145,9 +145,9 @@ Plug 'tpope/vim-rhubarb'  " For :Gbrowse
 map <leader>gs :Gstatus<CR>
 map <leader>gb :Gblame<CR>
 " Open current file on Github
-map <leader>gB :Gbrowse -<CR>
+map <leader>gB :Gbrowse<CR>
 " Open currently selected lines on Github
-vmap <leader>gB :Gbrowse -<CR>
+vmap <leader>gB :Gbrowse<CR>
 map <leader>gr :Gread<CR>
 map <leader>gw :Gwrite<CR>
 Plug 'mattn/webapi-vim' | Plug 'mattn/gist-vim', {'on': 'Gist'}
