@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Rebase a follow-up PR onto master after the dependent PR is merged.
+# To use:
+#   1. Make sure master is up to date (git sync)
+#   2. Check out the follow-up PR's branch.
+#   3. Run: git rebase-onto-master name-of-dependent-branch
+set -e
+earlier_branch=$1
+branch=$(git rev-parse --abbrev-ref HEAD)
+git rebase --onto master $earlier_branch HEAD
+git branch -D $branch
+git checkout -b $branch
+git branch $branch --set-upstream-to origin/$branch
