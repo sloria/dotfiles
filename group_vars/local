@@ -74,7 +74,7 @@ mac_cask_packages:
   - google-chrome
   # Utilities
   - bettertouchtool
-  - iterm2-nightly  # nightly has faster rendering
+  - iterm2
   - keepingyouawake  # maintained caffeinate wrapper
   - flux
   - appcleaner
