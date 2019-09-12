@@ -10,7 +10,7 @@
   command: "pipx install --force tmuxp"
   args:
     creates: "{{dotfiles_user_home}}/.local/pipx/venvs/tmuxp"
-  when: tmux_install_tmuxp
+  when: tmux_install_tmuxp|bool
   tags:
     - pipx
 
