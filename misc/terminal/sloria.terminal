@@ -195,10 +195,14 @@
 	</data>
 	<key>ShowActiveProcessArgumentsInTitle</key>
 	<true/>
+	<key>ShowActiveProcessInTabTitle</key>
+	<true/>
 	<key>ShowActiveProcessInTitle</key>
 	<false/>
 	<key>ShowDimensionsInTitle</key>
 	<false/>
+	<key>ShowRepresentedURLInTabTitle</key>
+	<true/>
 	<key>ShowRepresentedURLInTitle</key>
 	<false/>
 	<key>TextColor</key>
@@ -214,6 +218,13 @@
 	<integer>90</integer>
 	<key>name</key>
 	<string>sloria</string>
+	<key>noWarnProcesses</key>
+	<array>
+		<dict>
+			<key>ProcessName</key>
+			<string>screen</string>
+		</dict>
+	</array>
 	<key>rowCount</key>
 	<integer>50</integer>
 	<key>type</key>
