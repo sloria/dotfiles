@@ -154,6 +154,8 @@
 	Y2hpdmVy0RcYVHJvb3SAAQgRGiMtMjc7QUhOW2KPkZOYo6y0t8DS1doAAAAAAAABAQAA
 	AAAAAAAZAAAAAAAAAAAAAAAAAAAA3A==
 	</data>
+	<key>Bell</key>
+	<false/>
 	<key>BoldTextColor</key>
 	<data>
 	YnBsaXN0MDDUAQIDBAUGFRZYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3AS
@@ -292,6 +294,8 @@
 	</data>
 	<key>UseBoldFonts</key>
 	<true/>
+	<key>VisualBell</key>
+	<false/>
 	<key>columnCount</key>
 	<integer>90</integer>
 	<key>name</key>
