@@ -299,7 +299,7 @@
 	<key>columnCount</key>
 	<integer>90</integer>
 	<key>name</key>
-	<string>sloria</string>
+	<string>sloria-night-owl</string>
 	<key>noWarnProcesses</key>
 	<array>
 		<dict>
@@ -311,5 +311,7 @@
 	<integer>50</integer>
 	<key>type</key>
 	<string>Window Settings</string>
+	<key>warnOnShellCloseAction</key>
+	<integer>0</integer>
 </dict>
 </plist>
