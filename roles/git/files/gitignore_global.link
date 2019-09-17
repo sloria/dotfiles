@@ -39,6 +39,9 @@ _sandbox
 
 # throwaway code
 t.py
+t.txt
+t.md
+t.js
 
 # vim session
 .session
