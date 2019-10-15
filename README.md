@@ -178,6 +178,18 @@ If pyenv versions fail to install, try the steps here:
 
 https://github.com/pyenv/pyenv/issues/1219#issuecomment-459333831
 
+If python environments break after upgrading brew-installed python, rehash pyenv and re-install pipx environments
+
+```
+pyenv rehash
+
+
+mv ~/.local/bin ~/.local/bin.bak
+mv ~/.local/pipx ~/.local/pipx.bak
+
+dot-update pipx
+```
+
 todo
 ----
 
