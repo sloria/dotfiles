@@ -1,5 +1,5 @@
 - name: Install jrnl with pipx
-  command: "pipx install --force --spec='jrnl[encrypted]' jrnl"
+  command: "pipx install --force jrnl"
   args:
     creates: "{{dotfiles_user_home}}/.local/pipx/venvs/jrnl"
   tags:
