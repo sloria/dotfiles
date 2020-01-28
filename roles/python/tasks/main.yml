@@ -38,6 +38,12 @@
   args:
     creates: "{{dotfiles_user_home}}/.local/bin/pipx"
 
+- name: Install poetry
+  tags: poetry
+  shell: "curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python"
+  args:
+    creates: "{{dotfiles_user_home}}/.poetry/bin/poetry"
+
 # A global `virtualenv` command is needed for prezto's pyenv-virtualenv to work
 - name: Install virtualenv
   shell: "PYENV_VERSION=system python3 -m pip install virtualenv"
