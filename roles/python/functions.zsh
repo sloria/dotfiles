@@ -20,3 +20,17 @@ function fake() {
     echo "$result"
     echo "$result" | pbcopy
 }
+
+function pyup() {
+    if [[ -f setup.py ]]; then
+        printf "Found \e[1msetup.py\e[m...\n"
+        pip install -U -e '.[dev]'
+    fi
+    if [[ -f requirements-dev.txt ]]; then
+        printf "Found \e[1mrequirements-dev.txt\e[m...\n"
+        pip install -U -r requirements-dev.txt
+    elif [[ -f requirements.txt ]]; then
+        printf "Found \e[1mrequirements.txt\e[m...\n"
+        pip install -U -r requirements.txt
+    fi
+}
