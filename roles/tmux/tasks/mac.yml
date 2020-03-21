@@ -3,3 +3,6 @@
 
 - name: Install reattach-to-user-namespace
   homebrew: name=reattach-to-user-namespace state=present
+
+- name: Install urlview for tmux-urlview
+  homebrew: name=urlview state=present
