@@ -79,7 +79,6 @@ mac_cask_packages:
   - flux
   # Utilities
   - bettertouchtool
-  - iterm2
   - appcleaner
   - daisydisk
   # Docker
