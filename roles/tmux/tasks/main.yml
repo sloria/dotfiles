@@ -6,14 +6,6 @@
 
 # TODO: Fedora
 
-- name: Install tmuxp with pipx
-  command: "pipx install --force tmuxp"
-  args:
-    creates: "{{dotfiles_user_home}}/.local/pipx/venvs/tmuxp"
-  when: tmux_install_tmuxp|bool
-  tags:
-    - pipx
-
 - name: Install tpm
   git:
     repo: https://github.com/tmux-plugins/tpm

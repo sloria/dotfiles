@@ -13,7 +13,6 @@ a few neat features
 - iterm2 profile (w/ hotkey, themes, etc.)
 - python2, python3, pipx (for managing python CLIs), pyenv (for managing Python versions), and pyenv-virtualenv (for managing virtualenvs)
 - a tmux.conf that's pretty neat.
-- [tmuxp](https://tmuxp.git-pull.com/en/latest/) for tmux session management
 - vim with [vim-plug](https://github.com/junegunn/vim-plug) for plugin management. All configuration in a single file [.vimrc](https://github.com/sloria/dotfiles/blob/master/roles/vim/files/vimrc).
 - pluggable. Everything is optional. Fork this. Remove what you don't use. Configure what you do use.
 - Mac packages installed with [homebrew][]. Mac apps installed with [homebrew-cask][] and [mas][].
