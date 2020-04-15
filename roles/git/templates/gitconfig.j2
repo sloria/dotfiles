@@ -32,9 +32,9 @@
         dfc = "!dfc() { git df $1^ $1; }; dfc"
 
         please = push --force-with-lease
-        publish = "!git push -u origin $(git rev-parse --abbrev-ref HEAD)"
         # publish current branch
         publish = "!f() { git push -u ${1:-origin} $(git rev-parse --abbrev-ref HEAD); }; f"
+        pub = "!f() { git push -u ${1:-origin} $(git rev-parse --abbrev-ref HEAD); }; f"
 
         # http://gggritso.com/human-git-aliases
         unstage = reset -q HEAD --
