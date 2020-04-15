@@ -1,0 +1,5 @@
+#!/bin/sh
+set -e
+hub sync
+git checkout master
+git cleanup
