@@ -1,4 +1,0 @@
-#!/bin/sh
-# Remove branches that have been deleted on the remote
-# https://stackoverflow.com/a/28020809
-git fetch --all -p; git branch -vv | grep ": gone]" | awk '{ print $1 }' | xargs -n 1 git branch -D

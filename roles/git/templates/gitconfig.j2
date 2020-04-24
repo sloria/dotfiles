@@ -19,11 +19,14 @@
         c = checkout
         ci = commit
         noff = merge --no-ff
+        l = log --graph --decorate --oneline --abbrev-commit --all
+        h = log --graph --decorate --oneline --abbrev-commit
         plr = pull --rebase
         amend = commit --amend
         wip = commit --no-verify -am "WIP"
         br = branch
         rn = branch -m
+
         # diff-so-fancy
         # https://github.com/so-fancy/diff-so-fancy/#usage
         df = "!f() { [ -z \"$GIT_PREFIX\" ] || cd \"$GIT_PREFIX\" && git diff --color \"$@\" | diff-so-fancy  | less --tabs=4 -RFX; }; f"
@@ -36,20 +39,32 @@
         publish = "!f() { git push -u ${1:-origin} $(git rev-parse --abbrev-ref HEAD); }; f"
         pub = "!f() { git push -u ${1:-origin} $(git rev-parse --abbrev-ref HEAD); }; f"
 
+        # Nukes a branch locally and on the origin remote.
+        nuke = "!f() { git branch -D $1 && git push origin :$1; }; f"
+
+        # Remove local branches that have been removed upstream
+        cleanup = "!git fetch --all -p && git branch -vv | grep \": gone]\" | awk '{ print $1 }' | xargs -n 1 git branch -D"
+
+        # Sync branches and cleanup local branches (depends on above alias)
+        syncup = "!hub sync && git checkout master && git cleanup"
+
         # http://gggritso.com/human-git-aliases
         unstage = reset -q HEAD --
         discard = checkout --
         uncommit = reset --mixed HEAD~
 
-        l = log --graph --decorate --oneline --abbrev-commit --all
-        h = log --graph --decorate --oneline --abbrev-commit
-
         issues = !hub browse -- issues
         url = "!f() { sha=$(git rev-parse ${1:-HEAD}); hub browse -u -- commit/$sha; }; f"
+
         # Copy current branch name to clipboard (macOS only)
         cb = "!git rev-parse --abbrev-ref HEAD | tr -d '\n' | pbcopy"
 
-        remote-branches = "!f() { git ls-remote --heads ${1:origin} | sed 's?.*refs/heads/??'; }; f "
+        # Slightly quicker way to credit an author on the latest commit.
+        # Usage: git credit "Steven Loria" sloria1@gmail.com
+        credit = "!f() { git commit --amend --author \"$1 <$2>\" -C HEAD }; f"
+
+        # Set up your branch to track a remote branch. Assumes you mean `origin/$branch-name`.
+        track = "!f() { branch=$(git rev-parse --abbrev-ref HEAD); git branch $branch --set-upstream-to origin/$branch }; f"
 [color]
         diff = auto
         status = auto
