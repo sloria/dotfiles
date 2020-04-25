@@ -53,7 +53,7 @@ mac_homebrew_packages:
   # README rendering
   - grip
   # Prose linting
-  - ValeLint/vale/vale
+  - vale
   # For repeating commands
   - watch
   # For displaying a notification when a command finishes
@@ -74,8 +74,7 @@ mac_cask_packages:
   - google-chrome
   # Display
   - keepingyouawake  # maintained caffeinate wrapper
-  - bestres
-  - muzzle
+  - bestres  # quickly switch resolution
   - flux
   # Utilities
   - bettertouchtool
@@ -86,6 +85,7 @@ mac_cask_packages:
   # chat
   - slack
   - keybase
+  - discord
   # Video conferencing
   - zoomus
   # Media/Music
@@ -110,10 +110,13 @@ mac_cask_packages:
   - selfcontrol
   # Design
   - sketch
+  - zeplin
   # Deployments
   - now
   # REST client
   - insomnia
+  # Flashcards
+  - anki
   # Markdown-based presentations
   - deckset
   # Screen captures and recording
