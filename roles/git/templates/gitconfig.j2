@@ -51,8 +51,11 @@
 
         # http://gggritso.com/human-git-aliases
         unstage = reset -q HEAD --
+        uns = unstage
         discard = checkout --
+        dis = discard
         uncommit = reset --mixed HEAD~
+        unc = uncommit
 
         issues = !hub browse -- issues
         url = "!f() { sha=$(git rev-parse ${1:-HEAD}); hub browse -u -- commit/$sha; }; f"
