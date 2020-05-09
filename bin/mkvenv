@@ -17,7 +17,7 @@ set -e
 current_dir=${PWD##*/}
 # If name is passed as first argument, use that, otherwise use the current dirname
 name=${1:-$current_dir}
-# If python version is passed as second argument, use that, otherwise use 3.7
+# If python version is passed as second argument, use that, otherwise use 3.8
 python_version=${2:-3.8.1}
 common_packages=("ipython" "ipdb" "ped")
 

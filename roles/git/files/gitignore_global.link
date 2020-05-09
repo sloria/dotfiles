@@ -24,20 +24,17 @@ Icon
 .autoenv.zsh
 .ropeproject
 
-# Sandbox for notes, throwaway scripts, etc.
-_sandbox
-
 .ipynb_checkpoints
 
 .xmark.*
 
 .konchrc
 
-.scratch
-
 .python-version
 
 # throwaway code
+_sandbox
+.scratch
 t.py
 t.txt
 t.md
