@@ -94,8 +94,8 @@ mac_cask_packages:
   # Images
   - imageoptim  # optimizing images
   # Notetaking
-  - nvalt  # for my commonplace book
-  - notion  # for organizing everything
+  - fsnotes
+  - notion
   # Fonts
   - font-ubuntu
   - font-cousine
