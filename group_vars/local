@@ -100,6 +100,7 @@ mac_cask_packages:
   - font-ubuntu
   - font-cousine
   - font-hack
+  - font-ia-writer-duospace
   # Databases
   - tableplus  # RDBMS client
   # Docs
