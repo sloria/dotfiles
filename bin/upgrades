@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+brew cask upgrade
+vim +PlugInstall +qall
