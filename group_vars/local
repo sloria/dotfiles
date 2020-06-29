@@ -92,7 +92,7 @@ mac_cask_packages:
   - spotify
   - iina
   # Images
-  - imageoptim  # optimizing images
+  - imageoptim
   # Notetaking
   - fsnotes
   - notion
@@ -101,19 +101,14 @@ mac_cask_packages:
   - font-cousine
   - font-hack
   - font-ia-writer-duospace
-  # Databases
-  - tableplus  # RDBMS client
+  # Database client
+  - tableplus
   # Docs
   - dash
-  # Bibliography
-  - bibdesk
   # Stay focused
   - selfcontrol
   # Design
   - sketch
-  - zeplin
-  # Deployments
-  - now
   # REST client
   - insomnia
   # Flashcards
