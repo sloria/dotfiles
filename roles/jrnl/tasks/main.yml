@@ -4,9 +4,12 @@
     creates: "{{dotfiles_user_home}}/.local/pipx/venvs/jrnl"
   tags:
     - pipx
+    - jrnl
 
 - name: Symlink jrnl config file
   file:
-    src: "{{ dotfiles_home }}/roles/jrnl/files/jrnl_config"
-    dest: "{{ dotfiles_user_home}}/.jrnl_config"
+    src: "{{ dotfiles_home }}/roles/jrnl/files/jrnl.yaml"
+    dest: "{{ dotfiles_user_home}}/.config/jrnl/jrnl.yaml"
     state: link
+  tags:
+    - jrnl

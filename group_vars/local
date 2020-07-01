@@ -60,6 +60,7 @@ mac_homebrew_packages:
   - noti
   # For encrypting envvars in Travis
   - travis
+  - svn  # needed for installing font-cousine
 
 # Mac Apps to be installed with homebrew-cask
 mac_cask_packages:
