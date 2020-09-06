@@ -2,6 +2,7 @@
 
 brew cask upgrade
 vim +PlugUpdate +qall
+zprezto-update
 
 if command -v terminal-notifier 1>/dev/null 2>&1; then
   terminal-notifier -title "dotfiles: upgrades" -message "Upgrades complete."
