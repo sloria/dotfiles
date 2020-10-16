@@ -114,12 +114,6 @@ notes
 I use the [Settings Sync](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync) extension to sync my VSCode setup.
 My settings are uploaded here: https://gist.github.com/sloria/1256526bc7e1a52d3c14954d1d26740b
 
-**iterm2**
-
-To import the iterm2 profile, go to your iterm2 preferences, and enable "Load preferences from custom folder" and select the iterm2 folder in the `misc/` directory.
-
-![iterm2 profile](https://user-images.githubusercontent.com/2379650/34223487-859f2752-e58d-11e7-8024-9e6af5c1ec4e.png)
-
 **macOS keyboard settings**
 
 There are a few keyboard customizations that must be done manually:
