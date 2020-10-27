@@ -15,8 +15,8 @@
 
 - name: Link gitattributes file
   file:
-    src: "{{ dotfiles_home }}/roles/git/files/gitattributes.link"
-    dest: "{{ dotfiles_user_home }}/.gitattributes"
+    src: "{{ dotfiles_home }}/roles/git/files/gitattributes_global.link"
+    dest: "{{ dotfiles_user_home }}/.gitattributes_global"
     state: link
     force: yes
 
