@@ -47,7 +47,7 @@
         cleanup = "!git fetch --all -p && git branch -vv | grep \": gone]\" | awk '{ print $1 }' | xargs -n 1 git branch -D"
 
         # Sync branches and cleanup local branches (depends on above alias)
-        sup = "!hub sync && git checkout master && git cleanup"
+        sup = "!hub sync && git checkout $(git remote show origin | grep 'HEAD branch' | sed 's/.*: //') && git cleanup"
 
         # http://gggritso.com/human-git-aliases
         unstage = reset -q HEAD --
