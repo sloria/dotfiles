@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-brew cask upgrade
+brew upgrade --cask
 vim +PlugUpdate +qall
 zprezto-update
 
