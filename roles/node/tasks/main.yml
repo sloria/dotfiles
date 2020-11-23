@@ -1,7 +1,7 @@
 - name: Install nvm
   script: install_nvm.sh
   args:
-    creates: "{{dotfiles_user_home}}/.nvm"
+    creates: "{{ dotfiles_user_home }}/.nvm"
 
 # - name: Install common npm utilities
 #   npm: name={{item}} state=present global=yes

@@ -9,27 +9,33 @@
 - name: Install python-language-server (used by ale) with pipx
   command: "pipx install --force python-language-server"
   args:
-    creates: "{{dotfiles_user_home}}/.local/pipx/venvs/python-language-server"
+    creates: "{{ dotfiles_user_home }}/.local/pipx/venvs/python-language-server"
   tags:
     - pipx
 
 # Plugin manager
 - name: Makes sure autoload directory exists
-  file: path="{{dotfiles_user_home}}/.vim/autoload" state=directory
+  file:
+    path: "{{ dotfiles_user_home }}/.vim/autoload"
+    state: directory
+    mode: 0700
 
 - name: Install vim-plug
   get_url:
     url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    dest: "{{dotfiles_user_home}}/.vim/autoload/plug.vim"
+    dest: "{{ dotfiles_user_home }}/.vim/autoload/plug.vim"
 
 # Snippets
 - name: Makes sure UltiSnips directory exists
-  file: path="{{dotfiles_user_home}}/.vim/UltiSnips" state=directory
+  file:
+    path: "{{ dotfiles_user_home }}/.vim/UltiSnips"
+    state: directory
+    mode: 0700
 
 - name: Symlink all snippet files
   file:
-    src: "{{ dotfiles_home }}/roles/vim/files/{{item}}"
-    dest: "{{ dotfiles_user_home}}/.vim/UltiSnips/{{item}}"
+    src: "{{ dotfiles_home }}/roles/vim/files/{{ item }}"
+    dest: "{{ dotfiles_user_home }}/.vim/UltiSnips/{{ item }}"
     state: link
   with_items:
     - "python.snippets"
@@ -38,20 +44,21 @@
 
 # Configuration
 - name: Check if vimrc exists
-  stat: path="{{dotfiles_user_home}}/.vimrc"
+  stat:
+    path: "{{ dotfiles_user_home }}/.vimrc"
   register: vimrc_stat
   failed_when: False
 
 - name: Backup vimrc
   command: mv ~/.vimrc ~/.vimrc.bak
   args:
-    creates: "{{dotfiles_user_home}}/.vimrc.bak"
+    creates: "{{ dotfiles_user_home }}/.vimrc.bak"
   when: vimrc_stat.stat.exists
 
 - name: Symlink vimrc
   file:
     src: "{{ dotfiles_home }}/roles/vim/files/vimrc"
-    dest: "{{dotfiles_user_home}}/.vimrc"
+    dest: "{{ dotfiles_user_home }}/.vimrc"
     state: link
 
 - name: Install plugins

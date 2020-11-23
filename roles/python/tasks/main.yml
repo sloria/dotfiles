@@ -4,49 +4,54 @@
 
 
 - name: Install Python versions with pyenv
-  shell: 'pyenv install {{item}} --skip-existing'
+  command: 'pyenv install {{ item }} --skip-existing'
   args:
     creates: "{{ '~/.pyenv/versions/' + item | expanduser }}"
-  with_items: '{{pyenv_global_versions}}'
+  with_items: '{{ pyenv_global_versions }}'
   tags: pyenv
 
 - name: Set global Python versions with pyenv
   copy:
     content: "system\n{% for version in pyenv_global_versions %}{{ version }}\n{% endfor %}"
     dest: "{{ '~/.pyenv/version' }}"
+    mode: 0600
   tags: pyenv
 
 - name: Check if pytest.ini file exists
-  stat: path="{{dotfiles_user_home}}/pytest.ini"
+  stat:
+    path: "{{ dotfiles_user_home }}/pytest.ini"
   register: pytest_stat
 
 - name: Back up pytest.ini file
   command: mv ~/pytest.ini ~/pytest.ini.bak
   args:
-    creates: "{{dotfiles_user_home}}/pytest.ini"
+    creates: "{{ dotfiles_user_home }}/pytest.ini"
   when: pytest_stat.stat.exists
 
 - name: Link pytest.ini file
   file:
-    src: "{{dotfiles_home}}/roles/python/files/pytest.ini"
-    dest: "{{dotfiles_user_home}}/pytest.ini"
+    src: "{{ dotfiles_home }}/roles/python/files/pytest.ini"
+    dest: "{{ dotfiles_user_home }}/pytest.ini"
     state: link
 
 - name: Install pipx
   tags: pipx
   shell: "PYENV_VERSION=system python3 -m pip install --user pipx && PYENV_VERSION=system python3 -m pipx install pipx"
   args:
-    creates: "{{dotfiles_user_home}}/.local/bin/pipx"
+    creates: "{{ dotfiles_user_home }}/.local/bin/pipx"
 
 - name: Install poetry
   tags: poetry
-  shell: "curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python"
+  shell: "set -o pipefail && curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python"
   args:
-    creates: "{{dotfiles_user_home}}/.poetry/bin/poetry"
+    creates: "{{ dotfiles_user_home }}/.poetry/bin/poetry"
 
 # A global `virtualenv` command is needed for prezto's pyenv-virtualenv to work
 - name: Install virtualenv
-  shell: "PYENV_VERSION=system python3 -m pip install virtualenv"
+  command:
+    cmd: "system python3 -m pip install virtualenv"
+  environment:
+    PYENV_VERSION: system
   args:
     creates: "/usr/local/bin/virtualenv"
   when: ansible_os_family == "Darwin"

@@ -1,5 +1,6 @@
 - name: Clone zsh-autoenv
   git:
     repo: https://github.com/Tarrasch/zsh-autoenv.git
-    dest: "{{ '~/.dotfiles/lib/zsh-autoenv' | expanduser}}"
+    dest: "{{ '~/.dotfiles/lib/zsh-autoenv' | expanduser }}"
+    version: master
     update: no

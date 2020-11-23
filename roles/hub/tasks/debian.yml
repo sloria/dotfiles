@@ -18,4 +18,9 @@
 - debug: var=hub_output
 
 - name: Clean hub files
-  command: rm -rf /tmp/{{ hub_linux_full_version }}{,.tgz}
+  file:
+    path: "{{ item }}"
+    state: absent
+  loop:
+    - "/tmp/{{ hub_linux_full_version }}"
+    - "/tmp/{{ hub_linux_full_version }}.tgz"
