@@ -1,0 +1,5 @@
+# .ansible-lint
+skip_list:  # or 'skip_list' to silence them completely
+  - '106'  # Role name {} does not match ``^[a-z][a-z0-9_]+$`` pattern
+  - '503'  # Tasks that run when changed should likely be handlers 
+  - '701'  # meta/main.yml should contain relevant info

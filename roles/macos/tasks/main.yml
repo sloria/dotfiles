@@ -1,26 +1,37 @@
+---
 - name: Set system defaults
   script: set-defaults.sh
   changed_when: false
 
 - name: Install mac-specific homebrew packages
-  homebrew: name={{mac_homebrew_packages}} state=present
+  homebrew:
+    name: "{{ mac_homebrew_packages }}"
+    state: present
 
 - name: Tap into homebrew/cask-fonts
-  homebrew_tap: tap=homebrew/cask-fonts state=present
+  homebrew_tap:
+    tap: homebrew/cask-fonts
+    state: present
 
 - name: Tap into homebrew/cask-versions
-  homebrew_tap: tap=homebrew/cask-versions state=present
+  homebrew_tap:
+    tap: homebrew/cask-versions
+    state: present
 
 - name: Install Mac apps with homebrew cask
-  homebrew_cask: name={{item}} state=present
-  with_items: '{{mac_cask_packages}}'
+  homebrew_cask:
+    name: "{{ item }}"
+    state: present
+  with_items: '{{ mac_cask_packages }}'
 
 - name: Install mas
-  homebrew: name=mas state=present
+  homebrew:
+    name: mas
+    state: present
 
 - name: Install Mac-App-Store-only apps with mas
-  command: mas install {{item.id}}
+  command: "mas install {{ item.id }}"
   args:
-    creates: "/Applications/{{item.name}}.app"
-  with_items: '{{mac_mas_packages}}'
+    creates: "/Applications/{{ item.name }}.app"
+  with_items: '{{ mac_mas_packages }}'
   tags: mas

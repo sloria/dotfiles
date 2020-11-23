@@ -1,7 +1,8 @@
+---
 - name: Install jrnl with pipx
   command: "pipx install --force jrnl"
   args:
-    creates: "{{dotfiles_user_home}}/.local/pipx/venvs/jrnl"
+    creates: "{{ dotfiles_user_home }}/.local/pipx/venvs/jrnl"
   tags:
     - pipx
     - jrnl
@@ -9,7 +10,7 @@
 - name: Symlink jrnl config file
   file:
     src: "{{ dotfiles_home }}/roles/jrnl/files/jrnl.yaml"
-    dest: "{{ dotfiles_user_home}}/.config/jrnl/jrnl.yaml"
+    dest: "{{ dotfiles_user_home }}/.config/jrnl/jrnl.yaml"
     state: link
   tags:
     - jrnl

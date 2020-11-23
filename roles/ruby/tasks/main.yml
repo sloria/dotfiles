@@ -1,10 +1,11 @@
+---
 - name: Install ruby with Homebrew
   homebrew: name=ruby state=present
   when: ansible_os_family == "Darwin"
 
 - name: Install global ruby gems
-  gem: name={{item}} state=present
-  with_items: '{{ruby_global_gems}}'
+  gem: name={{ item }} state=present
+  with_items: '{{ ruby_global_gems }}'
 
 # TODO: Install rvm
 # TODO: Fedora and Debian

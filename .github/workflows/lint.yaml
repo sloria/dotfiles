@@ -1,0 +1,17 @@
+name: Lint
+on: [push, pull_request]
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: yaml-lint
+        uses: ibiqlik/action-yamllint@v3
+
+      - name: Lint Ansible Playbook
+        uses: ansible/ansible-lint-action@master
+        with:
+          targets: "local_env.yml"
+          args: ""

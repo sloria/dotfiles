@@ -1,3 +1,4 @@
+---
 
 - import_tasks: mac.yml
   when: ansible_os_family == "Darwin"
@@ -21,16 +22,17 @@
     force: yes
 
 - name: Check if gitconfig exists
-  stat: path="{{dotfiles_user_home}}/.gitconfig"
+  stat: path="{{ dotfiles_user_home }}/.gitconfig"
   register: gitconfig_stat
 
 - name: Back up gitconfig
   command: mv ~/.gitconfig ~/.gitconfig.bak
   args:
-    creates: "{{dotfiles_user_home}}/.gitconfig.bak"
+    creates: "{{ dotfiles_user_home }}/.gitconfig.bak"
   when: gitconfig_stat.stat.exists
 
 - name: Make sure gitconfig is up to date
   template:
     src: "gitconfig.j2"
-    dest: "{{dotfiles_user_home}}/.gitconfig"
+    dest: "{{ dotfiles_user_home }}/.gitconfig"
+    mode: 0600
