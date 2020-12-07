@@ -88,7 +88,7 @@ mac_cask_packages:
   - keybase
   - discord
   # Video conferencing
-  - zoomus
+  - zoom
   # Media/Music
   - spotify
   - iina
