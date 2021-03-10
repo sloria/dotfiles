@@ -24,9 +24,11 @@
         h = log --graph --decorate --oneline --abbrev-commit
         plr = pull --rebase
         amend = commit --amend
-        wip = commit --no-verify -am "WIP"
+        wip = !git add -A && git commit -m "WIP" --no-verify
         br = branch
         rn = branch -m
+        delete-tag="!f() { git push --delete ${2-origin} ${1}; git tag -d ${1}; }; f"
+        up = !git pull --rebase --prune $@ && git submodule update --init --recursive
 
         # diff-so-fancy
         # https://github.com/so-fancy/diff-so-fancy/#usage
