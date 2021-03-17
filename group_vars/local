@@ -116,7 +116,7 @@ mac_cask_packages:
   # Markdown-based presentations
   - deckset
   # Screen captures and recording
-  - cloudapp
+  - cleanshot
 
 # Mac-App-Store-only apps to be installed with mas
 # Use App IDs found with `mas search <name>`
