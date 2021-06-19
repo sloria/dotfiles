@@ -1,3 +1,4 @@
+---
 
 - name: Install git with yum
   yum: name=git state=present

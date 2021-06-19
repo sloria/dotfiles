@@ -1,7 +1,8 @@
+---
 
 # Prezto
 - name: Install prezto
-  script: install_prezto.sh creates="{{ '~/.zprezto' | expanduser}}"
+  script: install_prezto.sh creates="{{ '~/.zprezto' | expanduser }}"
 
 - name: Link zpreztorc file
   file:

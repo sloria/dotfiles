@@ -1,3 +1,4 @@
+---
 npm_global_packages:
   - jshint
   - eslint

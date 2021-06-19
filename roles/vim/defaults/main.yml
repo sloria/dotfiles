@@ -1,3 +1,4 @@
+---
 # NOTE: if this is false, you'll need to run :PluginInstall in vim to
 # install all plugins
 vim_install_plugins: no
