@@ -1,4 +1,4 @@
-alias cask="brew cask"
+alias cask="brew install --cask"
 alias services="brew services"
 
 function sha256() {
