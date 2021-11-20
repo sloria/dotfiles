@@ -94,7 +94,7 @@ mac_cask_packages:
   # Images
   - imageoptim
   # Notetaking
-  - fsnotes
+  - obsidian
   - notion
   # Fonts
   - font-ubuntu
