@@ -75,7 +75,6 @@ mac_cask_packages:
   # Display
   - keepingyouawake  # maintained caffeinate wrapper
   - bestres  # quickly switch resolution
-  - flux
   # Utilities
   - bettertouchtool
   - appcleaner
@@ -107,12 +106,8 @@ mac_cask_packages:
   - dash
   # Stay focused
   - selfcontrol
-  # Design
-  - sketch
   # REST client
   - insomnia
-  # Flashcards
-  - anki
   # Markdown-based presentations
   - deckset
   # Screen captures and recording
@@ -124,9 +119,6 @@ mac_mas_packages:
   # NOTE: the IDs can be found with `mas search <app name>`
   - {"id": 585829637, "name": "Todoist"}
   - {"id": 409203825, "name": "Numbers"}
-
-ruby_global_gems:
-  - lunchy
 
 # Python versions to install with pyenv and set as global
 # Especially useful when using tox
