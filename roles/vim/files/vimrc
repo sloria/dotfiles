@@ -142,8 +142,8 @@ nmap ]h <Plug>(GitGutterNextHunk)
 set updatetime=200 " faster updates
 Plug 'tpope/vim-fugitive'  " git integration
 Plug 'tpope/vim-rhubarb'  " For :Gbrowse
-map <leader>gs :Gstatus<CR>
-map <leader>gb :Gblame<CR>
+map <leader>gs :Git<CR>
+map <leader>gb :Git blame<CR>
 " Open current file on Github
 map <leader>gB :Gbrowse<CR>
 " Open currently selected lines on Github
