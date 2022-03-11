@@ -39,6 +39,7 @@ t.py
 t.txt
 t.md
 t.js
+t.ts
 
 # vim session
 .session
