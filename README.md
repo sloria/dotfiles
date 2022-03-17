@@ -109,6 +109,14 @@ All configuration is done in `~/dotfiles`. Each role may contain (in addition to
 notes
 -----
 
+**apple silicon/m1 macs**
+
+Add the following line to `~/.localrc` to make homebrew work properly
+
+```
+eval $(/opt/homebrew/bin/brew shellenv)
+```
+
 **vscode**
 
 I use the [Settings Sync](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync) extension to sync my VSCode setup.
