@@ -222,13 +222,13 @@ set winwidth=79 winheight=5 winminheight=5
 " Patterns to ignore for expand(), ctrlp, etc.
 set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz,*.swp,*~,._*,*.pyc,*__pycache__*,*.egg-info
 
-" Persistent undo (can use undos after exiting and restarting)
-if exists("+undofile")
-  if isdirectory($HOME . '/.vim/undo') == 0
-    :silent !mkdir -p ~/.vim/undo > /dev/null 2>&1
-  endif
-  set undodir=./.vim-undo// undodir+=~/.vim/undo// undofile
-endif
+" " Persistent undo (can use undos after exiting and restarting)
+" if exists("+undofile")
+"   if isdirectory($HOME . '/.vim/undo') == 0
+"     :silent !mkdir -p ~/.vim/undo > /dev/null 2>&1
+"   endif
+"   set undodir=./.vim-undo/ undodir+=~/.vim/undo/ undofile
+" endif
 
 """ SHORTCUTS """
 " Quickly edit vimrc
