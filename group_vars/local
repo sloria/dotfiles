@@ -112,6 +112,8 @@ mac_cask_packages:
   - deckset
   # Screen captures and recording
   - cleanshot
+  # Email client
+  - mimestream
 
 # Mac-App-Store-only apps to be installed with mas
 # Use App IDs found with `mas search <name>`
