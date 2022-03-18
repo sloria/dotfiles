@@ -1,5 +1,10 @@
 #!/usr/bin/env zsh
 
+# Initialize homebrew
+if [[ $(uname -m) == 'arm64' ]]; then
+  eval $(/opt/homebrew/bin/brew shellenv)
+fi
+
 # shortcut to this dotfiles path is $ZSH
 export ZSH=$HOME/dotfiles
 
