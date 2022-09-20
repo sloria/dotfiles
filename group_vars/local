@@ -59,7 +59,6 @@ mac_homebrew_packages:
   # For displaying a notification when a command finishes
   - noti
   # For encrypting envvars in Travis
-  - travis
   - svn  # needed for installing font-cousine
 
 # Mac Apps to be installed with homebrew-cask
@@ -83,7 +82,6 @@ mac_cask_packages:
   - docker
   # chat
   - slack
-  - keybase
   - discord
   # Video conferencing
   - zoom
@@ -96,10 +94,8 @@ mac_cask_packages:
   - obsidian
   - notion
   # Fonts
-  - font-ubuntu
   - font-cousine
   - font-hack
-  - font-ia-writer-duospace
   # Database client
   - tableplus
   # Docs
@@ -108,8 +104,6 @@ mac_cask_packages:
   - selfcontrol
   # REST client
   - insomnia
-  # Markdown-based presentations
-  - deckset
   # Screen captures and recording
   - cleanshot
   # Email client
@@ -119,7 +113,6 @@ mac_cask_packages:
 # Use App IDs found with `mas search <name>`
 mac_mas_packages:
   # NOTE: the IDs can be found with `mas search <app name>`
-  - {"id": 585829637, "name": "Todoist"}
   - {"id": 409203825, "name": "Numbers"}
 
 # Python versions to install with pyenv and set as global
