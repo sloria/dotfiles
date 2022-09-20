@@ -10,7 +10,6 @@
     - {role: ruby, tags: ['ruby']}
     - {role: hub, tags: ['hub']}
     - {role: vim, tags: ['vim']}
-    - {role: zsh-autoenv, tags: ['zsh-autoenv']}
     - {role: direnv, tags: ['direnv']}
     - {role: rg, tags: ['rg']}
     - {role: exa, tags: ['exa']}
