@@ -145,11 +145,11 @@ Plug 'tpope/vim-rhubarb'  " For :Gbrowse
 map <leader>gs :Git<CR>
 map <leader>gb :Git blame<CR>
 " Open current file on Github
-map <leader>gB :Gbrowse<CR>
+map <leader>gB :GBrowse<CR>
 " Open currently selected lines on Github
-vmap <leader>gB :Gbrowse<CR>
-map <leader>gr :Gread<CR>
-map <leader>gw :Gwrite<CR>
+vmap <leader>gB :GBrowse<CR>
+map <leader>gr :GRead<CR>
+map <leader>gw :GWrite<CR>
 Plug 'mattn/webapi-vim' | Plug 'mattn/gist-vim', {'on': 'Gist'}
 " Make gists private by default
 let g:gist_post_private = 1
