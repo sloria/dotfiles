@@ -1,12 +1,10 @@
-dotfiles
-========
+# dotfiles
 
 [sloria's dotfiles](https://github.com/sloria/dotfiles-old), rewritten as Ansible roles. Sets up a full local development environment with a **single command.**
 
 Fully supports macOS. Red Hat and Debian support is good but not as complete.
 
-a few neat features
--------------------
+## a few neat features
 
 - zsh configured with [prezto](https://github.com/sorin-ionescu/prezto).
 - nice fonts for the terminal and coding.
@@ -18,15 +16,13 @@ a few neat features
 - Useful git aliases
 - Optional git commit signing with GPG
 
-prerequisites
--------------
+## prerequisites
 
 - homebrew (If on macOS) - **Install this first**
 - git: `brew install git`
 - ansible >= 1.6: `brew install ansible`
 
-install
--------
+## install
 
 - [Fork](https://github.com/sloria/dotfiles/fork) this repo.
 - Clone your fork.
@@ -39,18 +35,18 @@ cd ~/dotfiles
 ```
 
 - Update the following variables in `group_vars/local` (at a minimum)
-    - `full_name`: Your name, which will be attached to commit messages, e.g. "Steven Loria"
-    - `git_user`: Your Github username.
-    - `git_email`: Your git email address.
+  - `full_name`: Your name, which will be attached to commit messages, e.g. "Steven Loria"
+  - `git_user`: Your Github username.
+  - `git_email`: Your git email address.
 - Optional, but recommended: Update `group_vars/local` with the programs you want installed by [homebrew][], [homebrew-cask][], and npm.
-    - `mac_homebrew_packages`:  Utilities that don't get installed by the roles.
-    - `mac_cask_packages`: Mac Apps you want installed with [homebrew-cask][].
+  - `mac_homebrew_packages`: Utilities that don't get installed by the roles.
+  - `mac_cask_packages`: Mac Apps you want installed with [homebrew-cask][].
 - Edit `local_env.yml` as you see fit. Remove any roles you don't use. Edit roles that you do use.
 - Optional: If you want to sign Git commits with a GPG key, follow the
-    instructions [here](https://github.com/pstadler/keybase-gpg-github)
-    to generate a GPG key from Keybase. Then set the
-    `GIT_SIGNING_KEY_ID` environment variable before running the
-    `dot-bootstrap` script.
+  instructions [here](https://github.com/pstadler/keybase-gpg-github)
+  to generate a GPG key from Keybase. Then set the
+  `GIT_SIGNING_KEY_ID` environment variable before running the
+  `dot-bootstrap` script.
 
 ```
 export GIT_SIGNING_KEY_ID=631262B829DDB506
@@ -65,8 +61,7 @@ line in `~/.localrc`.
 ./bin/dot-bootstrap
 ```
 
-updating your local environment
--------------------------------
+## updating your local environment
 
 Once you have the dotfiles installed you can run the following command to rerun the ansible playbook:
 
@@ -80,8 +75,7 @@ You can optionally pass role names
 dot-update git python
 ```
 
-updating your dotfiles repo
----------------------------
+## updating your dotfiles repo
 
 To keep your fork up to date with the `sloria` fork:
 
@@ -90,29 +84,25 @@ git remote add sloria https://github.com/sloria/dotfiles.git
 git pull sloria master
 ```
 
-commands
---------
+## commands
 
 There are three main commands in the `bin` directory for setting up and updating development environments:
 
 - `dot-bootstrap`: sets up local environment by executing all roles in `local_env.yml`.
 - `dot-update`: updates local environment by executing all roles in `local_env.yml` except for the ones tagged with "bootstrap".
 
-special files
--------------
+## special files
 
 All configuration is done in `~/dotfiles`. Each role may contain (in addition to the typical ansible directories and files) a number of special files
 
 - **role/\*.zsh**: Any files ending in `.zsh` get loaded into your environment.
 - **bin/**: Anything in `bin/` will get added to your `$PATH` and be made available everywhere.
 
-notes
------
+## notes
 
 **vscode**
 
-I use the [Settings Sync](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync) extension to sync my VSCode setup.
-My settings are uploaded here: https://gist.github.com/sloria/1256526bc7e1a52d3c14954d1d26740b
+Use built-in Settings Sync to sync VSCode settings.
 
 **macOS keyboard settings**
 
@@ -121,7 +111,6 @@ There are a few keyboard customizations that must be done manually:
 - Turning repeat speed up to 11.
 
 ![Keyboard settings](https://user-images.githubusercontent.com/2379650/34223505-91f95072-e58d-11e7-9b36-78aec4203b0d.png "Key repeat settings")
-
 
 - Mapping Caps Lock to Ctrl.
 
@@ -135,8 +124,7 @@ You can add a message to the login screen using the following command:
 sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText "This laptop is connected to an iCloud account and is valueless if lost. Contact (123) 456-7890 if found. Reward included."
 ```
 
-what if I only want your vim?
------------------------------
+## what if I only want your vim?
 
 First make sure you have a sane vim compiled. On macOS, the following will do:
 
@@ -156,9 +144,7 @@ curl -fLo ~/.vimrc https://raw.githubusercontent.com/sloria/dotfiles/master/role
 
 You will now be able to open vim and run `:PlugInstall` to install all plugins.
 
-
-troubleshooting
----------------
+## troubleshooting
 
 If you get an error about Xcode command-line tools, you may need to run
 
@@ -182,8 +168,7 @@ mv ~/.local/pipx ~/.local/pipx.bak
 dot-update pipx
 ```
 
-todo
-----
+## todo
 
 - Full Debian and Red Hat support
 
@@ -191,8 +176,6 @@ todo
 [homebrew-cask]: https://github.com/caskroom/homebrew-cask
 [mas]: https://github.com/mas-cli/mas
 
-
-license
--------
+## license
 
 [MIT Licensed](http://sloria.mit-license.org/).
