@@ -31,7 +31,6 @@ mac_homebrew_packages:
   - curl
   - jq
   - wget
-  - highlight
   - terminal-notifier
   - youtube-dl
   - htop-osx
@@ -48,12 +47,6 @@ mac_homebrew_packages:
   - tldr
   # what's the wifi password?
   - wifi-password
-  # Share tmux sessions
-  - tmate
-  # README rendering
-  - grip
-  # Prose linting
-  - vale
   # For repeating commands
   - watch
   # For displaying a notification when a command finishes
@@ -98,8 +91,6 @@ mac_cask_packages:
   - font-hack
   # Database client
   - tableplus
-  # Docs
-  - dash
   # Stay focused
   - selfcontrol
   # REST client
@@ -108,8 +99,6 @@ mac_cask_packages:
   - cleanshot
   # Email client
   - mimestream
-  # k8s client
-  - lens
 
 # Mac-App-Store-only apps to be installed with mas
 # Use App IDs found with `mas search <name>`
