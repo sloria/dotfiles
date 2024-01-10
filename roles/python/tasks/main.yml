@@ -34,10 +34,8 @@
 
 - name: Install pipx
   tags: pipx
-  shell: "PYENV_VERSION=system python3 -m pip install --user pipx && PYENV_VERSION=system python3 -m pipx install pipx"
-  args:
-    creates: "{{dotfiles_user_home}}/.local/bin/pipx"
-
+  homebrew: name=pipx state=present
+  when: ansible_os_family == "Darwin"
 
 # A global `virtualenv` command is needed for prezto's pyenv-virtualenv to work
 - name: Install virtualenv
