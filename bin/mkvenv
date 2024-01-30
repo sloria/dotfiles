@@ -49,15 +49,15 @@ pip install -U pip
 printf "Installing common dev packages: \e[1m${common_packages[*]}\e[m\n"
 pip install ${common_packages[*]}
 
-if [[ -f setup.py ]]; then
-    printf "Found \e[1msetup.py\e[m...\n"
+if [[ -f pyproject.toml ]]; then
+    printf "Found \e[1mpyproject.toml\e[m...\n"
     read -p "pip install -e .[dev]? (y|n) " -n 1 -r
     echo
     if [[ $REPLY =~ ^[Yy]$ ]]
     then
         pip install -e '.[dev]'
     else
-        printf "Skipping setup.py installation...\n"
+        printf "Skipping package installation...\n"
     fi
 fi
 
