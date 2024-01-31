@@ -3,7 +3,8 @@
   changed_when: false
 
 - name: Install mac-specific homebrew packages
-  homebrew: name={{mac_homebrew_packages}} state=present
+  homebrew: name={{item}} state=present
+  with_items: '{{mac_homebrew_packages}}'
 
 - name: Tap into homebrew/cask-fonts
   homebrew_tap: tap=homebrew/cask-fonts state=present

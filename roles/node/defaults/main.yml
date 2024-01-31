@@ -1,6 +1,0 @@
-npm_global_packages:
-  - jshint
-  - eslint
-  - webpack
-  - tldr
-  - surge

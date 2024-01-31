@@ -34,13 +34,9 @@ mac_homebrew_packages:
   - terminal-notifier
   - yt-dlp
   - htop-osx
-  - httpie
-  - postgresql
-  - redis
   - diff-so-fancy
   - docker-clean
   - gpg
-  - heroku/brew/heroku
   # Top for docker containers
   - ctop
   # User-contributed docs for Unix commands
