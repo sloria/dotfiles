@@ -2,6 +2,12 @@
   script: set-defaults.sh
   changed_when: false
 
+- name: Ensure iCloud Drive is linked to ~/iCloud
+  file:
+    src: "{{dotfiles_user_home}}/Library/Mobile Documents/com~apple~CloudDocs"
+    dest: "{{dotfiles_user_home}}/iCloud"
+    state: link
+
 - name: Install mac-specific homebrew packages
   homebrew: name={{item}} state=present
   with_items: '{{mac_homebrew_packages}}'
