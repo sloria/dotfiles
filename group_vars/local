@@ -37,6 +37,7 @@ mac_homebrew_packages:
   - diff-so-fancy
   - docker-clean
   - gpg
+  - gh
   # Top for docker containers
   - ctop
   # User-contributed docs for Unix commands

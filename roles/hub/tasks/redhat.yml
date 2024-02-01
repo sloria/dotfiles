@@ -1,3 +1,0 @@
-- name: yum install the latest version of hub
-  yum: name=hub state=present
-  become_method: sudo

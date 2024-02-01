@@ -8,7 +8,7 @@ Fully supports macOS. Red Hat and Debian support is good but not as complete.
 
 - zsh configured with [prezto](https://github.com/sorin-ionescu/prezto).
 - nice fonts for the terminal and coding.
-- python2, python3, pipx (for managing python CLIs), pyenv (for managing Python versions), and pyenv-virtualenv (for managing virtualenvs)
+- python3, pipx (for managing python CLIs), pyenv (for managing Python versions), and pyenv-virtualenv (for managing virtualenvs)
 - a tmux.conf that's pretty neat.
 - vim with [vim-plug](https://github.com/junegunn/vim-plug) for plugin management. All configuration in a single file [.vimrc](https://github.com/sloria/dotfiles/blob/master/roles/vim/files/vimrc).
 - pluggable. Everything is optional. Fork this. Remove what you don't use. Configure what you do use.
@@ -59,6 +59,16 @@ line in `~/.localrc`.
 
 ```bash
 ./bin/dot-bootstrap
+```
+
+
+## authenticating with github
+
+You won't be able to push to repos until you authenticate with GitHub.
+You can use `gh` for this, which should have been installed by `dot-bootstrap` above.
+
+```
+gh auth login
 ```
 
 ## updating your local environment

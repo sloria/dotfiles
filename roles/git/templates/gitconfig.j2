@@ -1,5 +1,3 @@
-[hub]
-        protocol = https
 [user]
         name = {{ full_name }}
         email = {{ git_email }}
@@ -49,7 +47,7 @@
         cleanup = "!git fetch --all -p && git branch -vv | grep \": gone]\" | awk '{ print $1 }' | xargs -n 1 git branch -D"
 
         # Sync branches and cleanup local branches (depends on above alias)
-        sup = "!hub sync && git checkout $(git remote show origin | grep 'HEAD branch' | sed 's/.*: //') && git cleanup"
+        sup = "!gh repo sync && git checkout $(git remote show origin | grep 'HEAD branch' | sed 's/.*: //') && git cleanup"
 
         # http://gggritso.com/human-git-aliases
         unstage = reset -q HEAD --
@@ -59,8 +57,7 @@
         uncommit = reset --mixed HEAD~
         unc = uncommit
 
-        issues = !hub browse -- issues
-        url = "!f() { sha=$(git rev-parse ${1:-HEAD}); hub browse -u -- commit/$sha; }; f"
+        url = "!f() { sha=$(git rev-parse ${1:-HEAD}); gh browse $sha -n; }; f"
 
         # Copy current branch name to clipboard (macOS only)
         cb = "!git rev-parse --abbrev-ref HEAD | tr -d '\n' | pbcopy"
