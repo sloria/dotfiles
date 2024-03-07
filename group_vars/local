@@ -33,7 +33,8 @@ mac_homebrew_packages:
   - wget
   - terminal-notifier
   - yt-dlp
-  - htop-osx
+  - htop
+  - imagemagic  # for resizing images
   - diff-so-fancy
   - docker-clean
   - gpg
