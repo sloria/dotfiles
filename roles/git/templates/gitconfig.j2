@@ -94,6 +94,9 @@
         required = true
 [github]
         user = {{ git_user }}
+
+[init]
+        defaultBranch = main
 {% if git_signing_key %}
 [commit]
         gpgsign = true

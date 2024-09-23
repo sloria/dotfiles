@@ -102,5 +102,5 @@ mac_mas_packages:
 # Python versions to install with pyenv and set as global
 # Especially useful when using tox
 pyenv_global_versions:
-  - 3.12.1
+  - 3.12.2
   - 3.8.18
