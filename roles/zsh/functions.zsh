@@ -73,3 +73,7 @@ function hit() {
 function countfiles() {
   find "$1" -type f | wc -l
 }
+
+function b64() {
+  cat $1 | openssl base64 | tr -d '\n' | pbcopy;
+}
