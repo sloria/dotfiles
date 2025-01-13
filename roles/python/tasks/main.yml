@@ -16,22 +16,6 @@
     dest: "{{ '~/.pyenv/version' }}"
   tags: pyenv
 
-- name: Check if pytest.ini file exists
-  stat: path="{{dotfiles_user_home}}/pytest.ini"
-  register: pytest_stat
-
-- name: Back up pytest.ini file
-  command: mv ~/pytest.ini ~/pytest.ini.bak
-  args:
-    creates: "{{dotfiles_user_home}}/pytest.ini"
-  when: pytest_stat.stat.exists
-
-- name: Link pytest.ini file
-  file:
-    src: "{{dotfiles_home}}/roles/python/files/pytest.ini"
-    dest: "{{dotfiles_user_home}}/pytest.ini"
-    state: link
-
 - name: Install pipx
   tags: pipx
   homebrew: name=pipx state=present

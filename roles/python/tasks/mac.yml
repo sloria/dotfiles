@@ -18,3 +18,6 @@
 - name: Install pyenv-virtualenv
   homebrew: name=pyenv-virtualenv state=present
   tags: pyenv
+
+- name: Install uv
+  homebrew: name=uv state=present
