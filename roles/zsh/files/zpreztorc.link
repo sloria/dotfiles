@@ -90,6 +90,13 @@ zstyle ':prezto:module:editor' key-bindings 'emacs'
 zstyle ':prezto:module:prompt' theme 'pure'
 
 #
+# Python
+#
+
+# Automatically activate/deactivate virtualenvs when .venv exists
+zstyle ':prezto:module:python:virtualenv' auto-switch 'yes'
+
+#
 # Ruby
 #
 
