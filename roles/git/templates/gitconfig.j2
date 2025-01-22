@@ -10,8 +10,8 @@
 {% endif %}
 [alias]
         a = add
-        st = status
         s = status
+        st = stash
         co = checkout
         cob = checkout -b
         cp = cherry-pick
@@ -68,6 +68,7 @@
 
         # Set up your branch to track a remote branch. Assumes you mean `origin/$branch-name`.
         track = "!f() { branch=$(git rev-parse --abbrev-ref HEAD); git branch $branch --set-upstream-to origin/$branch }; f"
+
 [color]
         diff = auto
         status = auto
