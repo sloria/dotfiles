@@ -8,13 +8,12 @@ Fully supports macOS. Red Hat and Debian support is good but not as complete.
 
 - zsh configured with [prezto](https://github.com/sorin-ionescu/prezto).
 - nice fonts for the terminal and coding.
-- python3, pipx (for managing python CLIs), pyenv (for managing Python versions), and pyenv-virtualenv (for managing virtualenvs)
+- python managed with [uv](https://docs.astral.sh/uv/)
 - a tmux.conf that's pretty neat.
 - vim with [vim-plug](https://github.com/junegunn/vim-plug) for plugin management. All configuration in a single file [.vimrc](https://github.com/sloria/dotfiles/blob/master/roles/vim/files/vimrc).
 - pluggable. Everything is optional. Fork this. Remove what you don't use. Configure what you do use.
 - Mac packages installed with [homebrew][]. Mac apps installed with [homebrew-cask][] and [mas][].
 - Useful git aliases
-- Optional git commit signing with GPG
 
 ## prerequisites
 
@@ -42,25 +41,11 @@ cd ~/dotfiles
   - `mac_homebrew_packages`: Utilities that don't get installed by the roles.
   - `mac_cask_packages`: Mac Apps you want installed with [homebrew-cask][].
 - Edit `local_env.yml` as you see fit. Remove any roles you don't use. Edit roles that you do use.
-- Optional: If you want to sign Git commits with a GPG key, follow the
-  instructions [here](https://github.com/pstadler/keybase-gpg-github)
-  to generate a GPG key from Keybase. Then set the
-  `GIT_SIGNING_KEY_ID` environment variable before running the
-  `dot-bootstrap` script.
-
-```
-export GIT_SIGNING_KEY_ID=631262B829DDB506
-```
-
-Note: After running the dot-bootstrap script, you should put the above
-line in `~/.localrc`.
-
 - Run the installation script.
 
 ```bash
 ./bin/dot-bootstrap
 ```
-
 
 ## authenticating with github
 
@@ -160,22 +145,6 @@ If you get an error about Xcode command-line tools, you may need to run
 
 ```
 sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
-```
-
-If pyenv versions fail to install, try the steps here:
-
-https://github.com/pyenv/pyenv/issues/1219#issuecomment-459333831
-
-If python environments break after upgrading brew-installed python, rehash pyenv and re-install pipx environments
-
-```
-pyenv rehash
-
-
-mv ~/.local/bin ~/.local/bin.bak
-mv ~/.local/pipx ~/.local/pipx.bak
-
-dot-update pipx
 ```
 
 ## todo

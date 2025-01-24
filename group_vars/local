@@ -16,10 +16,6 @@ git_user: sloria
 #  used on Github
 git_email: sloria1@gmail.com
 
-# GPG Key ID used to sign git commits
-# See https://github.com/pstadler/keybase-gpg-github setup instructions
-git_signing_key: "{{ lookup('env','GIT_SIGNING_KEY_ID') }}"
-
 # Vim
 
 # Whether to install plugins automatically. If not, just run
@@ -34,10 +30,8 @@ mac_homebrew_packages:
   - terminal-notifier
   - yt-dlp
   - htop
-  - imagemagic  # for resizing images
+  - imagemagick  # for resizing images
   - diff-so-fancy
-  - docker-clean
-  - gpg
   - gh
   # Top for docker containers
   - ctop
@@ -49,7 +43,6 @@ mac_homebrew_packages:
   - watch
   # For displaying a notification when a command finishes
   - noti
-  - svn  # needed for installing font-cousine
 
 # Mac Apps to be installed with homebrew-cask
 mac_cask_packages:
@@ -82,7 +75,6 @@ mac_cask_packages:
   # Notetaking
   - obsidian
   # Fonts
-  - font-cousine
   - font-hack
   # Database client
   - tableplus
@@ -98,9 +90,3 @@ mac_cask_packages:
 mac_mas_packages:
   # NOTE: the IDs can be found with `mas search <app name>`
   - {"id": 409203825, "name": "Numbers"}
-
-# Python versions to install with pyenv and set as global
-# Especially useful when using tox
-pyenv_global_versions:
-  - 3.13.0
-  - 3.9.9

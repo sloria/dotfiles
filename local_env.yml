@@ -17,6 +17,6 @@
     - {role: tmux, tags: ['tmux']}
     - {role: fzf, tags: ['fzf']}
     - {role: kubernetes, tags: ['kubernetes']}
-    # - {role: jrnl, tags: ['jrnl']}
+    - {role: jrnl, tags: ['jrnl']}
     - {role: k9s, tags: ['k9s']}
     - {role: macos, tags: ['macos'], when: ansible_os_family == "Darwin"}

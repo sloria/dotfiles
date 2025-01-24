@@ -6,12 +6,9 @@
 - import_tasks: mac.yml
   when: ansible_os_family == "Darwin"
 
-- name: Install python-language-server (used by ale) with pipx
-  command: "pipx install --force python-language-server"
-  args:
-    creates: "{{dotfiles_user_home}}/.local/pipx/venvs/python-language-server"
-  tags:
-    - pipx
+- name: Install python-language-server (used by ale)
+  command: "uv tool install python-language-server"
+  # TODO: Make idempotent
 
 # Plugin manager
 - name: Makes sure autoload directory exists

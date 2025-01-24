@@ -1,9 +1,7 @@
-- name: Install jrnl with pipx
-  command: "pipx install --force jrnl"
-  args:
-    creates: "{{dotfiles_user_home}}/.local/pipx/venvs/jrnl"
+- name: Install jrnl with uv
+  command: "uv tool install jrnl"
+  # TODO: Make idempotent
   tags:
-    - pipx
     - jrnl
 
 - name: Symlink jrnl config file
