@@ -1,5 +1,4 @@
 - name: Make sure zsh is installed
   yum: name=zsh state=present
   become_method: sudo
-
 # TODO: Set zsh as login shell

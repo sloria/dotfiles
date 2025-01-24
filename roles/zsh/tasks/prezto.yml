@@ -1,4 +1,3 @@
-
 # Prezto
 - name: Install prezto
   script: install_prezto.sh creates="{{ '~/.zprezto' | expanduser}}"

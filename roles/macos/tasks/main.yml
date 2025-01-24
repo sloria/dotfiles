@@ -10,7 +10,7 @@
 
 - name: Install mac-specific homebrew packages
   homebrew: name={{item}} state=present
-  with_items: '{{mac_homebrew_packages}}'
+  with_items: "{{mac_homebrew_packages}}"
 
 - name: Tap into homebrew/cask-fonts
   homebrew_tap: tap=homebrew/cask-fonts state=present
@@ -20,7 +20,7 @@
 
 - name: Install Mac apps with homebrew cask
   homebrew_cask: name={{item}} state=present
-  with_items: '{{mac_cask_packages}}'
+  with_items: "{{mac_cask_packages}}"
 
 - name: Install mas
   homebrew: name=mas state=present
@@ -29,5 +29,5 @@
   command: mas install {{item.id}}
   args:
     creates: "/Applications/{{item.name}}.app"
-  with_items: '{{mac_mas_packages}}'
+  with_items: "{{mac_mas_packages}}"
   tags: mas

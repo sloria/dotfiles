@@ -1,4 +1,3 @@
-
 - name: Make sure zsh is installed
   apt: name=zsh state=present
   become_method: sudo

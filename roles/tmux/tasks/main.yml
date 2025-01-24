@@ -1,4 +1,3 @@
-
 - import_tasks: mac.yml
   when: ansible_os_family == "Darwin"
 - import_tasks: debian.yml

@@ -4,5 +4,4 @@
 - name: Install ripgrep with homebrew
   homebrew: name=ripgrep state=present
   when: ansible_os_family == "Darwin"
-
 # TODO: RedHat

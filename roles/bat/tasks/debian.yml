@@ -1,5 +1,4 @@
 ---
-
 - name: Check if bat is installed
   command: dpkg-query -W bat
   register: bat_check_deb

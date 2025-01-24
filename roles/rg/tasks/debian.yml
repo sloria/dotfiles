@@ -11,7 +11,7 @@
   become: yes
   become_user: root
   when: rg_check_deb.rc == 1
-  
+
 - name: Check if ripgrep is up to date
   shell: rg --version | awk NR==1'{print $2}'
   register: rg_check_ver
@@ -26,4 +26,3 @@
   become: yes
   become_user: root
   when: rg_ver != rg_installed_ver
-

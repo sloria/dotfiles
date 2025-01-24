@@ -1,0 +1,6 @@
+repos:
+  - repo: https://github.com/rbubley/mirrors-prettier
+    rev: v3.4.2
+    hooks:
+      - id: prettier
+        types: [yaml]
