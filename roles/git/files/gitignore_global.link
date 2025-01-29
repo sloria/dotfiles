@@ -28,18 +28,9 @@ Icon
 
 .xmark.*
 
-.konchrc
-
-.python-version
 
 # throwaway code
-_sandbox
 .scratch
-t.py
-t.txt
-t.md
-t.js
-t.ts
 
 # vim session
 .session
