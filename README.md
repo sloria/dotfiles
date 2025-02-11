@@ -1,3 +1,34 @@
+This branch is for setting up my mac mini. It's more stripped down than what I have on my main development machine.
+
+## mac mini-specific setup
+
+### first boot setup
+
+- Skip iCloud configuration
+- Don't enable FileVault so I can remotely start or reboot
+
+### system settings
+
+- System Settings / Network / Firewall - Enable
+- System Settings / Energy / Prevent automatic sleeping with the display is off, Wake for network access, Start up automatically after network failure. These settings are enabled to ensure the device does not got to sleep
+- System Settings / Accessibility / Display / Reduce motion, Reduce transparency - On
+- System Settings / Appearance / Allow wallpaper tinting in windows - Off
+- System Settings / General / Software Update / Automatic Updates - Download new updates when available, Install macOS updates, Install Security Responses and system files - On
+
+### sharing settings
+
+- System Settings / General / Sharing / Screen Sharing - On. This allows remote access to the device via the Screen Sharing app
+- System Settings / General / Sharing / Content Caching - Storage, Clients / Devices using the same public IP address, use ony public IP address.
+- System Settings / General / Sharing / Remote Login - On. This allows SSH while while using Tailscale
+- System Settings / General / Sharing / Local hostname. Change this to
+    `mac-mini.local`
+
+### sources
+
+- https://stealthpuppy.com/mac-mini-home-server/#first-boot-setup
+
+---
+
 # dotfiles
 
 [sloria's dotfiles](https://github.com/sloria/dotfiles-old), rewritten as Ansible roles. Sets up a full local development environment with a **single command.**
