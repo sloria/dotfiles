@@ -12,12 +12,6 @@
   homebrew: name={{item}} state=present
   with_items: "{{mac_homebrew_packages}}"
 
-# - name: Tap into homebrew/cask-fonts
-#   homebrew_tap: tap=homebrew/cask-fonts state=present
-
-# - name: Tap into homebrew/cask-versions
-#   homebrew_tap: tap=homebrew/cask-versions state=present
-
 - name: Install Mac apps with homebrew cask
   homebrew_cask: name={{item}} state=present
   with_items: "{{mac_cask_packages}}"
