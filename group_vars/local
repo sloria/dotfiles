@@ -41,8 +41,6 @@ mac_homebrew_packages:
   - wifi-password
   # For repeating commands
   - watch
-  # For displaying a notification when a command finishes
-  - noti
 
 # Mac Apps to be installed with homebrew-cask
 mac_cask_packages:
