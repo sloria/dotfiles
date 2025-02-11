@@ -82,6 +82,8 @@ mac_cask_packages:
   - cleanshot
   # Email client
   - mimestream
+  # VPN
+  - tailscale
 
 # Mac-App-Store-only apps to be installed with mas
 # Use App IDs found with `mas search <name>`
