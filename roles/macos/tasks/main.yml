@@ -2,32 +2,32 @@
   script: set-defaults.sh
   changed_when: false
 
-- name: Ensure iCloud Drive is linked to ~/iCloud
-  file:
-    src: "{{dotfiles_user_home}}/Library/Mobile Documents/com~apple~CloudDocs"
-    dest: "{{dotfiles_user_home}}/iCloud"
-    state: link
+# - name: Ensure iCloud Drive is linked to ~/iCloud
+#   file:
+#     src: "{{dotfiles_user_home}}/Library/Mobile Documents/com~apple~CloudDocs"
+#     dest: "{{dotfiles_user_home}}/iCloud"
+#     state: link
 
 - name: Install mac-specific homebrew packages
   homebrew: name={{item}} state=present
   with_items: "{{mac_homebrew_packages}}"
 
-- name: Tap into homebrew/cask-fonts
-  homebrew_tap: tap=homebrew/cask-fonts state=present
+# - name: Tap into homebrew/cask-fonts
+#   homebrew_tap: tap=homebrew/cask-fonts state=present
 
-- name: Tap into homebrew/cask-versions
-  homebrew_tap: tap=homebrew/cask-versions state=present
+# - name: Tap into homebrew/cask-versions
+#   homebrew_tap: tap=homebrew/cask-versions state=present
 
 - name: Install Mac apps with homebrew cask
   homebrew_cask: name={{item}} state=present
   with_items: "{{mac_cask_packages}}"
 
-- name: Install mas
-  homebrew: name=mas state=present
+# - name: Install mas
+#   homebrew: name=mas state=present
 
-- name: Install Mac-App-Store-only apps with mas
-  command: mas install {{item.id}}
-  args:
-    creates: "/Applications/{{item.name}}.app"
-  with_items: "{{mac_mas_packages}}"
-  tags: mas
+# - name: Install Mac-App-Store-only apps with mas
+#   command: mas install {{item.id}}
+#   args:
+#     creates: "/Applications/{{item.name}}.app"
+#   with_items: "{{mac_mas_packages}}"
+#   tags: mas

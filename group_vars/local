@@ -27,7 +27,7 @@ mac_homebrew_packages:
   - curl
   - jq
   - wget
-  - terminal-notifier
+  # - terminal-notifier
   - yt-dlp
   - htop
   - imagemagick  # for resizing images
@@ -38,11 +38,9 @@ mac_homebrew_packages:
   # User-contributed docs for Unix commands
   - tldr
   # what's the wifi password?
-  - wifi-password
+  # - wifi-password
   # For repeating commands
-  - watch
-  # For displaying a notification when a command finishes
-  - noti
+  # - watch
 
 # Mac Apps to be installed with homebrew-cask
 mac_cask_packages:
@@ -51,42 +49,42 @@ mac_cask_packages:
   # Editor
   - visual-studio-code
   # Backup/storage
-  - dropbox
+  # - dropbox
   # Browsers
   - firefox
   # Display
-  - keepingyouawake  # maintained caffeinate wrapper
+  # - keepingyouawake  # maintained caffeinate wrapper
   # Utilities
   - bettertouchtool
-  - appcleaner
-  - daisydisk
+  # - appcleaner
+  # - daisydisk
   # Docker
   - docker
   # chat
-  - slack
-  - discord
+  # - slack
+  # - discord
   # Video conferencing
   - zoom
   # Media/Music
-  - spotify
-  - iina
+  # - spotify
+  # - iina
   # Images
-  - imageoptim
+  # - imageoptim
   # Notetaking
-  - obsidian
+  # - obsidian
   # Fonts
   - font-hack
   # Database client
-  - tableplus
+  # - tableplus
   # REST client
-  - insomnia
+  # - insomnia
   # Screen captures and recording
-  - cleanshot
+  # - cleanshot
   # Email client
-  - mimestream
+  # - mimestream
 
 # Mac-App-Store-only apps to be installed with mas
 # Use App IDs found with `mas search <name>`
 mac_mas_packages:
   # NOTE: the IDs can be found with `mas search <app name>`
-  - {"id": 409203825, "name": "Numbers"}
+  # - {"id": 409203825, "name": "Numbers"}
