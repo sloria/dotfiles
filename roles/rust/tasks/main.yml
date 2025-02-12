@@ -1,0 +1,4 @@
+- name: Ensure rustup is installed
+  command: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+  args:
+    creates: "{{ dotfiles_user_home }}/.cargo/bin/rustup"
