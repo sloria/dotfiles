@@ -90,3 +90,7 @@ mac_cask_packages:
 # mac_mas_packages:
 #   # NOTE: the IDs can be found with `mas search <app name>`
 #   - {"id": 409203825, "name": "Numbers"}
+
+ollama_models:
+  - qwen2.5-coder:14b
+  - phi4
