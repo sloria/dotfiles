@@ -14,6 +14,8 @@ This branch is for setting up my mac mini. It's more stripped down than what I h
 - System Settings / Accessibility / Display / Reduce motion, Reduce transparency - On
 - System Settings / Appearance / Allow wallpaper tinting in windows - Off
 - System Settings / General / Software Update / Automatic Updates - Download new updates when available, Install macOS updates, Install Security Responses and system files - On
+- System Settings / Spotlight / Search results - Disable all options
+- Manually remove all notification center widgets
 
 ### sharing settings
 
@@ -21,7 +23,7 @@ This branch is for setting up my mac mini. It's more stripped down than what I h
 - System Settings / General / Sharing / Content Caching - Storage, Clients / Devices using the same public IP address, use ony public IP address.
 - System Settings / General / Sharing / Remote Login - On. This allows SSH while while using Tailscale
 - System Settings / General / Sharing / Local hostname. Change this to
-    `mac-mini.local`
+  `mac-mini.local`
 
 ### sources
 

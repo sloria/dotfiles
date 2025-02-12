@@ -21,4 +21,7 @@
     # - { role: k9s, tags: ["k9s"] }
     - { role: rust, tags: ["rust"] }
     - { role: ollama, tags: ["ollama"] }
+    - { role: open-webui, tags: ["open-webui"] }
+    - { role: adguard, tags: ["adguard"] }
+    - { role: caddy, tags: ["caddy"] }
     - { role: macos, tags: ["macos"], when: ansible_os_family == "Darwin" }

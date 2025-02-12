@@ -92,5 +92,7 @@ mac_cask_packages:
 #   - {"id": 409203825, "name": "Numbers"}
 
 ollama_models:
+  - qwen2.5-coder:32b
   - qwen2.5-coder:14b
+  - gemma2:27b
   - phi4

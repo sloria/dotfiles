@@ -1,0 +1,13 @@
+- name: Ensure /Library/Application Support/open-webui directory exists
+  file:
+    path: "/opt/homebrew/var/open-webui"
+    state: directory
+
+- name: Symlink plist file to ~/Library/LaunchAgents
+  file:
+    src: "{{ dotfiles_home }}/roles/open-webui/files/com.sloria.open-webui.plist"
+    dest: "{{ dotfiles_user_home }}/Library/LaunchAgents/com.sloria.open-webui.plist"
+    state: link
+
+- name: Load open-webui service with launchctl
+  command: launchctl load ~/Library/LaunchAgents/com.sloria.open-webui.plist
