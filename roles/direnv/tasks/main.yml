@@ -1,3 +1,0 @@
-- name: Install GNU sed with Homebrew
-  homebrew: name=direnv state=present
-  when: ansible_os_family == "Darwin"

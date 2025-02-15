@@ -9,7 +9,6 @@
     - { role: node, tags: ["node"] }
     - { role: rust, tags: ["rust"] }
     - { role: vim, tags: ["vim"] }
-    - { role: direnv, tags: ["direnv"] }
     - { role: rg, tags: ["rg"] }
     - { role: eza, tags: ["eza"] }
     - { role: gsed, tags: ["gsed"] }

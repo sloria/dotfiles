@@ -22,7 +22,7 @@ alias ds="docker-sync"
 alias dss="docker-sync start"
 alias dsx="docker-sync stop"
 
-alias dcbomb!="docker-compose down -v"
+alias dcbomb!="docker compose -f deploy/docker-compose.infra.yml down -v --remove-orphans >/dev/null 2>&1"
 
 # Open bash in a container. Pass docker-compose name
 function dcbash {
