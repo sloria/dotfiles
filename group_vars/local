@@ -27,20 +27,13 @@ mac_homebrew_packages:
   - curl
   - jq
   - wget
-  # - terminal-notifier
-  - yt-dlp
   - htop
-  - imagemagick  # for resizing images
   - diff-so-fancy
   - gh
   # Top for docker containers
   - ctop
   # User-contributed docs for Unix commands
   - tldr
-  # what's the wifi password?
-  # - wifi-password
-  # For repeating commands
-  # - watch
 
 # Mac Apps to be installed with homebrew-cask
 mac_cask_packages:
@@ -48,48 +41,16 @@ mac_cask_packages:
   - 1password
   # Editor
   - visual-studio-code
-  # Backup/storage
-  # - dropbox
   # Browsers
   - firefox
-  # Display
-  # - keepingyouawake  # maintained caffeinate wrapper
   # Utilities
   - bettertouchtool
-  # - appcleaner
-  # - daisydisk
   # Docker
   - docker
-  # chat
-  # - slack
-  # - discord
-  # Video conferencing
-  - zoom
-  # Media/Music
-  # - spotify
-  # - iina
-  # Images
-  # - imageoptim
-  # Notetaking
-  # - obsidian
   # Fonts
   - font-hack
-  # Database client
-  # - tableplus
-  # REST client
-  # - insomnia
-  # Screen captures and recording
-  # - cleanshot
-  # Email client
-  # - mimestream
   # VPN
   - tailscale
-
-# Mac-App-Store-only apps to be installed with mas
-# Use App IDs found with `mas search <name>`
-# mac_mas_packages:
-#   # NOTE: the IDs can be found with `mas search <app name>`
-#   - {"id": 409203825, "name": "Numbers"}
 
 ollama_models:
   - qwen2.5-coder:32b

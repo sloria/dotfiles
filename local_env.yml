@@ -9,16 +9,12 @@
     - { role: node, tags: ["node"] }
     - { role: rust, tags: ["rust"] }
     - { role: vim, tags: ["vim"] }
-    # - { role: direnv, tags: ["direnv"] }
     - { role: rg, tags: ["rg"] }
     - { role: eza, tags: ["eza"] }
     - { role: gsed, tags: ["gsed"] }
     - { role: bat, tags: ["bat"] }
     # - { role: tmux, tags: ["tmux"] }
     - { role: fzf, tags: ["fzf"] }
-    # - { role: kubernetes, tags: ["kubernetes"] }
-    # - { role: jrnl, tags: ["jrnl"] }
-    # - { role: k9s, tags: ["k9s"] }
     - { role: ollama, tags: ["ollama"] }
     - { role: open-webui, tags: ["open-webui"] }
     - { role: adguard, tags: ["adguard"] }

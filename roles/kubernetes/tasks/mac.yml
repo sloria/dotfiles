@@ -1,2 +1,0 @@
-- name: Homebrew ensure kubernetes-cli installed
-  homebrew: name=kubernetes-cli state=present

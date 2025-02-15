@@ -1,3 +1,0 @@
-- name: Install k9s with Homebrew
-  homebrew: name=k9s state=present
-  when: ansible_os_family == "Darwin"
