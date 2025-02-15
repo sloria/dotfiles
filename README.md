@@ -1,4 +1,4 @@
-This branch is for setting up my mac mini. It's more stripped down than what I have on my main development machine.
+⚠ This branch is for setting up my mac mini. It's more stripped down than what I have on my main development machine.
 
 ## mac mini-specific setup
 
@@ -22,8 +22,11 @@ This branch is for setting up my mac mini. It's more stripped down than what I h
 - System Settings / General / Sharing / Screen Sharing - On. This allows remote access to the device via the Screen Sharing app
 - System Settings / General / Sharing / Content Caching - Storage, Clients / Devices using the same public IP address, use ony public IP address.
 - System Settings / General / Sharing / Remote Login - On. This allows SSH while while using Tailscale
-- System Settings / General / Sharing / Local hostname. Change this to
-  `mac-mini.local`
+
+## misc
+
+- Disable Bluetooth in Control Center
+- Once the mac mini is connected to the router via ethernet, disable Wi-Fi in Conrol Center
 
 ### sources
 
