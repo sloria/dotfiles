@@ -1,0 +1,5 @@
+- name: Download lctl to ~/.local/bin/lctl
+  get_url:
+    url: https://raw.githubusercontent.com/newtonne/lctl/refs/heads/master/lctl.sh
+    dest: "{{ dotfiles_user_home }}/.local/bin/lctl"
+    mode: '0755'

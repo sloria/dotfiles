@@ -136,28 +136,20 @@ Use built-in Settings Sync to sync VSCode settings.
 
 There are a few keyboard customizations that must be done manually:
 
-- Turning repeat speed up to 11.
+- System Settings > Keyboard > Turn "Key repeat rate" and "Delay until repeat" to their highest settings.
 
-![Keyboard settings](https://user-images.githubusercontent.com/2379650/34223505-91f95072-e58d-11e7-9b36-78aec4203b0d.png "Key repeat settings")
+![Keyboard settings](https://github.com/user-attachments/assets/0c0e9ed6-3e5b-4996-b1e0-4aa4e9de3725 "Key repeat settings")
 
-- Mapping Caps Lock to Ctrl.
+- System Settings > Keyboard > Keyboard Shortcuts > Modifier Keys > Change Caps Lock key to Control.
 
-![Modifier keys](https://user-images.githubusercontent.com/2379650/34223523-a2c8e4e4-e58d-11e7-9532-d74b95d8408a.png)
-
-**login message**
-
-You can add a message to the login screen using the following command:
-
-```
-sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText "This laptop is connected to an iCloud account and is valueless if lost. Contact (123) 456-7890 if found. Reward included."
-```
+![Modifier keys](https://github.com/user-attachments/assets/79a883cd-9eec-472e-bdb6-0b4c2efeea9d)
 
 ## what if I only want your vim?
 
 First make sure you have a sane vim compiled. On macOS, the following will do:
 
 ```
-brew install macvim
+brew install vim
 ```
 
 The following commands will install vim-plug and download my `.vimrc`.
@@ -179,10 +171,6 @@ If you get an error about Xcode command-line tools, you may need to run
 ```
 sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
 ```
-
-## todo
-
-- Full Debian and Red Hat support
 
 [homebrew]: http://brew.sh/
 [homebrew-cask]: https://github.com/caskroom/homebrew-cask

@@ -7,7 +7,7 @@
     - { role: zsh, tags: ["zsh", "bootstrap"] }
     - { role: python, tags: ["python"] }
     - { role: node, tags: ["node"] }
-    # - { role: ruby, tags: ["ruby"] }
+    - { role: rust, tags: ["rust"] }
     - { role: vim, tags: ["vim"] }
     # - { role: direnv, tags: ["direnv"] }
     - { role: rg, tags: ["rg"] }
@@ -19,9 +19,9 @@
     # - { role: kubernetes, tags: ["kubernetes"] }
     # - { role: jrnl, tags: ["jrnl"] }
     # - { role: k9s, tags: ["k9s"] }
-    - { role: rust, tags: ["rust"] }
     - { role: ollama, tags: ["ollama"] }
     - { role: open-webui, tags: ["open-webui"] }
     - { role: adguard, tags: ["adguard"] }
     - { role: caddy, tags: ["caddy"] }
+    - { role: lctl, tags: ["lctl"], when: ansible_os_family == "Darwin" }
     - { role: macos, tags: ["macos"], when: ansible_os_family == "Darwin" }
