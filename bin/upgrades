@@ -4,8 +4,6 @@ echo "==> Upgrading Homebrew packages..."
 brew upgrade
 echo "==> Upgrading Vim plugins..."
 vim +PlugUpdate +qall
-echo "==> Upgrading prezto..."
-zprezto-update
 
 echo "==> Upgrading Ollama models..."
 ollama list | tail -n +2 | awk '{print $1}' | while read -r model; do

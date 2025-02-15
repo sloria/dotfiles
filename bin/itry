@@ -1,0 +1,24 @@
+#!/bin/sh
+# itry - A portable script for launching ipython with uvx packages
+# Source: https://til.simonwillison.net/python/itry
+
+# Show help if requested
+[ "$1" = "--help" ] && {
+    echo "Usage: itry [packages...]"
+    echo "Example: itry llm sqlite-utils datasette"
+    exit 0
+}
+
+# Initialize empty string for packages
+PACKAGES=""
+
+# Process all arguments, adding --with before each
+for arg in "$@"; do
+    PACKAGES="$PACKAGES --with $arg"
+done
+
+# Remove leading space if present
+PACKAGES="${PACKAGES# }"
+
+# Execute uvx command with Python 3.13
+exec uvx $PACKAGES --python 3.13 ipython
