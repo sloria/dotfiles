@@ -7,7 +7,6 @@
     - { role: zsh, tags: ["zsh", "bootstrap"] }
     - { role: python, tags: ["python"] }
     - { role: node, tags: ["node"] }
-    - { role: ruby, tags: ["ruby"] }
     - { role: rust, tags: ["rust"] }
     - { role: vim, tags: ["vim"] }
     - { role: direnv, tags: ["direnv"] }
