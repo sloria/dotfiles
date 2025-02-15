@@ -8,13 +8,13 @@ dotfiles_user_home: "{{ '~' | expanduser }}"
 dotfiles_home: "{{dotfiles_user_home}}/dotfiles"
 
 # Name used in commit messages
-full_name: Steven Loria
+full_name: Mike Fann
 # Git
 # Github username
-git_user: sloria
+git_user: MikeCantCode
 # If you use github, this should be the same as the email
 #  used on Github
-git_email: sloria1@gmail.com
+git_email: mike.cant.code@gmail.com
 
 # Vim
 
@@ -30,7 +30,7 @@ mac_homebrew_packages:
   - terminal-notifier
   - yt-dlp
   - htop
-  - imagemagick  # for resizing images
+  # - imagemagick  # for resizing images
   - diff-so-fancy
   - gh
   # Top for docker containers
@@ -45,15 +45,16 @@ mac_homebrew_packages:
 # Mac Apps to be installed with homebrew-cask
 mac_cask_packages:
   # Password manager
-  - 1password
+  - lastpass
   # Editor
   - visual-studio-code
   # Backup/storage
-  - dropbox
+  # - dropbox
   # Browsers
   - firefox
+  - brave-browser
   # Display
-  - keepingyouawake  # maintained caffeinate wrapper
+  # - keepingyouawake  # maintained caffeinate wrapper
   # Utilities
   - bettertouchtool
   - appcleaner
@@ -61,29 +62,29 @@ mac_cask_packages:
   # Docker
   - docker
   # chat
-  - slack
+  # - slack
   - discord
   # Video conferencing
-  - zoom
+  # - zoom
   # Media/Music
   - spotify
   - iina
   # Images
-  - imageoptim
+  # - imageoptim
   # Notetaking
-  - obsidian
+  # - obsidian
   # Fonts
   - font-hack
   # Database client
-  - tableplus
+  # - tableplus
   # REST client
-  - insomnia
+  # - insomnia
   # Screen captures and recording
   - cleanshot
   # Email client
-  - mimestream
+  # - mimestream
   # VPN
-  - tailscale
+  # - tailscale
 
 # Mac-App-Store-only apps to be installed with mas
 # Use App IDs found with `mas search <name>`

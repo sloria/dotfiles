@@ -6,17 +6,17 @@
     - { role: package_manager, tags: ["package_manager", "bootstrap"] }
     - { role: zsh, tags: ["zsh", "bootstrap"] }
     - { role: python, tags: ["python"] }
-    - { role: node, tags: ["node"] }
-    - { role: rust, tags: ["rust"] }
-    - { role: vim, tags: ["vim"] }
+    # - { role: node, tags: ["node"] }
+    # - { role: rust, tags: ["rust"] }
+    # - { role: vim, tags: ["vim"] }
     - { role: rg, tags: ["rg"] }
     - { role: eza, tags: ["eza"] }
     - { role: gsed, tags: ["gsed"] }
     - { role: bat, tags: ["bat"] }
-    - { role: tmux, tags: ["tmux"] }
+    # - { role: tmux, tags: ["tmux"] }
     - { role: fzf, tags: ["fzf"] }
-    - { role: kubernetes, tags: ["kubernetes"] }
-    - { role: jrnl, tags: ["jrnl"] }
-    - { role: k9s, tags: ["k9s"] }
+    # - { role: kubernetes, tags: ["kubernetes"] }
+    # - { role: jrnl, tags: ["jrnl"] }
+    # - { role: k9s, tags: ["k9s"] }
     - { role: lctl, tags: ["lctl"], when: ansible_os_family == "Darwin" }
     - { role: macos, tags: ["macos"], when: ansible_os_family == "Darwin" }
