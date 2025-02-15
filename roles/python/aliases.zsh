@@ -8,3 +8,5 @@ alias arg="all-repos-grep"
 alias arf="all-repos-find-files"
 alias ars="all-repos-sed"
 alias pipgrep="pip freeze | grep -i "
+
+alias mkcli="uv init --app --package"
