@@ -57,23 +57,6 @@ fancy-ctrl-z () {
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
 
-
-# Syntax-highlight text from clipboard
-# Requires highlight: brew install highlight
-# Usage: hit js
-function hit() {
-  if [ -z "$2" ]
-    then src="pbpaste"
-  else
-    src="cat $2"
-  fi
-  $src | highlight -O rtf --syntax $1 --font 'Ubuntu Mono' --style solarized-light --font-size 24 | pbcopy
-}
-
 function countfiles() {
   find "$1" -type f | wc -l
-}
-
-function b64() {
-  cat $1 | openssl base64 | tr -d '\n' | pbcopy;
 }
