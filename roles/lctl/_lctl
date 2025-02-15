@@ -1,0 +1,57 @@
+#compdef lctl
+
+_lctl() {
+    local -a commands agents short_agents
+
+    commands=(
+        'cat:Display contents'
+        'edit:Edit file'
+        'file:Show file'
+        'listdisabled:List disabled agents'
+        'log:Show log'
+        'logfiles:Show log files'
+        'reload:Reload agent'
+        'tail:Tail log'
+        'bootout:Boot out agent'
+        'bootstrap:Bootstrap agent'
+        'disable:Disable agent'
+        'enable:Enable agent'
+        'kickstart:Kickstart agent'
+        'kill:Kill agent'
+        'list:List agents'
+        'print:Print information'
+    )
+
+    _arguments -C \
+        '1: :->cmds' \
+        '2: :->args' && return 0
+
+    case "$state" in
+        cmds)
+            _describe -t commands 'commands' commands
+            ;;
+        args)
+            case $words[2] in
+                listdisabled)
+                    return 0
+                    ;;
+                *)
+                    agents=($HOME/Library/LaunchAgents/*.plist(:t:r))
+                    short_agents=()
+
+                    for agent in $agents; do
+                        short_agents+=${agent#*.*.}
+                    done
+
+                    if [[ -n "$PREFIX" ]]; then
+                        short_agents+=($agents)
+                    fi
+
+                    _values 'agents' $short_agents
+                    ;;
+            esac
+            ;;
+    esac
+}
+
+_lctl "$@"
