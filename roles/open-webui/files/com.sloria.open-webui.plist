@@ -18,6 +18,8 @@
     </array>
     <key>EnvironmentVariables</key>
     <dict>
+        <key>ENV</key>
+        <string>prod</string>
         <key>DATA_DIR</key>
         <string>/opt/homebrew/var/open-webui</string>
         <key>WEBUI_NAME</key>
