@@ -1,0 +1,34 @@
+services:
+  litellm:
+    image: 'ghcr.io/berriai/litellm-database:main-latest'
+    container_name: litellm
+    env_file:
+      - .env
+    ports:
+      - '4000:4000'
+    volumes:
+      - './config.yaml:/app/config.yaml'
+    command: '--config /app/config.yaml --port 4000'
+    restart: always
+    environment:
+      DATABASE_URL: 'postgresql://llmproxy:llmproxy@db:5432/litellm'
+      STORE_MODEL_IN_DB: 'True'  # allows adding models to proxy via UI
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_DB: litellm
+      POSTGRES_USER: llmproxy
+      POSTGRES_PASSWORD: llmproxy
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - pg_isready -d litellm -U llmproxy
+      interval: 1s
+      timeout: 5s
+      retries: 10
+    volumes:
+      - 'postgres_data:/var/lib/postgresql/data'
+
+volumes:
+  postgres_data:
