@@ -24,6 +24,11 @@
         <string>/opt/homebrew/var/open-webui</string>
         <key>WEBUI_NAME</key>
         <string>RC LLM</string>
+        <!-- Use a small model for autocompletion etc, for speed and to save $ -->
+        <key>TASK_MODEL</key>
+        <string>phi4:latest</string>
+        <key>TASK_MODEL_EXTERNAL</key>
+        <string>phi4:latest</string>
     </dict>
     <key>RunAtLoad</key>
     <true/>
