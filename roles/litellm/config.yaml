@@ -13,8 +13,3 @@ model_list:
     litellm_params:
       model: gpt-4o-mini
       api_key: os.environ/OPENAI_API_KEY
-
-general_settings:
-  master_key: os.environ/MASTER_KEY
-
-litellm_settings:
