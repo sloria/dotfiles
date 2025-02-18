@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.sloria.backup-open-webui-db</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/opt/homebrew/var/open-webui/backup_db.sh</string>
+    </array>
+    <!-- Every sunday at midnight -->
+    <key>StartCalendarInterval</key>
+    <array>
+        <dict>
+            <key>Weekday</key>
+            <integer>0</integer>
+            <key>Hour</key>
+            <integer>0</integer>
+        </dict>
+    </array>
+
+    <key>StandardErrorPath</key>
+    <string>/opt/homebrew/var/open-webui/backup.log</string>
+    <key>StandardOutPath</key>
+    <string>/opt/homebrew/var/open-webui/backup.log</string>
+    <key>WorkingDirectory</key>
+    <string>/opt/homebrew/var/open-webui</string>
+</dict>
+</plist>

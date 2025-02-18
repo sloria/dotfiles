@@ -3,11 +3,32 @@
     path: "/opt/homebrew/var/open-webui"
     state: directory
 
-- name: Symlink plist file to ~/Library/LaunchAgents
+- name: Symlink com.sloria.open-webui.plist to ~/Library/LaunchAgents
   file:
     src: "{{ dotfiles_home }}/roles/open-webui/files/com.sloria.open-webui.plist"
     dest: "{{ dotfiles_user_home }}/Library/LaunchAgents/com.sloria.open-webui.plist"
     state: link
 
-- name: Load open-webui service with launchctl
+- name: Load open-webui agent with launchctl
   command: launchctl load ~/Library/LaunchAgents/com.sloria.open-webui.plist
+
+# Backups
+- name: Ensure backups folder exists
+  file:
+    path: "/opt/homebrew/var/open-webui/backups"
+    state: directory
+
+- name: Symlink backup script
+  file:
+    src: "{{ dotfiles_home }}/roles/open-webui/files/backup_db.sh"
+    dest: "/opt/homebrew/var/open-webui/backup_db.sh"
+    state: link
+
+- name: Symlink com.sloria.backup-open-webui-db.plist to ~/Library/LaunchAgents
+  file:
+    src: "{{ dotfiles_home }}/roles/open-webui/files/com.sloria.backup-open-webui-db.plist"
+    dest: "{{ dotfiles_user_home }}/Library/LaunchAgents/com.sloria.backup-open-webui-db.plist"
+    state: link
+
+- name: Load backup agent with launchctl
+  command: launchctl load ~/Library/LaunchAgents/com.sloria.backup-open-webui-db.plist
