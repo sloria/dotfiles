@@ -10,5 +10,4 @@ function pyclean() {
 function fake() {
     result=$(PYTHONIOENCODING=UTF-8 uv tool run faker -s="" $1)
     echo -n "$result"
-    echo -n "$result" | pbcopy
 }

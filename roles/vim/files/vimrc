@@ -68,18 +68,16 @@ let g:ale_maximum_file_size = 500000  " Don't lint large files (> 500KB), it can
 let g:ale_linters = {}
 let g:ale_linters.javascript = ['eslint', 'tsserver']
 let g:ale_linters.typescript = ['eslint', 'tsserver']
-let g:ale_linters.python = ['flake8', 'mypy', 'pyls']
+let g:ale_linters.python = ['ruff']
 let g:ale_linters.html = []
 let g:ale_fixers = {}
 let g:ale_fixers.javascript = ['prettier']
 let g:ale_fixers.typescript = ['prettier']
-let g:ale_fixers.python = ['black']
+let g:ale_fixers.python = ['ruff', 'ruff_format']
 let g:ale_fixers.css = ['prettier']
 let g:ale_completion_enabled = 1
 " Prevent completion from autoinserting. See :help ale-completion-completopt-bug
 set completeopt=menu,menuone,noselect,noinsert
-" Disable pycodestyle in pyls; let flake8 do that
-let g:ale_python_pyls_config = {'pyls': {'plugins': {'pycodestyle': {'enabled': v:false}}}}
 nmap gd <Plug>(ale_go_to_definition)
 " NICE TO HAVE
 Plug 'AndrewRadev/splitjoin.vim'  " Language-specific split/join with gS and gJ
