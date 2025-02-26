@@ -11,6 +11,24 @@ ollama list | tail -n +2 | awk '{print $1}' | while read -r model; do
   ollama pull $model
 done
 
-if command -v terminal-notifier 1>/dev/null 2>&1; then
+echo "==> Upgrading docker images..."
+for image in $(docker images --format "{{.Repository}}:{{.Tag}}" | grep -v '<none>')
+do
+  docker pull $image
+done
+
+echo "==> Restarting LiteLLM services..."
+pushd ~/dotfiles/roles/litellm > /dev/null
+docker compose up -d --force-recreate
+popd > /dev/null
+echo "==> LiteLLM services restarted"
+
+echo "==> Restarting/upgrading Open WebUI..."
+launchctl unload ~/Library/LaunchAgents/com.sloria.open-webui.plist
+launchctl load ~/Library/LaunchAgents/com.sloria.open-webui.plist
+
+echo "==> Upgrades complete."
+
+if [[ -z "$SSH_CLIENT" && -z "$SSH_TTY" ]] && command -v terminal-notifier 1>/dev/null 2>&1; then
   terminal-notifier -title "dotfiles: upgrades" -message "Upgrades complete."
 fi
