@@ -4,6 +4,14 @@ model_list:
       model: claude-3-7-sonnet-latest
       api_key: os.environ/ANTHROPIC_API_KEY
 
+  # https://github.com/BerriAI/litellm/issues/8768#issuecomment-2683468837
+  - model_name: Claude 3.7 Sonnet (with thinking)
+    litellm_params:
+      # Use a different model ID than above so that we can differentiate them in the admin UI
+      model: claude-3-7-sonnet-20250219
+      api_key: os.environ/ANTHROPIC_API_KEY
+      thinking: {"type": "enabled", "budget_tokens": 1024}
+
   - model_name: GPT-4o
     litellm_params:
       model: gpt-4o
@@ -21,7 +29,7 @@ model_list:
 
 # https://docs.litellm.ai/docs/proxy/prod
 general_settings:
-  proxy_batch_write_at: 60 # Batch write spend updates every 60s
+  proxy_batch_write_at: 10 # Batch write spend updates every 10s
   database_connection_pool_limit: 10 # limit the number of database connections to = MAX Number of DB Connections/Number of instances of litellm proxy (Around 10-20 is good number)
 
 litellm_settings:
