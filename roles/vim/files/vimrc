@@ -83,13 +83,6 @@ nmap gd <Plug>(ale_go_to_definition)
 Plug 'AndrewRadev/splitjoin.vim'  " Language-specific split/join with gS and gJ
 let g:splitjoin_python_brackets_on_separate_lines = 1
 let g:splitjoin_trailing_comma = 1
-Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
-let g:airline_left_sep=''
-let g:airline_right_sep=''
-let g:airline_theme='tomorrow'
-" Explicitly specify which extensions to use
-let g:airline_extensions = ['branch', 'ctrlp', 'tabline', 'ale', 'whitespace']
-Plug 'christoomey/vim-tmux-navigator'
 Plug 'jszakmeister/vim-togglecursor'  " change cursor shape when entering insert mode
 " Snippets
 if version >= 704 && has('python') || has('python3') | Plug 'SirVer/ultisnips' | endif
@@ -119,11 +112,6 @@ let g:user_emmet_settings = {
   \ }
 Plug 'jiangmiao/auto-pairs' " autoclose parens, quotes, etc.
 autocmd FileType python let b:AutoPairs = AutoPairsDefine({'f"': '"', "f'": "'"})
-Plug 'mtth/scratch.vim'
-let g:scratch_no_mappings = 1
-let g:scratch_height = 20
-let g:scratch_filetype = 'markdown'
-let g:scratch_persistence_file = '.scratch'
 " Open scratch buffer with space-tab (automatically set syntax to markdown)
 nnoremap <silent> <leader><tab> :Scratch<cr>
 Plug 'tpope/vim-sleuth'  " Detect indent settings
@@ -148,19 +136,11 @@ map <leader>gB :GBrowse<CR>
 vmap <leader>gB :GBrowse<CR>
 map <leader>gr :GRead<CR>
 map <leader>gw :GWrite<CR>
-Plug 'mattn/webapi-vim' | Plug 'mattn/gist-vim', {'on': 'Gist'}
-" Make gists private by default
-let g:gist_post_private = 1
-" Browse to gist after posting it
-let g:gist_open_browser_after_post = 1
-" Use gr to replace text without blowing away clipboard
-Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'majutsushi/tagbar', {'on': 'Tagbar'}
 " Open tagbar
 map <leader>\ :Tagbar<CR>
 let g:tagbar_autofocus = 1
 " COLOR
-Plug 'NLKNguyen/papercolor-theme'
 Plug 'sloria/vim-hybrid'  " hybrid with easier-to-read line numbers
 
 " LANGUAGE-SPECIFIC
@@ -220,14 +200,6 @@ set winwidth=79 winheight=5 winminheight=5
 " Patterns to ignore for expand(), ctrlp, etc.
 set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz,*.swp,*~,._*,*.pyc,*__pycache__*,*.egg-info
 
-" " Persistent undo (can use undos after exiting and restarting)
-" if exists("+undofile")
-"   if isdirectory($HOME . '/.vim/undo') == 0
-"     :silent !mkdir -p ~/.vim/undo > /dev/null 2>&1
-"   endif
-"   set undodir=./.vim-undo/ undodir+=~/.vim/undo/ undofile
-" endif
-
 """ SHORTCUTS """
 " Quickly edit vimrc
 nmap <leader>, :e $MYVIMRC<CR>
@@ -241,11 +213,6 @@ nnoremap <leader>b :e#<CR>
 nnoremap <BS> :%s/\s\+$//<cr>:let @/=''<CR>
 " select last pasted text
 nnoremap gp `[v`]
-" Easy syntax switching
-nnoremap <leader>Tp :set ft=python<CR>
-nnoremap <leader>Tj :set ft=javascript<CR>
-nnoremap <leader>Tm :set ft=markdown<CR>
-nnoremap <leader>Ty :set ft=yaml<CR>
 " Quickly write/quit
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
@@ -291,7 +258,6 @@ augroup configgroup
   " prose (hard wrap and autoformat paragraphs)
   autocmd BufRead,BufNewFile jrnl*.txt,editor*.txt set filetype=markdown
   autocmd BufRead,BufNewFile *.mdx set filetype=markdown
-  autocmd BufRead,BufNewFile *.js.flow set filetype=javascript
   autocmd BufRead,BufNewFile jrnl*.txt,editor*.txt,*.md,*.rst setlocal nolist wrap linebreak formatoptions+=ntl textwidth=72 wrapmargin=0
   autocmd BufRead,BufNewFile .eslintrc set filetype=json
   autocmd BufRead,BufNewFile .babelrc set filetype=json5
