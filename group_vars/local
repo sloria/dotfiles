@@ -30,6 +30,7 @@ mac_homebrew_packages:
   - terminal-notifier
   - yt-dlp
   - htop
+  - bottom
   - imagemagick  # for resizing images
   - diff-so-fancy
   - gh
