@@ -28,6 +28,7 @@ mac_homebrew_packages:
   - jq
   - wget
   - htop
+  - bottom
   - diff-so-fancy
   - gh
   # Top for docker containers
