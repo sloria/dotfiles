@@ -10,3 +10,5 @@ alias vi="vim"
 alias v="vim"
 # resize images
 alias resize="mogrify -resize"
+
+alias btm="btm --process_memory_as_value"
