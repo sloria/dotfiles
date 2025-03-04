@@ -16,9 +16,9 @@ gzip $tmp_path
 echo "==> Database copy created: $tmp_path"
 
 echo "==> Backing up to R2 bucket..."
-restic backup $tmp_path.gz
+restic backup $tmp_path.gz --tag open-webui
 echo "==> Pruning old snapshots..."
-restic forget --keep-last 3 --prune
+restic forget --tag open-webui --prune --keep-daily 3
 echo "==> Backup complete."
 
 echo "==> Starting open-webui..."
