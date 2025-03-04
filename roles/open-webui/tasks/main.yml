@@ -24,11 +24,10 @@
     dest: "/opt/homebrew/var/open-webui/backup_db.sh"
     state: link
 
-- name: Symlink com.sloria.backup-open-webui-db.plist to ~/Library/LaunchAgents
-  file:
-    src: "{{ dotfiles_home }}/roles/open-webui/files/com.sloria.backup-open-webui-db.plist"
+- name: Create com.sloria.backup-open-webui-db.plist in ~/Library/LaunchAgents
+  template:
+    src: "com.sloria.backup-open-webui-db.plist.j2"
     dest: "{{ dotfiles_user_home }}/Library/LaunchAgents/com.sloria.backup-open-webui-db.plist"
-    state: link
 
 - name: Load backup agent with launchctl
   command: launchctl load ~/Library/LaunchAgents/com.sloria.backup-open-webui-db.plist

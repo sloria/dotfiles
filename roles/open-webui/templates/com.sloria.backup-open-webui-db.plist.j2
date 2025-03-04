@@ -19,6 +19,18 @@
         </dict>
     </array>
 
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>AWS_ACCESS_KEY_ID</key>
+        <string>{{ lookup('env', 'AWS_ACCESS_KEY_ID') }}</string>
+        <key>AWS_SECRET_ACCESS_KEY</key>
+        <string>{{ lookup('env', 'AWS_SECRET_ACCESS_KEY') }}</string>
+        <key>RESTIC_PASSWORD</key>
+        <string>{{ lookup('env', 'RESTIC_PASSWORD') }}</string>
+        <key>RESTIC_REPOSITORY</key>
+        <string>{{ lookup('env', 'RESTIC_REPOSITORY') }}</string>
+    </dict>
+
     <key>StandardErrorPath</key>
     <string>/opt/homebrew/var/open-webui/backup.log</string>
     <key>StandardOutPath</key>
