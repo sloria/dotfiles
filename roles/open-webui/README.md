@@ -2,16 +2,10 @@
 
 Runs open-webui using `uv tool run`.
 
-Finding the pid:
-
-```
-launchctl list | grep open-webui
-```
-
 Tailing logs:
 
 ```
-tail -f /opt/homebrew/var/open-webui/open-webui.log
+lctl tail open-webui
 ```
 
 # updating
