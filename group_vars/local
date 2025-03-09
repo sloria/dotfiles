@@ -59,8 +59,8 @@ mac_cask_packages:
   - bettertouchtool
   - appcleaner
   - daisydisk
-  # Docker
-  - docker
+  # More resource-efficient Docker
+  - orbstack
   # chat
   - slack
   - discord
