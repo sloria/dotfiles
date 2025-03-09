@@ -145,20 +145,11 @@ Plug 'sloria/vim-hybrid'  " hybrid with easier-to-read line numbers
 
 " LANGUAGE-SPECIFIC
 Plug 'sheerun/vim-polyglot'  " syntax files for most languages
-let g:polyglot_disabled = ['python', 'latex', 'typescript'] " Use python-syntax and vimtex
 let g:jsx_ext_required = 0
 let g:markdown_fenced_languages = ['javascript', 'python', 'clojure', 'ruby']
-Plug 'leafgarland/typescript-vim'
 Plug 'jparise/vim-graphql'
-Plug 'lervag/vimtex'
-let g:tex_flavor = 'latex'
 " --- Python ---
-Plug 'vim-python/python-syntax'  " Improved python syntax
-let g:python_highlight_all = 1
 Plug 'Vimjas/vim-python-pep8-indent'  " Proper python indenting
-" --- Javascript ---
-Plug 'heavenshell/vim-jsdoc'  " For making JS docstrings
-map <C-c>j <Plug>(jsdoc)
 " --- CSS ---
 Plug 'chrisbra/Colorizer'  " Highlight CSS colors
 let g:colorizer_auto_filetype='css,html'
@@ -266,7 +257,6 @@ augroup configgroup
 augroup END
 
 " GUI settings, e.g. MacVim
-" set guifont=Ubuntu\ Mono:h14
 set guifont=Hack:h12
 " Hide scrollbars and menu
 set guioptions-=T guioptions-=R guioptions-=r guioptions-=m guioptions-=l guioptions-=L
