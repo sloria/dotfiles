@@ -46,8 +46,8 @@ mac_cask_packages:
   - firefox
   # Utilities
   - bettertouchtool
-  # Docker
-  - docker
+  # More resource-efficient Docker
+  - orbstack
   # Fonts
   - font-hack
   # VPN
