@@ -1,6 +1,3 @@
 # NOTE: if this is false, you'll need to run :PluginInstall in vim to
 # install all plugins
 vim_install_plugins: no
-
-# Only used on Mac machines. Ignored on other platforms
-vim_install_macvim: yes
