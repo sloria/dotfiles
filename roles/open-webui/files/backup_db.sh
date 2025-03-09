@@ -16,9 +16,10 @@ gzip $tmp_path
 echo "==> Database copy created: $tmp_path"
 
 echo "==> Backing up to R2 bucket..."
-restic backup $tmp_path.gz --tag open-webui
+# Need to use full path to restic in order to work in launchd
+/opt/homebrew/bin/restic backup $tmp_path.gz --tag open-webui
 echo "==> Pruning old snapshots..."
-restic forget --tag open-webui --prune --keep-daily 3
+/opt/homebrew/bin/restic  forget --tag open-webui --prune --keep-daily 3
 echo "==> Backup complete."
 
 echo "==> Starting open-webui..."
