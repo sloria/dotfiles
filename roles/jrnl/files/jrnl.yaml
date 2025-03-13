@@ -8,19 +8,19 @@ default_minute: 0
 editor: vim
 encrypt: false
 highlight: true
-indent_character: "|"
+indent_character: '|'
 journals:
   default:
     encrypt: true
-    journal: ~/Dropbox/.journal.txt
+    journal: ~/iCloud/journals/.journal.txt
   til:
     encrypt: false
     journal: ~/Dropbox/.til.txt
   work:
     encrypt: true
-    journal: ~/Dropbox/.work.txt
+    journal: ~/iCloud/journals/.work.txt
 linewrap: 79
-tagsymbols: "@"
+tagsymbols: '@'
 template: false
-timeformat: "%Y-%m-%d %H:%M"
-version: v4.2
+timeformat: '%Y-%m-%d %H:%M'
+version: v4.2.1
