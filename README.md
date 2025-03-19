@@ -5,7 +5,9 @@
 ### first boot setup
 
 - Skip iCloud configuration
-- Don't enable FileVault so I can remotely start or reboot
+- Enable FileVault. Save recovery key in password manager.
+ NOTE: this requires running `sudo fdesetup authrestart` to restart.
+ `sudo shutdown` **will not work**.
 
 ### system settings
 
