@@ -2,7 +2,7 @@
 
 [sloria's dotfiles](https://github.com/sloria/dotfiles-old), rewritten as Ansible roles. Sets up a full local development environment with a **single command.**
 
-Fully supports macOS. Red Hat and Debian support is good but not as complete.
+**As of 2025, this repo only supports macOS.** There's still remnants of Red Hat and Debian support, but they are not maintained.
 
 ## a few neat features
 
@@ -109,6 +109,10 @@ There are a few keyboard customizations that must be done manually:
 - System Settings > Keyboard > Keyboard Shortcuts > Modifier Keys > Change Caps Lock key to Control.
 
 ![Modifier keys](https://github.com/user-attachments/assets/79a883cd-9eec-472e-bdb6-0b4c2efeea9d)
+
+**mac mini**
+
+I also use this repo to configure my Mac Mini server which I have running in headless mode. My setup is documented in [docs/MAC_MINI.md](docs/MAC_MINI.md).
 
 ## what if I only want your vim?
 

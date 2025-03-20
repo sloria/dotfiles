@@ -8,7 +8,7 @@ default_minute: 0
 editor: vim
 encrypt: false
 highlight: true
-indent_character: '|'
+indent_character: "|"
 journals:
   default:
     encrypt: true
@@ -20,7 +20,7 @@ journals:
     encrypt: true
     journal: ~/iCloud/journals/.work.txt
 linewrap: 79
-tagsymbols: '@'
+tagsymbols: "@"
 template: false
-timeformat: '%Y-%m-%d %H:%M'
+timeformat: "%Y-%m-%d %H:%M"
 version: v4.2.1

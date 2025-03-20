@@ -1,0 +1,14 @@
+- name: Install ollama with Homebrew
+  homebrew: name=ollama state=present
+
+# XXX: Can't use brew services start ollama
+# because it doesn't set OLLAMA_HOST
+# https://github.com/ollama/ollama/issues/3581
+- name: Symlink plist file to ~/Library/LaunchAgents
+  file:
+    src: "{{ dotfiles_home }}/roles/ollama/files/com.sloria.ollama.plist"
+    dest: "{{ dotfiles_user_home }}/Library/LaunchAgents/com.sloria.ollama.plist"
+    state: link
+
+- name: Load ollama service with launchctl
+  command: launchctl load ~/Library/LaunchAgents/com.sloria.ollama.plist

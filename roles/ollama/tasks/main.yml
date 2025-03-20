@@ -1,0 +1,7 @@
+- import_tasks: mac.yml
+  when: ansible_os_family == "Darwin"
+
+# NOTE: Not truly idempotent
+- name: Pull ollama models
+  command: ollama pull {{ item }}
+  with_items: "{{ ollama_models }}"
