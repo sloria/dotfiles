@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/Proper>
+<plist version="1.0">
+<dict>
+    <key>KeepAlive</key>
+    <true/>
+    <key>Label</key>
+    <!-- Changed from the original homebrew plist file -->
+    <string>com.sloria.ollama</string>
+    <key>LimitLoadToSessionType</key>
+    <array>
+        <string>Aqua</string>
+        <string>Background</string>
+        <string>LoginWindow</string>
+        <string>StandardIO</string>
+        <string>System</string>
+    </array>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/opt/homebrew/opt/ollama/bin/ollama</string>
+        <string>serve</string>
+    </array>
+    <!-- Changed from the original homebrew plist file -->
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>OLLAMA_HOST</key>
+        <string>0.0.0.0</string>
+    </dict>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>StandardErrorPath</key>
+    <string>/opt/homebrew/var/log/ollama.log</string>
+    <key>StandardOutPath</key>
+    <string>/opt/homebrew/var/log/ollama.log</string>
+    <key>WorkingDirectory</key>
+    <string>/opt/homebrew/var</string>
+</dict>
+</plist>

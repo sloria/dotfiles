@@ -7,6 +7,7 @@
     src: "{{dotfiles_user_home}}/Library/Mobile Documents/com~apple~CloudDocs"
     dest: "{{dotfiles_user_home}}/iCloud"
     state: link
+  when: icloud_enabled|bool
 
 - name: Install mac-specific homebrew packages
   homebrew: name={{item}} state=present
@@ -18,10 +19,13 @@
 
 - name: Install mas
   homebrew: name=mas state=present
+  when: mac_mas_packages|length > 0
+  tags: mas
 
 - name: Install Mac-App-Store-only apps with mas
   command: mas install {{item.id}}
   args:
     creates: "/Applications/{{item.name}}.app"
   with_items: "{{mac_mas_packages}}"
+  when: mac_mas_packages|length > 0
   tags: mas

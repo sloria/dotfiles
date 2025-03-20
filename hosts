@@ -1,2 +1,5 @@
 [local]
 localhost ansible_connection=local
+
+[remote]
+mac-mini ansible_user=stevenloria

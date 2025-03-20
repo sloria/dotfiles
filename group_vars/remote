@@ -1,0 +1,46 @@
+# vi: set ft=yaml :
+
+# NOTE: The below 2 variables should not need to be changed if you cloned
+#   the dotfiles repo to '~/dotfiles'
+#  Local home directory
+dotfiles_user_home: "{{ '~' | expanduser }}"
+# Where your dotfiles live. Probably don't need to change this.
+dotfiles_home: "{{dotfiles_user_home}}/dotfiles"
+
+# Name used in commit messages
+full_name: Steven Loria
+# Git
+# Github username
+git_user: sloria
+# If you use github, this should be the same as the email
+#  used on Github
+git_email: sloria1@gmail.com
+
+# Determines if iCloud Drive is symlinked to ~/iCloud
+icloud_enabled: false
+
+# Utilities that don't get installed by a role
+mac_homebrew_packages:
+  - curl
+  - jq
+  - wget
+  - bottom
+  - diff-so-fancy
+  - gh
+  # Top for docker containers
+  - ctop
+  # User-contributed docs for Unix commands
+  - tldr
+
+# Mac Apps to be installed with homebrew-cask
+mac_cask_packages:
+  # More resource-efficient Docker
+  - orbstack
+  # VPN
+  - tailscale
+
+ollama_models:
+  - qwen2.5-coder:32b
+  - qwen2.5-coder:14b
+  - gemma3:27b
+  - phi4

@@ -16,11 +16,8 @@ git_user: sloria
 #  used on Github
 git_email: sloria1@gmail.com
 
-# Vim
-
-# Whether to install plugins automatically. If not, just run
-# :PlugInstall while in vim.
-vim_install_plugins: no
+# Determines if iCloud Drive is symlinked to ~/iCloud
+icloud_enabled: true
 
 # Utilities that don't get installed by a role
 mac_homebrew_packages:
@@ -42,6 +39,7 @@ mac_homebrew_packages:
   - wifi-password
   # For repeating commands
   - watch
+  - watchexec
 
 # Mac Apps to be installed with homebrew-cask
 mac_cask_packages:

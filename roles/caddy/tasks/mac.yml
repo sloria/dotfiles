@@ -1,0 +1,20 @@
+- name: Install caddy with Homebrew
+  homebrew: name=bat state=present
+
+- name: Replace homebrew caddy binary with binary including cloudflare module
+  get_url:
+    url: "https://caddyserver.com/api/download?os=darwin&arch=arm64&p=github.com%2Fcaddy-dns%2Fcloudflare"
+    dest: /opt/homebrew/opt/caddy/bin/caddy
+    mode: "0755"
+    force: yes
+  become: yes
+
+- name: Copy example Caddyfile to /opt/homebrew/etc/Caddyfile
+  copy:
+    src: "{{ dotfiles_home }}/roles/caddy/files/Caddyfile"
+    dest: /opt/homebrew/etc/Caddyfile
+    force: no
+
+# FIXME: Not idempotent, will always show as changed
+- name: Start caddy service with brew services
+  command: brew services start caddy
