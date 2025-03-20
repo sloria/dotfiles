@@ -13,7 +13,6 @@
     - { role: eza, tags: ["eza"] }
     - { role: gsed, tags: ["gsed"] }
     - { role: bat, tags: ["bat"] }
-    - { role: tmux, tags: ["tmux"] }
     - { role: fzf, tags: ["fzf"] }
     - { role: kubernetes, tags: ["kubernetes"] }
     - { role: jrnl, tags: ["jrnl"] }
