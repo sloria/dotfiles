@@ -21,12 +21,6 @@ if command -v docker > /dev/null 2>&1 && docker info > /dev/null 2>&1; then
   done
 fi
 
-if [ -f ~/Library/LaunchAgents/com.sloria.open-webui.plist ]; then
-  echo "==> Restarting/upgrading Open WebUI..."
-  launchctl unload ~/Library/LaunchAgents/com.sloria.open-webui.plist
-  launchctl load ~/Library/LaunchAgents/com.sloria.open-webui.plist
-fi
-
 echo "==> Upgrades complete."
 
 if [[ -z "$SSH_CLIENT" && -z "$SSH_TTY" ]] && command -v terminal-notifier 1>/dev/null 2>&1; then
