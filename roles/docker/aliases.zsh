@@ -7,22 +7,22 @@ alias drm='docker rm -f '
 # Stop and remove all running containers
 alias drm!='docker rm -f $(docker ps -a -q)'
 
-alias dc="docker-compose"
-alias dcup="docker-compose up -d "
-alias dcrun="docker-compose run --rm "
+alias dc="docker compose"
+alias dcup="docker compose up -d "
+alias dcrun="docker compose run --rm "
 function dcdebug {
-  docker-compose kill $1
-  docker-compose run --service-ports $1
+  docker compose kill $1
+  docker compose run --service-ports $1
 }
 # Stop and recreate a container
-alias dcre="docker-compose up -d --force-recreate --no-deps "
-alias dcl="docker-compose logs -f --tail 100 "
+alias dcre="docker compose up -d --force-recreate --no-deps "
+alias dcl="docker compose logs -f --tail 100 "
 
 alias dcbomb!="docker compose -f deploy/docker-compose.infra.yml down -v --remove-orphans >/dev/null 2>&1"
 
 # Open bash in a container. Pass docker-compose name
 function dcbash {
-  docker-compose exec $1 /bin/bash
+  docker compose exec $1 /bin/bash
 }
 
 # Open bash in a container. Pass container name
