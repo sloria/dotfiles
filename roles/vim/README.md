@@ -1,5 +1,4 @@
-vim
-===
+# vim
 
 Installs vim, [vim-plug](https://github.com/junegunn/vim-plug), and symlinks [.vimrc](https://github.com/sloria/dotfiles/blob/master/roles/vim/files/vimrc).
 

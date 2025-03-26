@@ -1,5 +1,4 @@
-zsh
-===
+# zsh
 
 Installs zsh configured with [prezto](https://github.com/sorin-ionescu/prezto).
 
