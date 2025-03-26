@@ -15,6 +15,7 @@
     - { role: bat, tags: ["bat"] }
     - { role: fzf, tags: ["fzf"] }
     - { role: ollama, tags: ["ollama"] }
+    - { role: beszel-agent, tags: ["beszel-agent"] }
     - { role: adguard, tags: ["adguard"] }
     - { role: lctl, tags: ["lctl"], when: ansible_os_family == "Darwin" }
     - { role: macos, tags: ["macos"], when: ansible_os_family == "Darwin" }

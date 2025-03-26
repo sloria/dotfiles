@@ -25,13 +25,3 @@ Then restart the server
 ```
 sudo /Applications/AdGuardHome/AdGuardHome -s restart
 ```
-
-If you're using the Caddy role, add the following to `/opt/homebrew/etc/Caddyfile` so that you can access
-the UI from your custom domain.
-
-```
-adguard.in.your-domain.com {
-    reverse_proxy http://localhost:4321
-    import cloudflare
-}
-```

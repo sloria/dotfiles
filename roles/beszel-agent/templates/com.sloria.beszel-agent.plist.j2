@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>KeepAlive</key>
+    <true/>
+    <key>Label</key>
+    <string>com.sloria.beszel-agent</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/opt/homebrew/bin/beszel-agent</string>
+        <string>-key</string>
+        <string>{{ lookup('env', 'BESZEL_AGENT_KEY') }}</string>
+    </array>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>StandardErrorPath</key>
+    <string>/opt/homebrew/var/log/beszel-agent.log</string>
+    <key>StandardOutPath</key>
+    <string>/opt/homebrew/var/log/beszel-agent.log</string>
+</dict>
+</plist>
