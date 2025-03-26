@@ -16,6 +16,5 @@
     - { role: fzf, tags: ["fzf"] }
     - { role: ollama, tags: ["ollama"] }
     - { role: adguard, tags: ["adguard"] }
-    - { role: caddy, tags: ["caddy"] }
     - { role: lctl, tags: ["lctl"], when: ansible_os_family == "Darwin" }
     - { role: macos, tags: ["macos"], when: ansible_os_family == "Darwin" }
