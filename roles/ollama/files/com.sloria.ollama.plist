@@ -25,6 +25,8 @@
     <dict>
         <key>OLLAMA_HOST</key>
         <string>0.0.0.0</string>
+        <key>OLLAMA_CONTEXT_LENGTH</key>
+        <string>8192</string>
     </dict>
     <key>RunAtLoad</key>
     <true/>
