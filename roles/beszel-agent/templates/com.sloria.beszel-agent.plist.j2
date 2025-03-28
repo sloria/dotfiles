@@ -2,8 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    <key>KeepAlive</key>
-    <true/>
     <key>Label</key>
     <string>com.sloria.beszel-agent</string>
     <key>ProgramArguments</key>
@@ -12,8 +10,29 @@
         <string>-key</string>
         <string>{{ lookup('env', 'BESZEL_AGENT_KEY') }}</string>
     </array>
+
     <key>RunAtLoad</key>
     <true/>
+
+    <key>KeepAlive</key>
+    <dict>
+        <key>SuccessfulExit</key>
+        <false/>
+        <key>Crashed</key>
+        <true/>
+        <!-- Prevent excessive restarts -->
+        <key>ThrottleInterval</key>
+        <integer>60</integer>
+    </dict>
+
+    <!-- Lower the agent's process priority -->
+    <key>Nice</key>
+    <integer>10</integer>
+
+    <!-- Limit resource usage -->
+    <key>ProcessType</key>
+    <string>Background</string>
+    
     <key>StandardErrorPath</key>
     <string>/opt/homebrew/var/log/beszel-agent.log</string>
     <key>StandardOutPath</key>
