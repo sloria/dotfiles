@@ -37,7 +37,7 @@
         # publish current branch
         publish = "!f() { git push -u ${1:-origin} $(git rev-parse --abbrev-ref HEAD); }; f"
         pub = publish
-        shipit = "!f() { git add -A && git commit -m \"$1\" && git push; }; f"
+        ship = "!f() { git add -A && git commit -m \"$1\" && git push; }; f"
 
         # Nukes a branch locally and on the origin remote.
         nuke = "!f() { git branch -D $1 && git push origin :$1; }; f"
