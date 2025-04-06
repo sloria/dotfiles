@@ -9,3 +9,4 @@ export PED_EDITOR='vim'
 export KONCH_EDITOR='vim'
 export FAM_SOURCE="$HOME/iCloud/fam"
 export FAM_EDITOR="vim"
+export AWS_CLI_AUTO_PROMPT=on-partial
