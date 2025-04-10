@@ -1,6 +1,0 @@
-# PROFILE=/dev/null prevents the installer from editing .zshrc
-# https://github.com/nvm-sh/nvm?tab=readme-ov-file#additional-notes
-- name: Install nvm
-  shell: PROFILE=/dev/null bash -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash'
-  args:
-    creates: "{{dotfiles_user_home}}/.nvm"

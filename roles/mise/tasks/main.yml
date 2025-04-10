@@ -1,0 +1,8 @@
+- name: Install mise with homebrew
+  homebrew: name=mise state=present
+
+- name: Link mise config file
+  file:
+    src: "{{ dotfiles_home }}/roles/mise/files/config.toml.link"
+    dest: "{{ '~/.config/mise/config.toml' | expanduser }}"
+    state: link
