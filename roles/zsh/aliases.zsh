@@ -13,7 +13,7 @@ alias resize="mogrify -resize"
 
 alias btm="btm --process_memory_as_value"
 
-# Usage: qrurl https://example.com
+# Usage: qr https://example.com
 # Useful for e.g. deploy preview URLs, ngrok URLs, etc
 # Requires qrtool: brew install qrtool
-alias qrurl="qrtool encode -t terminal"
+alias qr="qrtool encode -t terminal"

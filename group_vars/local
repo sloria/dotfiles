@@ -40,6 +40,7 @@ mac_homebrew_packages:
   # For repeating commands
   - watch
   - watchexec
+  - qrtool  # for generating QR codes
 
 # Mac Apps to be installed with homebrew-cask
 mac_cask_packages:
