@@ -84,6 +84,8 @@ mac_cask_packages:
   - mimestream
   # VPN
   - tailscale
+  # Color picker
+  - pika
 
 # Mac-App-Store-only apps to be installed with mas
 # Use App IDs found with `mas search <name>`
