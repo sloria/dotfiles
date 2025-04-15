@@ -12,3 +12,8 @@ alias v="vim"
 alias resize="mogrify -resize"
 
 alias btm="btm --process_memory_as_value"
+
+# Usage: qrurl https://example.com
+# Useful for e.g. deploy preview URLs, ngrok URLs, etc
+# Requires qrtool: brew install qrtool
+alias qrurl="qrtool encode -t terminal"
