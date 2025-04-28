@@ -6,6 +6,7 @@
     - { role: package_manager, tags: ["package_manager", "bootstrap"] }
     - { role: zsh, tags: ["zsh", "bootstrap"] }
     - { role: python, tags: ["python"] }
+    - { role: mise, tags: ["mise"] }
     - { role: rust, tags: ["rust"] }
     - { role: vim, tags: ["vim"] }
     - { role: rg, tags: ["rg"] }
