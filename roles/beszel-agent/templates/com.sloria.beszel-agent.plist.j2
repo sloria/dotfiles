@@ -6,16 +6,8 @@
     <string>com.sloria.beszel-agent</string>
     <key>ProgramArguments</key>
     <array>
-        <string>/opt/homebrew/bin/beszel-agent</string>
-        <string>-key</string>
-        <string>{{ lookup('env', 'BESZEL_AGENT_KEY') }}</string>
+        <string>/opt/homebrew/bin/beszel-agent-launcher</string>
     </array>
-
-    <key>EnvironmentVariables</key>
-    <dict>
-        <key>SENSORS</key>
-        <string></string>
-    </dict>
 
     <key>RunAtLoad</key>
     <true/>
@@ -38,7 +30,7 @@
     <!-- Limit resource usage -->
     <key>ProcessType</key>
     <string>Background</string>
-    
+
     <key>StandardErrorPath</key>
     <string>/opt/homebrew/var/log/beszel-agent.log</string>
     <key>StandardOutPath</key>

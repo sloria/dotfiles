@@ -1,37 +1,32 @@
 ---
-- name: Create .local/bin directory if it doesn't exist
-  file:
-    path: "{{ dotfiles_user_home }}/.local/bin"
-    state: directory
-
-- name: Download beszel-agent
-  get_url:
-    url: "https://github.com/henrygd/beszel/releases/latest/download/beszel-agent_Darwin_arm64.tar.gz"
-    dest: "{{ dotfiles_user_home }}/tmp/beszel-agent.tar.gz"
-    mode: '0644'
-
-- name: Extract beszel-agent archive
-  command: "tar -xzf {{ dotfiles_user_home }}/tmp/beszel-agent.tar.gz -C {{ dotfiles_user_home }}/tmp"
-
-- name: Copy beszel-agent binary to /opt/homebrew/bin
-  copy:
-    src: "{{ dotfiles_user_home }}/tmp/beszel-agent"
-    dest: "/opt/homebrew/bin/beszel-agent"
-    mode: '0755'
-    remote_src: yes
-
-- name: Clean up temporary files
+- name: Create config and cache directories for beszel
   file:
     path: "{{ item }}"
-    state: absent
+    state: directory
   loop:
-    - "{{ dotfiles_user_home }}/tmp/beszel-agent.tar.gz"
-    - "{{ dotfiles_user_home }}/tmp/beszel-agent"
+    - "{{ '~/.config/beszel' | expanduser }}"
+    - "{{ '~/.cache/beszel' | expanduser }}"
+
+- name: Create beszel agent environment file
+  template:
+    src: "beszel-agent.env.j2"
+    dest: "{{ '~/.config/beszel/beszel-agent.env' | expanduser }}"
+    mode: '0644'
+
+- name: Add beszel tap to Homebrew
+  command: brew tap henrygd/beszel
+  changed_when: false
+
+- name: Install beszel-agent using Homebrew
+  homebrew:
+    name: beszel-agent
+    state: present
 
 - name: Create com.sloria.beszel-agent.plist in ~/Library/LaunchAgents
   template:
     src: "com.sloria.beszel-agent.plist.j2"
-    dest: "{{ dotfiles_user_home }}/Library/LaunchAgents/com.sloria.beszel-agent.plist"
+    dest: "{{ '~/Library/LaunchAgents/com.sloria.beszel-agent.plist' | expanduser }}"
 
 - name: Load beszel-agent service with launchctl
-  command: launchctl load {{ dotfiles_user_home }}/Library/LaunchAgents/com.sloria.beszel-agent.plist
+  command: "launchctl load {{ '~/Library/LaunchAgents/com.sloria.beszel-agent.plist' | expanduser }}"
+  changed_when: false

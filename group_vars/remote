@@ -39,8 +39,5 @@ mac_cask_packages:
   # VPN
   - tailscale
 
-ollama_models:
-  - qwen2.5-coder:32b
-  - qwen2.5-coder:14b
-  - gemma3:27b
-  - phi4
+ollama_models: []
+
