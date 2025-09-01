@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+echo "==> Homebrew cleanup..."
+brew cleanup
+
+echo "==> Docker cleanup..."
+docker system prune --all --force
+
+echo "==> ~/tmp cleanup..."
+rm -rf ~/tmp/*
+
+echo "==> Done."
