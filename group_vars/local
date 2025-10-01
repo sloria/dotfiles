@@ -48,8 +48,6 @@ mac_cask_packages:
   - 1password
   # Editor
   - visual-studio-code
-  # Backup/storage
-  - dropbox
   # Browsers
   - firefox
   # Display
@@ -57,7 +55,6 @@ mac_cask_packages:
   # Utilities
   - bettertouchtool
   - appcleaner
-  - daisydisk
   # More resource-efficient Docker
   - orbstack
   # chat
@@ -80,8 +77,6 @@ mac_cask_packages:
   - insomnia
   # Screen captures and recording
   - cleanshot
-  # Email client
-  - mimestream
   # VPN
   - tailscale
   # Color picker
