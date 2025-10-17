@@ -23,6 +23,28 @@
 - System Settings / General / Sharing / Content Caching - Storage, Clients / Devices using the same public IP address, use ony public IP address.
 - System Settings / General / Sharing / Remote Login - On. This allows SSH while while using Tailscale
 
+### ssh setup
+
+Generate a new SSH keypair in 1password. Copy the public key and add it to ~/.ssh/authorized_keys on the mac mini.
+
+```
+vim ~/.ssh/authorized_keys
+```
+
+Then paste the public key as the first line.
+
+Disable password authentication for SSH by creating a ssd_config.d file.
+
+```
+sudo vim /etc/ssh/sshd_config.d/disallow_password_auth.conf
+```
+
+```
+PasswordAuthentication no
+ChallengeResponseAuthentication no
+StrictModes yes
+```
+
 ### misc
 
 - Disable Bluetooth in Control Center
@@ -40,6 +62,8 @@
 
 ## updating roles
 
+Run the following locally.
+
 ```
 dot-remote
 ```
@@ -55,6 +79,5 @@ dot-remote python
 ssh into the mac-mini and run the `upgrades` script
 
 ```
-ssh mac-mini
-upgrades
+ssh mac-mini '/Users/stevenloria/dotfiles/bin/upgrades'
 ```
