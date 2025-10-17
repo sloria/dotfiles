@@ -38,6 +38,3 @@ mac_cask_packages:
   - orbstack
   # VPN
   - tailscale
-
-ollama_models: []
-

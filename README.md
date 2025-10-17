@@ -1,6 +1,6 @@
 # dotfiles
 
-[sloria's dotfiles](https://github.com/sloria/dotfiles-old), rewritten as Ansible roles. Sets up a full local development environment with a **single command.**
+[sloria's dotfiles](https://github.com/sloria/dotfiles-old), rewritten as Ansible roles. Sets up my local and remote development environments with a single command.
 
 **As of 2025, this repo only supports macOS.** There's still remnants of Red Hat and Debian support, but they are not maintained.
 
@@ -39,11 +39,11 @@ cd ~/dotfiles
 - Optional, but recommended: Update `group_vars/local` with the programs you want installed by [homebrew][], [homebrew-cask][], and npm.
   - `mac_homebrew_packages`: Utilities that don't get installed by the roles.
   - `mac_cask_packages`: Mac Apps you want installed with [homebrew-cask][].
-- Edit `local_env.yml` as you see fit. Remove any roles you don't use. Edit roles that you do use.
+- Edit `provision.yml` as you see fit. Remove any roles you don't use. Edit roles that you do use.
 - Run the installation script.
 
 ```bash
-./bin/dot-bootstrap
+./bin/dot-local
 ```
 
 ## authenticating with github
@@ -60,13 +60,13 @@ gh auth login
 Once you have the dotfiles installed you can run the following command to rerun the ansible playbook:
 
 ```bash
-dot-update
+dot-local
 ```
 
 You can optionally pass role names
 
 ```bash
-dot-update git python
+dot-local git python
 ```
 
 ## updating your dotfiles repo
@@ -82,8 +82,8 @@ git pull sloria master
 
 There are three main commands in the `bin` directory for setting up and updating development environments:
 
-- `dot-bootstrap`: sets up local environment by executing all roles in `local_env.yml`.
-- `dot-update`: updates local environment by executing all roles in `local_env.yml` except for the ones tagged with "bootstrap".
+- `dot-local`: sets up local environment
+- `dot-remote`: sets up remote environment
 
 ## special files
 

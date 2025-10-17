@@ -2,12 +2,12 @@
   homebrew: name=mise state=present
 
 - name: Create mise config directory
-  file:
+  ansible.builtin.file:
     path: "{{ '~/.config/mise' | expanduser }}"
     state: directory
     mode: '0755'
 
 - name: Copy mise config file
-  copy:
-    src: "{{ dotfiles_home }}/roles/mise/files/config.toml"
+  ansible.builtin.copy:
+    src: "config.toml"
     dest: "{{ '~/.config/mise/config.toml' | expanduser }}"

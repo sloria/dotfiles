@@ -1,10 +1,6 @@
-# Installation and setup
-- import_tasks: debian.yml
-  when: ansible_os_family == "Debian"
-- import_tasks: redhat.yml
-  when: ansible_os_family == "RedHat"
-- import_tasks: mac.yml
-  when: ansible_os_family == "Darwin"
+---
+- name: Make sure zsh is installed
+  ansible.builtin.homebrew: name=zsh state=present
 
 # Configuration
 - name: Check if zshrc already exists

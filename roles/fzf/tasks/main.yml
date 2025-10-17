@@ -1,3 +1,0 @@
-- name: Install fzf with Homebrew
-  homebrew: name=fzf state=present
-  when: ansible_os_family == "Darwin"

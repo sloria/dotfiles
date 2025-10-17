@@ -1,3 +1,0 @@
-- name: Install git with apt
-  apt: name=git state=present
-  become_method: sudo

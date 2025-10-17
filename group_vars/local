@@ -24,6 +24,7 @@ mac_homebrew_packages:
   - curl
   - jq
   - wget
+  - rg
   - terminal-notifier
   - yt-dlp
   - htop

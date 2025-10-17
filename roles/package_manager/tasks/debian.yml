@@ -1,7 +1,0 @@
-- name: Update apt cache
-  apt: update_cache=yes
-  when: package_update
-
-- name: Upgrade apt packages
-  apt: upgrade=yes
-  when: package_upgrade

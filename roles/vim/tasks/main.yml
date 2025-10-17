@@ -6,25 +6,32 @@
 - import_tasks: mac.yml
   when: ansible_os_family == "Darwin"
 
+
+- name: Check if python-language-server is installed
+  ansible.builtin.command: "command -v pyls"
+  register: pyls_check
+  ignore_errors: true
+  changed_when: false
+
 - name: Install python-language-server (used by ale)
-  command: "uv tool install python-language-server"
-  # TODO: Make idempotent
+  ansible.builtin.command: "uv tool install python-language-server"
+  when: pyls_check.rc != 0
 
 # Plugin manager
 - name: Makes sure autoload directory exists
-  file: path="{{dotfiles_user_home}}/.vim/autoload" state=directory
+  ansible.builtin.file: path="{{dotfiles_user_home}}/.vim/autoload" state=directory
 
 - name: Install vim-plug
-  get_url:
+  ansible.builtin.get_url:
     url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     dest: "{{dotfiles_user_home}}/.vim/autoload/plug.vim"
 
 # Snippets
 - name: Makes sure UltiSnips directory exists
-  file: path="{{dotfiles_user_home}}/.vim/UltiSnips" state=directory
+  ansible.builtin.file: path="{{dotfiles_user_home}}/.vim/UltiSnips" state=directory
 
 - name: Symlink all snippet files
-  file:
+  ansible.builtin.file:
     src: "{{ dotfiles_home }}/roles/vim/files/{{item}}"
     dest: "{{ dotfiles_user_home}}/.vim/UltiSnips/{{item}}"
     state: link
@@ -35,22 +42,22 @@
 
 # Configuration
 - name: Check if vimrc exists
-  stat: path="{{dotfiles_user_home}}/.vimrc"
+  ansible.builtin.stat: path="{{dotfiles_user_home}}/.vimrc"
   register: vimrc_stat
   failed_when: False
 
 - name: Backup vimrc
-  command: mv ~/.vimrc ~/.vimrc.bak
+  ansible.builtin.command: mv ~/.vimrc ~/.vimrc.bak
   args:
     creates: "{{dotfiles_user_home}}/.vimrc.bak"
   when: vimrc_stat.stat.exists
 
 - name: Symlink vimrc
-  file:
+  ansible.builtin.file:
     src: "{{ dotfiles_home }}/roles/vim/files/vimrc"
     dest: "{{dotfiles_user_home}}/.vimrc"
     state: link
 
 - name: Install plugins
-  command: vim +PlugInstall +qall
+  ansible.builtin.command: vim +PlugInstall +qall
   when: vim_install_plugins|bool

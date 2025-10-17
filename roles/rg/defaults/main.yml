@@ -1,4 +1,0 @@
----
-rg_release_url: https://github.com/BurntSushi/ripgrep/releases/download
-rg_version: 0.10.0
-rg_dpkg_file: ripgrep_0.10.0_amd64.deb

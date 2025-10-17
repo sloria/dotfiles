@@ -35,19 +35,19 @@
 ## bootstrapping the mac mini environment
 
 ```
-dot-bootstrap-remote
+./bin/dot-remote
 ```
 
 ## updating roles
 
 ```
-dot-update-remote
+dot-remote
 ```
 
 to update a specific role
 
 ```
-dot-update-remote python
+dot-remote python
 ```
 
 ## upgrading packages, docker images, etc.

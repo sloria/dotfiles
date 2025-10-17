@@ -1,2 +1,0 @@
-- name: Install uv
-  homebrew: name=uv state=present

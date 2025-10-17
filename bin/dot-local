@@ -6,10 +6,10 @@ set -e
 if [[ $# -eq 0 ]]; then
   # Run all roles except for the ones tagged with 'bootstrap'
   echo "Updating local dev environment..."
-  ansible-playbook -i ~/dotfiles/hosts ~/dotfiles/local_env.yml --skip-tags "bootstrap"
+  ansible-playbook ~/dotfiles/provision.yml --limit local
 else
   echo "Updating local dev environment... (--tags $@)"
-  ansible-playbook -i ~/dotfiles/hosts ~/dotfiles/local_env.yml --skip-tags "bootstrap" --tags $@
+  ansible-playbook ~/dotfiles/provision.yml --limit local --tags $@
 fi
 
 # If terminal-notifier is installed, use it to display a notification

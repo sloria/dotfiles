@@ -1,7 +1,23 @@
-- import_tasks: mac.yml
-  when: ansible_os_family == "Darwin"
+- name: Install ollama with Homebrew
+  ansible.builtin.homebrew: name=ollama state=present
 
-# NOTE: Not truly idempotent
-- name: Pull ollama models
-  command: ollama pull {{ item }}
-  with_items: "{{ ollama_models }}"
+# XXX: Can't use brew services start ollama
+# because it doesn't set OLLAMA_HOST
+# https://github.com/ollama/ollama/issues/3581
+- name: Copy custom plist file to ~/Library/LaunchAgents
+  ansible.builtin.copy:
+    src: "com.sloria.ollama.plist"
+    dest: "{{ dotfiles_user_home }}/Library/LaunchAgents/com.sloria.ollama.plist"
+  register: plist
+
+- name: Restart ollama service if plist changed
+  community.general.launchd:
+    name: com.sloria.ollama
+    state: restarted
+  when: plist.changed
+
+- name: Ensure ollama service is started
+  community.general.launchd:
+    name: com.sloria.ollama
+    state: started
+  when: not plist.changed

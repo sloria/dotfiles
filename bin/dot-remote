@@ -6,10 +6,10 @@ set -e
 if [[ $# -eq 0 ]]; then
   # Run all roles except for the ones tagged with 'bootstrap'
   echo "Updating remote environment(s)..."
-  ansible-playbook -i ~/dotfiles/hosts ~/dotfiles/remote_env.yml --skip-tags "bootstrap" --ask-become-pass
+  ansible-playbook ~/dotfiles/provision.yml --limit remote
 else
   echo "Updating remote environment(s)... (--tags $@)"
-  ansible-playbook -i ~/dotfiles/hosts ~/dotfiles/remote_env.yml --skip-tags "bootstrap" --tags $@ --ask-become-pass
+  ansible-playbook ~/dotfiles/provision.yml --limit remote --tags $@
 fi
 
 # If terminal-notifier is installed, use it to display a notification

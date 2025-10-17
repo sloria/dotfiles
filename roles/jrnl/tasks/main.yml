@@ -1,13 +1,15 @@
-- name: Install jrnl with uv
-  command: "uv tool install jrnl"
-  # TODO: Make idempotent
-  tags:
-    - jrnl
+---
+- name: Check if jrnl is installed
+  ansible.builtin.command: "command -v jrnl"
+  register: jrnl_check
+  ignore_errors: true
+  changed_when: false
 
-- name: Symlink jrnl config file
-  file:
-    src: "{{ dotfiles_home }}/roles/jrnl/files/jrnl.yaml"
+- name: Install jrnl with uv
+  ansible.builtin.command: "uv tool install jrnl"
+  when: jrnl_check.rc != 0
+
+- name: Copy jrnl config file
+  ansible.builtin.copy:
+    src: "jrnl.yaml"
     dest: "{{ dotfiles_user_home}}/.config/jrnl/jrnl.yaml"
-    state: link
-  tags:
-    - jrnl

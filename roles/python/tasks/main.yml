@@ -1,2 +1,2 @@
-- import_tasks: mac.yml
-  when: ansible_os_family == "Darwin"
+- name: Install uv
+  ansible.builtin.homebrew: name=uv state=present

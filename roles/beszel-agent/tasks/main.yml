@@ -1,6 +1,6 @@
 ---
 - name: Create config and cache directories for beszel
-  file:
+  ansible.builtin.file:
     path: "{{ item }}"
     state: directory
   loop:
@@ -8,25 +8,39 @@
     - "{{ '~/.cache/beszel' | expanduser }}"
 
 - name: Create beszel agent environment file
-  template:
+  ansible.builtin.template:
     src: "beszel-agent.env.j2"
     dest: "{{ '~/.config/beszel/beszel-agent.env' | expanduser }}"
     mode: '0644'
 
 - name: Add beszel tap to Homebrew
-  command: brew tap henrygd/beszel
-  changed_when: false
+  community.general.homebrew_tap:
+    name: henrygd/beszel
+    state: present
 
 - name: Install beszel-agent using Homebrew
-  homebrew:
+  ansible.builtin.homebrew:
     name: beszel-agent
     state: present
 
 - name: Create com.sloria.beszel-agent.plist in ~/Library/LaunchAgents
-  template:
+  ansible.builtin.template:
     src: "com.sloria.beszel-agent.plist.j2"
     dest: "{{ '~/Library/LaunchAgents/com.sloria.beszel-agent.plist' | expanduser }}"
+  register: plist
 
 - name: Load beszel-agent service with launchctl
   command: "launchctl load {{ '~/Library/LaunchAgents/com.sloria.beszel-agent.plist' | expanduser }}"
   changed_when: false
+
+- name: Restart beszel-agent service if plist changed
+  community.general.launchd:
+    name: com.sloria.beszel-agent
+    state: restarted
+  when: plist.changed
+
+- name: Ensure beszel-agent service is started
+  community.general.launchd:
+    name: com.sloria.beszel-agent
+    state: started
+  when: not plist.changed

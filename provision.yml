@@ -1,0 +1,31 @@
+# NOTE: Each role is tagged so that we can select individual roles to run with ansible-playbook --tags
+
+- name: Common provisioning
+  hosts: all
+  roles:
+    - { role: git, tags: ["git"] }
+    - { role: package_manager, tags: ["package_manager"] }
+    - { role: zsh, tags: ["zsh"] }
+    - { role: python, tags: ["python"] }
+    - { role: mise, tags: ["mise"] }
+    - { role: rust, tags: ["rust"] }
+    - { role: vim, tags: ["vim"] }
+    - { role: eza, tags: ["eza"] }
+    - { role: gsed, tags: ["gsed"] }
+    - { role: bat, tags: ["bat"] }
+    - { role: lctl, tags: ["lctl"] }
+    - { role: macos, tags: ["macos"] }
+
+- name: Local-only provisioning
+  hosts: local
+  roles:
+    - { role: kubernetes, tags: ["kubernetes"] }
+    - { role: jrnl, tags: ["jrnl"] }
+    - { role: k9s, tags: ["k9s"] }
+
+- name: Remote-only provisioning
+  hosts: remote
+  roles:
+    - { role: adguard, tags: ["adguard"] }
+    - { role: beszel-agent, tags: ["beszel-agent"] }
+    - { role: ollama, tags: ["ollama"] }
