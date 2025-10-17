@@ -6,17 +6,6 @@
 - import_tasks: mac.yml
   when: ansible_os_family == "Darwin"
 
-
-- name: Check if python-language-server is installed
-  ansible.builtin.command: "command -v pyls"
-  register: pyls_check
-  ignore_errors: true
-  changed_when: false
-
-- name: Install python-language-server (used by ale)
-  ansible.builtin.command: "uv tool install python-language-server"
-  when: pyls_check.rc != 0
-
 # Plugin manager
 - name: Makes sure autoload directory exists
   ansible.builtin.file: path="{{dotfiles_user_home}}/.vim/autoload" state=directory
