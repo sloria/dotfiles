@@ -191,7 +191,7 @@
     "BSTSnapAreaDefaultShowPictogram" : false,
     "BSTSnapAreaDefaultPictoDistanceFromBottom" : 0.10000000149011612
   },
-  "BTTPresetUUID" : "C8F21824-260D-4742-A696-F5861A66A3FB",
+  "BTTPresetUUID" : "A7FD47E7-5970-4906-B89D-C5D417AC0A0A",
   "BTTPresetContent" : [
     {
       "BTTAppBundleIdentifier" : "com.apple.Preview",
@@ -282,24 +282,6 @@
           "BTTShortcutAdvancedModifierKeys" : "1048584",
           "BTTShortcutModifierKeys" : 1048576,
           "BTTOrder" : 17,
-          "BTTAutoAdaptToKeyboardLayout" : 0
-        },
-        {
-          "BTTLastUpdatedAt" : 1747883609.6869879,
-          "BTTTriggerType" : 0,
-          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
-          "BTTUUID" : "F6C41B2E-1D97-46C2-AABA-40ABBE9012DC",
-          "BTTPredefinedActionType" : 49,
-          "BTTPredefinedActionName" : "Launch Application  or  Open File  or  Start Apple Script …",
-          "BTTLaunchPath" : "file:\/\/\/Applications\/Todoist.app",
-          "BTTAdditionalConfiguration" : "524320",
-          "BTTShortcutKeyboardType" : 5788,
-          "BTTTriggerOnDown" : 1,
-          "BTTLayoutIndependentChar" : "t",
-          "BTTShortcutKeyCode" : 17,
-          "BTTShortcutAdvancedModifierKeys" : "524320",
-          "BTTShortcutModifierKeys" : 524288,
-          "BTTOrder" : 8,
           "BTTAutoAdaptToKeyboardLayout" : 0
         },
         {
@@ -858,23 +840,6 @@
           ]
         },
         {
-          "BTTLastUpdatedAt" : 1760985064.626863,
-          "BTTTriggerType" : 0,
-          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
-          "BTTUUID" : "428E432C-E5A1-4A5A-9661-D9487B93921F",
-          "BTTPredefinedActionType" : 93,
-          "BTTPredefinedActionName" : "Resize Window to Bottom Right Quarter  or  Corner",
-          "BTTAdditionalConfiguration" : "10092586",
-          "BTTShortcutKeyboardType" : 5314,
-          "BTTTriggerOnDown" : 1,
-          "BTTLayoutIndependentChar" : "RIGHT",
-          "BTTShortcutKeyCode" : 124,
-          "BTTShortcutAdvancedModifierKeys" : "10092586",
-          "BTTShortcutModifierKeys" : 10092544,
-          "BTTOrder" : 1,
-          "BTTAutoAdaptToKeyboardLayout" : 0
-        },
-        {
           "BTTLastUpdatedAt" : 1760985064.6267681,
           "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
           "BTTUUID" : "8DF3E17A-A237-4F03-8EB7-820B86206A41",
@@ -887,23 +852,6 @@
           "BTTShortcutAdvancedModifierKeys" : "9568256",
           "BTTShortcutModifierKeys" : 9568256,
           "BTTOrder" : 3,
-          "BTTAutoAdaptToKeyboardLayout" : 0
-        },
-        {
-          "BTTLastUpdatedAt" : 1760985064.6268339,
-          "BTTTriggerType" : 0,
-          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
-          "BTTUUID" : "8759007B-C6DF-49F6-B184-95B0D356F220",
-          "BTTPredefinedActionType" : 91,
-          "BTTPredefinedActionName" : "Resize Window to Bottom Left Quarter  or  Corner",
-          "BTTAdditionalConfiguration" : "10092586",
-          "BTTShortcutKeyboardType" : 5314,
-          "BTTTriggerOnDown" : 1,
-          "BTTLayoutIndependentChar" : "LEFT",
-          "BTTShortcutKeyCode" : 123,
-          "BTTShortcutAdvancedModifierKeys" : "10092586",
-          "BTTShortcutModifierKeys" : 10092544,
-          "BTTOrder" : 2,
           "BTTAutoAdaptToKeyboardLayout" : 0
         },
         {
@@ -1007,22 +955,6 @@
               "BTTAutoAdaptToKeyboardLayout" : 0
             }
           ]
-        },
-        {
-          "BTTLastUpdatedAt" : 1747883609.687268,
-          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
-          "BTTUUID" : "662044F7-4C4D-4764-A528-09E2406A48AA",
-          "BTTPredefinedActionType" : 49,
-          "BTTPredefinedActionName" : "Launch Application  or  Open File  or  Start Apple Script …",
-          "BTTLaunchPath" : "file:\/\/\/Applications\/Slack.app",
-          "BTTAdditionalConfiguration" : "524320",
-          "BTTShortcutKeyboardType" : 67,
-          "BTTTriggerOnDown" : 1,
-          "BTTShortcutKeyCode" : 1,
-          "BTTShortcutAdvancedModifierKeys" : "524320",
-          "BTTShortcutModifierKeys" : 524288,
-          "BTTOrder" : 16,
-          "BTTAutoAdaptToKeyboardLayout" : 0
         },
         {
           "BTTLastUpdatedAt" : 1706733272.272002,
@@ -1283,12 +1215,12 @@
           "BTTGestureNotes" : "Middle Mouse Button"
         },
         {
-          "BTTLastUpdatedAt" : 1756413907.1179562,
+          "BTTLastUpdatedAt" : 1760985283.8575029,
           "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
           "BTTUUID" : "42C8EDE9-B760-4592-A5D6-4F75061ED6FC",
           "BTTPredefinedActionType" : 59,
           "BTTPredefinedActionName" : "Open URL  or  Open URL With Selection",
-          "BTTOpenURL" : "https:\/\/calendar.google.com\/calendar\/u\/1\/r",
+          "BTTOpenURL" : "https:\/\/calendar.google.com\/calendar\/u\/0\/r",
           "BTTOpenURLBrowser" : "Default",
           "BTTAdditionalConfiguration" : "524288",
           "BTTShortcutKeyboardType" : 0,
