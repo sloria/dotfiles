@@ -13,11 +13,6 @@ nnoremap <C-b> :CtrlPBuffer<CR>
 map <C-t> :CtrlPBufTag<CR>
 " Make ctrlp faster
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
-if has('python') ||  has('python3')
-  " Faster and more accurate fuzzy-matching
-  Plug 'felikz/ctrlp-py-matcher'
-  let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
-endif
 " rg-powered search with in-place editing
 Plug 'dyng/ctrlsf.vim'
 let g:ctrlsf_ackprg = 'rg'
