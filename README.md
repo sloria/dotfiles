@@ -53,6 +53,7 @@ You can use `gh` for this, which should have been installed by `dot-bootstrap` a
 
 ```
 gh auth login
+gh auth setup-git
 ```
 
 ## updating your local environment
