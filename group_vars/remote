@@ -37,4 +37,4 @@ mac_cask_packages:
   # More resource-efficient Docker
   - orbstack
   # VPN
-  - tailscale
+  - tailscale-app
