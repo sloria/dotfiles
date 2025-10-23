@@ -1,4 +1,11 @@
-- name: Ensure rustup is installed
-  command: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+---
+- name: Install rustup
+  ansible.builtin.shell: |
+    set -o pipefail
+    curl https://sh.rustup.rs -sSf | sh -s -- -y
   args:
     creates: "{{ dotfiles_user_home }}/.cargo/bin/rustup"
+    executable: /bin/bash
+  environment:
+    RUSTUP_HOME: "{{ dotfiles_user_home }}/.rustup"
+    CARGO_HOME: "{{ dotfiles_user_home }}/.cargo"

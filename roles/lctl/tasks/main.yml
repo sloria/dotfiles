@@ -1,5 +1,11 @@
+- name: Ensure ~/.local/bin exists
+  ansible.builtin.file:
+    path: "{{ dotfiles_user_home }}/.local/bin"
+    state: directory
+    mode: "0755"
+
 - name: Download lctl to ~/.local/bin/lctl
-  get_url:
+  ansible.builtin.get_url:
     url: https://raw.githubusercontent.com/newtonne/lctl/refs/heads/master/lctl.sh
     dest: "{{ dotfiles_user_home }}/.local/bin/lctl"
     mode: "0755"
