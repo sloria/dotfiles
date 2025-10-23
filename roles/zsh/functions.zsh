@@ -60,3 +60,14 @@ bindkey '^Z' fancy-ctrl-z
 function countfiles() {
   find "$1" -type f | wc -l
 }
+
+boop () {
+  local last="$?"
+  local ntfy_url="https://ntfy.in.ragecloset.com/alerts"
+  if [[ "$last" == '0' ]]; then
+    curl -d "success" $ntfy_url
+  else
+    curl -d "failure" $ntfy_url
+  fi
+  $(exit "$last")
+}
