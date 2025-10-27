@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# Usage: docker-copy-volume SOURCE_VOLUME DESTINATION_VOLUME
+
+set -euo pipefail
+
+SOURCE_VOLUME=$1
+DESTINATION_VOLUME=$2
+
+# Check if source volume exists
+if ! docker volume inspect "$SOURCE_VOLUME" > /dev/null 2>&1; then
+  echo "Source volume '$SOURCE_VOLUME' does not exist."
+  exit 1
+fi
+
+# Create destination volume if it doesn't exist
+if ! docker volume inspect "$DESTINATION_VOLUME" > /dev/null 2>&1; then
+  docker volume create "$DESTINATION_VOLUME"
+fi
+
+TEMP_CONTAINER="temp-container-$(date +%s)"
+docker container run --rm -it --name "$TEMP_CONTAINER" \
+  -v "$SOURCE_VOLUME":/from \
+  -v "$DESTINATION_VOLUME":/to \
+  alpine ash -c "cd /from && cp -a . /to/"
+echo "Data copied from volume '$SOURCE_VOLUME' to volume '$DESTINATION_VOLUME'."
