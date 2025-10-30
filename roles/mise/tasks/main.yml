@@ -5,7 +5,7 @@
   ansible.builtin.file:
     path: "{{ '~/.config/mise' | expanduser }}"
     state: directory
-    mode: '0755'
+    mode: "0755"
 
 - name: Copy mise config file
   ansible.builtin.copy:

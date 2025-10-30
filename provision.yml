@@ -27,5 +27,4 @@
   hosts: remote
   roles:
     - { role: adguard, tags: ["adguard"] }
-    - { role: beszel-agent, tags: ["beszel-agent"] }
     - { role: ollama, tags: ["ollama"] }
