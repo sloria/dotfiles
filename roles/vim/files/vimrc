@@ -107,8 +107,6 @@ let g:user_emmet_settings = {
   \ }
 Plug 'jiangmiao/auto-pairs' " autoclose parens, quotes, etc.
 autocmd FileType python let b:AutoPairs = AutoPairsDefine({'f"': '"', "f'": "'"})
-" Open scratch buffer with space-tab (automatically set syntax to markdown)
-nnoremap <silent> <leader><tab> :Scratch<cr>
 Plug 'tpope/vim-sleuth'  " Detect indent settings
 Plug 'machakann/vim-highlightedyank'  " Highlight yank
 if !exists('##TextYankPost') | map y <Plug>(highlightedyank) | endif
@@ -131,10 +129,6 @@ map <leader>gB :GBrowse<CR>
 vmap <leader>gB :GBrowse<CR>
 map <leader>gr :GRead<CR>
 map <leader>gw :GWrite<CR>
-Plug 'majutsushi/tagbar', {'on': 'Tagbar'}
-" Open tagbar
-map <leader>\ :Tagbar<CR>
-let g:tagbar_autofocus = 1
 " COLOR
 Plug 'sloria/vim-hybrid'  " hybrid with easier-to-read line numbers
 
@@ -207,8 +201,6 @@ nnoremap <leader>e :e.<CR>
 nnoremap <Leader>v <C-w>v<C-w>w
 " Quick select whole file
 map <leader>a ggVG
-" Quickly save session
-nnoremap <leader>S :mksession! .session<CR>
 " Make D delete to end of line
 nnoremap D d$
 " Make Y yank to end of line
@@ -249,9 +241,3 @@ augroup configgroup
   " commit messages
   autocmd Filetype gitcommit setlocal nolist textwidth=72
 augroup END
-
-" GUI settings, e.g. MacVim
-set guifont=Hack:h12
-" Hide scrollbars and menu
-set guioptions-=T guioptions-=R guioptions-=r guioptions-=m guioptions-=l guioptions-=L
-set keyprotocol=ghostty:none

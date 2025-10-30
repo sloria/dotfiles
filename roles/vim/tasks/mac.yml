@@ -1,5 +1,0 @@
-- name: Install vim with homebrew
-  homebrew: name=vim state=present
-
-- name: Install exuberant-ctags (needed for TagBar plugin)
-  homebrew: name=ctags-exuberant state=present
