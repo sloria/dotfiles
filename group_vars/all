@@ -1,0 +1,13 @@
+# vi: set ft=yaml :
+
+# Where your dotfiles live. Probably don't need to change this.
+dotfiles_home: "{{dotfiles_user_home}}/dotfiles"
+
+# Name used in commit messages
+full_name: Steven Loria
+# Git
+# Github username
+git_user: sloria
+# If you use github, this should be the same as the email
+#  used on Github
+git_email: git@stevenloria.com

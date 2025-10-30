@@ -2,6 +2,7 @@
 
 - name: Common provisioning
   hosts: all
+  gather_facts: false
   roles:
     - { role: git, tags: ["git"] }
     - { role: package_manager, tags: ["package_manager"] }
@@ -25,6 +26,14 @@
 
 - name: Remote-only provisioning
   hosts: remote
+  gather_facts: false
+  pre_tasks:
+    - name: Clone dotfiles repository
+      ansible.builtin.git:
+        repo: https://github.com/sloria/dotfiles.git
+        dest: "{{ dotfiles_user_home }}/dotfiles"
+        clone: yes
+      when: inventory_hostname != 'localhost'
   roles:
     - { role: adguard, tags: ["adguard"] }
     - { role: ollama, tags: ["ollama"] }

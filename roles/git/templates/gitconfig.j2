@@ -1,10 +1,8 @@
 [user]
         name = {{ full_name }}
         email = {{ git_email }}
-{% if ansible_os_family == 'Darwin' %}
 [credential]
         helper = osxkeychain
-{% endif %}
 [alias]
         a = add
         ac = !git add -A && git commit
@@ -15,10 +13,8 @@
         cp = cherry-pick
         c = checkout
         ci = commit
-        noff = merge --no-ff
         l = log --graph --decorate --oneline --abbrev-commit --all
         h = log --graph --decorate --oneline --abbrev-commit
-        plr = pull --rebase
         amend = commit --amend
         wip = !git add -A && git commit -m "WIP" --no-verify
         br = branch
@@ -62,7 +58,7 @@
         cb = "!git rev-parse --abbrev-ref HEAD | tr -d '\n' | pbcopy"
 
         # Slightly quicker way to credit an author on the latest commit.
-        # Usage: git credit "Steven Loria" sloria1@gmail.com
+        # Usage: git credit "Steven Loria" git@stevenloria.com
         credit = "!f() { git commit --amend --author \"$1 <$2>\" -C HEAD }; f"
 
         # Set up your branch to track a remote branch. Assumes you mean `origin/$branch-name`.

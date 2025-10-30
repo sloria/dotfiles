@@ -1,13 +1,14 @@
-- name: Install mise with homebrew
-  homebrew: name=mise state=present
+---
+- name: Install mise
+  ansible.builtin.package: name=mise state=present
 
 - name: Create mise config directory
   ansible.builtin.file:
-    path: "{{ '~/.config/mise' | expanduser }}"
+    path: "{{ dotfiles_user_home }}/.config/mise"
     state: directory
     mode: "0755"
 
 - name: Copy mise config file
   ansible.builtin.copy:
     src: "config.toml"
-    dest: "{{ '~/.config/mise/config.toml' | expanduser }}"
+    dest: "{{ dotfiles_user_home }}/.config/mise/config.toml"

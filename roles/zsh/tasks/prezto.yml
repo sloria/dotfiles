@@ -1,15 +1,15 @@
-# Prezto
+---
 - name: Install prezto
-  script: install_prezto.sh creates="{{ '~/.zprezto' | expanduser}}"
+  ansible.builtin.script: install_prezto.sh creates="{{ dotfiles_user_home }}/.zprezto"
 
 - name: Link zpreztorc file
-  file:
+  ansible.builtin.file:
     src: "{{ dotfiles_home }}/roles/zsh/files/zpreztorc.link"
-    dest: "{{ '~/.zpreztorc' | expanduser }}"
+    dest: "{{ dotfiles_user_home }}/.zpreztorc"
     state: link
 
 - name: Link zshrc file
-  file:
+  ansible.builtin.file:
     src: "{{ dotfiles_home }}/roles/zsh/files/zshrc.link"
-    dest: "{{ '~/.zshrc' | expanduser }}"
+    dest: "{{ dotfiles_user_home }}/.zshrc"
     state: link

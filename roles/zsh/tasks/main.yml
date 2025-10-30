@@ -13,14 +13,6 @@
     creates: "{{dotfiles_user_home}}/.zshrc.bak"
   when: zshrc_stat.stat.exists
 
-# Ensure the dotfiles repository gets cloned in remote hosts, like my mac mini, but not on localhost
-- name: Clone dotfiles repository
-  git:
-    repo: https://github.com/sloria/dotfiles.git
-    dest: "{{ dotfiles_user_home }}/dotfiles"
-    clone: yes
-  when: inventory_hostname != 'localhost'
-
 - import_tasks: prezto.yml
   when: zsh_prezto
 
