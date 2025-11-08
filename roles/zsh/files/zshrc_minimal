@@ -47,15 +47,11 @@ export EDITOR=vim
 export VISUAL=vim
 
 # Aliases
-alias c=clear
-alias l='ls -1A'
 alias g=git
 alias v=vim
+alias nv=nvim
 alias reload!='source ~/.zshrc'
-alias e=$EDITOR
 alias pg='ps -ef | grep'
-# Syntax-highlighted cat (requires python-pygments)
-alias dog="pygmentize -g"
 
 # Enable z script
 source ~/dotfiles/roles/z/enable.zsh

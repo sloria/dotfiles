@@ -136,6 +136,7 @@ Plug 'sloria/vim-hybrid'  " hybrid with easier-to-read line numbers
 Plug 'sheerun/vim-polyglot'  " syntax files for most languages
 let g:jsx_ext_required = 0
 let g:markdown_fenced_languages = ['javascript', 'python', 'clojure', 'ruby']
+Plug 'wuelnerdotexe/vim-astro'
 " --- Python ---
 Plug 'Vimjas/vim-python-pep8-indent'  " Proper python indenting
 " --- CSS ---
@@ -149,7 +150,6 @@ filetype plugin indent on
 """ BASE CUSTOMIZATIONS """
 " NOTE: Many base customizations come from vim-sensible and vim-opinion
 set encoding=utf-8
-set relativenumber
 set autoread " reload files when changed on disk, i.e. via `git checkout`
 set clipboard^=unnamedplus,unnamed " Make "yanks" work with system clipboard
 set exrc secure  " Project-specific vimrcs
