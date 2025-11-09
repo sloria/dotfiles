@@ -1,5 +1,5 @@
 [user]
-        name = {{ full_name }}
+        name = {{ git_name }}
         email = {{ git_email }}
 [credential]
         helper = osxkeychain
@@ -88,8 +88,5 @@
         smudge = git-lfs smudge -- %f
         process = git-lfs filter-process
         required = true
-[github]
-        user = {{ git_user }}
-
 [init]
         defaultBranch = main
