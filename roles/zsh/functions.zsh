@@ -44,7 +44,7 @@ function scratch {
   echo "New scratch dir ready for grinding ;>"
 }
 
- # Allow returning to Vim by pressing Ctrl+Z
+ # Toggle background/foreground with Ctrl-Z
 fancy-ctrl-z () {
   if [[ $#BUFFER -eq 0 ]]; then
     BUFFER="fg"
@@ -61,6 +61,7 @@ function countfiles() {
   find "$1" -type f | wc -l
 }
 
+# Send a push notification via self-hosted ntfy
 boop () {
   local last="$?"
   local ntfy_url="https://ntfy.in.ragecloset.com/alerts"

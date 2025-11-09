@@ -11,13 +11,10 @@ mac_homebrew_packages:
   - rg
   - terminal-notifier
   - yt-dlp
-  - htop
   - bottom
   - imagemagick  # for resizing images
   - diff-so-fancy
   - gh
-  # Top for docker containers
-  - ctop
   # User-contributed docs for Unix commands
   - tlrc
   # what's the wifi password?
