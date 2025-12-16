@@ -11,7 +11,7 @@
 - python managed with [uv](https://docs.astral.sh/uv/)
 - vim with [vim-plug](https://github.com/junegunn/vim-plug) for plugin management. All configuration in a single file [.vimrc](https://github.com/sloria/dotfiles/blob/master/roles/vim/files/vimrc).
 - pluggable. Everything is optional. Fork this. Remove what you don't use. Configure what you do use.
-- Mac packages installed with [homebrew][]. Mac apps installed with [homebrew cask][] and [mas][].
+- CLIs and apps installed with [homebrew][]. App Store-only apps installed with [mas][].
 - Useful git aliases
 
 ## prerequisites

@@ -20,7 +20,6 @@
 ### sharing settings
 
 - System Settings / General / Sharing / Screen Sharing - On. This allows remote access to the device via the Screen Sharing app
-- System Settings / General / Sharing / Content Caching - Storage, Clients / Devices using the same public IP address, use ony public IP address.
 - System Settings / General / Sharing / Remote Login - On. This allows SSH while while using Tailscale
 
 ### ssh setup
