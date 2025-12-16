@@ -36,6 +36,8 @@ Plug 'vim-scripts/BufOnly.vim'  " delete all but current buffer
 Plug 'scrooloose/nerdtree', {'on': ['NERDTreeToggle', 'NERDTreeFind']}
 nnoremap <leader>d :NERDTreeToggle<CR>
 nnoremap <leader>D :NERDTreeFind<CR>
+nnoremap <leader>e :NERDTreeToggle<CR>
+nnoremap <leader>E :NERDTreeFind<CR>
 let NERDTreeIgnore = ['\.pyc', '__pycache__', '.egg-info[[dir]]', 'pip-wheel-metadata[[dir]]']
 
 Plug 'w0rp/ale'  " Async linting
@@ -195,10 +197,8 @@ nnoremap gp `[v`]
 " Quickly write/quit
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
-" Quickly open netrw
-nnoremap <leader>e :e.<CR>
 " Quick split
-nnoremap <Leader>v <C-w>v<C-w>w
+nnoremap <leader>v <C-w>v<C-w>w
 " Quick select whole file
 map <leader>a ggVG
 " Make D delete to end of line
