@@ -50,6 +50,7 @@ mac_cask_packages:
   - obsidian
   # Fonts
   - font-hack
+  - font-hack-nerd-font
   # Database client
   - tableplus
   # REST client
