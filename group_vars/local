@@ -42,7 +42,6 @@ mac_cask_packages:
   # chat
   - discord
   # Media/Music
-  - spotify
   - iina
   # Images
   - imageoptim
