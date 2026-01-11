@@ -6,6 +6,9 @@ brew cleanup
 echo "==> Docker cleanup..."
 docker system prune --all --force
 
+echo "==> uv cleanup..."
+uv cache prune
+
 echo "==> ~/tmp cleanup..."
 rm -rf ~/tmp/*
 
