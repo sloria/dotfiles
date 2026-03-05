@@ -137,7 +137,7 @@ Plug 'sloria/vim-hybrid'  " hybrid with easier-to-read line numbers
 " LANGUAGE-SPECIFIC
 Plug 'sheerun/vim-polyglot'  " syntax files for most languages
 let g:jsx_ext_required = 0
-let g:markdown_fenced_languages = ['javascript', 'python', 'clojure', 'ruby']
+let g:markdown_fenced_languages = ['javascript', 'python', 'rust', 'ruby']
 Plug 'wuelnerdotexe/vim-astro'
 " --- Python ---
 Plug 'Vimjas/vim-python-pep8-indent'  " Proper python indenting
