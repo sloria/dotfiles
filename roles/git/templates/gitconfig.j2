@@ -61,11 +61,6 @@
 
         # Set up your branch to track a remote branch. Assumes you mean `origin/$branch-name`.
         track = "!f() { branch=$(git rev-parse --abbrev-ref HEAD); git branch $branch --set-upstream-to origin/$branch }; f"
-
-        # worktree management
-        wta = "!f() { git worktree add -b \"$1\" \"../$1\"; }; f"
-        wtr = "!f() { git worktree remove \"../$1\"; }; f"
-        wtl = "!f() { git worktree list; }; f"
 [color]
         diff = auto
         status = auto

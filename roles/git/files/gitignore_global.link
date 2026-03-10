@@ -52,5 +52,6 @@ Icon
 mise.local.toml
 
 # Claude code
+.claude
 settings.local.json
 CLAUDE.local.md
