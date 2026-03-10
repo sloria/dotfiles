@@ -2,16 +2,10 @@
 
 echo "==> Upgrading Homebrew packages..."
 brew upgrade
+echo "==> Upgrading rust toolchain..."
+rustup update
 echo "==> Upgrading Vim plugins..."
 vim +PlugUpdate +qall
-
-if command -v ollama > /dev/null 2>&1; then
-  echo "==> Upgrading Ollama models..."
-  ollama list | tail -n +2 | awk '{print $1}' | while read -r model; do
-    echo "==> Upgrading $model..."
-    ollama pull $model
-  done
-fi
 
 echo "==> Upgrades complete."
 
