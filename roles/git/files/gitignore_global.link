@@ -51,6 +51,10 @@ Icon
 # https://mise.jdx.dev/faq.html#i-don-t-want-to-put-a-mise-toml-tool-versions-file-into-my-project-since-git-shows-it-as-an-untracked-file
 mise.local.toml
 
+## mprocs
+mprocs.local.yaml
+mprocs.log
+
 # Claude code
 .claude
 settings.local.json
