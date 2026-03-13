@@ -1,5 +1,0 @@
----
-- name: Install AdGuard Home
-  ansible.builtin.shell: curl -s -S -L https://raw.githubusercontent.com/AdguardTeam/AdGuardHome/master/scripts/install.sh | bash -s -- -v
-  args:
-    creates: /Applications/AdGuardHome/AdGuardHome

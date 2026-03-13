@@ -35,5 +35,4 @@
         clone: yes
       when: inventory_hostname != 'localhost'
   roles:
-    - { role: adguard, tags: ["adguard"] }
     - { role: ollama, tags: ["ollama"] }
