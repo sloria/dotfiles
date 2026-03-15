@@ -60,6 +60,10 @@ mac_cask_packages:
   - tailscale-app
   # Color picker
   - pika
+  # Malware scanner
+  - knockknock
+  # Firewall
+  - lulu
 
 # Mac-App-Store-only apps to be installed with mas
 # Use App IDs found with `mas search <name>`
