@@ -1,2 +1,4 @@
 - name: Install uv
-  ansible.builtin.homebrew: name=uv state=present
+  community.general.homebrew:
+    name: uv
+    state: present

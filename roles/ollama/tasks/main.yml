@@ -1,5 +1,7 @@
 - name: Install ollama with Homebrew
-  ansible.builtin.homebrew: name=ollama state=present
+  community.general.homebrew:
+    name: ollama
+    state: present
 
 # XXX: Can't use brew services start ollama
 # because it doesn't set OLLAMA_HOST
@@ -8,16 +10,10 @@
   ansible.builtin.copy:
     src: "com.sloria.ollama.plist"
     dest: "{{ dotfiles_user_home }}/Library/LaunchAgents/com.sloria.ollama.plist"
-  register: plist
-
-- name: Restart ollama service if plist changed
-  community.general.launchd:
-    name: com.sloria.ollama
-    state: restarted
-  when: plist.changed
+    mode: "0644"
+  notify: Restart ollama service
 
 - name: Ensure ollama service is started
   community.general.launchd:
     name: com.sloria.ollama
     state: started
-  when: not plist.changed

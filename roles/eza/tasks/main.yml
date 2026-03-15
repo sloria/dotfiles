@@ -1,3 +1,5 @@
 ---
 - name: Install eza with Homebrew
-  ansible.builtin.homebrew: name=eza state=present
+  community.general.homebrew:
+    name: eza
+    state: present

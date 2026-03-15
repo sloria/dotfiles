@@ -1,3 +1,4 @@
 - name: Update homebrew
-  ansible.builtin.homebrew: update_homebrew=yes
+  community.general.homebrew:
+    update_homebrew: true
   when: package_update

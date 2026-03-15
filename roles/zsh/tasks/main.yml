@@ -1,21 +1,28 @@
 ---
 - name: Make sure zsh is installed
-  ansible.builtin.homebrew: name=zsh state=present
+  community.general.homebrew:
+    name: zsh
+    state: present
 
 # Configuration
 - name: Check if zshrc already exists
-  stat: path="{{dotfiles_user_home}}/.zshrc"
+  ansible.builtin.stat:
+    path: "{{ dotfiles_user_home }}/.zshrc"
   register: zshrc_stat
 
 - name: Back up zshrc if it exists
-  command: mv ~/.zshrc ~/.zshrc.bak
+  ansible.builtin.command: mv ~/.zshrc ~/.zshrc.bak
   args:
-    creates: "{{dotfiles_user_home}}/.zshrc.bak"
+    creates: "{{ dotfiles_user_home }}/.zshrc.bak"
   when: zshrc_stat.stat.exists
 
-- import_tasks: prezto.yml
+- name: Import prezto tasks
+  ansible.builtin.import_tasks: prezto.yml
   when: zsh_prezto
 
 - name: Copy minimal zshrc
-  copy: src=zshrc_minimal dest={{dotfiles_user_home}}/.zshrc
+  ansible.builtin.copy:
+    src: zshrc_minimal
+    dest: "{{ dotfiles_user_home }}/.zshrc"
+    mode: "0644"
   when: not zsh_prezto

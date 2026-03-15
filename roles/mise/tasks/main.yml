@@ -1,6 +1,8 @@
 ---
 - name: Install mise
-  ansible.builtin.package: name=mise state=present
+  ansible.builtin.package:
+    name: mise
+    state: present
 
 - name: Create mise config directory
   ansible.builtin.file:
@@ -12,3 +14,4 @@
   ansible.builtin.copy:
     src: "config.toml"
     dest: "{{ dotfiles_user_home }}/.config/mise/config.toml"
+    mode: "0644"

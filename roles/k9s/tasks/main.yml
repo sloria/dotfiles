@@ -1,3 +1,5 @@
 ---
 - name: Install k9s with Homebrew
-  ansible.builtin.homebrew: name=k9s state=present
+  community.general.homebrew:
+    name: k9s
+    state: present

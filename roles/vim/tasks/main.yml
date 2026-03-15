@@ -1,23 +1,32 @@
 - name: Install vim
-  ansible.builtin.package: name=vim state=present
+  ansible.builtin.package:
+    name: vim
+    state: present
 
 # Plugin manager
 - name: Makes sure autoload directory exists
-  ansible.builtin.file: path="{{dotfiles_user_home}}/.vim/autoload" state=directory
+  ansible.builtin.file:
+    path: "{{ dotfiles_user_home }}/.vim/autoload"
+    state: directory
+    mode: "0755"
 
 - name: Install vim-plug
   ansible.builtin.get_url:
     url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    dest: "{{dotfiles_user_home}}/.vim/autoload/plug.vim"
+    dest: "{{ dotfiles_user_home }}/.vim/autoload/plug.vim"
+    mode: "0644"
 
 # Snippets
 - name: Makes sure UltiSnips directory exists
-  ansible.builtin.file: path="{{dotfiles_user_home}}/.vim/UltiSnips" state=directory
+  ansible.builtin.file:
+    path: "{{ dotfiles_user_home }}/.vim/UltiSnips"
+    state: directory
+    mode: "0755"
 
 - name: Symlink all snippet files
   ansible.builtin.file:
-    src: "{{ dotfiles_home }}/roles/vim/files/{{item}}"
-    dest: "{{ dotfiles_user_home}}/.vim/UltiSnips/{{item}}"
+    src: "{{ dotfiles_home }}/roles/vim/files/{{ item }}"
+    dest: "{{ dotfiles_user_home }}/.vim/UltiSnips/{{ item }}"
     state: link
   with_items:
     - "python.snippets"
@@ -26,22 +35,24 @@
 
 # Configuration
 - name: Check if vimrc exists
-  ansible.builtin.stat: path="{{dotfiles_user_home}}/.vimrc"
+  ansible.builtin.stat:
+    path: "{{ dotfiles_user_home }}/.vimrc"
   register: vimrc_stat
-  failed_when: False
+  failed_when: false
 
 - name: Backup vimrc
   ansible.builtin.command: mv ~/.vimrc ~/.vimrc.bak
   args:
-    creates: "{{dotfiles_user_home}}/.vimrc.bak"
+    creates: "{{ dotfiles_user_home }}/.vimrc.bak"
   when: vimrc_stat.stat.exists
 
 - name: Symlink vimrc
   ansible.builtin.file:
     src: "{{ dotfiles_home }}/roles/vim/files/vimrc"
-    dest: "{{dotfiles_user_home}}/.vimrc"
+    dest: "{{ dotfiles_user_home }}/.vimrc"
     state: link
 
 - name: Install plugins
   ansible.builtin.command: vim +PlugInstall +qall
-  when: vim_install_plugins|bool
+  when: vim_install_plugins | bool
+  changed_when: true

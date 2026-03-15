@@ -1,6 +1,8 @@
 ---
 - name: Install prezto
-  ansible.builtin.script: install_prezto.sh creates="{{ dotfiles_user_home }}/.zprezto"
+  ansible.builtin.script:
+    cmd: install_prezto.sh
+    creates: "{{ dotfiles_user_home }}/.zprezto"
 
 - name: Link zpreztorc file
   ansible.builtin.file:

@@ -8,8 +8,10 @@
 - name: Install jrnl with uv
   ansible.builtin.command: "uv tool install jrnl"
   when: jrnl_check.rc != 0
+  changed_when: true
 
 - name: Copy jrnl config file
   ansible.builtin.copy:
     src: "jrnl.yaml"
-    dest: "{{ dotfiles_user_home}}/.config/jrnl/jrnl.yaml"
+    dest: "{{ dotfiles_user_home }}/.config/jrnl/jrnl.yaml"
+    mode: "0644"

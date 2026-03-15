@@ -32,7 +32,7 @@
       ansible.builtin.git:
         repo: https://github.com/sloria/dotfiles.git
         dest: "{{ dotfiles_user_home }}/dotfiles"
-        clone: yes
+        clone: true
       when: inventory_hostname != 'localhost'
   roles:
     - { role: ollama, tags: ["ollama"] }

@@ -1,32 +1,36 @@
 ---
 - name: Install git with Homebrew
-  ansible.builtin.homebrew: name=git state=present
+  community.general.homebrew:
+    name: git
+    state: present
 
 - name: Link global gitignore file
   ansible.builtin.file:
     src: "{{ dotfiles_home }}/roles/git/files/gitignore_global.link"
     dest: "{{ dotfiles_user_home }}/.gitignore_global"
     state: link
-    force: yes
+    force: true
 
 - name: Link gitattributes file
   ansible.builtin.file:
     src: "{{ dotfiles_home }}/roles/git/files/gitattributes_global.link"
     dest: "{{ dotfiles_user_home }}/.gitattributes_global"
     state: link
-    force: yes
+    force: true
 
 - name: Check if gitconfig exists
-  ansible.builtin.stat: path="{{dotfiles_user_home}}/.gitconfig"
+  ansible.builtin.stat:
+    path: "{{ dotfiles_user_home }}/.gitconfig"
   register: gitconfig_stat
 
 - name: Back up gitconfig
   ansible.builtin.command: mv ~/.gitconfig ~/.gitconfig.bak
   args:
-    creates: "{{dotfiles_user_home}}/.gitconfig.bak"
+    creates: "{{ dotfiles_user_home }}/.gitconfig.bak"
   when: gitconfig_stat.stat.exists
 
 - name: Make sure gitconfig is up to date
   ansible.builtin.template:
     src: "gitconfig.j2"
-    dest: "{{dotfiles_user_home}}/.gitconfig"
+    dest: "{{ dotfiles_user_home }}/.gitconfig"
+    mode: "0644"

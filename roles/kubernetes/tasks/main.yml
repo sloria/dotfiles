@@ -1,3 +1,5 @@
 ---
 - name: Homebrew ensure kubernetes-cli installed
-  ansible.builtin.package: name=kubernetes-cli state=present
+  ansible.builtin.package:
+    name: kubernetes-cli
+    state: present

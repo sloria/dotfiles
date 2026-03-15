@@ -1,3 +1,5 @@
 ---
 - name: Install bat
-  ansible.builtin.package: name=bat state=present
+  ansible.builtin.package:
+    name: bat
+    state: present
