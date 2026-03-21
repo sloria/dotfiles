@@ -1,5 +1,5 @@
 export TERM=xterm-256color
-export EDITOR='vim'
+export EDITOR='nvim'
 export VISUAL='code'
 export GPG_TTY=$(tty)
 export LC_ALL=en_US.UTF-8

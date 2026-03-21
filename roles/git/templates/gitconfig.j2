@@ -5,7 +5,6 @@
         a = add
         ac = !git add -A && git commit
         s = status
-        st = stash
         co = checkout
         cob = checkout -b
         cp = cherry-pick
@@ -16,8 +15,6 @@
         amend = commit --amend
         wip = !git add -A && git commit -m "WIP" --no-verify
         br = branch
-        rn = branch -m
-        delete-tag="!f() { git push --delete ${2-origin} ${1}; git tag -d ${1}; }; f"
         up = !git pull --rebase --prune $@ && git submodule update --init --recursive
 
         # diff-so-fancy
@@ -31,24 +28,14 @@
         # publish current branch
         publish = "!f() { git push -u ${1:-origin} $(git rev-parse --abbrev-ref HEAD); }; f"
         pub = publish
-        ship = "!f() { git add -A && git commit -m \"$1\" && git push; }; f"
-
-        # Nukes a branch locally and on the origin remote.
-        nuke = "!f() { git branch -D $1 && git push origin :$1; }; f"
-
-        # Remove local branches that have been removed upstream
-        cleanup = "!git fetch --all -p && git branch -vv | grep \": gone]\" | awk '{ print $1 }' | xargs -n 1 git branch -D"
 
         # Sync branches and cleanup local branches (depends on above alias)
         sup = "!gh repo sync && git checkout $(git remote show origin | grep 'HEAD branch' | sed 's/.*: //') && git cleanup"
 
         # http://gggritso.com/human-git-aliases
         unstage = reset -q HEAD --
-        uns = unstage
         discard = checkout --
-        dis = discard
         uncommit = reset --mixed HEAD~
-        unc = uncommit
 
         url = "!f() { sha=$(git rev-parse ${1:-HEAD}); gh browse $sha -n; }; f"
 
@@ -69,7 +56,7 @@
 [core]
         excludesfile = ~/.gitignore_global
         attributesfile = ~/.gitattributes_global
-        editor = vim
+        editor = nvim
 [apply]
         whitespace = nowarn
 [mergetool]

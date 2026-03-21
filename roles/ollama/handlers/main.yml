@@ -1,5 +1,0 @@
----
-- name: Restart ollama service
-  community.general.launchd:
-    name: com.sloria.ollama
-    state: restarted

@@ -48,7 +48,6 @@ mac_cask_packages:
   # Notetaking
   - obsidian
   # Fonts
-  - font-hack
   - font-hack-nerd-font
   # Database client
   - tableplus
