@@ -10,7 +10,7 @@
     - { role: python, tags: ["python"] }
     - { role: mise, tags: ["mise"] }
     - { role: rust, tags: ["rust"] }
-    - { role: vim, tags: ["vim"] }
+    - { role: neovim, tags: ["neovim"] }
     - { role: eza, tags: ["eza"] }
     - { role: bat, tags: ["bat"] }
     - { role: lctl, tags: ["lctl"] }

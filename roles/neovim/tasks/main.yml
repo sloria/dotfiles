@@ -1,0 +1,27 @@
+- name: Install neovim
+  ansible.builtin.package:
+    name: neovim
+    state: present
+
+- name: Ensure ~/.config directory exists
+  ansible.builtin.file:
+    path: "{{ dotfiles_user_home }}/.config"
+    state: directory
+    mode: "0755"
+
+- name: Check if nvim config exists
+  ansible.builtin.stat:
+    path: "{{ dotfiles_user_home }}/.config/nvim"
+  register: nvim_stat
+  failed_when: false
+
+- name: Backup existing nvim config
+  ansible.builtin.command: mv ~/.config/nvim ~/.config/nvim.bak
+  changed_when: true
+  when: nvim_stat.stat.exists and not nvim_stat.stat.islnk
+
+- name: Symlink nvim config
+  ansible.builtin.file:
+    src: "{{ dotfiles_home }}/roles/neovim/files"
+    dest: "{{ dotfiles_user_home }}/.config/nvim"
+    state: link

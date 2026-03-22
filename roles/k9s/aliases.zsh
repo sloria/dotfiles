@@ -1,1 +1,1 @@
-alias k9s="EDITOR=vim k9s"
+alias k9s="EDITOR=nvim k9s"

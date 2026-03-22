@@ -3,6 +3,7 @@ repos:
     rev: v3.6.2
     hooks:
       - id: prettier
+        exclude: ^roles/neovim/files/(lazy-lock|lazyvim)\.json$
   - repo: https://github.com/ansible/ansible-lint
     rev: v25.9.2
     hooks:

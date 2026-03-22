@@ -43,13 +43,12 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 export PATH=$PATH:$ZSH/bin
 
 # Envvars
-export EDITOR=vim
-export VISUAL=vim
+export EDITOR=nvim
+export VISUAL=nvim
 
 # Aliases
 alias g=git
-alias v=vim
-alias nv=nvim
+alias v=nvim
 alias reload!='source ~/.zshrc'
 alias pg='ps -ef | grep'
 

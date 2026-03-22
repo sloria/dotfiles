@@ -9,7 +9,7 @@
 - zsh configured with [prezto](https://github.com/sorin-ionescu/prezto).
 - nice fonts for the terminal and coding.
 - python managed with [uv](https://docs.astral.sh/uv/)
-- vim with [vim-plug](https://github.com/junegunn/vim-plug) for plugin management. All configuration in a single file [.vimrc](https://github.com/sloria/dotfiles/blob/master/roles/vim/files/vimrc).
+- neovim/[lazyvim](https://www.lazyvim.org/)
 - pluggable. Everything is optional. Fork this. Remove what you don't use. Configure what you do use.
 - CLIs and apps installed with [homebrew][]. App Store-only apps installed with [mas][].
 - Useful git aliases
@@ -113,26 +113,6 @@ There are a few keyboard customizations that must be done manually:
 **mac mini**
 
 I also use this repo to configure my Mac Mini server which I have running in headless mode. My setup is documented in [docs/MAC_MINI.md](docs/MAC_MINI.md).
-
-## what if I only want your vim?
-
-First make sure you have a sane vim compiled. On macOS, the following will do:
-
-```
-brew install vim
-```
-
-The following commands will install vim-plug and download my `.vimrc`.
-
-After backing up your `~/.vim` directory and `~/.vimrc`:
-
-```
-mkdir -p ~/.vim/autoload
-curl -fLo ~/.vim/autoload/plug.vim https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-curl -fLo ~/.vimrc https://raw.githubusercontent.com/sloria/dotfiles/master/roles/vim/files/vimrc
-```
-
-You will now be able to open vim and run `:PlugInstall` to install all plugins.
 
 ## troubleshooting
 
