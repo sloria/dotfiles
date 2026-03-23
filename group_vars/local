@@ -9,7 +9,6 @@ mac_homebrew_packages:
   - jq
   - wget
   - rg
-  - terminal-notifier
   - yt-dlp
   - bottom
   - imagemagick  # for resizing images

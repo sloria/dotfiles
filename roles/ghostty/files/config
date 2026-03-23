@@ -1,0 +1,27 @@
+theme = dark:Night Owl,light:Light Owl
+# Block cursor
+# Need both options, per https://github.com/ghostty-org/ghostty/discussions/3836#discussioncomment-11688264
+cursor-style = block
+shell-integration-features = no-cursor
+
+# Make escape sequences work
+keybind = shift+enter=text:\x1b\r
+keybind = ctrl+[=text:\x1b
+keybind = ctrl+j=text:\n
+
+# Don't require confirming close
+confirm-close-surface = false
+
+# Disable ligatures
+font-feature = -calt,-liga,-dlig
+
+# Notify after commands finish
+notify-on-command-finish-action = notify
+notify-on-command-finish = unfocused
+
+# Split navigation
+# NOTE: ctrl+j isn't mapped because we want that to stay as a newline (see above)
+keybind = performable:ctrl+h=goto_split:left
+# keybind = performable:ctrl+j=goto_split:bottom
+keybind = performable:ctrl+k=goto_split:top
+keybind = performable:ctrl+l=goto_split:right

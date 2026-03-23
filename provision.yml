@@ -22,3 +22,4 @@
     - { role: kubernetes, tags: ["kubernetes"] }
     - { role: jrnl, tags: ["jrnl"] }
     - { role: k9s, tags: ["k9s"] }
+    - { role: ghostty, tags: ["ghostty"] }

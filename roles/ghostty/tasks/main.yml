@@ -1,0 +1,29 @@
+- name: Install Ghostty
+  community.general.homebrew_cask:
+    name: ghostty
+    state: present
+
+- name: Ensure Ghostty config directory exists
+  ansible.builtin.file:
+    path: "{{ dotfiles_user_home }}/Library/Application Support/com.mitchellh.ghostty"
+    state: directory
+    mode: "0755"
+
+- name: Check if Ghostty config exists
+  ansible.builtin.stat:
+    path: "{{ dotfiles_user_home }}/Library/Application Support/com.mitchellh.ghostty/config"
+  register: ghostty_stat
+  failed_when: false
+
+- name: Backup existing Ghostty config
+  vars:
+    ghostty_config_dir: "{{ dotfiles_user_home }}/Library/Application Support/com.mitchellh.ghostty"
+  ansible.builtin.command: mv "{{ ghostty_config_dir }}/config" "{{ ghostty_config_dir }}/config.bak"
+  changed_when: true
+  when: ghostty_stat.stat.exists and not ghostty_stat.stat.islnk
+
+- name: Symlink Ghostty config
+  ansible.builtin.file:
+    src: "{{ dotfiles_home }}/roles/ghostty/files/config"
+    dest: "{{ dotfiles_user_home }}/Library/Application Support/com.mitchellh.ghostty/config"
+    state: link
