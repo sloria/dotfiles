@@ -3,6 +3,15 @@
 - name: Common provisioning
   hosts: all
   gather_facts: false
+  pre_tasks:
+    - name: Update dotfiles repo
+      ansible.builtin.git:
+        repo: "git@github.com:sloria/dotfiles.git"
+        dest: "{{ dotfiles_home }}"
+        update: true
+        version: main
+      when: inventory_hostname != 'localhost'
+      tags: always
   roles:
     - { role: git, tags: ["git"] }
     - { role: package_manager, tags: ["package_manager"] }

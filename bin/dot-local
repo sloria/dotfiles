@@ -3,6 +3,8 @@
 # Optionally pass role names.
 set -e
 
+cd ~/dotfiles
+
 if [[ $# -eq 0 ]]; then
   # Run all roles except for the ones tagged with 'bootstrap'
   echo "Updating local dev environment..."
