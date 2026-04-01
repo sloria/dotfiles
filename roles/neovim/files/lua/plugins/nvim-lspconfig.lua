@@ -42,8 +42,9 @@ return {
           settings = {
             pylsp = {
               plugins = {
-                -- pycodestyle is noisy
+                -- disable pyscodestyle and pyflakes, which are noisy
                 pycodestyle = { enabled = false },
+                pyflakes = { enabled = false },
               },
             },
           },
