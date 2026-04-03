@@ -31,6 +31,7 @@ return {
             ".husky",
             "node_modules",
             "target",
+            "dist",
           },
         },
         explorer = {
