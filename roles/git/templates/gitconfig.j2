@@ -74,3 +74,7 @@
         required = true
 [init]
         defaultBranch = main
+{% if git_alt_path is defined %}
+[includeIf "gitdir:{{ git_alt_path }}/"]
+        path = ~/.gitconfig-alt
+{% endif %}

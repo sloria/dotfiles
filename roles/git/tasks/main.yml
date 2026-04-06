@@ -34,3 +34,10 @@
     src: "gitconfig.j2"
     dest: "{{ dotfiles_user_home }}/.gitconfig"
     mode: "0644"
+
+- name: Create gitconfig for alt account
+  ansible.builtin.template:
+    src: "gitconfig-alt.j2"
+    dest: "{{ dotfiles_user_home }}/.gitconfig-alt"
+    mode: "0644"
+  when: git_alt_name is defined

@@ -11,7 +11,7 @@ mac_homebrew_packages:
   - rg
   - yt-dlp
   - bottom
-  - imagemagick  # for resizing images
+  - imagemagick # for resizing images
   - diff-so-fancy
   - gh
   # User-contributed docs for Unix commands
@@ -21,7 +21,7 @@ mac_homebrew_packages:
   # For repeating commands
   - watch
   - watchexec
-  - qrtool  # for generating QR codes
+  - qrtool # for generating QR codes
 
 # Mac Apps to be installed with homebrew-cask
 mac_cask_packages:
@@ -32,7 +32,7 @@ mac_cask_packages:
   # Browsers
   - firefox
   # Display
-  - keepingyouawake  # maintained caffeinate wrapper
+  - keepingyouawake # maintained caffeinate wrapper
   # Utilities
   - bettertouchtool
   - appcleaner
@@ -67,4 +67,4 @@ mac_cask_packages:
 # Use App IDs found with `mas search <name>`
 mac_mas_packages:
   # NOTE: the IDs can be found with `mas search <app name>`
-  - {"id": 409203825, "name": "Numbers"}
+  - { "id": 409203825, "name": "Numbers" }

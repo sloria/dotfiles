@@ -1,0 +1,8 @@
+[user]
+        name = {{ git_alt_name }}
+        email = {{ git_alt_email }}
+[credential "https://github.com"]
+        helper =
+        helper = !/opt/homebrew/bin/gh auth git-credential
+[url "https://github.com/"]
+        insteadOf = git@github.com:
