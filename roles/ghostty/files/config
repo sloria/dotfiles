@@ -16,3 +16,10 @@ font-feature = -calt,-liga,-dlig
 # Notify after commands finish
 notify-on-command-finish-action = notify
 notify-on-command-finish = unfocused
+
+# Split navigation
+# https://github.com/ghostty-org/ghostty/discussions/7381#discussioncomment-13182157
+keybind = performable:ctrl+h=goto_split:left
+keybind = performable:ctrl+j=goto_split:bottom
+keybind = performable:ctrl+k=goto_split:top
+keybind = performable:ctrl+l=goto_split:right
