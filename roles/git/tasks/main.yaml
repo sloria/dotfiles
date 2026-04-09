@@ -26,16 +26,15 @@
     state: link
     force: true
 
-- name: Check if gitconfig exists
-  ansible.builtin.stat:
-    path: "{{ dotfiles_user_home }}/.gitconfig"
-  register: gitconfig_stat
-
 - name: Back up gitconfig
-  ansible.builtin.command: mv {{ dotfiles_user_home }}/.gitconfig {{ dotfiles_user_home }}/.gitconfig.bak
-  args:
-    creates: "{{ dotfiles_user_home }}/.gitconfig.bak"
-  when: gitconfig_stat.stat.exists
+  ansible.builtin.copy:
+    src: "{{ dotfiles_user_home }}/.gitconfig"
+    dest: "{{ dotfiles_user_home }}/.gitconfig.bak"
+    remote_src: true
+    force: false
+    mode: "0644"
+  failed_when: false
+  changed_when: false
 
 - name: Make sure gitconfig is up to date
   ansible.builtin.template:

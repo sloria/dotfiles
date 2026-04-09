@@ -1,2 +1,6 @@
 [tools]
 prek = "latest"
+
+[tasks.lint]
+description = "Lint the codebase"
+run = "prek run --all-files"

@@ -21,12 +21,12 @@
     - { role: neovim, tags: ["neovim"] }
     - { role: eza, tags: ["eza"] }
     - { role: bat, tags: ["bat"] }
-    - { role: lctl, tags: ["lctl"] }
 
 - name: macOS provisioning # noqa: name[casing]
   hosts: mac
   roles:
     - { role: macos, tags: ["macos"] }
+    - { role: lctl, tags: ["lctl"] }
 
 - name: Local-only provisioning
   hosts: local

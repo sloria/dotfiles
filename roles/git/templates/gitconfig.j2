@@ -77,6 +77,9 @@
         smudge = git-lfs smudge -- %f
         process = git-lfs filter-process
         required = true
+[credential "https://github.com"]
+        helper =
+        helper = !gh auth git-credential
 [init]
         defaultBranch = main
 {% if git_alt_path is defined %}

@@ -4,32 +4,19 @@
     state: present
   when: ansible_facts["system"] == "Darwin"
 
-- name: Add neovim PPA signing key
+- name: Install neovim AppImage (Linux)
   ansible.builtin.get_url:
-    url: https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x9DBB0BE9366964F134855E2255F96FCF8231B6DD
-    dest: /etc/apt/keyrings/neovim-ppa.asc
-    mode: "0644"
+    url: https://github.com/neovim/neovim/releases/latest/download/nvim-linux-{{ "arm64" if ansible_facts["architecture"] == "aarch64" else "x86_64" }}.appimage
+    dest: /usr/local/bin/nvim
+    mode: "0755"
   become: true
   when: ansible_facts["os_family"] == "Debian"
 
-- name: Add neovim PPA
-  ansible.builtin.copy:
-    dest: /etc/apt/sources.list.d/neovim-ppa.sources
-    mode: "0644"
-    content: |
-      Types: deb
-      URIs: https://ppa.launchpadcontent.net/neovim-ppa/unstable/ubuntu
-      Suites: {{ ansible_facts["distribution_release"] }}
-      Components: main
-      Signed-By: /etc/apt/keyrings/neovim-ppa.asc
-  become: true
-  when: ansible_facts["os_family"] == "Debian"
-
-- name: Install neovim and build dependencies (Linux)
+- name: Install neovim dependencies (Linux)
   ansible.builtin.apt:
     name:
-      - neovim
       - build-essential # nvim-treesitter
+      - fuse # AppImage support
       - npm # JS LSPs
       - python3-pip # Python LSPs
       - python3-venv # Python LSPs

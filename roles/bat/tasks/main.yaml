@@ -1,6 +1,13 @@
 ---
-- name: Install bat
-  ansible.builtin.package:
+- name: Install bat (macOS)
+  community.general.homebrew:
+    name: bat
+    state: present
+  when: ansible_facts["system"] == "Darwin"
+
+- name: Install bat (Linux)
+  ansible.builtin.apt:
     name: bat
     state: present
   become: true
+  when: ansible_facts["os_family"] == "Debian"

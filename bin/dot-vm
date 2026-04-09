@@ -1,39 +1,155 @@
 #!/usr/bin/env bash
-# Create and provision an OrbStack VM
-# Usage: dot-vm [name]
+# Manage OrbStack dev VMs.
 set -e
 
 DOTFILES_DIR=~/dotfiles
 INVENTORY="$DOTFILES_DIR/hosts.local.ini"
-VM_NAME="${1:-ubuntu}"
+SSH_CONFIG=~/.ssh/config
 
-# Create VM if it doesn't already exist
-if orb info "$VM_NAME" &>/dev/null; then
-  echo "VM '$VM_NAME' already exists, skipping creation..."
-else
-  echo "Creating VM '$VM_NAME'..."
-  orb create ubuntu "$VM_NAME"
-fi
+usage() {
+  echo "Usage: dot-vm                   List VMs"
+  echo "       dot-vm create [name]     Create and provision a VM (default: debian)"
+  echo "       dot-vm provision [name]  Provision a VM, or all VMs if no name given"
+  echo "       dot-vm rm <name>         Delete a VM and clean up config"
+  exit 1
+}
 
-# Generate/update inventory file
-echo "Updating inventory..."
-if [[ ! -f "$INVENTORY" ]] || ! grep -q '^\[orb\]' "$INVENTORY"; then
-  echo "[orb]" > "$INVENTORY"
-fi
+prepare_vm() {
+  local vm_name="$1"
+  orb run -m "$vm_name" -u root apt-get install -y -qq python3 rsync > /dev/null
+  echo "Syncing dotfiles to '$vm_name'..."
+  rsync -a --delete --exclude='.git' "$DOTFILES_DIR/" "${USER}@${vm_name}@orb:~/dotfiles/"
+}
 
-if grep -q "^${VM_NAME} " "$INVENTORY"; then
-  echo "VM '$VM_NAME' already in inventory."
-else
-  echo "${VM_NAME} ansible_host=${USER}@${VM_NAME}@orb dotfiles_user_home=/home/$USER" >> "$INVENTORY"
-fi
+run_ansible() {
+  local limit="$1"
+  ansible-playbook "$DOTFILES_DIR/provision.yaml" -i "$DOTFILES_DIR/hosts.ini" -i "$INVENTORY" --limit "$limit"
+}
 
-# Ensure rsync is available on the VM
-orb run -m "$VM_NAME" -u root apt-get install -y -qq rsync > /dev/null
+cmd_ls() {
+  exec orb list
+}
 
-# Sync local dotfiles to VM
-echo "Syncing dotfiles to '$VM_NAME'..."
-rsync -a --delete --exclude='.git' "$DOTFILES_DIR/" "${USER}@${VM_NAME}@orb:~/dotfiles/"
+cmd_delete() {
+  VM_NAME="${1:?Usage: dot-vm delete <name>}"
 
-echo "Provisioning '$VM_NAME'..."
-# Include hosts.ini so that mac/local groups are defined (avoids host pattern warnings)
-ansible-playbook "$DOTFILES_DIR/provision.yaml" -i "$DOTFILES_DIR/hosts.ini" -i "$INVENTORY" --limit "$VM_NAME"
+  read -rp "Delete '$VM_NAME'? [y/N] " confirm
+  [[ "$confirm" =~ ^[Yy]$ ]] || exit 0
+
+  orb delete -f "$VM_NAME" 2>/dev/null && echo "Removed OrbStack machine." || echo "Machine not found in OrbStack."
+
+  # Remove from inventory
+  if [[ -f "$INVENTORY" ]] && grep -q "^${VM_NAME} " "$INVENTORY"; then
+    sed -i '' "/^${VM_NAME} /d" "$INVENTORY"
+    echo "Removed from inventory."
+  fi
+
+  # Remove from SSH config (marker line + Host block until next blank line)
+  SSH_MARKER="# Added by dot-vm: ${VM_NAME}"
+  if grep -qF "$SSH_MARKER" "$SSH_CONFIG" 2>/dev/null; then
+    sed -i '' "/$SSH_MARKER/,/^$/d" "$SSH_CONFIG"
+    echo "Removed from SSH config."
+  fi
+
+  echo "Done."
+}
+
+cmd_create() {
+  VM_NAME="${1:-debian}"
+  VM_IS_NEW=false
+
+  # Create VM if it doesn't already exist
+  if orb info "$VM_NAME" &>/dev/null; then
+    echo "VM '$VM_NAME' already exists, skipping creation..."
+  else
+    echo "Creating VM '$VM_NAME'..."
+    orb create debian:trixie "$VM_NAME"
+  fi
+
+  # Generate/update inventory file
+  echo "Updating inventory..."
+  if [[ ! -f "$INVENTORY" ]] || ! grep -q '^\[orb\]' "$INVENTORY"; then
+    echo "[orb]" > "$INVENTORY"
+  fi
+
+  if grep -q "^${VM_NAME} " "$INVENTORY"; then
+    echo "VM '$VM_NAME' already in inventory."
+  else
+    VM_IS_NEW=true
+
+    # Prompt for git identity
+    read -rp "Git name [Steven Loria]: " input_git_name
+    GIT_NAME="${input_git_name:-Steven Loria}"
+    read -rp "Git email [git@stevenloria.com]: " input_git_email
+    GIT_EMAIL="${input_git_email:-git@stevenloria.com}"
+
+    echo "${VM_NAME} ansible_host=${USER}@${VM_NAME}@orb dotfiles_user_home=/home/$USER git_name=\"${GIT_NAME}\" git_email=\"${GIT_EMAIL}\"" >> "$INVENTORY"
+
+    # Prompt for GitHub token
+    read -rsp "GitHub token (leave empty to skip): " GH_TOKEN
+    echo # newline after silent read
+  fi
+
+  # Add SSH config entry for VS Code Remote-SSH
+  SSH_MARKER="# Added by dot-vm: ${VM_NAME}"
+  if ! grep -qF "$SSH_MARKER" "$SSH_CONFIG" 2>/dev/null; then
+    echo "Adding SSH config entry for '$VM_NAME'..."
+    cat >> "$SSH_CONFIG" <<EOF
+
+${SSH_MARKER}
+Host ${VM_NAME}
+    User ${USER}@${VM_NAME}
+    IdentityFile ~/.orbstack/ssh/id_ed25519
+    IdentitiesOnly yes
+    UserKnownHostsFile ~/.orbstack/ssh/known_hosts
+    ProxyCommand '/Applications/OrbStack.app/Contents/Frameworks/OrbStack Helper.app/Contents/MacOS/OrbStack Helper' ssh-proxy-fdpass 501
+    ProxyUseFdpass yes
+EOF
+  fi
+
+  prepare_vm "$VM_NAME"
+
+  # Deploy GitHub token to VM
+  if [[ "$VM_IS_NEW" == true && -n "$GH_TOKEN" ]]; then
+    echo "Setting up GitHub auth on '$VM_NAME'..."
+    ssh "${USER}@${VM_NAME}@orb" "
+      touch ~/.localrc && chmod 600 ~/.localrc
+      echo 'export GH_TOKEN=${GH_TOKEN}' >> ~/.localrc
+    "
+  fi
+
+  echo "Provisioning '$VM_NAME'..."
+  run_ansible "$VM_NAME"
+}
+
+cmd_provision() {
+  local limit="${1:-orb}"
+
+  if [[ ! -f "$INVENTORY" ]]; then
+    echo "No inventory file found at $INVENTORY. Run 'dot-vm create' first."
+    exit 1
+  fi
+
+  local hosts
+  hosts=$(ansible -i "$DOTFILES_DIR/hosts.ini" -i "$INVENTORY" --list-hosts "$limit" 2>/dev/null | tail -n +2 | tr -d ' ')
+
+  if [[ -z "$hosts" ]]; then
+    echo "No hosts found for '$limit'."
+    exit 1
+  fi
+
+  for vm in $hosts; do
+    prepare_vm "$vm"
+  done
+
+  echo "Provisioning '$limit'..."
+  run_ansible "$limit"
+}
+
+case "${1:-}" in
+  ""|ls)        cmd_ls ;;
+  create)       cmd_create "$2" ;;
+  provision)    cmd_provision "$2" ;;
+  delete|rm)    cmd_delete "$2" ;;
+  *)            usage ;;
+esac

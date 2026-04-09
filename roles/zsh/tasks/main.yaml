@@ -20,16 +20,15 @@
   when: ansible_facts["os_family"] == "Debian"
 
 # Configuration
-- name: Check if zshrc already exists
-  ansible.builtin.stat:
-    path: "{{ dotfiles_user_home }}/.zshrc"
-  register: zshrc_stat
-
 - name: Back up zshrc if it exists
-  ansible.builtin.command: mv {{ dotfiles_user_home }}/.zshrc {{ dotfiles_user_home }}/.zshrc.bak
-  args:
-    creates: "{{ dotfiles_user_home }}/.zshrc.bak"
-  when: zshrc_stat.stat.exists
+  ansible.builtin.copy:
+    src: "{{ dotfiles_user_home }}/.zshrc"
+    dest: "{{ dotfiles_user_home }}/.zshrc.bak"
+    remote_src: true
+    force: false
+    mode: "0644"
+  failed_when: false
+  changed_when: false
 
 - name: Import prezto tasks
   ansible.builtin.import_tasks: prezto.yaml

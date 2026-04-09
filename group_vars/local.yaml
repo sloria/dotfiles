@@ -1,5 +1,3 @@
-# vi: set ft=yaml :
-
 # Determines if iCloud Drive is symlinked to ~/iCloud
 icloud_enabled: true
 

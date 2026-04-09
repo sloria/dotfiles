@@ -1,7 +1,7 @@
 # dotfiles
 
 [sloria's dotfiles](https://github.com/sloria/dotfiles-old), rewritten as Ansible roles. Sets up my local and remote development environments with a single command.
-Supports macOS and OrbStack VMs running Ubuntu.
+Supports macOS and OrbStack VMs running Debian.
 
 ## a few neat features
 
@@ -32,10 +32,10 @@ git clone https://github.com/YOU/dotfiles.git ~/dotfiles
 cd ~/dotfiles
 ```
 
-- Update the following variables in `group_vars/local` (at a minimum)
+- Update the following variables in `group_vars/local.yaml` (at a minimum)
   - `git_name`: Your name, which will be attached to commit messages, e.g. "Steven Loria"
   - `git_email`: Your git email address.
-- Optional, but recommended: Update `group_vars/local` with the programs you want installed by [homebrew][], [homebrew-cask][], and npm.
+- Optional, but recommended: Update `group_vars/local.yaml` with the programs you want installed by [homebrew][], [homebrew-cask][], and npm.
   - `mac_homebrew_packages`: Utilities that don't get installed by the roles.
   - `mac_cask_packages`: Mac Apps you want installed with [homebrew-cask][].
 - Edit `provision.yaml` as you see fit. Remove any roles you don't use. Edit roles that you do use.
