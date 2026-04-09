@@ -6,11 +6,9 @@ mac_homebrew_packages:
   - curl
   - jq
   - wget
-  - rg
   - yt-dlp
   - bottom
   - imagemagick # for resizing images
-  - diff-so-fancy
   # User-contributed docs for Unix commands
   - tlrc
   # what's the wifi password?

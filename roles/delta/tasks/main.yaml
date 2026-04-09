@@ -1,0 +1,34 @@
+---
+- name: Install delta (macOS)
+  community.general.homebrew:
+    name: git-delta
+    state: present
+  when: ansible_facts["system"] == "Darwin"
+
+- name: Get latest delta release
+  ansible.builtin.uri:
+    url: https://api.github.com/repos/dandavison/delta/releases/latest
+    return_content: true
+  register: delta_release
+  when: ansible_facts["os_family"] == "Debian"
+
+- name: Set delta .deb architecture
+  ansible.builtin.set_fact:
+    delta_deb_arch: "{{ 'arm64' if ansible_facts['architecture'] == 'aarch64' else 'amd64' }}"
+  when: ansible_facts["os_family"] == "Debian"
+
+- name: Set delta .deb URL
+  ansible.builtin.set_fact:
+    delta_deb_url: >-
+      {{ delta_release.json.assets
+        | selectattr('name', 'match', 'git-delta_.*_' + delta_deb_arch + '\.deb$')
+        | map(attribute='browser_download_url')
+        | first }}
+  when: ansible_facts["os_family"] == "Debian"
+
+- name: Install delta (Linux)
+  ansible.builtin.apt:
+    deb: "{{ delta_deb_url }}"
+    state: present
+  become: true
+  when: ansible_facts["os_family"] == "Debian"

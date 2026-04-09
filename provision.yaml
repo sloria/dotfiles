@@ -21,6 +21,8 @@
     - { role: neovim, tags: ["neovim"] }
     - { role: eza, tags: ["eza"] }
     - { role: bat, tags: ["bat"] }
+    - { role: delta, tags: ["delta"] }
+    - { role: rg, tags: ["rg"] }
 
 - name: macOS provisioning # noqa: name[casing]
   hosts: mac

@@ -1,6 +1,6 @@
 # Where your dotfiles live. Probably don't need to change this.
 
-dotfiles_home: "{{dotfiles_user_home}}/dotfiles"
+dotfiles_home: "{{ dotfiles_user_home }}/dotfiles"
 
 # Name used in commit messages
 

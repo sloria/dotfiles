@@ -17,12 +17,8 @@
         br = branch
         up = !git pull --rebase --prune $@ && git submodule update --init --recursive
 
-        # diff-so-fancy
-        # https://github.com/so-fancy/diff-so-fancy/#usage
-        df = "!f() { [ -z \"$GIT_PREFIX\" ] || cd \"$GIT_PREFIX\" && git diff --color \"$@\" | diff-so-fancy  | less --tabs=4 -RFX; }; f"
-        dfs = df --staged
-        # Get changes for a single commit
-        dfc = "!dfc() { git df $1^ $1; }; dfc"
+        df = diff
+        dfs = diff --staged
 
         please = push --force-with-lease
         # publish current branch
@@ -62,6 +58,12 @@
         excludesfile = ~/.gitignore_global
         attributesfile = ~/.gitattributes_global
         editor = nvim
+        # https://github.com/dandavison/delta?tab=readme-ov-file#get-started
+        pager = delta
+[interactive]
+        diffFilter = delta --color-only
+[merge]
+        conflictStyle = zdiff3
 [apply]
         whitespace = nowarn
 [mergetool]

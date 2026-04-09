@@ -7,7 +7,6 @@ mac_homebrew_packages:
   - jq
   - wget
   - bottom
-  - diff-so-fancy
   # User-contributed docs for Unix commands
   - tlrc
 
