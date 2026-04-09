@@ -9,12 +9,14 @@
   ansible.builtin.apt:
     name: zsh
     state: present
+  become: true
   when: ansible_facts["os_family"] == "Debian"
 
 - name: Set zsh as default shell
   ansible.builtin.user:
     name: "{{ dotfiles_user_home | basename }}"
     shell: /bin/zsh
+  become: true
   when: ansible_facts["os_family"] == "Debian"
 
 # Configuration
@@ -30,7 +32,7 @@
   when: zshrc_stat.stat.exists
 
 - name: Import prezto tasks
-  ansible.builtin.import_tasks: prezto.yml
+  ansible.builtin.import_tasks: prezto.yaml
   when: zsh_prezto
 
 - name: Copy minimal zshrc

@@ -36,4 +36,4 @@ rsync -a --delete --exclude='.git' "$DOTFILES_DIR/" "${USER}@${VM_NAME}@orb:~/do
 
 echo "Provisioning '$VM_NAME'..."
 # Include hosts.ini so that mac/local groups are defined (avoids host pattern warnings)
-ansible-playbook "$DOTFILES_DIR/provision.yml" -i "$DOTFILES_DIR/hosts.ini" -i "$INVENTORY" --limit "$VM_NAME"
+ansible-playbook "$DOTFILES_DIR/provision.yaml" -i "$DOTFILES_DIR/hosts.ini" -i "$INVENTORY" --limit "$VM_NAME"

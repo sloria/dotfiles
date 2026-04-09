@@ -57,7 +57,6 @@ target/
 
 remotehosts
 *.retry
-group_vars/*/*.local.yml
 group_vars/*/*.local.yaml
 hosts.local.ini
 lazy-lock.json

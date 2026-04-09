@@ -9,7 +9,7 @@
     url: https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x9DBB0BE9366964F134855E2255F96FCF8231B6DD
     dest: /etc/apt/keyrings/neovim-ppa.asc
     mode: "0644"
-
+  become: true
   when: ansible_facts["os_family"] == "Debian"
 
 - name: Add neovim PPA
@@ -22,6 +22,7 @@
       Suites: {{ ansible_facts["distribution_release"] }}
       Components: main
       Signed-By: /etc/apt/keyrings/neovim-ppa.asc
+  become: true
   when: ansible_facts["os_family"] == "Debian"
 
 - name: Install neovim and build dependencies (Linux)
@@ -35,6 +36,7 @@
       - unzip # binary LSPs
     state: present
     update_cache: true
+  become: true
   when: ansible_facts["os_family"] == "Debian"
 
 - name: Ensure ~/.config directory exists

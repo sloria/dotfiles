@@ -9,17 +9,7 @@
 
 - name: Common provisioning
   hosts: all
-  become: true
   gather_facts: true
-  pre_tasks:
-    - name: Update dotfiles repo
-      ansible.builtin.git:
-        repo: "git@github.com:sloria/dotfiles.git"
-        dest: "{{ dotfiles_home }}"
-        update: true
-        version: main
-      when: inventory_hostname != 'localhost' and 'orb' not in group_names
-      tags: always
   roles:
     - { role: git, tags: ["git"] }
     - { role: gh, tags: ["gh"] }

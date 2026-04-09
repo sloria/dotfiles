@@ -10,6 +10,7 @@
     url: https://cli.github.com/packages/githubcli-archive-keyring.gpg
     dest: /etc/apt/keyrings/githubcli-archive-keyring.gpg
     mode: "0644"
+  become: true
   when: ansible_facts["os_family"] == "Debian"
 
 - name: Add gh apt repository
@@ -22,6 +23,7 @@
       Suites: stable
       Components: main
       Signed-By: /etc/apt/keyrings/githubcli-archive-keyring.gpg
+  become: true
   when: ansible_facts["os_family"] == "Debian"
 
 - name: Install gh (Linux)
@@ -29,4 +31,5 @@
     name: gh
     state: present
     update_cache: true
+  become: true
   when: ansible_facts["os_family"] == "Debian"

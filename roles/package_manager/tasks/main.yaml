@@ -8,9 +8,11 @@
     path: /etc/apt/keyrings
     state: directory
     mode: "0755"
+  become: true
   when: ansible_facts["os_family"] == "Debian"
 
 - name: Update apt cache
   ansible.builtin.apt:
     update_cache: true
+  become: true
   when: package_update and ansible_facts["os_family"] == "Debian"

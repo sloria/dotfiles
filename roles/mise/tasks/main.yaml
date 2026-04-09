@@ -10,6 +10,7 @@
     url: https://mise.jdx.dev/gpg-key.pub
     dest: /etc/apt/keyrings/mise-archive-keyring.asc
     mode: "0644"
+  become: true
   when: ansible_facts["os_family"] == "Debian"
 
 - name: Add mise apt repository
@@ -22,6 +23,7 @@
       Suites: stable
       Components: main
       Signed-By: /etc/apt/keyrings/mise-archive-keyring.asc
+  become: true
   when: ansible_facts["os_family"] == "Debian"
 
 - name: Install mise (Linux)
@@ -29,6 +31,7 @@
     name: mise
     state: present
     update_cache: true
+  become: true
   when: ansible_facts["os_family"] == "Debian"
 
 - name: Create mise config directory

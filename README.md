@@ -38,7 +38,7 @@ cd ~/dotfiles
 - Optional, but recommended: Update `group_vars/local` with the programs you want installed by [homebrew][], [homebrew-cask][], and npm.
   - `mac_homebrew_packages`: Utilities that don't get installed by the roles.
   - `mac_cask_packages`: Mac Apps you want installed with [homebrew-cask][].
-- Edit `provision.yml` as you see fit. Remove any roles you don't use. Edit roles that you do use.
+- Edit `provision.yaml` as you see fit. Remove any roles you don't use. Edit roles that you do use.
 - Run the installation script.
 
 ```console

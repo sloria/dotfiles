@@ -8,8 +8,8 @@ cd ~/dotfiles
 if [[ $# -eq 0 ]]; then
   # Run all roles except for the ones tagged with 'bootstrap'
   echo "Updating local dev environment..."
-  ansible-playbook ~/dotfiles/provision.yml --limit local
+  ansible-playbook ~/dotfiles/provision.yaml -i ~/dotfiles/hosts.ini -i ~/dotfiles/hosts.local.ini --limit local
 else
   echo "Updating local dev environment... (--tags $@)"
-  ansible-playbook ~/dotfiles/provision.yml --limit local --tags $@
+  ansible-playbook ~/dotfiles/provision.yaml -i ~/dotfiles/hosts.ini -i ~/dotfiles/hosts.local.ini --limit local --tags $@
 fi
