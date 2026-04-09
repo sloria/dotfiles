@@ -3,6 +3,8 @@
   ansible.builtin.script:
     cmd: install_prezto.sh
     creates: "{{ dotfiles_user_home }}/.zprezto"
+  become: true
+  become_user: "{{ dotfiles_user_home | basename }}"
 
 - name: Link zpreztorc file
   ansible.builtin.file:

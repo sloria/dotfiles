@@ -1,0 +1,19 @@
+---
+- name: Copy unmount script
+  ansible.builtin.copy:
+    src: unmount-mac.sh
+    dest: /usr/local/bin/unmount-mac.sh
+    mode: "0755"
+
+- name: Copy unmount systemd service
+  ansible.builtin.copy:
+    src: unmount-mac.service
+    dest: /etc/systemd/system/unmount-mac.service
+    mode: "0644"
+  notify: Enable and run unmount service
+
+- name: Copy SSH agent isolation script
+  ansible.builtin.copy:
+    src: no-host-ssh.sh
+    dest: /etc/profile.d/no-host-ssh.sh
+    mode: "0644"

@@ -1,4 +1,16 @@
 - name: Update homebrew
   community.general.homebrew:
     update_homebrew: true
-  when: package_update
+  when: package_update and ansible_facts["system"] == "Darwin"
+
+- name: Ensure apt keyrings directory exists
+  ansible.builtin.file:
+    path: /etc/apt/keyrings
+    state: directory
+    mode: "0755"
+  when: ansible_facts["os_family"] == "Debian"
+
+- name: Update apt cache
+  ansible.builtin.apt:
+    update_cache: true
+  when: package_update and ansible_facts["os_family"] == "Debian"

@@ -10,7 +10,6 @@ mac_homebrew_packages:
   - wget
   - bottom
   - diff-so-fancy
-  - gh
   # User-contributed docs for Unix commands
   - tlrc
 

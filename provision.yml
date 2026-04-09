@@ -1,8 +1,16 @@
 # NOTE: Each role is tagged so that we can select individual roles to run with ansible-playbook --tags
 
+- name: OrbStack VM hardening
+  hosts: orb
+  become: true
+  gather_facts: false
+  roles:
+    - { role: orb_lockdown, tags: ["orb_lockdown"] }
+
 - name: Common provisioning
   hosts: all
-  gather_facts: false
+  become: true
+  gather_facts: true
   pre_tasks:
     - name: Update dotfiles repo
       ansible.builtin.git:
@@ -10,10 +18,11 @@
         dest: "{{ dotfiles_home }}"
         update: true
         version: main
-      when: inventory_hostname != 'localhost'
+      when: inventory_hostname != 'localhost' and 'orb' not in group_names
       tags: always
   roles:
     - { role: git, tags: ["git"] }
+    - { role: gh, tags: ["gh"] }
     - { role: package_manager, tags: ["package_manager"] }
     - { role: zsh, tags: ["zsh"] }
     - { role: python, tags: ["python"] }
@@ -23,6 +32,10 @@
     - { role: eza, tags: ["eza"] }
     - { role: bat, tags: ["bat"] }
     - { role: lctl, tags: ["lctl"] }
+
+- name: macOS provisioning # noqa: name[casing]
+  hosts: mac
+  roles:
     - { role: macos, tags: ["macos"] }
 
 - name: Local-only provisioning

@@ -13,7 +13,6 @@ mac_homebrew_packages:
   - bottom
   - imagemagick # for resizing images
   - diff-so-fancy
-  - gh
   # User-contributed docs for Unix commands
   - tlrc
   # what's the wifi password?

@@ -1,0 +1,10 @@
+[Unit]
+Description=Unmount Mac virtiofs mounts
+After=local-fs.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/unmount-mac.sh
+
+[Install]
+WantedBy=multi-user.target

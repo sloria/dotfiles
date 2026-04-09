@@ -1,8 +1,35 @@
 ---
-- name: Install mise
+- name: Install mise (macOS)
   ansible.builtin.package:
     name: mise
     state: present
+  when: ansible_facts["system"] == "Darwin"
+
+- name: Add mise apt signing key
+  ansible.builtin.get_url:
+    url: https://mise.jdx.dev/gpg-key.pub
+    dest: /etc/apt/keyrings/mise-archive-keyring.asc
+    mode: "0644"
+  when: ansible_facts["os_family"] == "Debian"
+
+- name: Add mise apt repository
+  ansible.builtin.copy:
+    dest: /etc/apt/sources.list.d/mise.sources
+    mode: "0644"
+    content: |
+      Types: deb
+      URIs: https://mise.jdx.dev/deb
+      Suites: stable
+      Components: main
+      Signed-By: /etc/apt/keyrings/mise-archive-keyring.asc
+  when: ansible_facts["os_family"] == "Debian"
+
+- name: Install mise (Linux)
+  ansible.builtin.apt:
+    name: mise
+    state: present
+    update_cache: true
+  when: ansible_facts["os_family"] == "Debian"
 
 - name: Create mise config directory
   ansible.builtin.file:

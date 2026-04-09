@@ -1,0 +1,7 @@
+---
+- name: Enable and run unmount service
+  ansible.builtin.systemd:
+    name: unmount-mac
+    enabled: true
+    state: started
+    daemon_reload: true

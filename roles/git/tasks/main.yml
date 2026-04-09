@@ -1,8 +1,15 @@
 ---
-- name: Install git with Homebrew
+- name: Install git (macOS)
   community.general.homebrew:
     name: git
     state: present
+  when: ansible_facts["system"] == "Darwin"
+
+- name: Install git (Linux)
+  ansible.builtin.apt:
+    name: git
+    state: present
+  when: ansible_facts["os_family"] == "Debian"
 
 - name: Link global gitignore file
   ansible.builtin.file:
@@ -24,7 +31,7 @@
   register: gitconfig_stat
 
 - name: Back up gitconfig
-  ansible.builtin.command: mv ~/.gitconfig ~/.gitconfig.bak
+  ansible.builtin.command: mv {{ dotfiles_user_home }}/.gitconfig {{ dotfiles_user_home }}/.gitconfig.bak
   args:
     creates: "{{ dotfiles_user_home }}/.gitconfig.bak"
   when: gitconfig_stat.stat.exists

@@ -1,0 +1,32 @@
+---
+- name: Install gh (macOS)
+  community.general.homebrew:
+    name: gh
+    state: present
+  when: ansible_facts["system"] == "Darwin"
+
+- name: Add gh apt signing key
+  ansible.builtin.get_url:
+    url: https://cli.github.com/packages/githubcli-archive-keyring.gpg
+    dest: /etc/apt/keyrings/githubcli-archive-keyring.gpg
+    mode: "0644"
+  when: ansible_facts["os_family"] == "Debian"
+
+- name: Add gh apt repository
+  ansible.builtin.copy:
+    dest: /etc/apt/sources.list.d/github-cli.sources
+    mode: "0644"
+    content: |
+      Types: deb
+      URIs: https://cli.github.com/packages
+      Suites: stable
+      Components: main
+      Signed-By: /etc/apt/keyrings/githubcli-archive-keyring.gpg
+  when: ansible_facts["os_family"] == "Debian"
+
+- name: Install gh (Linux)
+  ansible.builtin.apt:
+    name: gh
+    state: present
+    update_cache: true
+  when: ansible_facts["os_family"] == "Debian"

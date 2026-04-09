@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+# Create and provision an OrbStack VM
+# Usage: dot-vm [name]
+set -e
+
+DOTFILES_DIR=~/dotfiles
+INVENTORY="$DOTFILES_DIR/hosts.local.ini"
+VM_NAME="${1:-ubuntu}"
+
+# Create VM if it doesn't already exist
+if orb info "$VM_NAME" &>/dev/null; then
+  echo "VM '$VM_NAME' already exists, skipping creation..."
+else
+  echo "Creating VM '$VM_NAME'..."
+  orb create ubuntu "$VM_NAME"
+fi
+
+# Generate/update inventory file
+echo "Updating inventory..."
+if [[ ! -f "$INVENTORY" ]] || ! grep -q '^\[orb\]' "$INVENTORY"; then
+  echo "[orb]" > "$INVENTORY"
+fi
+
+if grep -q "^${VM_NAME} " "$INVENTORY"; then
+  echo "VM '$VM_NAME' already in inventory."
+else
+  echo "${VM_NAME} ansible_host=${USER}@${VM_NAME}@orb dotfiles_user_home=/home/$USER" >> "$INVENTORY"
+fi
+
+# Ensure rsync is available on the VM
+orb run -m "$VM_NAME" -u root apt-get install -y -qq rsync > /dev/null
+
+# Sync local dotfiles to VM
+echo "Syncing dotfiles to '$VM_NAME'..."
+rsync -a --delete --exclude='.git' "$DOTFILES_DIR/" "${USER}@${VM_NAME}@orb:~/dotfiles/"
+
+echo "Provisioning '$VM_NAME'..."
+# Include hosts.ini so that mac/local groups are defined (avoids host pattern warnings)
+ansible-playbook "$DOTFILES_DIR/provision.yml" -i "$DOTFILES_DIR/hosts.ini" -i "$INVENTORY" --limit "$VM_NAME"

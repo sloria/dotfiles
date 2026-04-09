@@ -1,8 +1,27 @@
 ---
-- name: Install rustup
+- name: Install rustup (macOS)
   community.general.homebrew:
     name: rustup
     state: present
+  when: ansible_facts["system"] == "Darwin"
+
+- name: Download rustup installer (Linux)
+  ansible.builtin.get_url:
+    url: https://sh.rustup.rs
+    dest: /tmp/rustup-init.sh
+    mode: "0755"
+  when: ansible_facts["os_family"] == "Debian"
+
+- name: Install rustup (Linux)
+  ansible.builtin.command:
+    cmd: /tmp/rustup-init.sh -y
+    creates: "{{ dotfiles_user_home }}/.cargo/bin/rustup"
+  become: true
+  become_user: "{{ dotfiles_user_home | basename }}"
+  environment:
+    RUSTUP_HOME: "{{ dotfiles_user_home }}/.rustup"
+    CARGO_HOME: "{{ dotfiles_user_home }}/.cargo"
+  when: ansible_facts["os_family"] == "Debian"
 
 - name: Install stable Rust toolchain
   ansible.builtin.command: rustup-init -y
@@ -11,3 +30,4 @@
   environment:
     RUSTUP_HOME: "{{ dotfiles_user_home }}/.rustup"
     CARGO_HOME: "{{ dotfiles_user_home }}/.cargo"
+  when: ansible_facts["system"] == "Darwin"

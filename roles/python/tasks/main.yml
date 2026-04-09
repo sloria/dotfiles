@@ -1,4 +1,21 @@
-- name: Install uv
+- name: Install uv (macOS)
   community.general.homebrew:
     name: uv
     state: present
+  when: ansible_facts["system"] == "Darwin"
+
+- name: Download uv install script
+  ansible.builtin.get_url:
+    url: https://astral.sh/uv/install.sh
+    dest: /tmp/uv-install.sh
+    mode: "0755"
+  when: ansible_facts["os_family"] == "Debian"
+
+- name: Install uv via install script
+  ansible.builtin.command:
+    cmd: /tmp/uv-install.sh
+    creates: "{{ dotfiles_user_home }}/.local/bin/uv"
+  become: false
+  environment:
+    INSTALLER_NO_MODIFY_PATH: "1"
+  when: ansible_facts["os_family"] == "Debian"

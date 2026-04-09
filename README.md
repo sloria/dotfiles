@@ -1,8 +1,7 @@
 # dotfiles
 
 [sloria's dotfiles](https://github.com/sloria/dotfiles-old), rewritten as Ansible roles. Sets up my local and remote development environments with a single command.
-
-**As of 2025, this repo only supports macOS.** There's still remnants of Red Hat and Debian support, but they are not maintained.
+Supports macOS and OrbStack VMs running Ubuntu.
 
 ## a few neat features
 
@@ -13,6 +12,7 @@
 - pluggable. Everything is optional. Fork this. Remove what you don't use. Configure what you do use.
 - CLIs and apps installed with [homebrew][]. App Store-only apps installed with [mas][].
 - Useful git aliases
+- optional support for provisioning [OrbStack](https://orbstack.dev/) VMs
 
 ## prerequisites
 
@@ -25,7 +25,7 @@
 - [Fork](https://github.com/sloria/dotfiles/fork) this repo.
 - Clone your fork.
 
-```bash
+```console
 # Replace git url with your fork
 # NOTE: It is important that you clone to ~/dotfiles
 git clone https://github.com/YOU/dotfiles.git ~/dotfiles
@@ -41,7 +41,7 @@ cd ~/dotfiles
 - Edit `provision.yml` as you see fit. Remove any roles you don't use. Edit roles that you do use.
 - Run the installation script.
 
-```bash
+```console
 ./bin/dot-local
 ```
 
@@ -50,7 +50,7 @@ cd ~/dotfiles
 You won't be able to push to repos until you authenticate with GitHub.
 You can use `gh` for this, which should have been installed by `dot-bootstrap` above.
 
-```
+```console
 gh auth login
 gh auth setup-git
 ```
@@ -59,14 +59,27 @@ gh auth setup-git
 
 Once you have the dotfiles installed you can run the following command to rerun the ansible playbook:
 
-```bash
+```console
 dot-local
 ```
 
 You can optionally pass role names
 
-```bash
+```console
 dot-local git python
+```
+
+## creating and provisioning OrbStack VMs
+
+```console
+dot-vm
+# Creates an Ubuntu VM called "ubuntu". You can also pass name
+```
+
+To SSH:
+
+```console
+ssh ubuntu@orb
 ```
 
 ## updating your dotfiles repo
@@ -84,6 +97,7 @@ There are three main commands in the `bin` directory for setting up and updating
 
 - `dot-local`: sets up local environment
 - `dot-remote`: sets up remote environment
+- `dot-vm`: creates and provisions OrbStack VMs
 
 ## special files
 

@@ -1,8 +1,21 @@
 ---
-- name: Make sure zsh is installed
+- name: Install zsh (macOS)
   community.general.homebrew:
     name: zsh
     state: present
+  when: ansible_facts["system"] == "Darwin"
+
+- name: Install zsh (Linux)
+  ansible.builtin.apt:
+    name: zsh
+    state: present
+  when: ansible_facts["os_family"] == "Debian"
+
+- name: Set zsh as default shell
+  ansible.builtin.user:
+    name: "{{ dotfiles_user_home | basename }}"
+    shell: /bin/zsh
+  when: ansible_facts["os_family"] == "Debian"
 
 # Configuration
 - name: Check if zshrc already exists
@@ -11,7 +24,7 @@
   register: zshrc_stat
 
 - name: Back up zshrc if it exists
-  ansible.builtin.command: mv ~/.zshrc ~/.zshrc.bak
+  ansible.builtin.command: mv {{ dotfiles_user_home }}/.zshrc {{ dotfiles_user_home }}/.zshrc.bak
   args:
     creates: "{{ dotfiles_user_home }}/.zshrc.bak"
   when: zshrc_stat.stat.exists
