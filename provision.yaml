@@ -1,11 +1,12 @@
 # NOTE: Each role is tagged so that we can select individual roles to run with ansible-playbook --tags
 
-- name: OrbStack VM hardening
+- name: OrbStack setup
   hosts: orb
   become: true
-  gather_facts: false
+  gather_facts: true
   roles:
     - { role: orb_lockdown, tags: ["orb_lockdown"] }
+    - { role: wireguard, tags: ["wireguard"] }
 
 - name: Common provisioning
   hosts: all

@@ -1,0 +1,35 @@
+---
+- name: Install wireguard
+  ansible.builtin.apt:
+    name: wireguard
+    state: present
+  become: true
+
+- name: Find wireguard profiles
+  ansible.builtin.find:
+    paths: "{{ role_path }}/files/profiles"
+    patterns: "*.conf"
+  delegate_to: localhost
+  become: false
+  register: wg_profiles
+
+- name: Copy wireguard profiles
+  ansible.builtin.copy:
+    src: "{{ item.path }}"
+    dest: "/etc/wireguard/{{ item.path | basename }}"
+    owner: root
+    group: root
+    mode: "0600"
+  become: true
+  loop: "{{ wg_profiles.files }}"
+  loop_control:
+    label: "{{ item.path | basename }}"
+  notify: Restart wireguard
+
+- name: Enable and start wg-quick service
+  ansible.builtin.systemd:
+    name: "wg-quick@{{ wireguard_profile }}"
+    enabled: true
+    state: started
+  become: true
+  when: wireguard_profile is not none

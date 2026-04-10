@@ -1,0 +1,7 @@
+---
+- name: Restart wireguard
+  ansible.builtin.systemd:
+    name: "wg-quick@{{ wireguard_profile }}"
+    state: restarted
+  become: true
+  when: wireguard_profile is not none
