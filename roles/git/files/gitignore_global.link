@@ -14,11 +14,6 @@ Icon
 .Spotlight-V100
 .Trashes
 
-### SublimeText ###
-# SublimeText project files
-*.sublime-workspace
-
-## autoenv ##
 .env
 .autoenv
 .autoenv.zsh
@@ -27,7 +22,6 @@ Icon
 .ipynb_checkpoints
 
 .xmark.*
-
 
 # throwaway code
 .scratch
