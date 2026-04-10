@@ -1,1 +1,1 @@
-alias cat=bat
+(( $+commands[bat] )) && alias cat=bat

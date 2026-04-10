@@ -11,3 +11,11 @@
     state: present
   become: true
   when: ansible_facts["os_family"] == "Debian"
+
+- name: Symlink batcat to bat (Linux)
+  ansible.builtin.file:
+    src: /usr/bin/batcat
+    dest: /usr/local/bin/bat
+    state: link
+  become: true
+  when: ansible_facts["os_family"] == "Debian"
