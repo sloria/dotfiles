@@ -17,3 +17,10 @@
     src: no-host-ssh.sh
     dest: /etc/profile.d/no-host-ssh.sh
     mode: "0644"
+  when: not (orb_allow_ssh_agent_forwarding | bool)
+
+- name: Remove SSH agent isolation script
+  ansible.builtin.file:
+    path: /etc/profile.d/no-host-ssh.sh
+    state: absent
+  when: orb_allow_ssh_agent_forwarding | bool

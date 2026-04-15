@@ -58,14 +58,6 @@ cmd_create() {
   VM_NAME="${1:-debian}"
   VM_IS_NEW=false
 
-  # Create VM if it doesn't already exist
-  if orb info "$VM_NAME" &>/dev/null; then
-    echo "VM '$VM_NAME' already exists, skipping creation..."
-  else
-    echo "Creating VM '$VM_NAME'..."
-    orb create debian:trixie "$VM_NAME"
-  fi
-
   # Generate/update inventory file
   echo "Updating inventory..."
   if [[ ! -f "$INVENTORY" ]] || ! grep -q '^\[orb\]' "$INVENTORY"; then
@@ -83,11 +75,24 @@ cmd_create() {
     read -rp "Git email [git@stevenloria.com]: " input_git_email
     GIT_EMAIL="${input_git_email:-git@stevenloria.com}"
 
-    echo "${VM_NAME} ansible_host=${USER}@${VM_NAME}@orb dotfiles_user_home=/home/$USER git_name=\"${GIT_NAME}\" git_email=\"${GIT_EMAIL}\"" >> "$INVENTORY"
+    read -rp "Allow SSH agent forwarding? [y/N] " input_ssh_agent
+    SSH_AGENT_FWD=$([[ "$input_ssh_agent" =~ ^[Yy]$ ]] && echo "true" || echo "false")
 
     # Prompt for GitHub token
     read -rsp "GitHub token (leave empty to skip): " GH_TOKEN
     echo # newline after silent read
+  fi
+
+  # Create VM if it doesn't already exist
+  if orb info "$VM_NAME" &>/dev/null; then
+    echo "VM '$VM_NAME' already exists, skipping creation..."
+  else
+    echo "Creating VM '$VM_NAME'..."
+    orb create debian:trixie "$VM_NAME"
+  fi
+
+  if [[ "$VM_IS_NEW" == true ]]; then
+    echo "${VM_NAME} ansible_host=${USER}@${VM_NAME}@orb dotfiles_user_home=/home/$USER git_name=\"${GIT_NAME}\" git_email=\"${GIT_EMAIL}\" orb_allow_ssh_agent_forwarding=${SSH_AGENT_FWD}" >> "$INVENTORY"
   fi
 
   # Add SSH config entry for VS Code Remote-SSH
