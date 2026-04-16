@@ -1,3 +1,4 @@
 *.retry
 group_vars/**/*.local.yaml
 hosts.local.ini
+roles/wireguard/files/profiles/*/

@@ -1,13 +1,15 @@
 ---
 - name: Install wireguard
   ansible.builtin.apt:
-    name: wireguard
+    name:
+      - wireguard
+      - resolvconf
     state: present
   become: true
 
 - name: Find wireguard profiles
   ansible.builtin.find:
-    paths: "{{ role_path }}/files/profiles"
+    paths: "{{ role_path }}/files/profiles/{{ inventory_hostname }}"
     patterns: "*.conf"
   delegate_to: localhost
   become: false
