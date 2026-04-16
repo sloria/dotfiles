@@ -6,12 +6,12 @@ Supports macOS and OrbStack VMs running Debian.
 ## a few neat features
 
 - zsh configured with [prezto](https://github.com/sorin-ionescu/prezto).
-- nice fonts for the terminal and coding.
 - python managed with [uv](https://docs.astral.sh/uv/)
 - neovim/[lazyvim](https://www.lazyvim.org/)
 - pluggable. Everything is optional. Fork this. Remove what you don't use. Configure what you do use.
-- CLIs and apps installed with [homebrew][]. App Store-only apps installed with [mas][].
-- Useful git aliases
+- manages cross-platform packages and macOS-only packages
+- useful git aliases
+- idempotency, thanks to [Ansible](https://docs.ansible.com/projects/ansible/latest/index.html)
 - optional support for provisioning [OrbStack](https://orbstack.dev/) VMs
 
 ## prerequisites
@@ -32,14 +32,48 @@ git clone https://github.com/YOU/dotfiles.git ~/dotfiles
 cd ~/dotfiles
 ```
 
-- Update the following variables in `group_vars/local.yaml` (at a minimum)
+- Update the following variables in `group_vars/all.yaml` (at a minimum)
   - `git_name`: Your name, which will be attached to commit messages, e.g. "Steven Loria"
   - `git_email`: Your git email address.
-- Optional, but recommended: Update `group_vars/local.yaml` with the programs you want installed by [homebrew][], [homebrew-cask][], and npm.
-  - `mac_homebrew_packages`: Utilities that don't get installed by the roles.
-  - `mac_cask_packages`: Mac Apps you want installed with [homebrew-cask][].
-- Edit `provision.yaml` as you see fit. Remove any roles you don't use. Edit roles that you do use.
-- Run the installation script.
+
+### configure what gets installed
+
+#### cross platform packages
+
+Cross-platform utilities that get can be installed by package managers (homebrew, apt) go in `group_vars/all.yaml`. Edit `utilities_packages`:
+
+```yaml
+utilities_packages:
+  - curl
+  - wget
+  # ...
+```
+
+#### macOS-only packages and apps
+
+macOS-only packages to install with homebrew go in either
+`group_vars/local.yaml` (for local installation) or `group_vars/remote.yaml` (for the mac mini). Edit `mac_homebrew_packages` and `mac_cask_packages`.
+
+```yaml
+mac_homebrew_packages:
+  - wifi-password
+  - qrtool
+  # ...
+
+mac_cask_packages:
+  - 1password
+  # ...
+```
+
+#### roles
+
+roles encapsulate installation of tools as well as related shell scripts (for setting environment variables, aliases, functions, completion).
+
+Add and edit roles in the `roles/` directory and their corresponding entry in `provision.yaml` as you see fit.
+
+### run the install script
+
+After configuring the packages you want, run `dot-local`, a shell script that thinly wraps `ansible run`.
 
 ```console
 ./bin/dot-local
@@ -72,14 +106,14 @@ dot-local git python
 ## creating and provisioning OrbStack VMs
 
 ```console
-dot-vm
-# Creates an Ubuntu VM called "ubuntu". You can also pass name
+dot-vm mybox
+# Creates an debian VM called "mybox"
 ```
 
 To SSH:
 
 ```console
-ssh ubuntu@orb
+ssh mybox
 ```
 
 ## updating your dotfiles repo
