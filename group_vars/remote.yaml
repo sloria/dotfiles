@@ -1,14 +1,8 @@
 # Determines if iCloud Drive is symlinked to ~/iCloud
 icloud_enabled: false
 
-# Utilities that don't get installed by a role
-mac_homebrew_packages:
-  - curl
-  - jq
-  - wget
-  - bottom
-  # User-contributed docs for Unix commands
-  - tlrc
+# macOS-only utilities that don't get installed by a role
+mac_homebrew_packages: []
 
 # Mac Apps to be installed with homebrew-cask
 mac_cask_packages:

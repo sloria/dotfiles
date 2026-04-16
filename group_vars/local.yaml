@@ -1,21 +1,13 @@
 # Determines if iCloud Drive is symlinked to ~/iCloud
 icloud_enabled: true
 
-# Utilities that don't get installed by a role
+# macOS-only utilities that don't get installed by a role
 mac_homebrew_packages:
-  - curl
-  - jq
-  - wget
-  - yt-dlp
-  - bottom
-  - imagemagick # for resizing images
   # User-contributed docs for Unix commands
+  # NOTE: no arm64 linux builds are available, so only install this on macOS
   - tlrc
   # what's the wifi password?
   - wifi-password
-  # For repeating commands
-  - watch
-  - watchexec
   - qrtool # for generating QR codes
 
 # Mac Apps to be installed with homebrew-cask
@@ -26,8 +18,8 @@ mac_cask_packages:
   - visual-studio-code
   # Browsers
   - firefox
-  # Display
-  - keepingyouawake # maintained caffeinate wrapper
+  # Maintained caffeinate wrapper
+  - keepingyouawake
   # Utilities
   - bettertouchtool
   - appcleaner
@@ -41,8 +33,6 @@ mac_cask_packages:
   - imageoptim
   # Notetaking
   - obsidian
-  # Fonts
-  - font-hack-nerd-font
   # Database client
   - tableplus
   # REST client

@@ -1,5 +1,11 @@
+# Utilities that are available in both Homebrew/apt are installed by the
+# `utilities` ansible role.
+# Only tools that aren't easily installed by both package managers go here,
+# along with the global `node`.
 [tools]
-node = "22"
+node = "lts"
+bottom = "latest"
+watchexec = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["node"]

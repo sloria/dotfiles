@@ -1,0 +1,4 @@
+---
+- name: Install mise tools
+  ansible.builtin.command: mise install
+  changed_when: true

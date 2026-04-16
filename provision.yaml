@@ -15,6 +15,7 @@
     - { role: git, tags: ["git"] }
     - { role: gh, tags: ["gh"] }
     - { role: package_manager, tags: ["package_manager"] }
+    - { role: utilities, tags: ["utilities"] }
     - { role: zsh, tags: ["zsh"] }
     - { role: python, tags: ["python"] }
     - { role: mise, tags: ["mise"] }
@@ -23,7 +24,6 @@
     - { role: eza, tags: ["eza"] }
     - { role: bat, tags: ["bat"] }
     - { role: delta, tags: ["delta"] }
-    - { role: rg, tags: ["rg"] }
 
 - name: macOS provisioning # noqa: name[casing]
   hosts: mac

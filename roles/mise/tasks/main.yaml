@@ -45,3 +45,4 @@
     src: "config.toml"
     dest: "{{ dotfiles_user_home }}/.config/mise/config.toml"
     mode: "0644"
+  notify: Install mise tools

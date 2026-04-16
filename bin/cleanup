@@ -9,6 +9,9 @@ docker system prune --all --force
 echo "==> uv cleanup..."
 uv cache prune
 
+echo "==> mise cleanup..."
+mise prune -y
+
 echo "==> ~/tmp cleanup..."
 rm -rf ~/tmp/*
 

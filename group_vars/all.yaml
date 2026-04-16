@@ -13,3 +13,12 @@ git_name: Steven Loria
 git_email: git@stevenloria.com
 
 ansible_python_interpreter: auto_silent
+
+# Cross-platform utilities installed by the utilities role
+utilities_packages:
+  - curl
+  - wget
+  - jq
+  - ripgrep
+  - imagemagick
+  - yt-dlp

@@ -1,0 +1,6 @@
+---
+- name: Install utilities
+  ansible.builtin.package:
+    name: "{{ utilities_packages }}"
+    state: present
+  become: "{{ ansible_facts['os_family'] == 'Debian' }}"
