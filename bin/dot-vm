@@ -16,13 +16,14 @@ usage() {
 
 prepare_vm() {
   local vm_name="$1"
-  orb run -m "$vm_name" -u root apt-get install -y -qq python3 rsync > /dev/null
+  orb run -m "$vm_name" -u root apt-get install -y -qq python3 rsync >/dev/null
   echo "Syncing dotfiles to '$vm_name'..."
   rsync -a --delete --exclude='.git' "$DOTFILES_DIR/" "${USER}@${vm_name}@orb:~/dotfiles/"
 }
 
 run_ansible() {
   local limit="$1"
+  ansible-galaxy install -r "$DOTFILES_DIR/requirements.yaml"
   ansible-playbook "$DOTFILES_DIR/provision.yaml" -i "$DOTFILES_DIR/hosts.ini" -i "$INVENTORY" --limit "$limit"
 }
 
@@ -61,7 +62,7 @@ cmd_create() {
   # Generate/update inventory file
   echo "Updating inventory..."
   if [[ ! -f "$INVENTORY" ]] || ! grep -q '^\[orb\]' "$INVENTORY"; then
-    echo "[orb]" > "$INVENTORY"
+    echo "[orb]" >"$INVENTORY"
   fi
 
   if grep -q "^${VM_NAME} " "$INVENTORY"; then
@@ -92,14 +93,14 @@ cmd_create() {
   fi
 
   if [[ "$VM_IS_NEW" == true ]]; then
-    echo "${VM_NAME} ansible_host=${USER}@${VM_NAME}@orb dotfiles_user_home=/home/$USER git_name=\"${GIT_NAME}\" git_email=\"${GIT_EMAIL}\" orb_allow_ssh_agent_forwarding=${SSH_AGENT_FWD}" >> "$INVENTORY"
+    echo "${VM_NAME} ansible_host=${USER}@${VM_NAME}@orb dotfiles_user_home=/home/$USER git_name=\"${GIT_NAME}\" git_email=\"${GIT_EMAIL}\" orb_allow_ssh_agent_forwarding=${SSH_AGENT_FWD}" >>"$INVENTORY"
   fi
 
   # Add SSH config entry for VS Code Remote-SSH
   SSH_MARKER="# Added by dot-vm: ${VM_NAME}"
   if ! grep -qF "$SSH_MARKER" "$SSH_CONFIG" 2>/dev/null; then
     echo "Adding SSH config entry for '$VM_NAME'..."
-    cat >> "$SSH_CONFIG" <<EOF
+    cat >>"$SSH_CONFIG" <<EOF
 
 ${SSH_MARKER}
 Host ${VM_NAME}
@@ -152,9 +153,9 @@ cmd_provision() {
 }
 
 case "${1:-}" in
-  ""|ls)        cmd_ls ;;
-  create)       cmd_create "$2" ;;
-  provision)    cmd_provision "$2" ;;
-  delete|rm)    cmd_delete "$2" ;;
-  *)            usage ;;
+"" | ls) cmd_ls ;;
+create) cmd_create "$2" ;;
+provision) cmd_provision "$2" ;;
+delete | rm) cmd_delete "$2" ;;
+*) usage ;;
 esac

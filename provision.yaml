@@ -7,6 +7,11 @@
   roles:
     - { role: orb_lockdown, tags: ["orb_lockdown"] }
     - { role: wireguard, tags: ["wireguard"] }
+    - role: geerlingguy.docker
+      tags: ["docker"]
+      vars:
+        docker_users:
+          - "{{ lookup('env', 'USER') }}"
 
 - name: Common provisioning
   hosts: all

@@ -38,13 +38,8 @@
 
         url = "!f() { sha=$(git rev-parse ${1:-HEAD}); gh browse $sha -n; }; f"
 
-{% if ansible_facts["system"] == "Darwin" %}
         # Copy current branch name to clipboard (macOS only)
         cb = "!git rev-parse --abbrev-ref HEAD | tr -d '\n' | pbcopy"
-{% else %}
-        # Copy current branch name to clipboard (Linux)
-        cb = "!git rev-parse --abbrev-ref HEAD | tr -d '\n' | xclip -selection clipboard"
-{% endif %}
 
         # Slightly quicker way to credit an author on the latest commit.
         # Usage: git credit "Steven Loria" git@stevenloria.com
