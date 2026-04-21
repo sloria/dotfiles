@@ -14,11 +14,11 @@ vim.keymap.set({ "n" }, "<leader>v", "<C-W>v", { desc = "Split vertically" })
 -- Terminal controls
 local term_current = 1
 local term_max = 1
-vim.keymap.set({ "n", "t" }, "<C-t>", function()
+vim.keymap.set({ "n", "t" }, "<C-'>", function()
   Snacks.terminal.toggle(nil, { count = term_current })
 end, { desc = "Toggle terminal" })
 
-vim.keymap.set({ "n", "t" }, "<C-t>n", function()
+vim.keymap.set({ "n", "t" }, "<C-t>t", function()
   Snacks.terminal.toggle(nil, { count = term_current }) -- hide current
   term_max = term_max + 1
   term_current = term_max
