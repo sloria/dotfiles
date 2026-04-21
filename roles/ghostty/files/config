@@ -10,6 +10,9 @@ keybind = ctrl+[=text:\x1b
 # Don't require confirming close
 confirm-close-surface = false
 
+# Allow OSC 52 reads so `"+p` in nvim pastes without prompting
+clipboard-read = allow
+
 # Disable ligatures
 font-feature = -calt,-liga,-dlig
 

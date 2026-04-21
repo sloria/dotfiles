@@ -1,2 +1,4 @@
 ---
-orb_allow_ssh_agent_forwarding: false
+# Allow the host's SSH agent to be usable inside the VM. Defaults to true
+# because the my use case is git push/pull via SSH with the 1Password on host holding the key
+orb_allow_ssh_agent_forwarding: true

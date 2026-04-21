@@ -76,9 +76,6 @@ cmd_create() {
     read -rp "Git email [git@stevenloria.com]: " input_git_email
     GIT_EMAIL="${input_git_email:-git@stevenloria.com}"
 
-    read -rp "Allow SSH agent forwarding? [y/N] " input_ssh_agent
-    SSH_AGENT_FWD=$([[ "$input_ssh_agent" =~ ^[Yy]$ ]] && echo "true" || echo "false")
-
     # Prompt for GitHub token
     read -rsp "GitHub token (leave empty to skip): " GH_TOKEN
     echo # newline after silent read
@@ -89,11 +86,15 @@ cmd_create() {
     echo "VM '$VM_NAME' already exists, skipping creation..."
   else
     echo "Creating VM '$VM_NAME'..."
+    # TODO: switch to `orb create --isolated debian:trixie` once
+    # https://github.com/orbstack/orbstack/issues/2409 is resolved (so agent
+    # forwarding survives isolation). When that lands, the orb_lockdown role
+    # can be removed as well.
     orb create debian:trixie "$VM_NAME"
   fi
 
   if [[ "$VM_IS_NEW" == true ]]; then
-    echo "${VM_NAME} ansible_host=${USER}@${VM_NAME}@orb dotfiles_user_home=/home/$USER git_name=\"${GIT_NAME}\" git_email=\"${GIT_EMAIL}\" orb_allow_ssh_agent_forwarding=${SSH_AGENT_FWD}" >>"$INVENTORY"
+    echo "${VM_NAME} ansible_host=${USER}@${VM_NAME}@orb dotfiles_user_home=/home/$USER git_name=\"${GIT_NAME}\" git_email=\"${GIT_EMAIL}\"" >>"$INVENTORY"
   fi
 
   # Add SSH config entry for VS Code Remote-SSH

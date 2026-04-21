@@ -5,6 +5,9 @@
   become: true
   gather_facts: true
   roles:
+    # TODO: replace orb_lockdown with `orb create --isolated` once
+    # https://github.com/orbstack/orbstack/issues/2409 (SSH agent forwarding
+    # broken in isolated machines) is resolved upstream.
     - { role: orb_lockdown, tags: ["orb_lockdown"] }
     - { role: wireguard, tags: ["wireguard"] }
     - role: geerlingguy.docker

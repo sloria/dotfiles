@@ -1,11 +1,16 @@
 ---
 - name: Install wireguard
   ansible.builtin.apt:
-    name:
-      - wireguard
-      - resolvconf
+    name: wireguard
     state: present
   become: true
+
+- name: Install resolvconf for wg-quick DNS handling
+  ansible.builtin.apt:
+    name: resolvconf
+    state: present
+  become: true
+  when: wireguard_profile | length > 0
 
 - name: Find wireguard profiles
   ansible.builtin.find:
@@ -34,4 +39,4 @@
     enabled: true
     state: started
   become: true
-  when: wireguard_profile is not none
+  when: wireguard_profile | length > 0

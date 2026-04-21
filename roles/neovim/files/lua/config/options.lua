@@ -4,12 +4,14 @@
 
 vim.o.clipboard = "unnamedplus"
 
--- Use pbcopy/pbpaste for clipboard in OrbStack VMs
-if vim.fn.executable("pbcopy") == 1 and vim.fn.has("mac") == 0 then
+-- Route the system clipboard through OSC 52 on non-Mac hosts
+-- (VMs, remote SSH, etc.). Ghostty and VS Code
+-- both handle handoff to the Mac pasteboard.
+if vim.fn.has("mac") == 0 then
+  local osc52 = require("vim.ui.clipboard.osc52")
   vim.g.clipboard = {
-    name = "pbcopy",
-    copy = { ["+"] = "pbcopy", ["*"] = "pbcopy" },
-    paste = { ["+"] = "pbpaste", ["*"] = "pbpaste" },
-    cache_enabled = false,
+    name = "OSC 52",
+    copy = { ["+"] = osc52.copy("+"), ["*"] = osc52.copy("*") },
+    paste = { ["+"] = osc52.paste("+"), ["*"] = osc52.paste("*") },
   }
 end

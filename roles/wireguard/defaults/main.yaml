@@ -1,4 +1,4 @@
 ---
 # Name of the WireGuard profile to enable (without .conf extension).
-# Leave unset to copy profiles without activating any.
-wireguard_profile:
+# Leave empty to copy profiles without activating any.
+wireguard_profile: ""
