@@ -10,3 +10,5 @@ export KONCH_EDITOR='nvim'
 export FAM_SOURCE="$HOME/iCloud/fam"
 export FAM_EDITOR="nvim"
 export AWS_CLI_AUTO_PROMPT=on-partial
+# Disable telemetry in gh
+export DO_NOT_TRACK=true
