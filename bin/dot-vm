@@ -108,7 +108,8 @@ Host ${VM_NAME}
     User ${USER}@${VM_NAME}
     IdentityFile ~/.orbstack/ssh/id_ed25519
     IdentitiesOnly yes
-    UserKnownHostsFile ~/.orbstack/ssh/known_hosts
+    UserKnownHostsFile /dev/null
+    StrictHostKeyChecking no
     ProxyCommand '/Applications/OrbStack.app/Contents/Frameworks/OrbStack Helper.app/Contents/MacOS/OrbStack Helper' ssh-proxy-fdpass 501
     ProxyUseFdpass yes
 EOF

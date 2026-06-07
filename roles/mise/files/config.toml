@@ -5,6 +5,7 @@
 [tools]
 node = "lts"
 bottom = "latest"
+go = "latest"
 watchexec = "latest"
 
 [settings]

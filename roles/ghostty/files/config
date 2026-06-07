@@ -1,8 +1,4 @@
-theme = dark:Night Owl,light:Light Owl
-# Block cursor
-# Need both options, per https://github.com/ghostty-org/ghostty/discussions/3836#discussioncomment-11688264
-cursor-style = block
-shell-integration-features = no-cursor
+theme = Cobalt Next Dark
 
 # Make ctrl+[ work for Esc as expected
 keybind = ctrl+[=text:\x1b
