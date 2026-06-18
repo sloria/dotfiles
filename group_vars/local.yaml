@@ -6,9 +6,8 @@ mac_homebrew_packages:
   # User-contributed docs for Unix commands
   # NOTE: no arm64 linux builds are available, so only install this on macOS
   - tlrc
-  # what's the wifi password?
-  - wifi-password
-  - qrtool # for generating QR codes
+  # for generating QR codes
+  - qrtool
 
 # Mac Apps to be installed with homebrew-cask
 mac_cask_packages:

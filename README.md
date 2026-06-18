@@ -56,7 +56,6 @@ macOS-only packages to install with homebrew go in either
 
 ```yaml
 mac_homebrew_packages:
-  - wifi-password
   - qrtool
   # ...
 
