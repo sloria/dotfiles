@@ -24,7 +24,7 @@
   when: ansible_facts["os_family"] == "Debian"
 
 - name: Install stable Rust toolchain
-  ansible.builtin.command: rustup-init -y
+  ansible.builtin.command: rustup toolchain install stable
   args:
     creates: "{{ dotfiles_user_home }}/.cargo/bin/rustc"
   environment:
