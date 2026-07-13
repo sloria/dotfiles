@@ -36,6 +36,12 @@ cd ~/dotfiles
   - `git_name`: Your name, which will be attached to commit messages, e.g. "Steven Loria"
   - `git_email`: Your git email address.
 
+- Install ansible-galaxy roles
+
+```
+ansible-galaxy role install -r requirements.yaml
+```
+
 ### configure what gets installed
 
 #### cross platform packages
