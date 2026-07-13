@@ -1,5 +1,5 @@
 # Determines if iCloud Drive is symlinked to ~/iCloud
-icloud_enabled: false
+icloud_enabled: true
 
 # macOS-only utilities that don't get installed by a role
 mac_homebrew_packages:
@@ -24,22 +24,26 @@ mac_cask_packages:
   - appcleaner
   # VMs+Docker
   - orbstack
+  # chat
+  - discord
   # Media/Music
   - iina
+  # Images
+  - imageoptim
   # Notetaking
-  # - obsidian
+  - obsidian
   # Database client
-  # - tableplus
+  - tableplus
   # Screen captures and recording
   - cleanshot
   # VPN
-  # - tailscale-app
+  - tailscale-app
   # Color picker
   - pika
   # Malware scanner
-  # - knockknock
+  - knockknock
   # Firewall
-  # - lulu
+  - lulu
 
 # Mac-App-Store-only apps to be installed with mas
 # Use App IDs found with `mas search <name>`
