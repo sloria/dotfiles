@@ -1,11 +1,11 @@
 repos:
   - repo: https://github.com/rbubley/mirrors-prettier
-    rev: v3.8.1
+    rev: v3.9.6
     hooks:
       - id: prettier
         exclude: ^roles/neovim/files/(lazy-lock|lazyvim)\.json$
   - repo: https://github.com/ansible/ansible-lint
-    rev: v26.3.0
+    rev: v26.6.0
     hooks:
       - id: ansible-lint
         files: ^ansible/.*\.ya?ml$
