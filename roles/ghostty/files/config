@@ -1,4 +1,5 @@
-theme = Cobalt Next Dark
+theme = dark:Cobalt Next Dark,light:Atom One Light
+
 
 # Make ctrl+[ work for Esc as expected
 keybind = ctrl+[=text:\x1b
@@ -11,6 +12,7 @@ clipboard-read = allow
 
 # Disable ligatures
 font-feature = -calt,-liga,-dlig
+font-size = 15
 
 # Notify after commands finish
 notify-on-command-finish-action = notify
