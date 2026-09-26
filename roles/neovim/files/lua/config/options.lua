@@ -4,6 +4,7 @@
 
 vim.o.clipboard = "unnamedplus"
 vim.o.relativenumber = false
+vim.o.conceallevel = 0
 
 -- Route the system clipboard through OSC 52 on non-Mac hosts
 -- (VMs, remote SSH, etc.). Ghostty and VS Code
