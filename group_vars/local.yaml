@@ -21,7 +21,6 @@ mac_cask_packages:
   - keepingyouawake
   # Utilities
   - bettertouchtool
-  - appcleaner
   # VMs+Docker
   - orbstack
   # chat
