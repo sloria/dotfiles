@@ -29,7 +29,7 @@ mac_cask_packages:
   # Media/Music
   - iina
   # Images
-  - imageoptim
+  - clop
   # Notetaking
   - obsidian
   # Database client
