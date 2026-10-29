@@ -21,15 +21,12 @@ mac_cask_packages:
   - keepingyouawake
   # Utilities
   - bettertouchtool
-  - appcleaner
   # VMs+Docker
   - orbstack
   # Media/Music
   - iina
-  # Notetaking
-  # - obsidian
-  # Database client
-  # - tableplus
+  # Images
+  - clop
   # Screen captures and recording
   - cleanshot
   # VPN
