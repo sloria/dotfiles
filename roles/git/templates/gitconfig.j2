@@ -58,6 +58,9 @@
         editor = nvim
         # https://github.com/dandavison/delta?tab=readme-ov-file#get-started
         pager = delta
+[delta]
+        # Override Prezto's $LESS's -S to re-enable wrapping
+        pager = less -+S -R
 [interactive]
         diffFilter = delta --color-only
 [merge]
