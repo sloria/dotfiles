@@ -4,7 +4,7 @@ set -e
 
 DOTFILES_DIR=~/dotfiles
 INVENTORY="$DOTFILES_DIR/hosts.local.ini"
-SSH_CONFIG=~/.ssh/config
+SSH_CONFIG=~/.ssh/config.d/dot-vm
 
 usage() {
   echo "Usage: dot-vm                   List VMs"
@@ -101,6 +101,7 @@ cmd_create() {
   SSH_MARKER="# Added by dot-vm: ${VM_NAME}"
   if ! grep -qF "$SSH_MARKER" "$SSH_CONFIG" 2>/dev/null; then
     echo "Adding SSH config entry for '$VM_NAME'..."
+    mkdir -p "$(dirname "$SSH_CONFIG")"
     cat >>"$SSH_CONFIG" <<EOF
 
 ${SSH_MARKER}

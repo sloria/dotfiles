@@ -1,0 +1,24 @@
+- name: Ensure SSH config directories exist
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    mode: "0700"
+  loop:
+    - "{{ dotfiles_user_home }}/.ssh"
+    - "{{ dotfiles_user_home }}/.ssh/config.d"
+
+- name: Check if SSH config exists
+  ansible.builtin.stat:
+    path: "{{ dotfiles_user_home }}/.ssh/config"
+  register: ssh_config_stat
+
+- name: Backup existing SSH config
+  ansible.builtin.command: mv "{{ dotfiles_user_home }}/.ssh/config" "{{ dotfiles_user_home }}/.ssh/config.bak"
+  changed_when: true
+  when: ssh_config_stat.stat.exists and not ssh_config_stat.stat.islnk
+
+- name: Symlink SSH config
+  ansible.builtin.file:
+    src: "{{ dotfiles_home }}/roles/ssh/files/config"
+    dest: "{{ dotfiles_user_home }}/.ssh/config"
+    state: link
